@@ -1,0 +1,34 @@
+{
+  "authority": {
+    "action_authorization": "outside M398",
+    "logical_connectivity": "core.connectivity_domain (M397)",
+    "physical_transport": "core.physical_transport (M398)"
+  },
+  "baseline": "M398.9",
+  "certified_tests_before_closure": 10799,
+  "connectivity_domain_files": {
+    "core/connectivity_domain/__init__.py": "57d285fe77f5f501ab3ca76947163a919fc9a2fe956d703a2c2e34a31c8d9587",
+    "core/connectivity_domain/admission.py": "48a3a410aa64abb6c5f41069e55dacd4b02f4130ae6ab3253e41e1ac917e8ca6",
+    "core/connectivity_domain/authentication.py": "e2f41c1888086673163e06d6ca0da35607a0ef17caa6868e3a5d481167b3fb40",
+    "core/connectivity_domain/failure.py": "c1d9beba6f327308fe7223e71f75104da8571c2893ccee6096aebdd48b2053ec",
+    "core/connectivity_domain/health.py": "8575d4d76cbcf1440562fed99b9da2b3e9b36acea56f9519d3b45c300181ed7f",
+    "core/connectivity_domain/integration.py": "07e7181b78658eb18fb844835f1a15e1d32c346d4f6bc1c589c9574427a0cf87",
+    "core/connectivity_domain/message.py": "43f9dc13794568376aa2065a9e7c7557c989c6f454e363dd42d52afcae3f95fb",
+    "core/connectivity_domain/models.py": "205a8cb834d46007be41903756b6379a06f874c87a536cfccfdebb1a522773b1",
+    "core/connectivity_domain/session.py": "b162ae3b5688c785d376daed913cb825f639fa42f45cd50cd0561fabbb75082e",
+    "core/connectivity_domain/transport.py": "16a26b8912875f3d199bdbc92aeff37bd83c4e3edaa17aa14060b0a4df60257c"
+  },
+  "physical_transport_files": {
+    "core/physical_transport/__init__.py": "dc97afaf5db0541b4b577a81b2cd4a0ce37da7b917db4c8cc7e3f7936cd9e828",
+    "core/physical_transport/binding.py": "402d8b71b1c0ec5dcc352a845d902176487789201125ab731185f3f7b1885cb8",
+    "core/physical_transport/failure_recovery.py": "d71a0751c24403dddc886477bc14f3d980a000a42d2c056d49fd6ccbac8f16a3",
+    "core/physical_transport/framing.py": "34505232f5129d0e4e2d228909c551235fc89fa3d4fa4aecc4a7bf9688d978e9",
+    "core/physical_transport/listener_dialer.py": "a68cbc9cbf93de72b3ef79b86ab8e78693984be727feaac892eba4939b8481da",
+    "core/physical_transport/local_tcp.py": "4b5ace6135c0c6c35a09f29299d1f5219a63627e49ecf177df93de08bcd6900d",
+    "core/physical_transport/models.py": "78a861d04e884c868e284cceb08aad204cd6074562a54ee9fe093ed422f13dc8",
+    "core/physical_transport/residence_channel.py": "289902773bbcef13704b9f324a21622cc93664574a771b6f4182c6989c117aad",
+    "core/physical_transport/security.py": "9a67172faa6ec7d1830282f250d3afc937a7dc05cb879e40ac1411e350c6787c"
+  },
+  "schema_version": "m398.10",
+  "stage": "M398 \u2014 Governed Physical Transport"
+}

@@ -1,0 +1,613 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "V2I-H7V2-001",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-001"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-001",
+        "execution_ids": [
+          "h7v2-prior-execution-001"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-001",
+        "plan_ids": [
+          "h7v2-prior-plan-001"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-001"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-001"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-001",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-001"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-001"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-next-001",
+        "source_reference": "hcpdq-v2-h7v2-source-001",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-001"
+      },
+      "scenario": "Independent H7 v2 held-out case 001; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-002",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-002"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-002",
+        "execution_ids": [
+          "h7v2-prior-execution-002"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-002",
+        "plan_ids": [
+          "h7v2-prior-plan-002"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-002"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-002"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-002",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-002"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-002"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-next-002",
+        "source_reference": "hcpdq-v2-h7v2-source-002",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-002"
+      },
+      "scenario": "Independent H7 v2 held-out case 002; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-003",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-003"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-003",
+        "execution_ids": [
+          "h7v2-prior-execution-003"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-003",
+        "plan_ids": [
+          "h7v2-prior-plan-003"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-003"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-003"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-003",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-003"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-003"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-next-003",
+        "source_reference": "hcpdq-v2-h7v2-source-003",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-003"
+      },
+      "scenario": "Independent H7 v2 held-out case 003; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-004",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-004"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-004",
+        "execution_ids": [
+          "h7v2-prior-execution-004"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-004",
+        "plan_ids": [
+          "h7v2-prior-plan-004"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-004"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-004"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-004",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-004"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-004"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-next-004",
+        "source_reference": "hcpdq-v2-h7v2-source-004",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-004"
+      },
+      "scenario": "Independent H7 v2 held-out case 004; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-005",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-005"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-005",
+        "execution_ids": [
+          "h7v2-prior-execution-005"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-005",
+        "plan_ids": [
+          "h7v2-prior-plan-005"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-005"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-005"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-005",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-005"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": null,
+      "scenario": "Independent H7 v2 held-out case 005; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-006",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-006"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-006",
+        "execution_ids": [
+          "h7v2-prior-execution-006"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-006",
+        "plan_ids": [
+          "h7v2-prior-plan-006"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-006"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-006"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-006",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-006"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": null,
+      "scenario": "Independent H7 v2 held-out case 006; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-007",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-007"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-007",
+        "execution_ids": [
+          "h7v2-prior-execution-007"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-007",
+        "plan_ids": [
+          "h7v2-prior-plan-007"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-007"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-007"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-007",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-007"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": null,
+      "scenario": "Independent H7 v2 held-out case 007; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-008",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-008"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-008",
+        "execution_ids": [
+          "h7v2-prior-execution-008"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-008",
+        "plan_ids": [
+          "h7v2-prior-plan-008"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-008"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-008"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-008",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-008"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": null,
+      "scenario": "Independent H7 v2 held-out case 008; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-009",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-009"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-009",
+        "execution_ids": [
+          "h7v2-prior-execution-009"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-009",
+        "plan_ids": [
+          "h7v2-prior-plan-009"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-009"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-009"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-009",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-009"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-009"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-initial-009",
+        "source_reference": "hcpdq-v2-h7v2-source-009",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-009"
+      },
+      "scenario": "Independent H7 v2 held-out case 009; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-010",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-010"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-010",
+        "execution_ids": [
+          "h7v2-prior-execution-010"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-010",
+        "plan_ids": [
+          "h7v2-prior-plan-010"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-010"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-010"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-010",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-010"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-010"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-initial-010",
+        "source_reference": "hcpdq-v2-h7v2-source-010",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-010"
+      },
+      "scenario": "Independent H7 v2 held-out case 010; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-011",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-011"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-011",
+        "execution_ids": [
+          "h7v2-prior-execution-011"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-011",
+        "plan_ids": [
+          "h7v2-prior-plan-011"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-011"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-011"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-011",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-011"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-011"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-initial-011",
+        "source_reference": "hcpdq-v2-h7v2-source-011",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-011"
+      },
+      "scenario": "Independent H7 v2 held-out case 011; productive state and requirement are frozen structurally."
+    },
+    {
+      "case_id": "V2I-H7V2-012",
+      "pre_continuation_state": {
+        "authorization_ids": [
+          "h7v2-prior-auth-012"
+        ],
+        "consumed_acquisitions": 1,
+        "current_step": 1,
+        "episode_id": "investigation-episode-h7v2-012",
+        "execution_ids": [
+          "h7v2-prior-execution-012"
+        ],
+        "originating_reasoning_id": "h7v2-reasoning-012",
+        "plan_ids": [
+          "h7v2-prior-plan-012"
+        ],
+        "reentry_ids": [
+          "h7v2-prior-reentry-012"
+        ],
+        "requirement_ids": [
+          "discrimination-requirement-h7v2-initial-012"
+        ],
+        "source_reference": "hcpdq-v2-h7v2-source-012",
+        "status": "awaiting_requirement",
+        "stopping_reason": "none",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-012"
+      },
+      "registry_capabilities": [
+        {
+          "description": "Local read-only evidence provider.",
+          "evidence_outputs": [
+            "independent registry source"
+          ],
+          "name": "local.sensor"
+        }
+      ],
+      "requirement": {
+        "evidence_codes": [
+          "comparison:indistinguishable"
+        ],
+        "hypothesis_ids": [
+          "h1",
+          "h2"
+        ],
+        "known_elements": [
+          "held-out-observation-012"
+        ],
+        "missing_evidence_descriptions": [
+          "independent registry source"
+        ],
+        "requirement_id": "discrimination-requirement-h7v2-initial-012",
+        "source_reference": "hcpdq-v2-h7v2-source-012",
+        "world_snapshot_id": "hcpdq-v2-h7v2-snapshot-012"
+      },
+      "scenario": "Independent H7 v2 held-out case 012; productive state and requirement are frozen structurally."
+    }
+  ],
+  "freeze_sha256": "a646363abc5bb3a3f312fa6827d541cbb78ecf4b4a2f572cb92d998da6a608b4",
+  "namespace": "V2I-H7V2",
+  "schema_version": "hcpdq-v2-h7-entry-equivalent-corpus-v2",
+  "status": "FROZEN_ENTRY_PATH_EQUIVALENT"
+}

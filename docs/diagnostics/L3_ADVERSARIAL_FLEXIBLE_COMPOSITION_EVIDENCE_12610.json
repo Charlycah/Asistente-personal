@@ -1,0 +1,110 @@
+{
+  "schema_version": "l3-adversarial-flexible-composition-evidence-v1",
+  "generated_at": "2026-08-21T17:32:21.099960+00:00",
+  "diagnostic_only": true,
+  "production_roots_modified_by_harness": [],
+  "controls": [
+    {
+      "control_id": "A1",
+      "title": "Same structure, different vocabulary/domain",
+      "status": "PASS",
+      "pytest_returncode": 0,
+      "pytest_summary": "2 passed in 0.27s",
+      "evidence_present": [
+        "core/governed_reasoning/structural_knowledge_transfer.py",
+        "core/governed_reasoning/contextual_semantic_grounding.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": true,
+      "interpretation": "Supports bounded structural abstraction: transfer is not dependent on shared entity vocabulary."
+    },
+    {
+      "control_id": "A2",
+      "title": "Same vocabulary, different relational structure",
+      "status": "PASS",
+      "pytest_returncode": 0,
+      "pytest_summary": "1 passed in 0.26s",
+      "evidence_present": [
+        "core/governed_reasoning/structural_knowledge_transfer.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": true,
+      "interpretation": "Supports negative-transfer discrimination inside the certified structural grammar."
+    },
+    {
+      "control_id": "A3",
+      "title": "Relevant source plus structural distractor",
+      "status": "PASS_BY_DESIGN",
+      "pytest_returncode": 0,
+      "pytest_summary": "1 passed in 0.30s",
+      "evidence_present": [
+        "core/governed_reasoning/structural_knowledge_transfer.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": false,
+      "interpretation": "Governance is correct, but this exposes an L3 boundary: the matcher returns AMBIGUOUS rather than selecting among compatible sources using broader cognitive context."
+    },
+    {
+      "control_id": "A4",
+      "title": "Changed conditions without autonomy escalation",
+      "status": "PASS_BY_DESIGN",
+      "pytest_returncode": 0,
+      "pytest_summary": "9 passed in 0.16s",
+      "evidence_present": [
+        "core/governed_changed_condition_plan_revision_advisory.py",
+        "core/plan_reasoning.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": false,
+      "interpretation": "Bounded recomposition advisory is certified; automatic strategy replacement remains intentionally unauthorized."
+    },
+    {
+      "control_id": "A5",
+      "title": "Contributor-set flexibility",
+      "status": "PARTIAL",
+      "pytest_returncode": 0,
+      "pytest_summary": "13 passed in 0.32s",
+      "evidence_present": [
+        "core/cognitive_runtime_orchestration/runtime.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": false,
+      "interpretation": "The cognitive runtime executes the contributor tuple supplied at construction time. Executable composition exists, but problem-driven dynamic contributor selection is not demonstrated."
+    },
+    {
+      "control_id": "A6",
+      "title": "Implicit capability composition without explicit clause routing",
+      "status": "PARTIAL",
+      "pytest_returncode": 0,
+      "pytest_summary": "4 passed in 0.64s",
+      "evidence_present": [
+        "app/unified_capability_orchestrator.py",
+        "app/runtime_capability_registry.py"
+      ],
+      "evidence_missing": [],
+      "l3_support": false,
+      "interpretation": "The official orchestrator is useful and governed, but composition is still driven by clause separators plus ordered registrations."
+    }
+  ],
+  "status_counts": {
+    "PASS": 2,
+    "PASS_BY_DESIGN": 2,
+    "PARTIAL": 2,
+    "FAIL": 0
+  },
+  "source_boundary_assertions": {
+    "contributors_are_constructor_supplied": true,
+    "capability_composition_uses_explicit_clause_split": true,
+    "structural_transfer_can_be_ambiguous": true,
+    "target_projection_is_bounded_to_certified_family": true
+  },
+  "production_fingerprint_before": "c0308f43f22116d1e4f1fc65947467f177f2dcf6281f8c48aa1d6e8b3ed025f9",
+  "production_fingerprint_after": "c0308f43f22116d1e4f1fc65947467f177f2dcf6281f8c48aa1d6e8b3ed025f9",
+  "production_fingerprint_preserved": true,
+  "bounded_structural_abstraction_demonstrated": true,
+  "governed_refusal_and_advisory_preserved": true,
+  "l3_flexible_cognitive_composition_certified": false,
+  "l3_status": "PARTIAL",
+  "l3_gap": "Problem-driven dynamic selection/recomposition across existing capabilities is not causally demonstrated beyond bounded structural transfer, constructor-supplied contributors, explicit clause routing, and advisory-only changed-condition handling.",
+  "architectural_gate": "GO_NO_GO_REQUIRED"
+}

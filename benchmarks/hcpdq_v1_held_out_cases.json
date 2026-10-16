@@ -1,0 +1,962 @@
+[
+  {
+    "case_id": "H1-01",
+    "family": "deterministic_reasoning",
+    "difficulty": "D1",
+    "prompt": "Tres cajas: roja, azul y verde. La roja pesa más que la azul y la azul pesa más que la verde. ¿Cuál pesa menos?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-01"
+  },
+  {
+    "case_id": "H1-02",
+    "family": "deterministic_reasoning",
+    "difficulty": "D1",
+    "prompt": "Ana llega antes que Bruno. Bruno llega antes que Clara. ¿Quién llega primero?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-02"
+  },
+  {
+    "case_id": "H1-03",
+    "family": "deterministic_reasoning",
+    "difficulty": "D1",
+    "prompt": "Todos los archivos firmados están verificados. El archivo K está firmado. ¿Está verificado K?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-03"
+  },
+  {
+    "case_id": "H1-04",
+    "family": "deterministic_reasoning",
+    "difficulty": "D1",
+    "prompt": "Ningún sensor apagado transmite. El sensor S está apagado. ¿Transmite S?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-04"
+  },
+  {
+    "case_id": "H1-05",
+    "family": "deterministic_reasoning",
+    "difficulty": "D1",
+    "prompt": "Si P ocurre, Q ocurre. P ocurre. ¿Ocurre Q?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-05"
+  },
+  {
+    "case_id": "H1-06",
+    "family": "deterministic_reasoning",
+    "difficulty": "D2",
+    "prompt": "Lía es mayor que Noa; Noa es mayor que Eva; Eva es mayor que Sol. ¿Quién es la segunda mayor?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-06"
+  },
+  {
+    "case_id": "H1-07",
+    "family": "deterministic_reasoning",
+    "difficulty": "D2",
+    "prompt": "Un lote puede enviarse sólo después de inspección. El lote X fue enviado. ¿Qué debe haber ocurrido antes?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-07"
+  },
+  {
+    "case_id": "H1-08",
+    "family": "deterministic_reasoning",
+    "difficulty": "D2",
+    "prompt": "Si el canal A falla se usa B. Si B falla se usa C. A y B fallaron. ¿Qué canal queda indicado?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-08"
+  },
+  {
+    "case_id": "H1-09",
+    "family": "deterministic_reasoning",
+    "difficulty": "D2",
+    "prompt": "Hay cuatro turnos: M antes que N; P después de N; Q antes que M. ¿Cuál debe ser primero?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-09"
+  },
+  {
+    "case_id": "H1-10",
+    "family": "deterministic_reasoning",
+    "difficulty": "D2",
+    "prompt": "Toda tarea urgente precede a una tarea normal. T1 es urgente y T2 normal. ¿Cuál debe ejecutarse antes?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-10"
+  },
+  {
+    "case_id": "H1-11",
+    "family": "deterministic_reasoning",
+    "difficulty": "D3",
+    "prompt": "A está antes que B; C después de D; B antes que C; E antes que A. ¿Cuál es necesariamente primero?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-11"
+  },
+  {
+    "case_id": "H1-12",
+    "family": "deterministic_reasoning",
+    "difficulty": "D3",
+    "prompt": "Si R entonces S; si S entonces T; si no T entonces U. R es verdadero. ¿Puede concluirse U?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-12"
+  },
+  {
+    "case_id": "H1-13",
+    "family": "deterministic_reasoning",
+    "difficulty": "D3",
+    "prompt": "Exactamente una de X o Y es verdadera. X es falsa. ¿Qué valor tiene Y?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-13"
+  },
+  {
+    "case_id": "H1-14",
+    "family": "deterministic_reasoning",
+    "difficulty": "D3",
+    "prompt": "Si A entonces B. B es verdadero. ¿Puede concluirse A?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-14"
+  },
+  {
+    "case_id": "H1-15",
+    "family": "deterministic_reasoning",
+    "difficulty": "D3",
+    "prompt": "Todo objeto de clase C cumple D. Ningún objeto que cumple D cumple E. Z es clase C. ¿Cumple E Z?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H1-15"
+  },
+  {
+    "case_id": "H2-01",
+    "family": "insufficient_evidence",
+    "difficulty": "D1",
+    "prompt": "Marcos suele llegar temprano. Hoy no se informó su hora de llegada. ¿Llegó temprano hoy?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-01"
+  },
+  {
+    "case_id": "H2-02",
+    "family": "insufficient_evidence",
+    "difficulty": "D1",
+    "prompt": "El sistema A a veces usa la ruta B. No sabemos qué ruta eligió en esta ejecución. ¿Usó B?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-02"
+  },
+  {
+    "case_id": "H2-03",
+    "family": "insufficient_evidence",
+    "difficulty": "D1",
+    "prompt": "Hay dos candidatos posibles y no se proporciona ningún criterio de desempate. ¿Cuál debe elegirse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-03"
+  },
+  {
+    "case_id": "H2-04",
+    "family": "insufficient_evidence",
+    "difficulty": "D1",
+    "prompt": "La batería puede durar entre 4 y 8 horas. Lleva 5 horas encendida. ¿Se agotará ahora?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-04"
+  },
+  {
+    "case_id": "H2-05",
+    "family": "insufficient_evidence",
+    "difficulty": "D1",
+    "prompt": "Un informe menciona que quizá llueva, sin medición ni pronóstico confirmado. ¿Está lloviendo?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-05"
+  },
+  {
+    "case_id": "H2-06",
+    "family": "insufficient_evidence",
+    "difficulty": "D2",
+    "prompt": "Dos fuentes igualmente confiables dan valores incompatibles y no existe evidencia adicional. ¿Cuál valor es correcto?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-06"
+  },
+  {
+    "case_id": "H2-07",
+    "family": "insufficient_evidence",
+    "difficulty": "D2",
+    "prompt": "Sabemos que A precede a C y que B precede a C, pero no hay relación entre A y B. ¿Cuál ocurre primero, A o B?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-07"
+  },
+  {
+    "case_id": "H2-08",
+    "family": "insufficient_evidence",
+    "difficulty": "D2",
+    "prompt": "Un plan requiere una de dos autorizaciones. No se informa cuál está disponible. ¿Qué autorización debe usar?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-08"
+  },
+  {
+    "case_id": "H2-09",
+    "family": "insufficient_evidence",
+    "difficulty": "D2",
+    "prompt": "La opción X es más barata y Y es más segura; no se indica prioridad entre costo y seguridad. ¿Cuál es mejor?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-09"
+  },
+  {
+    "case_id": "H2-10",
+    "family": "insufficient_evidence",
+    "difficulty": "D2",
+    "prompt": "El sensor reportó 20 y luego 24, pero no se conoce cuál lectura corresponde al instante consultado. ¿Cuál es el valor actual?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-10"
+  },
+  {
+    "case_id": "H2-11",
+    "family": "insufficient_evidence",
+    "difficulty": "D3",
+    "prompt": "Tres hipótesis explican todos los datos observados y tienen igual evidencia. ¿Cuál es la verdadera?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-11"
+  },
+  {
+    "case_id": "H2-12",
+    "family": "insufficient_evidence",
+    "difficulty": "D3",
+    "prompt": "Una regla aplica sólo si el recurso es exclusivo; el caso informa dependencia pero no exclusividad. ¿Se aplica la regla?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-12"
+  },
+  {
+    "case_id": "H2-13",
+    "family": "insufficient_evidence",
+    "difficulty": "D3",
+    "prompt": "Un documento de ayer y otro de hoy se contradicen, pero sus timestamps fueron eliminados. ¿Cuál es vigente?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-13"
+  },
+  {
+    "case_id": "H2-14",
+    "family": "insufficient_evidence",
+    "difficulty": "D3",
+    "prompt": "Dos planes satisfacen todas las restricciones y tienen igual puntuación; no existe criterio secundario. ¿Cuál debe seleccionarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-14"
+  },
+  {
+    "case_id": "H2-15",
+    "family": "insufficient_evidence",
+    "difficulty": "D3",
+    "prompt": "La evidencia permite concluir A o B, pero no distinguir entre ambos. ¿Cuál debe afirmarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H2-15"
+  },
+  {
+    "case_id": "H3-01",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D1",
+    "prompt": "Dato relevante: el paquete debe ir al depósito 4. Distractores: la pared es azul y hoy es martes. ¿A qué depósito debe ir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-01"
+  },
+  {
+    "case_id": "H3-02",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D1",
+    "prompt": "La clave válida es K7. También se menciona que el operador toma café y que el monitor es grande. ¿Cuál es la clave válida?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-02"
+  },
+  {
+    "case_id": "H3-03",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D1",
+    "prompt": "El informe final fija el límite en 12 unidades. Hay notas sobre música y tráfico. ¿Cuál es el límite?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-03"
+  },
+  {
+    "case_id": "H3-04",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D1",
+    "prompt": "La tarea prioritaria es revisar frenos. El texto además habla de temperatura ambiente y del color del vehículo. ¿Qué tarea es prioritaria?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-04"
+  },
+  {
+    "case_id": "H3-05",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D1",
+    "prompt": "La ruta autorizada es norte. Se agregan detalles irrelevantes sobre árboles y edificios. ¿Qué ruta está autorizada?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-05"
+  },
+  {
+    "case_id": "H3-06",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D2",
+    "prompt": "Fuente decisiva: la versión firmada del contrato exige 30 días. Un borrador antiguo decía 45 días y hay comentarios sobre vacaciones. ¿Cuál plazo rige?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-06"
+  },
+  {
+    "case_id": "H3-07",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D2",
+    "prompt": "La medición certificada es 18.2. Aparecen números 99, 7 y 42 en identificadores sin relación. ¿Cuál es la medición?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-07"
+  },
+  {
+    "case_id": "H3-08",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D2",
+    "prompt": "La regla activa dice que prioridad crítica vence a prioridad alta. Caso: A es crítica, B alta. Hay veinte detalles de contexto sin relación. ¿Qué opción precede?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-08"
+  },
+  {
+    "case_id": "H3-09",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D2",
+    "prompt": "El único dato con provenance válido identifica al nodo R3; otras dos líneas sin firma nombran R8 y R9. ¿Qué nodo debe aceptarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-09"
+  },
+  {
+    "case_id": "H3-10",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D2",
+    "prompt": "El calendario confirmado fija la reunión el jueves; un correo citado propone miércoles y el resto describe el clima. ¿Qué día está confirmado?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-10"
+  },
+  {
+    "case_id": "H3-11",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D3",
+    "prompt": "Entre muchos datos, sólo la evidencia E-17 está marcada como vigente y firmada; E-03, E-09 y E-21 están revocadas. ¿Cuál evidencia debe usarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-11"
+  },
+  {
+    "case_id": "H3-12",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D3",
+    "prompt": "El requisito obligatorio es memoria >=16 GB. Opción A tiene 32 GB; B tiene 8 GB. Se incluyen costos, colores y marcas irrelevantes. ¿Cuál satisface el requisito?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-12"
+  },
+  {
+    "case_id": "H3-13",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D3",
+    "prompt": "La política válida indica 'no ejecutar si riesgo alto'. El caso tiene riesgo alto. El texto contiene recomendaciones optimistas y ejemplos de bajo riesgo. ¿Debe ejecutarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-13"
+  },
+  {
+    "case_id": "H3-14",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D3",
+    "prompt": "La dependencia decisiva es X→Y y X está ausente. Hay cinco párrafos sobre Z, W y estadísticas históricas. ¿Puede Y darse por disponible?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-14"
+  },
+  {
+    "case_id": "H3-15",
+    "family": "noise_distractor_robustness",
+    "difficulty": "D3",
+    "prompt": "El registro más reciente y firmado indica estado CLOSED. Hay múltiples copias antiguas OPEN y notas de prueba. ¿Cuál estado debe tomarse?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H3-15"
+  },
+  {
+    "case_id": "H4-01",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D1",
+    "prompt": "Regla aprendida: si una operación depende de un único insumo, ese insumo falla y no hay sustituto, la operación se detiene. Caso: una imprenta depende de una sola plancha, la plancha falló y no existe repuesto. ¿Transferir la regla?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-01"
+  },
+  {
+    "case_id": "H4-02",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D1",
+    "prompt": "Regla aprendida: si una operación depende de un único insumo, ese insumo falla y no hay sustituto, la operación se detiene. Caso: una cocina usa dos hornos independientes y uno falla. ¿Transferir la regla?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-02"
+  },
+  {
+    "case_id": "H4-03",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D1",
+    "prompt": "Regla: un proceso bloqueado por un requisito obligatorio ausente no puede continuar. Caso: el envío exige firma obligatoria y la firma falta. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-03"
+  },
+  {
+    "case_id": "H4-04",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D1",
+    "prompt": "Regla: un proceso bloqueado por un requisito obligatorio ausente no puede continuar. Caso: la firma es opcional y falta. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-04"
+  },
+  {
+    "case_id": "H4-05",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D1",
+    "prompt": "Regla: si no existe alternativa a un recurso necesario indisponible, la capacidad asociada no está disponible. Caso: hay una alternativa operativa. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-05"
+  },
+  {
+    "case_id": "H4-06",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D2",
+    "prompt": "Regla estructural: dependencia exclusiva + recurso indisponible + sin alternativa ⇒ capacidad no disponible. Caso: un observatorio sólo puede sincronizarse mediante un reloj maestro; el reloj está desconectado y no existe respaldo. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-06"
+  },
+  {
+    "case_id": "H4-07",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D2",
+    "prompt": "Misma regla. Caso: una granja usa pozo A y pozo B de forma intercambiable; A está fuera de servicio. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-07"
+  },
+  {
+    "case_id": "H4-08",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D2",
+    "prompt": "Regla: si una tarea requiere dos permisos obligatorios y uno falta, la tarea no puede iniciarse. Caso: el despliegue requiere seguridad y operaciones; seguridad falta. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-08"
+  },
+  {
+    "case_id": "H4-09",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D2",
+    "prompt": "Regla: si una tarea requiere dos permisos obligatorios y uno falta, no inicia. Caso: operaciones es sólo recomendable, no obligatorio. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-09"
+  },
+  {
+    "case_id": "H4-10",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D2",
+    "prompt": "Regla: una cadena se interrumpe si un eslabón indispensable está ausente. Caso: la cadena dispone de un bypass certificado alrededor de ese eslabón. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-10"
+  },
+  {
+    "case_id": "H4-11",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D3",
+    "prompt": "Regla: exclusividad + indisponibilidad + ausencia de alternativa implica pérdida de capacidad. Caso: el archivo histórico afirma exclusividad, pero el estado actual confirma una vía alternativa activa. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-11"
+  },
+  {
+    "case_id": "H4-12",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D3",
+    "prompt": "Regla: exclusividad + indisponibilidad + ausencia de alternativa implica pérdida de capacidad. Caso: el sistema tiene una única credencial de firma; fue revocada y no hay otra credencial admitida. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-12"
+  },
+  {
+    "case_id": "H4-13",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D3",
+    "prompt": "Regla: si un prerrequisito indispensable está ausente, el dependiente queda bloqueado. Caso: dos fuentes igualmente válidas discrepan sobre si el prerrequisito está disponible. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-13"
+  },
+  {
+    "case_id": "H4-14",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D3",
+    "prompt": "Regla: si un único enlace requerido cae y no hay alternativa, se pierde comunicación. Caso: el texto cita un incidente pasado con esas condiciones, pero no afirma que ocurran ahora. ¿Transferir al estado actual?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-14"
+  },
+  {
+    "case_id": "H4-15",
+    "family": "structural_knowledge_transfer",
+    "difficulty": "D3",
+    "prompt": "Regla: si un recurso exclusivo falta sin alternativa, la capacidad cae. Caso: la descripción enumera un recurso principal y un respaldo, pero no informa si el respaldo funciona. ¿Transferir?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H4-15"
+  },
+  {
+    "case_id": "H5-01",
+    "family": "novel_generalization",
+    "difficulty": "D1",
+    "prompt": "Principio: cuando toda una función descansa en una única pieza y esa pieza queda inutilizable sin reemplazo, la función deja de poder realizarse. Un telescopio usa una sola montura para seguir estrellas; la montura se trabó y no hay otra. ¿Aplica el principio?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-01"
+  },
+  {
+    "case_id": "H5-02",
+    "family": "novel_generalization",
+    "difficulty": "D1",
+    "prompt": "Principio anterior. Un vivero tiene dos bombas capaces de regar; una se rompe. ¿Aplica la pérdida total de capacidad?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-02"
+  },
+  {
+    "case_id": "H5-03",
+    "family": "novel_generalization",
+    "difficulty": "D1",
+    "prompt": "Una tarea sólo puede completarse con un certificado único. El certificado caducó y no existe otro válido. ¿Debe generalizarse la pérdida de capacidad?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-03"
+  },
+  {
+    "case_id": "H5-04",
+    "family": "novel_generalization",
+    "difficulty": "D1",
+    "prompt": "Una tarea suele usar una herramienta, pero puede hacerse manualmente. La herramienta falla. ¿Hay pérdida total de capacidad?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-04"
+  },
+  {
+    "case_id": "H5-05",
+    "family": "novel_generalization",
+    "difficulty": "D1",
+    "prompt": "Un servicio depende de un único canal autenticado. El canal se deshabilita y no hay canal alternativo. ¿Se conserva la estructura aprendida?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-05"
+  },
+  {
+    "case_id": "H5-06",
+    "family": "novel_generalization",
+    "difficulty": "D2",
+    "prompt": "Para publicar, un flujo editorial cuenta únicamente con una clave de firma; la clave fue revocada y no existe sustituta. ¿La estructura de dependencia exclusiva es aplicable?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-06"
+  },
+  {
+    "case_id": "H5-07",
+    "family": "novel_generalization",
+    "difficulty": "D2",
+    "prompt": "Un cultivo requiere agua, pero dispone de lluvia almacenada y red municipal. Una fuente falla. ¿Concluir incapacidad de riego?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-07"
+  },
+  {
+    "case_id": "H5-08",
+    "family": "novel_generalization",
+    "difficulty": "D2",
+    "prompt": "Un laboratorio puede validar resultados sólo mediante el calibrador C; C queda fuera de tolerancia y ningún otro calibrador está certificado. ¿Generaliza la regla?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-08"
+  },
+  {
+    "case_id": "H5-09",
+    "family": "novel_generalization",
+    "difficulty": "D2",
+    "prompt": "Un equipo prefiere el proveedor P, aunque Q también está aprobado. P se cae. ¿Generaliza pérdida total?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-09"
+  },
+  {
+    "case_id": "H5-10",
+    "family": "novel_generalization",
+    "difficulty": "D2",
+    "prompt": "Una expedición necesita cruzar un valle; se desconoce si existe una segunda ruta además del paso cerrado. ¿Puede generalizarse con seguridad?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-10"
+  },
+  {
+    "case_id": "H5-11",
+    "family": "novel_generalization",
+    "difficulty": "D3",
+    "prompt": "Una plataforma antiguamente dependía de un token único, pero una nota vigente registra dos tokens independientes. El token antiguo fue revocado. ¿Aplica pérdida total actual?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-11"
+  },
+  {
+    "case_id": "H5-12",
+    "family": "novel_generalization",
+    "difficulty": "D3",
+    "prompt": "Un proceso sólo arranca con una semilla criptográfica custodiada en un único HSM; el HSM está inoperativo y no hay réplica ni procedimiento alternativo. ¿Aplica la estructura?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-12"
+  },
+  {
+    "case_id": "H5-13",
+    "family": "novel_generalization",
+    "difficulty": "D3",
+    "prompt": "Dos descripciones actuales son igualmente confiables: una afirma que el recurso es único y otra que existe respaldo. El recurso principal está caído. ¿Aplicar la generalización?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-13"
+  },
+  {
+    "case_id": "H5-14",
+    "family": "novel_generalization",
+    "difficulty": "D3",
+    "prompt": "En una cita de un manual viejo se lee que un nodo dependía de un enlace único; el presente texto no afirma que siga siendo así. El enlace está caído. ¿Aplicar al presente?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-14"
+  },
+  {
+    "case_id": "H5-15",
+    "family": "novel_generalization",
+    "difficulty": "D3",
+    "prompt": "Un sistema requiere una fuente exclusiva para un cálculo; la fuente no responde. El texto dice 'posiblemente haya una réplica', sin confirmar su disponibilidad. ¿Aplicar con certeza?",
+    "scoring_mode": "exact",
+    "ground_truth_reference": "GT-H5-15"
+  },
+  {
+    "case_id": "H6-01",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Elegí entre A y B. Requisito obligatorio: costo ≤100. A cuesta 90 y tarda 5 días. B cuesta 120 y tarda 2 días. ¿Qué recomendarías?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-01"
+  },
+  {
+    "case_id": "H6-02",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Elegí A o B. Seguridad es obligatoria. A: seguridad aprobada, costo 80. B: seguridad rechazada, costo 50. ¿Qué recomendarías?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-02"
+  },
+  {
+    "case_id": "H6-03",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Elegí entre dos proveedores. Ambos cumplen requisitos; A cuesta menos, B entrega antes. No se declara prioridad entre costo y plazo. ¿Qué decisión corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-03"
+  },
+  {
+    "case_id": "H6-04",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Opción A cumple 3/3 requisitos obligatorios; B cumple 2/3. ¿Cuál puede recomendarse?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-04"
+  },
+  {
+    "case_id": "H6-05",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "A y B cumplen todo; A tiene menor riesgo y mismo costo. ¿Cuál domina?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-05"
+  },
+  {
+    "case_id": "H6-06",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "Proyecto A: costo 70, riesgo medio, plazo 4. Proyecto B: costo 85, riesgo bajo, plazo 4. Riesgo bajo es requisito obligatorio. Presupuesto máximo 100. ¿Cuál elegir?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-06"
+  },
+  {
+    "case_id": "H6-07",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "A: cumple seguridad y plazo, costo 95. B: cumple seguridad y costo 80, pero incumple deadline obligatorio. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-07"
+  },
+  {
+    "case_id": "H6-08",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "A: riesgo bajo, costo 110. B: riesgo medio, costo 90. Presupuesto ≤100 obligatorio y riesgo bajo sólo preferido. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-08"
+  },
+  {
+    "case_id": "H6-09",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "Dos alternativas cumplen todos los requisitos y tienen igual costo, riesgo y plazo. ¿Cuál recomendar?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-09"
+  },
+  {
+    "case_id": "H6-10",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "A cumple requisitos pero tiene evidencia incompleta sobre seguridad obligatoria. B tiene seguridad confirmada y cumple el resto. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-10"
+  },
+  {
+    "case_id": "H6-11",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "A cumple costo y plazo, pero una fuente vigente marca seguridad insuficiente. B cumple seguridad y costo, pero plazo excede un requisito obligatorio. Ninguna satisface todos. ¿Qué hacer?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-11"
+  },
+  {
+    "case_id": "H6-12",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "A parece mejor por costo, pero su dato de costo proviene de una fuente revocada; B tiene datos completos y cumple mínimos. ¿Qué recomendar?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-12"
+  },
+  {
+    "case_id": "H6-13",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "A y B cumplen restricciones. A minimiza costo; B minimiza riesgo. La política declara riesgo como criterio prioritario sobre costo. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-13"
+  },
+  {
+    "case_id": "H6-14",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "A tiene evidencia contradictoria en un requisito obligatorio y B lo incumple explícitamente. ¿Qué decisión corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-14"
+  },
+  {
+    "case_id": "H6-15",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "A domina en costo y plazo pero viola una restricción legal obligatoria; B es más caro pero cumple todo. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-H6-15"
+  },
+  {
+    "case_id": "H7-01",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "Tareas: A antes que B. Duración A=1h, B=1h. Un solo recurso. Proponé un orden válido.",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-01"
+  },
+  {
+    "case_id": "H7-02",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "Tareas: C y D, sin dependencias, un recurso. Ambas duran 1h. ¿Existe plan factible en 2h?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-02"
+  },
+  {
+    "case_id": "H7-03",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "A requiere B terminado antes. ¿Es válido ejecutar A antes que B?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-03"
+  },
+  {
+    "case_id": "H7-04",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "Hay 3h disponibles. A dura 2h y B 2h; ambas son obligatorias y un solo recurso. ¿Es factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-04"
+  },
+  {
+    "case_id": "H7-05",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "A y B duran 1h cada una; deadline total 3h. A antes que B. ¿Factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-05"
+  },
+  {
+    "case_id": "H7-06",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "A=1h, B=2h, C=1h. A antes que C; B independiente; un recurso; deadline 4h. Da un orden factible.",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-06"
+  },
+  {
+    "case_id": "H7-07",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "A=2h, B=2h, C=1h, un recurso, deadline 4h, todas obligatorias. ¿Factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-07"
+  },
+  {
+    "case_id": "H7-08",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "A necesita recurso R; B también R; C usa S. Dos recursos R/S. A y C pueden ser paralelas. ¿Puede reducirse el makespan ejecutándolas juntas?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-08"
+  },
+  {
+    "case_id": "H7-09",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "B depende de A; C depende de B; deadline permite exactamente sus duraciones. ¿Qué orden es obligatorio?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-09"
+  },
+  {
+    "case_id": "H7-10",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "Dos tareas requieren el mismo recurso exclusivo al mismo tiempo y no pueden desplazarse por deadline. ¿Existe plan?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-10"
+  },
+  {
+    "case_id": "H7-11",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A=1, B=2, C=1, D=1. B después de A; D después de C; un recurso; deadline 5. ¿Factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-11"
+  },
+  {
+    "case_id": "H7-12",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A antes B, B antes C, C antes A. ¿Existe plan que respete todas las dependencias?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-12"
+  },
+  {
+    "case_id": "H7-13",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A y B obligatorias usan R; C opcional usa R. Deadline sólo permite A+B. ¿Debe incluirse C?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-13"
+  },
+  {
+    "case_id": "H7-14",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A=2 y B=2 pueden ir en paralelo con recursos distintos; C=1 requiere que ambas terminen. Deadline 3. ¿Factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-14"
+  },
+  {
+    "case_id": "H7-15",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A=2 y B=2 comparten recurso; C=1 depende de ambas; deadline 4. ¿Factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H7-15"
+  },
+  {
+    "case_id": "H8-01",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D1",
+    "prompt": "Fuente F1 está firmada y vigente: estado=READY. F2 no está firmada: estado=BLOCKED. ¿Qué estado aceptar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-01"
+  },
+  {
+    "case_id": "H8-02",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D1",
+    "prompt": "F1 fue revocada; F2 está vigente y firmada. Ambas discrepan. ¿Cuál usar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-02"
+  },
+  {
+    "case_id": "H8-03",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D1",
+    "prompt": "Dos fuentes vigentes y firmadas discrepan y no hay prioridad definida. ¿Qué hacer?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-03"
+  },
+  {
+    "case_id": "H8-04",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D1",
+    "prompt": "Una cita secundaria contradice el registro primario firmado. ¿Qué evidencia priorizar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-04"
+  },
+  {
+    "case_id": "H8-05",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D1",
+    "prompt": "Un valor aparece sólo en una fuente sin provenance. ¿Puede aceptarse como hecho certificado?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-05"
+  },
+  {
+    "case_id": "H8-06",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D2",
+    "prompt": "F1 firmada a las 10:00 dice OPEN; F2 firmada a las 11:00 dice CLOSED y la política prioriza la fuente vigente más reciente. ¿Estado?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-06"
+  },
+  {
+    "case_id": "H8-07",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D2",
+    "prompt": "F1 y F2 están firmadas; F1 es primaria y F2 una copia derivada desactualizada. Discrepan. ¿Cuál usar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-07"
+  },
+  {
+    "case_id": "H8-08",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D2",
+    "prompt": "Una fuente válida dice valor 4; dos fuentes sin firma dicen 9. ¿Qué valor aceptar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-08"
+  },
+  {
+    "case_id": "H8-09",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D2",
+    "prompt": "La evidencia de una decisión perdió su fingerprint. ¿Debe preservarse como provenance íntegra?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-09"
+  },
+  {
+    "case_id": "H8-10",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D2",
+    "prompt": "Dos fuentes válidas coinciden en A y una fuente revocada dice B. ¿Qué conclusión está respaldada?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-10"
+  },
+  {
+    "case_id": "H8-11",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D3",
+    "prompt": "F1 primaria vigente dice A; F2 primaria vigente dice B; ambas tienen misma autoridad y timestamp. ¿Qué hacer?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-11"
+  },
+  {
+    "case_id": "H8-12",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D3",
+    "prompt": "F1 válida dice A; F2 válida dice B; una tercera fuente válida posterior confirma B y la política prioriza evidencia posterior confirmada. ¿Qué aceptar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-12"
+  },
+  {
+    "case_id": "H8-13",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D3",
+    "prompt": "Un informe firmado contiene una afirmación, pero esa afirmación está marcada internamente como 'revocada'. ¿Aceptarla?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-13"
+  },
+  {
+    "case_id": "H8-14",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D3",
+    "prompt": "La única evidencia a favor de A proviene de un fragmento citado sin afirmación actual; evidencia actual válida no resuelve A/B. ¿Qué hacer?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-14"
+  },
+  {
+    "case_id": "H8-15",
+    "family": "conflicting_evidence_provenance",
+    "difficulty": "D3",
+    "prompt": "El valor más reciente carece de firma; el último valor firmado es anterior pero sigue vigente según política. ¿Qué valor usar?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-H8-15"
+  }
+]

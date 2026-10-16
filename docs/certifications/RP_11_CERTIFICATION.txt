@@ -1,0 +1,12 @@
+ROBY XI.2 — RP.11 Cognitive Agenda Manager
+
+Baseline received: 6277 tests passing; Ruff clean on Windows.
+Implemented increment: RP.11.1 executive agenda core and RP.10 integration.
+Focused certification: 18 passed.
+Full suite reproduced in this environment: 6290 passed in 29.16s.
+Python compileall: passed.
+
+The execution environment used to build this archive did not provide the Ruff
+executable. Source files were manually checked for the configured 88-character
+line limit. Run `ruff check .` in the project virtual environment as the final
+local lint certification.

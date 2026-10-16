@@ -1,0 +1,21 @@
+ROBY XI.2 — Post-M409.1 — Governed Reasoning Quality Assessment Foundation v1
+
+Apply this delta over the certified baseline: 11,766 tests + Ruff clean.
+
+Scope:
+- Adds core/governed_reasoning/reasoning_quality_assessment.py
+- Adds focused architecture tests.
+- Synchronizes root architecture/changelog documentation.
+- Adds no runtime wiring, ReasoningContextBundle changes, Reflection wiring, Memory/Learning, stopping, correction, or execution.
+
+Local reconstruction validation performed in this environment:
+- 11/11 new focused tests passed.
+- 79/79 epistemic corridor regression tests passed.
+- py_compile passed for the new module and test.
+- explicit >88-character scan passed for the new module and test.
+
+Full-suite certification could not be completed on the reconstructed tree because older/current Post-M409.1 deltas required by unrelated tests are not all present in the available reconstruction (missing modules during collection). Ruff is not installed in this environment.
+
+Official certification gate remains:
+  ruff check .
+  pytest -q

@@ -1,0 +1,43 @@
+{
+  "baseline": "12974-pass-0-fail-ruff-clean",
+  "case_count": 12,
+  "case_ids": [
+    "V2E-H6-001",
+    "V2E-H6-002",
+    "V2E-H6-003",
+    "V2E-H6-004",
+    "V2E-H6-005",
+    "V2E-H6-006",
+    "V2E-H6-007",
+    "V2E-H6-008",
+    "V2E-H6-009",
+    "V2E-H6-010",
+    "V2E-H6-011",
+    "V2E-H6-012"
+  ],
+  "consumed_v2_case_paraphrase": false,
+  "consumed_v2_case_reuse": false,
+  "corpus_frozen": true,
+  "corpus_mutation_authorized": false,
+  "corpus_sha256": "76bef5bcd7ed9cb0a3284b308f298a7359378686894fef870e3ecf7a4d206c1a",
+  "difficulty_distribution": {
+    "hard": 6,
+    "standard": 6
+  },
+  "dry_probe_reuse": false,
+  "entry_form": "existing explicit Decisión/Criterios/Evidencia intake grammar",
+  "exposure_authorized": false,
+  "family": "H6",
+  "freeze_fingerprint": "8a2251db3b6b21883a193535cadb625dcc641f35ebdbb2932a48dc26bbc061c1",
+  "ground_truth_exposed_to_roby": false,
+  "ground_truth_frozen": true,
+  "ground_truth_mutation_authorized": false,
+  "ground_truth_sha256": "b29aa5c6c453e5a7d40e35f80897b7d81820a84591cc3a62278d19013953f7ea",
+  "independently_authored": true,
+  "next_gate": "HCPDQ-v2 H6 Entry-Path Equivalent Corpus — Freeze Certification / Exposure Authorization",
+  "primary_execution_authorized": false,
+  "roby_execution_occurred": false,
+  "roby_exposure_occurred": false,
+  "schema_version": "hcpdq-v2-h6-entry-path-equivalent-freeze-v1",
+  "status": "CORPUS_AND_GROUND_TRUTH_FROZEN_EXPOSURE_NOT_AUTHORIZED"
+}

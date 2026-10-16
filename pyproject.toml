@@ -1,0 +1,23 @@
+[tool.ruff]
+exclude = ["venv", "venv_old", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache"]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I"
+]
+
+# Runtime optional dependency:
+#   pip install edge-tts
+# Edge playback is selected with ROBY_VOICE_PROVIDER=edge-tts.
+
+
+[tool.pytest.ini_options]
+norecursedirs = ["venv", "venv_old", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache"]

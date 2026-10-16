@@ -1,0 +1,3624 @@
+ROBY XI.2 — POST-INTEGRATION EVOLUTION MASTER PLAN CREATE → GROW →
+TRANSCEND
+
+STATUS Permanent strategic guide / architectural compass. This document
+ORIENTS future evolution. It does NOT authorize implementation. Current
+Truth, certified code, architectural evidence, and Owner validation
+determine executable reality.
+
+====================================================================== 1.
+PURPOSE
+======================================================================
+
+Maintain a permanent, concise reference for the post-integration
+evolution of ROBY XI.2 so that the project does not need to reconstruct
+its strategic vision at every increment.
+
+Whenever a current work front is exhausted or closed:
+
+CURRENT POINT CLOSED ↓ CONSULT MASTER PLAN ↓ What is already proven?
+What remains partial? What is genuinely new? What is still future? ↓
+INVENTORY BEFORE SURGERY ↓ NEXT GOVERNED STEP
+
+The Master Plan is a compass, not an implementation queue.
+
+======================================================================
+2. PERMANENT CONSTITUTIONAL RULES
+======================================================================
+
+ONE BRAIN — ONE AUTHORITY PER CAPABILITY.
+
+INVENTORY BEFORE SURGERY.
+
+REUSE BEFORE NEW AUTHORITY.
+
+EVIDENCE BEFORE EXPANSION.
+
+NO SYNTHETIC EVIDENCE.
+
+NEW CAPABILITY ≠ NEW BRAIN.
+
+NO AUTONOMY BY IMPLICATION.
+
+Additional permanent principles: - Governed architecture. - No isolated
+code. - Prefer integration and reuse over parallel modules. - Root
+documentation must be consulted before architectural surgery. -
+Documentation and code must remain synchronized. - Preserve provenance,
+uncertainty, authorization boundaries, and STOP semantics. - Existing
+capability does not imply current availability. - Planning does not
+imply execution. - Reflection does not imply authorization. -
+Uncertainty does not imply investigation. - Retrieval does not imply
+learning. - Reasoning conclusion does not imply durable knowledge. -
+Learning candidate does not imply admitted memory. - Metacognition does
+not imply self-modification. - Personality/expression/voice do not own
+epistemic truth.
+
+Mandatory Owner validation gate for code increments: python
+scripts/clean_project_caches.py python
+scripts/generate_quality_baseline.py ruff check . pytest -q
+
+No increment becomes Owner-certified until complete local validation is
+supplied by the Owner.
+
+======================================================================
+3. MASTER EVOLUTION DIRECTION
+======================================================================
+
+CREATE → GROW → TRANSCEND
+
+CREATE Used only when evidence demonstrates a genuinely absent
+capability. New capability must not automatically create a new brain,
+authority, store, registry, coordinator, or persistence layer.
+
+GROW Deepen, compose, longitudinally integrate, and make productively
+reachable the cognitive capabilities ROBY already possesses, while
+preserving existing authorities and governance.
+
+TRANSCEND Future horizon for new forms of understanding, relating,
+creating, and interacting. It remains future and must never be used to
+imply autonomy, self-modification, unrestricted learning, or ungoverned
+action.
+
+======================================================================
+4. CURRENT STRATEGIC STATE
+======================================================================
+
+CREATE-1 — SELF-CAPABILITY EXPLANATION / GUIDED USE STATUS: CLOSED /
+OWNER-CERTIFIED.
+
+ROBY has a bounded first capability to truthfully explain registered
+operational capabilities through existing authority and ordinary
+conversation.
+
+Architecture: REAL REGISTERED CAPABILITY TRUTH ↓ EXISTING OFFICIAL
+AUTHORITY ↓ BOUNDED READ-ONLY EXPLANATION ↓ ORDINARY CONVERSATION ↓ STOP
+
+CREATE-1 does not authorize Planning, Execution, Investigation, Memory
+writes, Learning, or other actions merely because the user asks what
+ROBY can do.
+
+Certified baseline after local corrections: 12,611 PASS 0 FAIL Ruff
+clean
+
+C1–C6 POST-CREATE INTELLECTUAL INVENTORY STATUS: COMPLETE.
+
+Findings: C1 Deep Intellectual Elaboration SUBSTANTIAL. C2 Cognitive
+Continuity SUBSTANTIAL / MULTI-LAYER / GOVERNED. C3 Knowledge
+Accumulation SUBSTANTIAL / PERSISTENT / HUMAN-GOVERNED. C4 Longitudinal
+Metacognition SUBSTANTIAL FOUNDATIONS. C5 Intellectual Initiative
+SUBSTANTIAL GOVERNED FOUNDATIONS. C6 Intellectual Identity & Expression
+SUBSTANTIAL DISTRIBUTED FOUNDATIONS.
+
+Convergence: The inventory did not demonstrate six missing brains or six
+missing large capabilities. The common direction is deeper governed
+longitudinal integration of existing cognition.
+
+======================================================================
+5. GROW — CURRENT ERA
+======================================================================
+
+Primary horizon: GOVERNED LONGITUDINAL INTELLECTUAL INTEGRATION.
+
+GROW-1 → GROW-4 proof sequence established:
+
+GROW-1 — REUSE & PLACEMENT PROOF - Longitudinal identity authority
+already exists under governed_reasoning. - DI.18 exact-candidate
+continuity exists. - DI.19 consultative continuity projection exists. -
+Composition Root wiring exists. - Runtime transport exists. - Reasoning
+consumption exists. - The real blockage is semantic evidence
+sufficiency, not transport.
+
+GROW-2 — POSITIVE-SAME EVIDENCE SOURCE INVENTORY - Real governed
+evidence sources exist. - Shared-subject evidence has a strong existing
+source. - Directed-prior lineages exist but are scoped/conditional. -
+Relational evidence exists but its positive-SAME admissibility is not
+generally demonstrated.
+
+GROW-3 — EVIDENCE ADMISSIBILITY & LINEAGE PROOF - Family A / shared
+intellectual subject: admissibility demonstrated. - Family B / directed
+prior state: conditionally admissible when exact governed lineage
+exists. - Family C / independent relational corroboration: not
+demonstrated. - Complete A+B+C ordinary-turn composition is not
+demonstrated.
+
+GROW-4 — INDEPENDENT RELATIONAL CORROBORATION PROOF - ROBY has real
+relational data and corroboration capabilities in other semantic
+domains. - No existing producer was demonstrated whose contract
+independently corroborates longitudinal intellectual identity between
+current and prior explanatory states. - Reusing topic/thread evidence
+would risk double counting. - Reusing Family B lineage as Family C would
+be double counting. - Structural similarity is not identity. - External
+corroboration has the wrong semantic domain.
+
+FINAL GROW-1→4 BOUNDARY: POSITIVE-SAME ordinary-turn continuity has a
+legitimate semantic STOP.
+
+INSUFFICIENT is currently the governed correct result when complete
+independent evidence does not exist.
+
+DO NOT manufacture Family C. DO NOT force SAME. DO NOT reopen
+DI.18/DI.19/runtime merely to obtain a desired continuity result.
+
+======================================================================
+6. NEXT GROW DIRECTION
+======================================================================
+
+Do not continue searching indefinitely for a way to force positive-SAME.
+
+Next intellectual direction:
+
+GOVERNED LONGITUDINAL INTELLECTUAL USEFULNESS WITHOUT FORCED IDENTITY.
+
+Desired behavior:
+
+RELEVANT PRIOR INTELLECTUAL MATERIAL ↓ GOVERNED RETRIEVAL ↓ WHAT WAS
+ESTABLISHED? WHAT REMAINED UNCERTAIN? WHAT CHANGED? WHAT EVIDENCE
+EXISTS? WHAT REMAINS OPEN? ↓ BOUNDED CURRENT RECONSTRUCTION ↓ EXPLAIN /
+ELABORATE / PROPOSE NEXT INTELLECTUAL STEP ↓ STOP
+
+ROBY may truthfully say, conceptually:
+
+“This topic relates to previous work. I can recover it as relevant
+background, but I do not have sufficient evidence to claim that the
+current intellectual model is exactly the same longitudinal state.”
+
+This is useful continuity without fabricated identity.
+
+After this direction matures, revisit: - accumulative governed
+learning, - longitudinal metacognition, - governed intellectual
+initiative, - persistent intellectual identity/expression.
+
+Always inventory first.
+
+======================================================================
+7. LONG-TERM TARGET — PERSISTENT COGNITIVE COMPANION
+======================================================================
+
+The long-term objective is not to imitate a fictional personality.
+
+The desired ROBY is a persistent cognitive companion for Carlos and
+Cristina.
+
+Desired qualities inspired by the functional strengths discussed around
+TARS: - deep reasoning, - reliability, - ability to work with complex
+problems, - clear explanation, - bounded initiative, - consistent
+communicative identity.
+
+Desired qualities inspired by the intellectual/relational dimensions
+discussed around Samantha: - cognitive continuity, - governed
+accumulated learning, - deep contextualization of Carlos/Cristina and
+the world ROBY knows, - governed curiosity, - ability to relate
+knowledge across domains, - conversation that reflects genuine
+intellectual growth.
+
+The desired combination is:
+
+ONE ROBY ↓ remembers under governance reasons deeply learns under
+governance recognizes uncertainty relates knowledge reconstructs
+relevant intellectual history proposes without self-authorizing
+communicates consistently ↓ PERSISTENT COGNITIVE COMPANION
+
+This does NOT imply consciousness, unrestricted autonomy, background
+cognition, self-modification, or self-authorized execution.
+
+======================================================================
+8. FUTURE EXPANSION — GOVERNED MULTIMODAL INTELLECTUAL COMPOSITION
+======================================================================
+
+Future capability aspiration:
+
+PERSONAL PHOTOGRAPH + PRIVATE DOCUMENT + LIBRARY BOOK + GENERAL
+KNOWLEDGE ↓ GOVERNED MULTIMODAL / MULTISOURCE EVIDENCE COMPOSITION ↓
+PROVENANCE PRIVACY BOUNDARY CONFIDENCE CONTRADICTION RELEVANCE EPISTEMIC
+STATUS ↓ GOVERNED REASONING ↓ ONE INTEGRATED INTELLECTUAL CONCLUSION
+
+Desired future behavior must distinguish: - what ROBY observes in the
+photograph, - what the private document states, - what the book
+states, - what general knowledge contributes, - what ROBY infers from
+combining them, - what remains unknown or conflicting.
+
+CURRENT CLASSIFICATION: FUTURE INTELLECTUAL EXPANSION.
+
+It has NOT been demonstrated as a current integration residual.
+
+Before implementation: INVENTORY BEFORE SURGERY.
+
+======================================================================
+9. FUTURE EXPANSION — ROBY VOICE IDENTITY
+======================================================================
+
+Future aspiration: a distinctive expressive ROBY voice with governed
+prosody such as: - emphasis, - surprise, - pauses, - serenity, -
+contained humor, - moderate urgency, - other context-appropriate
+expressive variation.
+
+Target architecture:
+
+ROBY BRAIN ↓ COGNITIVE CONCLUSION + EPISTEMIC STATE + PERSONALITY +
+CONVERSATIONAL CONTEXT ↓ COMMUNICATIVE INTENT ↓ EXPRESSIVE PROJECTION ↓
+PROSODY ↓ VOICE SYNTHESIZER
+
+Frozen principles: - The synthesizer does not think. - Prosody does not
+decide truth. - Expression does not modify Memory. - Voice does not
+become a cognitive authority. - No parallel emotional brain. - The
+objective is ROBY’s own vocal identity, not imitation of TARS, Samantha,
+an actor, or another specific character/person.
+
+CURRENT CLASSIFICATION: FUTURE / NOT CURRENTLY AVAILABLE.
+
+======================================================================
+10. SELF-EXPLANATION AS A PERMANENT PRODUCT GOAL
+======================================================================
+
+CREATE-1 is the first bounded realization.
+
+Long-term desired experience:
+
+When ROBY is activated, Carlos or Cristina should be able to ask: - What
+can you do? - How can we use you? - What can you help us with? - What
+capabilities are active? - What is read-only? - What requires
+authorization? - What cannot you currently do? - Where should we start?
+
+ROBY should answer truthfully from real governed state.
+
+It must distinguish: AVAILABLE LIMITED / CONSULTATIVE AUTHORIZATION
+REQUIRED CURRENTLY UNAVAILABLE NOT AVAILABLE / OUTSIDE AUTHORITY FUTURE
+/ DOCUMENTED UNKNOWN / INSUFFICIENT
+
+Explaining a capability never grants authority to execute it.
+
+======================================================================
+11. FROZEN DISTINCTIONS
+======================================================================
+
+CONTINUITY ≠ AUTONOMY REFLECTION ≠ AUTHORIZATION UNCERTAINTY ≠
+INVESTIGATION PROPOSAL ≠ EXECUTION PLAN ≠ PERMISSION RETRIEVAL ≠
+LEARNING REASONING CONCLUSION ≠ DURABLE KNOWLEDGE LEARNING CANDIDATE ≠
+ADMITTED MEMORY METACOGNITION ≠ SELF-MODIFICATION PERSONALITY ≠
+EPISTEMIC AUTHORITY EXPRESSION ≠ TRUTH AUTHORITY VOICE ≠ COGNITION SAME
+TOPIC ≠ SAME INTELLECTUAL STATE SAME THREAD ≠ SAME EXPLANATORY MODEL
+PRIOR EPISODE ≠ DIRECT PREDECESSOR STRUCTURAL SIMILARITY ≠ IDENTITY
+LINEAGE IN ONE CAPABILITY ≠ GLOBAL LONGITUDINAL IDENTITY PRESERVE STATE
+≠ KEEP THINKING REMEMBER OPEN QUESTION ≠ INVESTIGATE CHECKPOINT ≠
+AUTONOMOUS RESUME
+
+======================================================================
+12. HOW TO USE THIS MASTER PLAN
+======================================================================
+
+At every natural architectural checkpoint:
+
+1.  Consult Current Truth and certified executable state.
+2.  Consult this Master Plan.
+3.  Identify the current unresolved phenomenon.
+4.  Inventory existing authorities/producers/consumers.
+5.  Prove productive reachability.
+6.  Reuse before proposing anything new.
+7.  Preserve provenance, uncertainty, authorization, and STOP
+    boundaries.
+8.  Only authorize surgery after the residual is demonstrated.
+9.  Validate locally through the complete Owner gate.
+10. Update Current Truth and this Plan only when evidence changes the
+    strategic map.
+
+If a future aspiration becomes technically possible, it does NOT
+automatically move into the current roadmap. It must first pass:
+INVENTORY → EVIDENCE → ARCHITECTURE → CONTRACT → IMPLEMENTATION →
+VALIDATION → OWNER CERTIFICATION.
+
+======================================================================
+13. GOVERNING PRINCIPLE
+======================================================================
+
+THE MASTER PLAN ORIENTS. CURRENT TRUTH CERTIFIES.
+
+ROBY XI.2 should not evolve by accumulating functions until it merely
+appears intelligent.
+
+It should evolve by making its existing governed cognitive capabilities
+progressively form a deeper, verifiable, useful, longitudinal
+intellectual whole.
+
+Long-term horizon:
+
+ROBY as a persistent cognitive companion for Carlos and Cristina:
+capable of deep reasoning, governed learning, knowledge relation, honest
+uncertainty, cognitive continuity, bounded initiative, truthful
+self-explanation, consistent communicative identity, and eventually a
+distinctive governed expressive voice.
+
+CREATE → GROW → TRANSCEND
+
+END OF MASTER PLAN
+
+======================================================================
+2026-09-22 — CURRENT RECONCILIATION ADDENDUM
+======================================================================
+
+This addendum updates interpretation without erasing historical provenance. The Plan remains a strategic compass and does not authorize implementation. Current Truth, certified code, architectural evidence and Owner validation remain authoritative for executable reality.
+
+CURRENT OWNER-CERTIFIED PRECEDENCE
+- E1-A Governed Creative-Candidate Critical Disposition: CLOSED / OWNER-CERTIFIED.
+- Baseline: 12,795 PASS · 0 FAIL · Ruff clean.
+- Certified boundary: cross-domain synthesis → canonical novel-synthesis hypothesis admission → critical disposition REVIEW_REQUIRED → STOP.
+- E1-B: INVENTORY COMPLETE / FROZEN. NO RED. NO GREEN.
+
+RECONCILIATION OF POINTS 4–10
+4. CURRENT STRATEGIC STATE: historical snapshot. Later certified closures supersede its baseline/status labels; preserve it as provenance.
+5. GROW / LONGITUDINAL IDENTITY: the evidence boundary remains valid and certified. Never manufacture SAME identity from insufficient evidence.
+6. LONGITUDINAL INTELLECTUAL USEFULNESS: substantially matured through later certified work; its original NEXT designation is historical, not a current implementation instruction.
+7. PERSISTENT COGNITIVE COMPANION: partial integration horizon. Existing components do not automatically prove integrated contextual/social initiative, turn-taking, or other composite behaviors. Such behavior requires productive reachability evidence.
+8. GOVERNED MULTIMODAL INTELLECTUAL COMPOSITION: bounded explicit multisource/multimodal convergence is certified through POST-12.782. Generalized multimodal composition remains partial/future. Therefore the original FUTURE-only classification is superseded.
+9. ROBY VOICE IDENTITY: remains FUTURE / NOT PRODUCTIVELY DEMONSTRATED AS A COMPLETE CHAIN. Conversation, personality, text generation, audio input or TTS components do not by themselves certify ROBY voice identity.
+10. SELF-EXPLANATION: bounded self-capability explanation is certified. Truthful globally synchronized self-explanation remains a permanent requirement; explanation never grants action authority.
+
+E1 — GOVERNED CREATIVE INTELLIGENCE CURRENT POSITION
+The desired creative chain remains: KNOWLEDGE → COMPREHENSION → SYNTHESIS → CREATIVE GENERATION → CRITICAL EVALUATION → GOVERNED PROPOSAL, never CREATION → AUTOMATIC ACTION. E1-A now certifies the bounded critical-disposition stage. The Proposal boundary is not entered by E1-A. E1-B inventory found existing Proposal authorities sufficient downstream and one reachability residual at the disposition→existing-Proposal projection seam; that finding remains frozen and is not authorization for RED or implementation.
+
+CURRENT REVIEW DISCIPLINE
+For every future front: CURRENT TRUTH → MASTER PLAN → INVENTORY → productive owner/consumer/authorization/persistence/reachability → classify CERTIFIED / PARTIAL / FUTURE / DOCUMENTARY and R/C/D where useful → STOP. A demonstrated residual may justify considering a contractual RED only after explicit phase authorization.
+
+END 2026-09-22 ADDENDUM
+
+
+======================================================================
+2026-09-24 — POST-12.916 MASTER PLAN HORIZON RECLASSIFICATION
+======================================================================
+
+STATUS: DOCUMENTARY HORIZON RECLASSIFICATION / GREEN SURGICAL
+ALIGNMENT. This section updates the current interpretation of the Master
+Plan without erasing historical provenance, changing executable
+architecture, or authorizing productive surgery.
+
+GOVERNING PRECEDENCE
+
+CURRENT EXECUTABLE TRUTH + LATEST OWNER-CERTIFIED GATE > STALE
+HISTORICAL STATUS LABEL.
+
+The numbered order of this Master Plan is strategic organization, not an
+implementation queue. A horizon, partial realization, future aspiration,
+or permanent objective is not by itself a surgical candidate. A new
+productive front requires a separately demonstrated phenomenon and the
+normal governed progression:
+
+INVENTORY → REUSE PROOF → RESIDUAL → CONTRACT → RED → GREEN →
+VALIDATION → OWNER CERTIFICATION → STOP.
+
+CURRENT POST-12.916 HORIZON CLASSIFICATION
+
+1. PURPOSE: CURRENT / CONSTITUTIONAL. Preserve as governing purpose.
+
+2. PERMANENT CONSTITUTIONAL RULES: CURRENT / CONSTITUTIONAL. Preserve.
+
+3. CREATE → GROW → TRANSCEND: CURRENT / STRATEGIC COMPASS. It does not
+   constitute an implementation queue.
+
+4. CURRENT STRATEGIC STATE: HISTORICAL STRATEGIC SNAPSHOT / SUPERSEDED
+   AS CURRENT STATE. Preserve its labels and baseline as provenance;
+   later Owner-certified Current Truth governs present interpretation.
+
+5. GROW / LONGITUDINAL IDENTITY: CERTIFIED LONGITUDINAL
+   IDENTITY/EVIDENCE BOUNDARY. The semantic STOP remains valid. Never
+   manufacture positive SAME identity from insufficient evidence.
+
+6. GOVERNED LONGITUDINAL INTELLECTUAL USEFULNESS: PRODUCTIVELY REALIZED
+   / CLOSED AT CERTIFIED BOUNDED SCOPE through later Owner-certified
+   work. The original NEXT designation is historical and is not a
+   current implementation instruction. No further productive residual is
+   established merely by this Plan.
+
+7. PERSISTENT COGNITIVE COMPANION: PARTIAL INTEGRATION HORIZON / NO
+   CURRENT SURGERY AUTHORIZED. Existing component capabilities do not by
+   themselves prove every desired integrated behavior. A future front
+   requires productive reachability evidence and a demonstrated residual;
+   the horizon does not authorize a new companion brain, manager, loop,
+   authority, or equivalent parallel structure.
+
+8. GOVERNED MULTIMODAL INTELLECTUAL COMPOSITION: PARTIALLY REALIZED /
+   BOUNDED EXPLICIT SAME-EPISODE MULTISOURCE-MULTIMODAL CONVERGENCE
+   PRODUCTIVELY DEMONSTRATED / NO DEMONSTRATED PRODUCTIVE RESIDUAL.
+   Generalized multimodal/multisource composition remains a broader
+   horizon. Partial realization does not itself authorize expansion.
+
+9. ROBY VOICE IDENTITY: FUTURE / COMPLETE PRODUCTIVE CHAIN NOT
+   DEMONSTRATED. Existing conversation, personality, text generation,
+   audio-input, TTS, or related components do not by themselves certify
+   the complete governed ROBY voice-identity chain. FUTURE does not mean
+   NEXT and does not authorize implementation.
+
+10. SELF-EXPLANATION: PERMANENT OBJECTIVE / SECOND BOUNDED PRODUCTIVE
+    REALIZATION OWNER-CERTIFIED. POST-12.916 certifies C-GROW-SE2 as
+    PRODUCTIVELY REALIZED / CLOSED AT CERTIFIED BOUNDED SCOPE through:
+
+    OfficialRuntimeCapabilityRegistry → interface_snapshot() → immutable
+    RuntimeCapabilityView → bounded publication of name + description +
+    enabled + tags → GovernedOperationalInterception → conversation →
+    STOP.
+
+    CREATE-1 remains the first bounded historical realization. The
+    permanent objective is not a permanently open capability. Additional
+    internal CapabilityDescriptor fields do not establish a residual and
+    do not authorize conversational publication. No SE2-S2 is authorized
+    by numbering.
+
+11. FROZEN DISTINCTIONS: CURRENT / CONSTITUTIONAL. Preserve all semantic
+    and architectural distinctions and STOP boundaries.
+
+12. HOW TO USE THIS MASTER PLAN: CURRENT / GOVERNANCE PROCESS. Preserve.
+    In particular, inventory and demonstrated residual precede surgery.
+
+13. GOVERNING PRINCIPLE: CURRENT / CONSTITUTIONAL. Preserve. The Master
+    Plan orients; Current Truth and Owner-certified executable evidence
+    govern current reality.
+
+POST-12.916 INTERPRETIVE INVARIANTS
+
+HORIZON ≠ SURGICAL CANDIDATE.
+
+PARTIAL ≠ DEMONSTRATED RESIDUAL.
+
+FUTURE ≠ NEXT.
+
+PERMANENT OBJECTIVE ≠ PERMANENTLY OPEN CAPABILITY.
+
+BOUNDED REALIZATION ≠ TOTAL COMPLETION OF A PERMANENT OBJECTIVE.
+
+NUMBERING ≠ AUTHORIZATION.
+
+REGISTERED INTERNAL SEMANTICS ≠ PUBLISHED SELF-EXPLANATION INTERFACE.
+
+This reclassification introduces no new capability, authority, manager,
+adapter, registry, brain, store, planner, coordinator, loop, persistence
+owner, or productive integration path. It does not reopen any certified
+closure and does not select Points 7, 8, 9, or 10 as the next productive
+front.
+
+POST-12.916 MASTER PLAN HORIZON RECLASSIFICATION: DOCUMENTARILY ALIGNED
+AT CERTIFIED CURRENT TRUTH — STOP.
+
+END 2026-09-24 POST-12.916 RECLASSIFICATION
+
+======================================================================
+2026-09-29 — INTELLECTUAL EVOLUTION HORIZON MAP SUBORDINATION
+======================================================================
+
+`docs/strategy/ROBY_XI_2_INTELLECTUAL_EVOLUTION_HORIZON_MAP.md` is
+admitted as a SUBORDINATE STRATEGIC GUIDE under this Master Plan. It records conquered
+capability ground, six surviving intellectual horizons and longer-range
+North-Star candidates after documentary reconciliation against current
+Owner-certified truth.
+
+It is not a new authority, not an implementation queue and not a source
+of RED authorization. Any future promotion from that map must return to
+CURRENT TRUTH → REGISTRY → COGNITIVE INVENTORY → CODE/TEST EVIDENCE →
+REUSE PROOF → SMALLEST REAL RESIDUAL before a contract can be considered.
+
+MASTER PLAN AUTHORITY: UNCHANGED.
+PRODUCTIVE ARCHITECTURE: UNCHANGED.
+NEW IMPLEMENTATION AUTHORIZATION: NONE.
+STOP: PRESERVED.
+
+END 2026-09-29 SUBORDINATION
+
+======================================================================
+2026-09-30 — POST-H4 METACOGNITIVE-TO-LEARNING CLOSURE
+======================================================================
+
+H4's previously proven bounded residual is Owner-certified at 13,178 PASS /
+0 FAIL / Ruff clean. Governed strategy-metacognitive adaptation can now be
+projected through a thin semantic adapter into the existing LearningFoundation
+and existing M369 evaluation boundary, where the result remains REVIEW_REQUIRED.
+
+This is integration between existing canonical authorities, not a new capability
+authority. It does not authorize automatic learning, automatic approval, durable
+preference formation, Memory/Knowledge writes, Planning mutation, strategy
+application, Execution or authority grant. Existing human-governed Learning
+review and materialization remain authoritative.
+
+H4 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED.
+AUTOMATIC DURABLE METACOGNITIVE LEARNING: FUTURE / NOT AUTHORIZED.
+NEW PRODUCTIVE RESIDUAL FROM THIS CLOSURE: NONE PROVEN.
+NEW RED AUTHORIZATION: NONE.
+STOP: PRESERVED.
+
+END 2026-09-30 POST-H4 CLOSURE
+
+
+======================================================================
+2026-09-30 — POST-N1 TEMPORAL WORLD-MODEL BOUNDED CLOSURE
+======================================================================
+
+N1 is Owner-certified at 13,185 PASS / 0 FAIL / Ruff clean. The certified
+increment deepens the existing governed_reasoning longitudinal reconstruction
+semantics: explicit governed prior epistemic support can participate in
+reconstructing what was previously established, while current assessment and
+admissible epistemic delta remain separately governed inputs.
+
+No TemporalWorldModel, manager, adapter authority, capability owner, persistence
+owner or parallel reasoning path was created. Historical abstention is preserved
+when prior support is absent or non-reconstructable. Temporal reconstruction
+remains derived, read-only and non-authoritative.
+
+The closure does not establish that newer evidence is truer, that superseded
+material was historically false, that current support is timeless truth, or that
+reconstruction itself is evidence or durable knowledge.
+
+N1 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED.
+CANONICAL OWNER: EXISTING governed_reasoning; UNCHANGED.
+REGISTRY / COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+NEW PRODUCTIVE RESIDUAL FROM THIS CLOSURE: NONE AUTHORIZED.
+N2 RED AUTHORIZATION: NONE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION: PRESERVED.
+
+END 2026-09-30 POST-N1 BOUNDED CLOSURE
+
+2026-09-30 — POST-N2 CONSERVATIVE EPISTEMIC CONFLICT ADJUDICATION BOUNDED CLOSURE
+
+STATUS: GREEN RECONCILIATION V2 / OWNER-CERTIFIED / DOCUMENTARY INTEGRATION
+
+N2 is Owner-certified at 13,189 PASS / 0 FAIL / Ruff clean after reconciliation of the
+first GREEN attempt. The certified implementation deepens the existing
+governed_reasoning authority through the existing ConflictResolutionManager. It
+introduces no new truth
+authority, manager, brain, planner, repository, capability owner, or execution loop.
+
+The conservative N2 opt-in preserves incompatible claim lineages and abstains when no
+admissible epistemic discrimination is established. Confidence, recency, claim identity,
+input order, and raw source count are not truth shortcuts and do not independently prove
+epistemic superiority. Historical M81 deterministic precedence remains preserved outside
+the explicit conservative N2 mode.
+
+GREEN V1 was not certified because direct modification of the protected
+official reasoning runtime violated existing byte-identity contracts. GREEN
+Reconciliation V2 restored that
+runtime byte-identically and reconciled the incompatible N2 runtime-wiring test rather
+than weakening historical protections.
+
+N2 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+NEW AUTHORITY: NONE.
+N3 RED AUTHORIZATION: NONE.
+NEXT PRODUCTIVE HORIZON: NOT ESTABLISHED BY N2 CLOSURE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION.
+
+END 2026-09-30 POST-N2 BOUNDED CLOSURE
+
+
+2026-09-30 — POST-N3 GOVERNED THEORY BUILDING ABSORPTION CLOSURE
+
+STATUS: EXISTING-AUTHORITY DEEP INVENTORY / ABSORPTION CLOSURE
+
+N3 Governed Theory Building is substantially realized through existing
+governed_reasoning
+authorities and the existing CAP-05 explanatory-model, CAP-06 causal-reasoning, CAP-07
+conceptual-hierarchy, and CAP-19 cross-domain synthesis paths. The inventory found
+existing governed hypothesis deepening, multi-hypothesis discrimination, epistemic
+sufficiency, explanatory-model composition, evidence-driven model revision, and
+causal/counterfactual reasoning. No unowned productive residual was demonstrated.
+
+N3 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED / ABSORBED / CLOSED.
+CANONICAL AUTHORITY: existing governed_reasoning; unchanged.
+NEW THEORY ENGINE / MANAGER / REPOSITORY / OWNER: NONE.
+PROVEN N3 PRODUCTIVE RESIDUAL: NONE.
+N3 RED AUTHORIZATION: NONE / NOT REQUIRED.
+N3 PRODUCTIVE GREEN: NOT REQUIRED.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+N4 RED AUTHORIZATION: NONE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION.
+
+END 2026-09-30 POST-N3 ABSORPTION CLOSURE
+
+2026-09-30 — POST-N4 COGNITIVE EXPERIMENTATION BOUNDED CLOSURE
+
+STATUS: OWNER-CERTIFIED PRODUCTIVE CLOSURE
+
+N4 existing-authority deep inventory found substantial coverage through existing
+governed_reasoning and CAP-11 investigation paths. Multi-hypothesis discrimination
+already produced discriminating evidence requirements; Planning, Authorization,
+Execution, Reasoning re-entry, prediction/outcome evaluation, and evidence-driven
+model revision already remained under their existing authorities.
+
+One narrow residual was proven: a read-only discriminating-test proposal mapping
+the exact competing hypotheses to hypothesis-specific expected observations. The
+N4 RED contractual proved that semantic absent. The surgical GREEN implemented it
+inside the existing multi-hypothesis discrimination authority and reached OWNER
+certification with 13,194 PASS / 0 FAIL / Ruff clean.
+
+The proposal remains consultative and non-operational. It does not plan, authorize,
+execute, acquire evidence, establish truth or falsity, persist results, or bypass
+the existing governed lifecycle.
+
+N4 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED / CLOSED.
+CANONICAL AUTHORITY: existing governed_reasoning; unchanged.
+NEW EXPERIMENT ENGINE / MANAGER / AGENT / PLANNER / OWNER: NONE.
+PROVEN N4 PRODUCTIVE RESIDUAL: CLOSED BY OWNER-CERTIFIED GREEN.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+N5 RED AUTHORIZATION: NONE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION.
+
+END 2026-09-30 POST-N4 BOUNDED CLOSURE
+
+2026-09-30 — POST-N5 KNOWLEDGE COMPRESSION BOUNDED CLOSURE
+
+STATUS: OWNER-CERTIFIED PRODUCTIVE CLOSURE
+
+N5 existing-authority inventory found substantial coverage in governed_reasoning:
+productive relational abstraction, hierarchical concept composition, preserved
+provenance, counterevidence, uncertainty, and productive concept reachability.
+One narrow residual was proven: a concept preserved constituent lineage but lacked
+a governed way to reopen its exact constituent abstraction episodes.
+
+The N5 contractual RED proved that bounded reopenability semantic absent. GREEN V1
+implemented it by changing the protected reasoning runtime and was OWNER-rejected.
+Historical hashes were not changed. GREEN Reconciliation V2 restored the protected
+runtime byte-identically and implemented a read-only, fail-closed constituent
+resolver inside existing governed_reasoning hierarchical concept composition.
+OWNER certification reached 13,200 PASS / 0 FAIL / Ruff clean.
+
+Reopenability remains bounded, session-local, read-only, and non-persistent. It
+preserves constituent identity, fingerprints, supporting examples, counterexamples,
+scope, and uncertainty. It creates no Memory, Knowledge, Learning, World Model,
+Planning, Authorization, or Execution authority.
+
+N5 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED / CLOSED.
+CANONICAL AUTHORITY: existing governed_reasoning; unchanged.
+NEW REPOSITORY / STORE / MANAGER / AGENT / BRAIN / OWNER: NONE.
+PROTECTED REASONING RUNTIME: BYTE-IDENTICAL / PRESERVED.
+PROVEN N5 PRODUCTIVE RESIDUAL: CLOSED BY OWNER-CERTIFIED GREEN V2.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+N6 RED AUTHORIZATION: NONE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION.
+
+END 2026-09-30 POST-N5 BOUNDED CLOSURE
+
+2026-09-30 — POST-N6 INTELLECTUAL RECONSIDERATION BOUNDED CLOSURE
+
+STATUS: OWNER-CERTIFIED PRODUCTIVE CLOSURE
+
+N6 existing-authority inventory found substantial coverage in governed_reasoning:
+before/after epistemic delta, hypothesis update semantics, explanatory model
+revision, corrective-evidence revision paths, and governed reassessment. One narrow
+residual was proven: existing semantic weakening or structural review did not yet
+project a bounded reconsideration candidate for an earlier assessment.
+
+The N6 contractual RED proved the missing projection at the existing
+hypothesis-update-semantics seam. The surgical GREEN added a read-only,
+consultative reconsideration candidate and projector inside that existing module.
+It reuses existing delta and update semantics and creates no new reasoning owner.
+OWNER certification reached 13,206 PASS / 0 FAIL / Ruff clean.
+
+Only WEAKENED or structural REVIEW_REQUIRED semantics can identify affected
+hypotheses for reconsideration. UNCHANGED, INDETERMINATE, or evidence change alone
+does not force reconsideration. Exact semantic, delta, source, snapshot, triggering
+evidence, and affected-hypothesis lineage remains explicit.
+
+The candidate does not revise, supersede, delete, persist, plan, authorize, or
+execute. Memory, Knowledge, Learning, World Model, Planning, Authorization, and
+Execution retain their existing authorities.
+
+N6 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED / CLOSED.
+CANONICAL AUTHORITY: existing governed_reasoning; unchanged.
+NEW MODULE / STORE / MANAGER / AGENT / BRAIN / OWNER: NONE.
+PROTECTED REASONING RUNTIME: BYTE-IDENTICAL / PRESERVED.
+PROVEN N6 PRODUCTIVE RESIDUAL: CLOSED BY OWNER-CERTIFIED GREEN.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+N7 RED AUTHORIZATION: NONE.
+STOP BEFORE NEW CAPABILITY AUTHORIZATION.
+
+END 2026-09-30 POST-N6 BOUNDED CLOSURE
+
+2026-10-01 — POST-N7 COGNITIVE PORTFOLIO / OPEN QUESTIONS BOUNDED CLOSURE
+
+STATUS: OWNER-CERTIFIED PRODUCTIVE CLOSURE
+
+N7 existing-authority inventory found the Cognitive Agenda already governed by
+CognitiveAgendaManager, with CAP-10 gap/question semantics, governed_reasoning
+hypothesis/contradiction semantics, and CAP-11 passive investigation continuity
+already present. No second agenda or portfolio authority was justified.
+
+One narrow residual was proven: a passive CAP-11 investigation checkpoint had no
+bounded projection into the existing Cognitive Agenda. RED proved the missing seam.
+GREEN added GovernedPassiveInvestigationAgendaSignalAdapter only in the existing
+app/cognitive_agenda_sources.py seam. OWNER certification reached 13,212 PASS /
+0 FAIL / Ruff clean.
+
+The projection is WATCHING and non-activating, preserves explicit checkpoint,
+thread, reasoning, source, requirement and resume-condition lineage, and rejects
+non-passive operational state. CognitiveAgendaManager remains the sole agenda
+authority. Planning, CAP-10 and governed_reasoning authorities remain unchanged.
+
+N7 CLASSIFICATION: SUBSTANTIALLY REALIZED / BOUNDED / CLOSED.
+NEW AGENDA / PORTFOLIO / STORE / MANAGER / AGENT / BRAIN / OWNER: NONE.
+REGISTRY CHANGE: NOT REQUIRED.
+COGNITIVE INVENTORY CHANGE: NOT REQUIRED.
+N1-N7 NORTH-STAR RECONCILIATION: COMPLETE.
+HORIZON PROMOTION / NEW PRODUCTIVE RED AUTHORIZATION: NONE.
+STOP BEFORE NEW SURGERY.
+
+END 2026-10-01 POST-N7 BOUNDED CLOSURE
+
+======================================================================
+2026-10-04 — POST-E1-B MASTER PLAN RECONCILIATION
+======================================================================
+
+STATUS: DOCUMENTARY CLOSURE / OWNER-CERTIFIED PRODUCTIVE BASELINE ALIGNMENT.
+
+OWNER-CERTIFIED EXECUTABLE TRUTH
+- E1-A remains CLOSED / OWNER-CERTIFIED and stops before Proposal.
+- E1-B is now CLOSED / OWNER-CERTIFIED at 13,401 PASS / 0 FAIL / Ruff clean.
+- The formerly demonstrated
+  EXPLICIT_HUMAN_PROMOTION_OF_CREATIVE_CRITICAL_DISPOSITION_TO_EXISTING_PROPOSAL
+  residual is closed by the bounded
+  GovernedCreativeDispositionProposalProjection.
+- Existing GovernedProposalModel and GovernedProposalInbox remain canonical.
+- Existing E1-B-S1-A/B/C remain the downstream human-review path.
+- OfficialConversationGateway remains byte-protected and unchanged.
+- Productive composition resides in official_runtime_composition and reuses the
+  gateway's canonical Proposal instances.
+- The E1 chain now reaches an existing PENDING GovernedProposal only after explicit
+  human promotion. It does not imply proposal acceptance, Planning, Authorization,
+  Execution, Memory, Knowledge, Learning, persistence or autonomous action.
+
+SUPERSEDED CURRENT-STATUS LABELS
+The 2026-09-22 statements that E1-B was "INVENTORY COMPLETE / FROZEN. NO RED.
+NO GREEN" and that its disposition→Proposal residual remained open are preserved as
+historical provenance but are no longer current executable status.
+
+CURRENT E1 POSITION
+KNOWLEDGE → COMPREHENSION → SYNTHESIS → CREATIVE GENERATION →
+CRITICAL EVALUATION → REVIEW_REQUIRED → EXPLICIT HUMAN PROMOTION →
+EXISTING GOVERNED PROPOSAL (PENDING) → existing human review.
+
+CREATION != AUTOMATIC ACTION.
+REVIEW_REQUIRED != PROPOSAL AUTHORIZATION.
+PENDING PROPOSAL != ACCEPTANCE.
+ACCEPTANCE != PLANNING AUTHORIZATION.
+ACCEPTANCE != EXECUTION AUTHORIZATION.
+
+POST-E1-B HORIZON DECISION
+This closure proves no additional productive residual. Persistent Cognitive Companion,
+generalized multimodal composition, ROBY Voice Identity and other strategic/future
+horizons remain horizons rather than implementation queues. No N8 or other new
+productive RED is selected by E1-B closure.
+
+NEXT GOVERNED STEP
+Perform GLOBAL PRODUCTIVE HORIZON RESELECTION from this 13,401-pass baseline:
+CURRENT TRUTH → MASTER PLAN → INVENTORY → REUSE PROOF → SMALLEST REAL RESIDUAL.
+STOP before CONTRACT RED unless that reconciliation demonstrates one current,
+non-duplicative productive residual.
+
+POST-E1-B MASTER PLAN RECONCILIATION: DOCUMENTARILY ALIGNED.
+NEW PRODUCTIVE RED AUTHORIZATION: NONE.
+
+======================================================================
+2026-10-04 — POST-E1-B GLOBAL PRODUCTIVE HORIZON RESELECTION
+======================================================================
+
+Starting Owner-certified baseline: 13,401 PASS / 0 FAIL / Ruff clean.
+
+Global current-truth / inventory / reuse / absorption reconciliation promotes no
+productive residual. Persistent Cognitive Companion remains REALIZED / BOUNDED;
+generalized multisource/multimodal composition remains PARTIAL / FUTURE without a
+demonstrated current seam; ROBY Voice Identity remains FUTURE; self-capability
+explanation remains bounded with global synchronization as a continuing requirement;
+and the S5 absence-of-compatible-topic-evidence result remains a governed fail-closed
+boundary rather than unfinished implementation.
+
+Historical CAP-11 prose describing P3/A3/E3/RR3 as residual is superseded by current
+executable evidence. The baseline contains passing contracts for the complete bounded
+N-step chain: continuation -> Planning(N) -> Authorization(N) -> Execution(N) ->
+Reasoning(N) -> R(N+1), including full-cycle integration. Focused reselection evidence:
+24 PASS / 0 FAIL. No parallel owner is required.
+
+GLOBAL_PRODUCTIVE_HORIZON_RESELECTION: COMPLETE.
+DEMONSTRATED_PRODUCTIVE_RESIDUAL: NONE.
+NEXT_PRODUCTIVE_HORIZON: NOT SELECTED.
+CONTRACT_RED_AUTHORIZATION: NONE.
+PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+
+STOP. A later productive block requires new current evidence proving one exact,
+non-duplicative owner/consumer/reachability residual.
+
+======================================================================
+2026-10-04 — POST-GLOBAL-RESELECTION EVOLUTION / MASTER-PLAN RECONCILIATION
+======================================================================
+
+Starting Owner-certified baseline: 13,401 PASS / 0 FAIL / Ruff clean.
+
+The current evolution map is evidence-reconciled as follows:
+- H1-H4: SUBSTANTIALLY REALIZED / BOUNDED; no demonstrated productive residual.
+- H5: PARTIAL / FUTURE; no demonstrated productive residual.
+- H6: PARTIAL / FUTURE beyond bounded governed foundations; no demonstrated
+  productive residual.
+- N1-N7: CLOSED; no N8 is created or implied.
+- Persistent Cognitive Companion: REALIZED / BOUNDED. Older "partial integration"
+  wording remains historical provenance, not current implementation status.
+- Generalized multimodal composition and ROBY Voice Identity remain strategic/future
+  horizons without a promoted current seam.
+- Future Capabilities guidance remains governance, not an implementation queue.
+
+EVOLUTION_MASTER_PLAN_RECONCILIATION: COMPLETE.
+CURRENT_EVOLUTION_STATE: GOVERNED_PLATEAU / EVIDENCE_WAITING.
+DEMONSTRATED_PRODUCTIVE_RESIDUAL: NONE.
+NEXT_PRODUCTIVE_HORIZON: NOT SELECTED.
+NEXT_INVENTORY_CANDIDATE: NOT SELECTED.
+CONTRACT_RED_AUTHORIZATION: NONE.
+PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+STOP_PRODUCTIVE: PRESERVED.
+
+Re-entry requires new current evidence, a concrete user/product requirement, a newly
+available dependency, a regression/contradiction, or explicit Owner authorization to
+inventory one named strategic horizon. Re-entry always begins with inventory and reuse
+proof, never directly with RED.
+
+No E1-C, H7, N8 or parallel authority is implied by this reconciliation.
+
+
+======================================================================
+2026-10-05 — ROBY HUMANIZATION & INTEGRATED PRESENCE AUDIT
+======================================================================
+
+Current-state reconciliation confirms that the repository already contains and has
+historically closed the Humanization Integration & Productive Reachability audit,
+ordinary-turn composition reconciliation, canonical personality-expression projection
+and Unified Experience provider-response reachability.
+
+Current classification:
+- identity/self-model: EXISTING / BOUNDED;
+- autobiographical/longitudinal continuity: EXISTING / BOUNDED;
+- personality/visible expression: EXISTING / PRODUCTIVELY INTEGRATED;
+- companion/presence/initiative: EXISTING / BOUNDED;
+- reflection/metacognition/self-epistemic humility: EXISTING / BOUNDED;
+- voice identity: PARTIAL/FUTURE beyond bounded expressive voice;
+- general neural humanization brain: DUPLICATE-RISK / NOT AUTHORIZED.
+
+HUMANIZATION_INTEGRATED_PRESENCE_AUDIT: COMPLETE.
+HUMANIZATION_PRODUCTIVE_COMPOSITION_REACHABILITY: SUBSTANTIALLY_IMPROVED / BOUNDED.
+DEMONSTRATED_HUMANIZATION_RESIDUAL: NONE.
+PRE_RED_AUTHORIZATION: NONE.
+CONTRACT_RED_AUTHORIZATION: NONE.
+STOP_HUMANIZATION: PRESERVED.
+
+The independent D:\Roby development-history intent is not absorbed into humanization.
+It remains a high-value source question. If Owner chooses to continue from the current
+certified plateau, reconcile its current source/trust/reachability state first and STOP
+before RED unless one current non-duplicative residual is demonstrated.
+
+======================================================================
+2026-10-05 — D:\Roby GOVERNED DEVELOPMENT HISTORY SOURCE — CURRENT-STATE RECONCILIATION
+======================================================================
+
+Owner intent clarified: D:\Roby remains read-only history. ROBY may identify a
+historical finding, explain what could be improved, how and why, and present that
+advice under human review. Consultation never authorizes autonomous mutation.
+
+Current executable inventory proves that the downstream improvement chain already
+exists: governed Self Diagnostics, reproducible proof, hash-bound current project
+evidence, bounded diagnostic proposal generation, canonical Governed Proposal inbox
+reachability and mandatory human review. Autonomous execution and code mutation remain
+disabled.
+
+The remaining gap is upstream and source-specific. No canonical productive contract
+currently exposes D:\Roby as development-history evidence with a trust distinction
+that prevents historical material from masquerading as current executable truth.
+
+HISTORICAL_DEVELOPMENT_MATERIAL != CURRENT_EXECUTABLE_PROJECT_EVIDENCE.
+HISTORICAL_FINDING != CURRENT_DEFECT.
+HISTORICAL_SUGGESTION != CHANGE_AUTHORIZATION.
+
+D_ROBY_HISTORY_SOURCE: MISSING_CANONICAL_SOURCE_TRUST_SEAM.
+DOWNSTREAM_REASONING: EXISTING / REUSE.
+SELF_DIAGNOSTICS: EXISTING / REUSE.
+IMPROVEMENT_PROPOSAL_GENERATION: EXISTING / REUSE.
+HUMAN_REVIEW: EXISTING / REQUIRED.
+AUTONOMOUS_EXECUTION: FORBIDDEN.
+CODE_OR_HISTORY_MUTATION: FORBIDDEN.
+DEMONSTRATED_RESIDUAL:
+AUTHORIZED_READ_ONLY_DEVELOPMENT_HISTORY_SOURCE_AND_TRUST_PROJECTION.
+PRE_RED_READINESS: YES.
+CONTRACT_RED_AUTHORIZATION: NO — STOP FOR OWNER CERTIFICATION.
+
+Recommended next block after certification:
+D:\Roby GOVERNED DEVELOPMENT HISTORY SOURCE — PRE-RED RECONCILIATION.
+
+======================================================================
+2026-10-05 — D:\Roby DEVELOPMENT HISTORY SOURCE PRE-RED RECONCILIATION
+======================================================================
+
+Starting Owner-certified baseline: 13,401 PASS / 0 FAIL / Ruff clean.
+
+The Current-State reconciliation's residual is narrowed to one source/trust seam:
+
+AUTHORIZED_DEVELOPMENT_HISTORY_ROOT -> BOUNDED_READ_ONLY_DISCOVERY ->
+DEVELOPMENT_HISTORY_PROVENANCE/TRUST -> EXPLICIT_SELECTION ->
+EXISTING_READER / DOCUMENT_INBOX / REASONING.
+
+Deployment configuration is proposed as ROBY_DEVELOPMENT_HISTORY_ROOT; D:\Roby must
+never be hardcoded in product code. Personal Documents and CAP-17 provide reusable
+security/mechanical patterns but retain distinct domain identities.
+
+Historical material may originate an advisory observation, but cannot satisfy current
+reproducible-proof or hash-bound project-evidence gates. Any formal improvement proposal
+continues through current-project verification and existing human-reviewed Governed
+Proposal authorities.
+
+D_ROBY_PRE_RED_RECONCILIATION: COMPLETE.
+CANONICAL_MISSING_SEAM: DEVELOPMENT_HISTORY_SOURCE_AND_TRUST_PROJECTION.
+SOURCE_ACCESS: READ_ONLY / EXPLICIT / BOUNDED.
+HISTORICAL_TRUST: NON_CURRENT_PROJECT_EVIDENCE.
+DOWNSTREAM_AUTHORITIES: EXISTING / REUSE.
+AUTOMATIC_MEMORY_LEARNING_DIAGNOSTICS_PROPOSAL: FORBIDDEN.
+CODE_OR_HISTORY_MUTATION: FORBIDDEN.
+CONTRACT_RED_READINESS: YES.
+CONTRACT_RED_AUTHORIZATION: NO — STOP FOR OWNER CERTIFICATION.
+
+======================================================================
+2026-10-05 — D:\Roby GOVERNED DEVELOPMENT HISTORY SOURCE — CONTRACT RED
+======================================================================
+
+Starting baseline: PRE-RED OWNER-CERTIFIED / 13,401 PASS / Ruff clean.
+
+The certified residual is contracted at the source/trust boundary only:
+ROBY_DEVELOPMENT_HISTORY_ROOT -> bounded read-only discovery ->
+development-history provenance + HISTORICAL_DEVELOPMENT_MATERIAL trust ->
+explicit selection/revalidation -> existing reader -> existing Document Inbox.
+
+The RED does not create or authorize another Reasoning authority, Inbox, Memory,
+Learning, diagnostics, Proposal authority, Planning, Execution, autonomous patcher or
+history mutation path.
+
+Permanent distinction:
+HISTORICAL_DEVELOPMENT_MATERIAL != CURRENT_EXECUTABLE_PROJECT_EVIDENCE.
+HISTORICAL_FINDING != CURRENT_DEFECT.
+HISTORICAL_SUGGESTION != CHANGE_AUTHORIZATION.
+
+Focused RED result before productive implementation:
+- new D:\Roby contract: 11 intended FAIL / 1 PASS;
+- cause of all 11 intended failures: missing app.development_history_source;
+- existing CAP-17 + Personal Documents comparison contracts: 25 PASS / 0 FAIL.
+
+D_ROBY_DEVELOPMENT_HISTORY_CONTRACT_RED: AUTHORIZED.
+PRODUCTIVE_GREEN: NOT YET AUTHORIZED.
+STOP before implementation pending Owner RED certification.
+
+======================================================================
+2026-10-05 — D:\Roby GOVERNED DEVELOPMENT HISTORY SOURCE — SURGICAL GREEN
+======================================================================
+
+Starting baseline: CONTRACT RED OWNER-CERTIFIED / 13,402 PASS / 11 intended FAIL /
+Ruff clean.
+
+The GREEN implements only the certified source/trust seam in
+app.development_history_source. It adds bounded deterministic read-only discovery,
+development-history provenance, HISTORICAL_DEVELOPMENT_MATERIAL trust, explicit
+selection with containment/identity revalidation, and delegation to the existing
+DocumentReadingService and DocumentInboxManager.
+
+One latent CONTRACT RED assertion was reconciled during GREEN: the canonical
+DocumentRecord exposes provenance at record.metadata.source_name, as already certified
+by Document Inbox tests. The RED assertion was corrected from record.source_name to
+record.metadata.source_name. No product authority was widened to accommodate the test.
+
+No automatic startup wiring, Memory, Learning, diagnostics, Proposal, Planning,
+Execution, code mutation or history mutation is introduced.
+
+Permanent distinction:
+HISTORICAL_DEVELOPMENT_MATERIAL != CURRENT_EXECUTABLE_PROJECT_EVIDENCE.
+HISTORICAL_FINDING != CURRENT_DEFECT.
+HISTORICAL_SUGGESTION != CHANGE_AUTHORIZATION.
+
+Focused local validation in the build environment:
+- D:\Roby source contract + CAP-17 catalogue + Document Inbox: 38 PASS / 0 FAIL.
+- app.development_history_source compiles cleanly.
+- changed product source has no lines longer than 88 characters.
+
+D_ROBY_DEVELOPMENT_HISTORY_SURGICAL_GREEN: IMPLEMENTED.
+OWNER_FULL_CERTIFICATION: PENDING.
+
+2026-10-05 — D:\Roby GREEN — SURGICAL RECONCILIATION & REPAIR
+- Trigger: Owner full certification exposed an earlier canonical
+  DevelopmentHistorySourceAdapter / explicit-owner consultation contract.
+- Reconciled to ONE development-history source authority; no parallel adapter.
+- Historical ZIP artifacts: discoverable as opaque metadata only; never readable
+  or ingestible.
+- Explicit owner consultation: read-only / human / human_approval.
+- Historical material remains non-current truth and cannot authorize change.
+- Focused repair certification: 52 PASS / 0 FAIL.
+- STOP before closure pending Owner full certification.
+
+======================================================================
+2026-10-05 — D:\Roby GOVERNED DEVELOPMENT HISTORY SOURCE — POST-GREEN MASTER PLAN
+RECONCILIATION
+======================================================================
+
+Starting Owner-certified state: 13,413 PASS / 0 FAIL / Ruff clean.
+
+The repaired GREEN now demonstrates the complete bounded D:\Roby source/consultation
+chain: governed environment root, deterministic read-only discovery, historical
+provenance/trust, explicit selection/revalidation, opaque-archive metadata without
+archive reading, and human-explicit consultation through development_history.consult
+and the existing OfficialRuntimeCapabilityRegistry.
+
+The source remains non-cognitive and non-mutating. Existing downstream Self Diagnostics,
+current-project evidence, Governed Proposal and human-review authorities remain the only
+owners of improvement escalation. Historical material may motivate investigation but
+cannot itself establish a current defect or authorize change.
+
+HISTORICAL_DEVELOPMENT_MATERIAL != CURRENT_EXECUTABLE_PROJECT_EVIDENCE.
+HISTORICAL_FINDING != CURRENT_DEFECT.
+HISTORICAL_SUGGESTION != CHANGE_AUTHORIZATION.
+
+D_ROBY_POST_GREEN_MASTER_PLAN_RECONCILIATION: COMPLETE.
+D_ROBY_DEMONSTRATED_PRODUCTIVE_RESIDUAL: NONE.
+D_ROBY_NEW_PRE_RED_AUTHORIZATION: NONE.
+D_ROBY_NEW_CONTRACT_RED_AUTHORIZATION: NONE.
+STOP_D_ROBY: REQUIRED.
+
+Re-entry requires new current evidence or one concrete unmet Owner/product requirement
+and must begin with reconciliation. The next project step returns to global Master Plan
+horizon selection; no new D:\Roby authority is implied.
+
+======================================================================
+2026-10-05 — POST-D:\Roby GLOBAL PRODUCTIVE HORIZON RESELECTION
+======================================================================
+
+Starting Owner-certified state: 13,413 PASS / 0 FAIL / Ruff clean.
+
+A concrete Owner/product requirement was evaluated: requests such as "mostrame las
+últimas fotos de Marte / James Webb / Curiosity" should be able to produce governed
+visual results inside the official conversation surface rather than links/text only.
+
+Current evidence demonstrates that NASA governed acquisition already exists through the
+existing source-query authority. NasaGovernedSourceAdapter uses NASA Images search and
+normalizes image results with media_type + preview_url. Stored-image/Vision authorities
+also already exist and must not be duplicated.
+
+The official desktop conversation result surface remains text-only: DesktopMessage is
+sender + text and the transcript appends rendered strings. Repository inspection found
+no current consumer that projects the external `preview_url` into an admitted image
+card/gallery/modal. User-attached/stored-image analysis is a different existing seam.
+
+SELECTED_PRODUCTIVE_RESIDUAL: EXTERNAL_IMAGE_RESULT_PRESENTATION_SEAM.
+EXISTING_SOURCE_ACQUISITION: REUSE.
+EXISTING_VISION_AUTHORITIES: REUSE / DO NOT DUPLICATE.
+NEW_COGNITIVE_AUTHORITY: NONE.
+CONTRACT_RED_AUTHORIZATION: NO.
+PRODUCTIVE_GREEN_AUTHORIZATION: NO.
+NEXT: EXTERNAL IMAGE RESULT -> OFFICIAL CONVERSATION VISUAL PRESENTATION — PRE-RED
+RECONCILIATION.
+
+STOP before RED. PRE-RED must reconcile projection shape, UI ownership, bounded media
+transport if needed, provenance/safety/fallback semantics, modal/detail behavior, and
+all protected callers/tests before any implementation.
+
+## EXTERNAL IMAGE RESULT -> OFFICIAL CONVERSATION VISUAL PRESENTATION
+## PRE-RED RECONCILIATION (2026-10-05)
+
+Starting certified state: 13,413 PASS / 0 FAIL / Ruff clean.
+
+Reconciliation confirms a narrow presentation residual after the existing governed
+external-source path. NASA acquisition, source selection, query execution,
+normalization,
+provenance/evidence admission, Vision, stored-image handling, and canonical cognition
+are
+existing authorities and must be reused.
+
+Canonical seam:
+OWNER EXPLICIT VISUAL REQUEST
+-> EXISTING GOVERNED SOURCE SELECTION / EXECUTION
+-> EXISTING CONVERSATIONAL RESULT WITH IMMUTABLE RAW ITEM
+-> BOUNDED EXTERNAL IMAGE PRESENTATION PROJECTION
+-> OFFICIAL DESKTOP PRESENTER
+-> INLINE PREVIEW / OPTIONAL UI-OWNED DETAIL VIEW
+
+The projection/presenter is mechanical presentation only. It must not become a source,
+network-search, Vision, Reasoning, Memory, Learning, Proposal, Planning, or Execution
+authority. M268 Multimodal Conversation Integration is not the owner of this output
+seam.
+The existing map-display contract/presenter split is the architectural precedent.
+
+Preview URL metadata is not yet admitted image bytes. Any future preview-byte retrieval
+must be explicit-result-bound, HTTPS-only, bounded by timeout/bytes/content type, and
+must
+not become arbitrary URL fetching. Presentation failure degrades to text/source metadata
+without invalidating an otherwise successful governed information query.
+
+Modal/lightbox/detail behavior, if implemented, is UI-only behavior over the same
+admitted
+presentation artifact and performs no new search or cognition.
+
+PRE_RED_RECONCILIATION: CLOSED / READY_FOR_OWNER_CERTIFICATION.
+CONTRACT_RED_READINESS: CERTIFIED_BY_RECONCILIATION / PENDING_OWNER_BASELINE.
+PRODUCTIVE_GREEN_AUTHORIZATION: NO.
+STOP: BEFORE CONTRACT RED.
+
+======================================================================
+2026-10-05 — EXTERNAL IMAGE RESULT -> OFFICIAL CONVERSATION VISUAL
+PRESENTATION — CONTRACT RED
+======================================================================
+
+Starting Owner-certified PRE-RED state: 13,413 PASS / 0 FAIL / Ruff clean.
+
+The reconciled external-image presentation residual is now expressed as an executable
+contract without product implementation. The RED is provider-neutral and preserves the
+existing governed source-query, normalization, cognition, Vision, and desktop ownership
+boundaries.
+
+Required missing surfaces:
+- app.external_image_presentation
+- app.desktop_external_image_presenter
+
+The projection must derive immutable presentation metadata only from already governed
+image results. The desktop presenter must consume that artifact, support inline/gallery
+and same-artifact detail presentation, and keep preview-byte retrieval subordinate,
+HTTPS-only, timeout/byte/content-type bounded, and fallback-safe.
+
+No source query, NASA-specific authority, Vision authority, cognitive authority, or
+background/autonomous behavior may be introduced by this contract.
+
+CONTRACT_RED: DELIVERED / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_GREEN_AUTHORIZATION: NO.
+STOP: BEFORE GREEN.
+
+EXTERNAL IMAGE RESULT -> OFFICIAL CONVERSATION VISUAL PRESENTATION
+SURGICAL GREEN
+
+Owner-certified CONTRACT RED started from 13,413 PASS with Ruff clean and
+12 expected contract failures only.
+
+Surgical GREEN adds the provider-neutral immutable external-image presentation
+projection and mechanical desktop presenter foundation required by that RED.
+Existing governed source acquisition, OfficialConversationGateway, NASA,
+Vision, Reasoning, Memory, Learning, Planning, and Execution authorities are
+reused and remain unchanged.
+
+Preview transport and UI rendering are injected mechanical dependencies.
+Inline preview handling is bounded by explicit timeout/byte limits and
+supported image content types. Presentation failure requires text fallback and
+does not mutate or reinterpret the admitted artifact. Gallery order is
+preserved and detail presentation reuses the same artifact without requery.
+
+No concrete Tk widget integration, HTTP preview authority, background fetch,
+second Web/NASA/Vision authority, or cognitive authority is authorized by this
+GREEN.
+
+Assistant focused validation: 12 PASS contract; 143 PASS nearby regressions;
+17 PASS final M361 plus contract check. Ruff is unavailable in the assistant
+environment and remains subject to Owner local certification.
+
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION
+NEXT: OWNER LOCAL CERTIFICATION
+STOP BEFORE ANY POST-GREEN EXTENSION.
+
+
+======================================================================
+2026-10-05 — EXTERNAL IMAGE RESULT -> OFFICIAL CONVERSATION VISUAL
+PRESENTATION — POST-GREEN INTEGRATION RECONCILIATION
+======================================================================
+
+Starting Owner-certified GREEN state: 13,425 PASS / 0 FAIL / Ruff clean.
+
+The certified projection and desktop presenter foundation exists, but repository
+evidence shows no productive composition from the governed conversational result
+through that projection/presenter into the official desktop surface. The desktop
+continues to consume UIResponse.text and render DesktopMessage strings.
+
+The demonstrated immediate residual is therefore integration wiring only:
+EXISTING GOVERNED CONVERSATIONAL RESULT
+-> EXISTING project_external_image
+-> EXISTING DesktopExternalImagePresenter
+-> OFFICIAL DESKTOP VISUAL SURFACE
+with text fallback preserved.
+
+No second source-query, NASA, Vision, Reasoning, image repository, or browser
+authority is authorized. No canonical generic preview-byte transport was found;
+source-specific HTTP clients must not be repurposed silently as universal fetch.
+
+A separate later reachability residual is recorded: the concrete visual request
+wording such as `mostrame ... fotos` is not demonstrated by the explicit-query
+vocabulary of AppliedConversationalIntelligence. `ultimas` also does not prove
+newest-first NASA ordering. Neither concern may be smuggled into presentation
+wiring.
+
+POST_GREEN_INTEGRATION_RECONCILIATION: CLOSED / READY_FOR_OWNER_CERTIFICATION.
+DEMONSTRATED_PRODUCTIVE_RESIDUAL: VISUAL_PRESENTATION_INTEGRATION_WIRING.
+REACHABILITY_QUERY_SEMANTICS: SEPARATE_LATER_RESIDUAL / NOT_AUTHORIZED_HERE.
+LATEST_ORDERING: UNPROVEN / DO_NOT_CLAIM.
+NEW_CONTRACT_RED: NOT_AUTHORIZED.
+NEW_PRODUCTIVE_GREEN: NOT_AUTHORIZED.
+NEXT: INTEGRATION_WIRING_PRE_RED_RECONCILIATION ONLY.
+
+
+[EXTERNAL IMAGE VISUAL PRESENTATION — INTEGRATION WIRING PRE-RED]
+
+Owner-certified starting baseline: 13,425 PASS / 0 FAIL / Ruff clean.
+
+Canonical missing seam:
+VISUAL_PRESENTATION_INTEGRATION_WIRING.
+
+Reuse:
+- existing governed conversational source/query authorities;
+- existing ExternalImagePresentationArtifact projection;
+- existing DesktopExternalImagePresenter;
+- existing desktop worker and UI-thread dispatch mechanisms.
+
+Preserve DesktopMessage and UIResponse text compatibility.
+Preview transport is mechanical, presentation-only, HTTPS-only and bounded.
+Preview retrieval must remain off the Tk main thread.
+Tk rendering must reuse the existing UI-thread dispatch path.
+Failure degrades to the existing textual result.
+
+Do not create a second source, Web/NASA, Vision, repository, Reasoning,
+Memory, Learning, scheduler, desktop controller, or browser authority.
+
+Natural-language `mostrame fotos` reachability and `ultimas` newest-first
+semantics remain separate later residuals.
+
+CONTRACT_RED_READINESS: CERTIFIED.
+PRODUCTIVE_GREEN_AUTHORIZATION: NO.
+STOP before CONTRACT RED.
+
+[EXTERNAL IMAGE VISUAL PRESENTATION — INTEGRATION WIRING CONTRACT RED]
+
+Owner-certified starting baseline: 13,425 PASS / 0 FAIL / Ruff clean.
+
+The certified PRE-RED seam is now executable as a RED contract.
+Deliberately absent production surface:
+app.external_image_presentation_wiring
+
+The RED covers same-turn projection, text compatibility, bounded HTTPS preview
+transport, presenter reuse, textual fallback, existing UI dispatch reuse, and
+duplicate-authority exclusions.
+
+No productive implementation is included.
+`mostrame fotos` reachability and `ultimas` ordering remain separate residuals.
+
+EXPECTED RED ROOT CAUSE: canonical wiring module absent.
+GREEN_AUTHORIZATION: NO.
+STOP for Owner RED certification.
+
+[EXTERNAL IMAGE VISUAL PRESENTATION — INTEGRATION WIRING SURGICAL GREEN]
+
+Owner-certified RED baseline:
+13,425 existing PASS / 10 expected RED FAIL / Ruff clean.
+
+Added only:
+app.external_image_presentation_wiring
+
+The seam is mechanical and non-cognitive. It projects already governed image
+items, preserves text, validates bounded HTTPS preview transport, delegates to
+the existing presenter, preserves fallback, and reuses dispatcher.post.
+
+No source-query, NASA, Vision, repository, cognition, scheduler, worker,
+browser, Memory, Learning, Proposal, Planning, or Execution authority added.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate residuals.
+
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_UI_WIDGET_EXTENSION: NOT AUTHORIZED.
+STOP for Owner local certification.
+
+[EXTERNAL IMAGE VISUAL PRESENTATION — POST-INTEGRATION MASTER PLAN RECONCILIATION]
+
+Owner-certified starting state: 13,435 PASS / 0 FAIL / Ruff clean.
+
+Projection, presenter, and integration-wiring foundations are certified.
+The wiring APIs currently have no productive desktop consumer outside their
+defining module and contract tests.
+
+NEXT PRODUCTIVE RESIDUAL:
+OFFICIAL_DESKTOP_EXTERNAL_IMAGE_PRESENTATION_COMPOSITION.
+
+This is a composition residual, not a new presentation or cognitive authority.
+
+Separate demonstrated later residuals:
+- EXTERNAL_IMAGE_NATURAL_LANGUAGE_REACHABILITY
+- EXTERNAL_IMAGE_FRESHNESS_ORDERING
+
+`mostrame fotos` is not demonstrated by the current explicit-query vocabulary.
+`ultimas` newest-first semantics is not demonstrated by the NASA query path.
+
+NEXT:
+OFFICIAL DESKTOP EXTERNAL IMAGE PRESENTATION COMPOSITION — PRE-RED
+RECONCILIATION.
+
+CONTRACT_RED: NOT AUTHORIZED.
+PRODUCTIVE_GREEN: NOT AUTHORIZED.
+STOP before PRE-RED completion.
+
+[OFFICIAL DESKTOP EXTERNAL IMAGE PRESENTATION COMPOSITION — PRE-RED]
+
+Owner-certified starting state: 13,435 PASS / 0 FAIL / Ruff clean.
+
+The governed conversational result preserves admitted raw image metadata before
+the normal desktop path reduces output to text-only UIResponse/DesktopMessage.
+
+Canonical missing seam:
+SAME_TURN_VISUAL_COMPANION_TO_OFFICIAL_DESKTOP.
+
+The composition must reuse the certified projection, wiring, presenter,
+existing desktop worker, and existing UI-thread dispatch boundary.
+
+Visual payload is additive to the canonical text result. It must not be
+reconstructed from text and must not trigger a second source query.
+
+A minimal Tk-owned inline/gallery surface may be contracted later.
+The text transcript and fallback remain mandatory.
+
+No second worker, scheduler, source authority, Vision authority, repository,
+browser, Memory, Learning, Proposal, Planning, or Execution authority.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate blocks.
+
+PRE_RED: COMPLETE / PENDING OWNER CERTIFICATION.
+CONTRACT_RED_READINESS: CERTIFIED BY RECONCILIATION.
+PRODUCTIVE_GREEN: NOT AUTHORIZED.
+STOP before CONTRACT RED.
+
+[OFFICIAL DESKTOP EXTERNAL IMAGE PRESENTATION COMPOSITION — CONTRACT RED]
+
+Owner-certified PRE-RED baseline: 13,435 PASS / 0 FAIL / Ruff clean.
+
+Executable RED now fixes the same-turn visual companion composition contract.
+
+Deliberately absent production seam:
+app.desktop_external_image_presentation_composition
+
+Expected RED:
+10 failures caused only by the absent composition module.
+
+The contract preserves text-only DesktopMessage/UIResponse behavior, reuses the
+certified image projection/wiring/presenter, preserves text fallback, delegates
+UI rendering to the existing dispatcher, and preserves gallery identity/order.
+
+No second query, source authority, Vision/repository, worker, scheduler,
+dispatcher, cognition, Memory, Learning, Proposal, Planning, or Execution.
+
+`mostrame fotos` reachability and `ultimas` ordering remain out of scope.
+
+CONTRACT_RED: DELIVERED / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_GREEN: NOT AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP EXTERNAL IMAGE PRESENTATION COMPOSITION — SURGICAL GREEN]
+
+Owner-certified RED baseline: 13,435 PASS / 10 expected FAIL / Ruff clean.
+
+Added only app.desktop_external_image_presentation_composition.
+
+The same-turn visual companion is projected from the already governed result
+and delegates to the certified external-image wiring/presenter contracts.
+
+DesktopMessage, UIResponse, source selection/query, NASA/Web, Vision,
+repository, Memory, Learning, diagnostics, Proposal, Planning, and Execution
+remain unchanged.
+
+No new worker, scheduler, dispatcher, browser, or main loop is introduced.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate residuals.
+
+CONTRACT_RED_TO_GREEN: 10 FAIL -> 10 PASS.
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP EXTERNAL IMAGE PRESENTATION COMPOSITION — POST-GREEN]
+
+Owner-certified starting state: 13,445 PASS / 0 FAIL / Ruff clean.
+
+Projection, presenter, wiring, and same-turn visual companion composition
+are now certified and must be reused.
+
+Repository-wide consumer inspection shows no productive desktop/runtime
+consumer of the certified visual companion composition.
+
+Demonstrated productive residual:
+OFFICIAL_DESKTOP_VISUAL_COMPANION_RUNTIME_BINDING.
+
+This is a composition-root/UI binding residual only.
+
+The next governed block is:
+OFFICIAL DESKTOP VISUAL COMPANION RUNTIME BINDING — PRE-RED RECONCILIATION.
+
+It must preserve the text transcript, reuse the existing desktop worker and
+UI-thread handoff, and perform no second source query.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate later
+residuals.
+
+No second projection, presenter, source authority, Vision/repository,
+controller, worker, scheduler, dispatcher, browser, or cognitive authority.
+
+POST_GREEN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+NEW PRE_RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL COMPANION RUNTIME BINDING — PRE-RED]
+
+Owner-certified starting state: 13,445 PASS / 0 FAIL / Ruff clean.
+
+The official desktop composition root is existing `desktop_bootstrap.py`.
+
+It already owns the same official conversation runtime used by the local
+conversation adapter and constructs `ROBYDesktopApp`.
+
+Canonical missing seam:
+SAME_TURN_APPLIED_RESULT_EXPOSURE_TO_DESKTOP_COMPOSITION.
+
+Critical rule:
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION.
+
+The future binding must not call applied conversational intelligence as a
+second execution beside the existing `UnifiedBrain.process` turn.
+
+UIResponse and DesktopMessage remain backward-compatible text contracts.
+
+Certified projection, companion, wiring, presenter, desktop worker, and
+UI-thread handoff must be reused.
+
+A minimal additive Tk visual surface may be bound only after the same-turn
+governed result is exposed mechanically.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate later
+residuals.
+
+No second gateway, controller, source executor, projection, presenter, worker,
+scheduler, dispatcher, browser, Vision/repository, or cognitive authority.
+
+PRE_RED: COMPLETE / PENDING OWNER CERTIFICATION.
+CONTRACT_RED: NOT YET OWNER-AUTHORIZED.
+PRODUCTIVE_GREEN: NOT AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL COMPANION RUNTIME BINDING — CONTRACT RED]
+
+Owner-certified PRE-RED baseline: 13,445 PASS / 0 FAIL / Ruff clean.
+
+Canonical missing seam:
+SAME_TURN_APPLIED_RESULT_EXPOSURE_TO_DESKTOP_COMPOSITION.
+
+Critical invariant:
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION.
+
+Contract RED adds architecture contracts only.
+
+Deliberately absent productive API:
+app.desktop_visual_companion_runtime_binding.
+
+The RED requires one injected same-turn execution, immutable mechanical
+exposure of text plus the certified visual companion, preservation of
+UIResponse/DesktopMessage, certified presenter reuse, text fallback, and
+existing dispatcher handoff.
+
+No second gateway, source query, applied-intelligence execution, controller,
+projection, presenter, worker, scheduler, dispatcher, or main loop.
+
+No Tk production change is authorized by RED.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+CONTRACT_RED: DELIVERED / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_BINDING: ABSENT BY DESIGN.
+SURGICAL_GREEN: NOT YET AUTHORIZED.
+STOP for Owner local RED certification.
+
+[OFFICIAL DESKTOP VISUAL COMPANION RUNTIME BINDING — SURGICAL GREEN]
+
+Owner-certified CONTRACT RED baseline:
+13,445 existing PASS / 10 expected FAIL / Ruff clean.
+
+Surgical GREEN adds only:
+app.desktop_visual_companion_runtime_binding.
+
+The binding is mechanical and reuses the certified companion composition,
+presenter path, and dispatcher path.
+
+It introduces no gateway, source query, controller, worker, scheduler,
+dispatcher, Vision/repository, or cognitive authority.
+
+ONE OWNER TURN -> ONE INJECTED SAME-TURN EXECUTION is preserved.
+
+During GREEN validation, the RED fixture was reconciled from obsolete identity
+keys (`source`, `url`) to the already certified external-image schema
+(`source_id`, `external_id`). No productive compatibility alias was added.
+
+Focused and neighboring validation: 47 PASS / 0 FAIL.
+
+`mostrame fotos` reachability and `ultimas` ordering remain out of scope.
+
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION.
+POST_GREEN_RECONCILIATION: NOT YET AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL COMPANION RUNTIME BINDING — POST-GREEN]
+
+Owner-certified GREEN baseline: 13,455 PASS / 0 FAIL / Ruff clean.
+
+The certified runtime binding exists and must be reused.
+
+Productive-consumer audit:
+no productive module imports or calls the runtime binding.
+
+The official desktop still follows:
+worker -> controller -> decorated UI adapter -> UnifiedBrain.process
+-> UIResponse -> DesktopMessage -> root.after -> text transcript.
+
+Therefore the certified binding is foundation but is not yet productively
+composed into the official desktop.
+
+Demonstrated productive residual:
+OFFICIAL_DESKTOP_VISUAL_RUNTIME_COMPOSITION.
+
+A future PRE-RED must locate the exact existing same-turn execution surface
+that can expose the governed applied result without duplicating the current
+brain turn.
+
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION remains mandatory.
+
+No second gateway, brain, controller, source executor, projection, companion,
+presenter, binding, worker, scheduler, dispatcher, or main loop.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+POST_GREEN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+NEXT_PRE_RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL RUNTIME COMPOSITION — PRE-RED RECONCILIATION]
+
+Owner-certified starting baseline: 13,455 PASS / 0 FAIL / Ruff clean.
+
+The certified visual runtime binding remains foundation and must be reused.
+
+Critical finding:
+the current desktop owner turn runs through UnifiedBrain.process and
+OfficialConversationGateway.submit_observed/submit.
+
+That path does not call execute_applied_conversational_intelligence.
+
+Therefore calling the applied-intelligence method after desktop submit would
+create a second governed execution and is forbidden.
+
+Exact missing seam:
+SAME_TURN_GOVERNED_VISUAL_RESULT_EXPOSURE.
+
+The single canonical owner-turn execution must mechanically expose any governed
+visual result admitted during that exact turn before the certified desktop
+visual binding may consume it.
+
+LocalConversationTurn, UIResponse, and DesktopMessage remain preserved.
+
+Existing adapter decorators, desktop worker, root.after/UIThreadDispatcher,
+visual projection, companion, presenter, and runtime binding must be reused.
+
+No second gateway, brain, source query, controller, worker, dispatcher,
+scheduler, presenter, binding, or main loop.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+PRE_RED_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+CONTRACT_RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL RUNTIME COMPOSITION — CONTRACT RED]
+
+Owner-certified PRE-RED baseline: 13,455 PASS / 0 FAIL / Ruff clean.
+
+Contract target:
+SAME_TURN_GOVERNED_VISUAL_RESULT_EXPOSURE.
+
+RED adds architecture contracts only.
+
+The deliberately absent mechanical seam is:
+app.same_turn_governed_visual_result_exposure.
+
+The RED fixes one owner turn -> one governed execution, exact admitted visual
+result identity, no URL parsing, preserved LocalConversationTurn/UIResponse,
+and productive transport surfaces through UnifiedBrain, the existing local UI
+adapter, and the existing desktop controller.
+
+This prevents an isolated helper from satisfying GREEN without a productive
+desktop path.
+
+No second gateway, brain, source query, controller, projection, presenter,
+binding, worker, dispatcher, scheduler, or main loop.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+CONTRACT_RED: DELIVERED / PENDING OWNER CERTIFICATION.
+SURGICAL_GREEN: NOT YET AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL RUNTIME COMPOSITION — SURGICAL GREEN]
+
+Owner-certified RED: 13,457 PASS / 10 expected FAIL / Ruff clean.
+
+GREEN implements SAME_TURN_GOVERNED_VISUAL_RESULT_EXPOSURE.
+
+A historical exact-hash contract protects app/runtime_ui_adapter.py.
+The first local implementation touched that file and produced one historical
+failure. The hash was not updated; the file was restored byte-for-byte.
+
+The RED transport requirement was reconciled to additive runtime/UI
+compositions around existing protected authorities.
+
+app/unified_brain.py also remains unchanged.
+
+The existing DesktopConversationController receives the optional visual
+companion surface without changing DesktopMessage.
+
+Focused visual contracts: 54 PASS / 0 FAIL.
+Nearby protected-authority/controller tests: 551 PASS / 0 FAIL.
+
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION is preserved.
+
+No concrete same-turn applied executor is bound in desktop_bootstrap.py in this
+GREEN. POST-GREEN must reconcile the composition root before further binding.
+
+No second gateway, brain, source query, controller, projection, presenter,
+binding, worker, dispatcher, scheduler, or main loop.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION.
+POST_GREEN_RECONCILIATION: NOT YET AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP VISUAL RUNTIME COMPOSITION — POST-GREEN MASTER PLAN
+RECONCILIATION]
+
+Owner-certified GREEN baseline: 13,467 PASS / 0 FAIL / Ruff clean.
+
+Certified same-turn visual exposure remains foundation and must be reused.
+
+Productive-consumer audit:
+SameTurnVisualRuntimeComposition and SameTurnVisualUIAdapterComposition have no
+productive composition-root consumer.
+
+DesktopConversationController.submit_with_visual_companion exists, but the
+official desktop worker still calls controller.submit.
+
+desktop_bootstrap.py still builds the existing decorated text adapter chain and
+does not compose the certified same-turn visual runtime/UI compositions.
+
+No productive desktop preview/presenter binding is demonstrated.
+
+Exact productive residual:
+OFFICIAL_DESKTOP_SAME_TURN_VISUAL_COMPOSITION_ROOT_BINDING.
+
+Before RED, a surgical PRE-RED must prove the exact existing single-execution
+applied-result source and preserve all existing desktop decorators, explicit
+selection arguments, worker ownership, UI-thread handoff, and text contracts.
+
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION remains mandatory.
+
+No second gateway, brain, source query, controller, exposure seam, projection,
+presenter, binding, worker, dispatcher, scheduler, or main loop.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+POST_GREEN_MASTER_PLAN_RECONCILIATION:
+COMPLETE / PENDING OWNER CERTIFICATION.
+
+NEXT PRE-RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP SAME-TURN VISUAL COMPOSITION ROOT BINDING — PRE-RED
+RECONCILIATION]
+
+Owner-certified baseline: 13,467 PASS / 0 FAIL / Ruff clean.
+
+Repository evidence shows no existing callable that returns both the canonical
+LocalConversationTurn and AppliedConversationalIntelligenceResult.
+
+execute_applied_conversational_intelligence performs governed interpretation,
+source selection/query, and natural-answer composition, but does not create an
+owner turn.
+
+The canonical owner-turn path remains UnifiedBrain -> OfficialConversationGateway
+-> existing interceptor cascade or EndToEndLocalConversation.converse.
+
+OfficialConversationGateway.submit already contains the canonical precedent:
+recognized explicit interceptors create one LocalConversationTurn and do not
+also execute the normal runtime conversation.
+
+Exact missing seam:
+APPLIED_CONVERSATIONAL_INTELLIGENCE_OWNER_TURN_INTERCEPTOR.
+
+Future RED must require the existing gateway to handle a recognized applied
+request as the owner-turn branch itself, retain the exact admitted applied
+result for same-turn presentation, and avoid normal runtime execution for that
+turn.
+
+Non-recognized requests continue through the existing owner-turn path once.
+
+Explicit document/source/evidence/visual-context selection keeps precedence.
+
+Existing desktop decorators, worker ownership, UI handoff, LocalConversationTurn,
+UIResponse, and DesktopMessage contracts remain preserved.
+
+Do not mutate historically protected runtime_ui_adapter.py merely to satisfy
+the new contract.
+
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION remains mandatory.
+
+No second gateway, brain, source executor, controller, worker, dispatcher, or
+visual authority.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+PRE_RED_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+CONTRACT_RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP SAME-TURN VISUAL COMPOSITION ROOT BINDING — CONTRACT RED]
+
+Owner-certified PRE-RED baseline: 13,467 PASS / 0 FAIL / Ruff clean.
+
+Pre-RED-to-RED protection check found official_conversation_gateway.py is
+historically protected by exact SHA-256
+0f8896575116a7ebaac908486d897e22c2f6adff59a05b3cc2997d028b5e0b11.
+
+The hash is not updated and gateway surgery is not required.
+
+RED contracts an additive
+applied_conversational_intelligence_owner_turn_composition around the canonical
+gateway instance.
+
+Recognized: interpret once, applied bridge once, normal submit zero, canonical
+LocalConversationTurn plus exact applied result.
+
+Not recognized: interpret once, applied bridge zero, normal submit once.
+
+Explicit document/source/evidence/visual context: normal submit once with no
+applied probe.
+
+LocalConversationTurn remains unchanged.
+
+No response-text URL parsing and no reachability/freshness semantics.
+
+New RED contract: 12 tests.
+Expected after M361 regeneration: 10 FAIL, 2 new PASS, M361 5 PASS.
+
+No productive implementation.
+
+ONE OWNER TURN -> ONE GOVERNED TURN EXECUTION is contractually fixed.
+
+No second gateway, brain, source executor, controller, worker, dispatcher, or
+visual authority.
+
+CONTRACT_RED: DELIVERED / PENDING OWNER CERTIFICATION.
+SURGICAL_GREEN: NOT YET AUTHORIZED.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP SAME-TURN VISUAL COMPOSITION ROOT BINDING — SURGICAL GREEN]
+
+Owner-certified RED: 10 expected FAIL / 13,469 PASS / Ruff clean.
+
+GREEN pre-implementation reconciliation found the applied bridge already
+performs interpretation internally. RED was reconciled to prevent duplicate
+interpretation.
+
+Added additive applied_conversational_intelligence_owner_turn_composition.
+
+No explicit context:
+applied bridge once; recognized handles the applied owner-turn branch;
+not recognized delegates to normal gateway.submit once.
+
+Explicit document/source/evidence/visual context:
+applied bridge zero; normal gateway.submit once.
+
+Exact admitted applied result is retained for same-turn presentation.
+
+LocalConversationTurn contract remains unchanged.
+
+official_conversation_gateway.py remains byte-identical at certified hash
+0f8896575116a7ebaac908486d897e22c2f6adff59a05b3cc2997d028b5e0b11.
+
+No gateway-private accounting or observer state is mutated by the additive
+composition. POST-GREEN must reconcile productive root consumption with
+existing gateway accounting and observer/evidence completion semantics.
+
+Focused GREEN and nearby contracts: 30 PASS / 0 FAIL.
+
+No second gateway, brain, source executor, controller, worker, dispatcher, or
+visual authority.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+SURGICAL_GREEN: DELIVERED / PENDING OWNER CERTIFICATION.
+STOP for Owner local certification.
+
+[OFFICIAL DESKTOP SAME-TURN VISUAL COMPOSITION ROOT BINDING — POST-GREEN
+MASTER PLAN RECONCILIATION]
+
+Owner-certified GREEN: 13,479 PASS / 0 FAIL / Ruff clean.
+
+Certified additive owner-turn composition is present and reusable.
+
+Repository-wide reachability shows no productive consumer of that composition
+or the same-turn visual runtime/UI compositions.
+
+Official desktop root still builds the existing LocalConversationUIAdapter and
+decorator chain. Official Tk worker still calls controller.submit.
+
+Protected OfficialConversationGateway.submit owns canonical observer/evidence
+begin, turn execution, post-turn observation, submitted-turn accounting,
+observer completion, and evidence sealing.
+
+The additive applied composition intentionally does not mutate those private
+gateway internals, and no public reusable lifecycle-finalization API exists.
+
+Direct root wiring would therefore bypass canonical lifecycle completion for
+recognized applied turns and can diverge UnifiedBrain accounting/diagnostics.
+
+Existing controller visual-companion surface also does not yet transport the
+explicit document/source/evidence/visual-context arguments used by the
+official worker.
+
+Exact next demonstrated residual:
+CANONICAL_APPLIED_OWNER_TURN_LIFECYCLE_INTEGRATION.
+
+Next PRE-RED must prove an existing extension seam that preserves accounting,
+observer/evidence completion, reflection, cognitive analysis, explicit-context
+precedence, exact applied-result exposure, and one execution.
+
+If no such seam exists, STOP before RED and refine architecture.
+
+Desktop visual composition-root productive binding is deferred until lifecycle
+integration is certified.
+
+No second gateway, brain, accounting authority, observer, reflection owner,
+controller, worker, dispatcher, source executor, or visual authority.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+POST_GREEN_MASTER_PLAN_RECONCILIATION:
+COMPLETE / PENDING OWNER CERTIFICATION.
+
+NEXT PRE-RED: NOT YET OWNER-AUTHORIZED.
+STOP for Owner local certification.
+
+[CANONICAL APPLIED OWNER-TURN LIFECYCLE INTEGRATION — PRE-RED
+RECONCILIATION]
+
+Owner-certified starting baseline: 13,479 PASS / 0 FAIL / Ruff clean.
+
+Canonical lifecycle audit confirms OfficialConversationGateway.submit owns
+observer/evidence begin, internal branch execution, post-turn reflection,
+submitted-turn accounting, observer completion, and evidence sealing.
+
+Existing gateway interceptor branches execute inside that envelope and then
+reuse common finalization.
+
+The applied capability is already owned by the same gateway, but no injectable
+owner-turn lifecycle seam was found that can admit an externally composed
+applied LocalConversationTurn before common finalization.
+
+UnifiedBrain.process depends on submit_observed for exactly-once reflection and
+performs cognitive analysis only after gateway lifecycle completion.
+
+External private-state mutation or a second lifecycle authority is forbidden.
+
+official_conversation_gateway.py remains protected at
+0f8896575116a7ebaac908486d897e22c2f6adff59a05b3cc2997d028b5e0b11.
+
+unified_brain.py remains protected at
+05f4c65fbb8a1478f9117b9b1de8c450d15211a257aa4835b8123a6babbc1750.
+
+No existing injectable lifecycle seam is demonstrated.
+
+CONTRACT RED is therefore NOT AUTHORIZED.
+
+STOP BEFORE RED.
+
+Next governed block:
+CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — ARCHITECTURAL DECISION.
+
+That decision must either prove an overlooked existing canonical seam or
+explicitly govern a surgical evolution of the protected lifecycle owner.
+
+No private-state wrapper, duplicate gateway/brain/observer/reflection authority
+or historical hash rewriting is authorized.
+
+Desktop visual root binding remains deferred.
+
+`mostrame fotos` reachability and `ultimas` ordering remain separate.
+
+PRE_RED_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+STOP for Owner local certification.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — ARCHITECTURAL DECISION]
+
+Owner-certified input: 13,479 PASS / 0 FAIL / Ruff clean.
+
+Governance classifies the required change as Class 2 Existing Capability
+Deepening: extend the canonical owner and prove the residual with RED.
+
+OfficialConversationGateway remains the single lifecycle owner.
+No authority migration is required.
+
+Decision:
+AUTHORIZE IN PRINCIPLE a narrow governed evolution of the canonical gateway
+lifecycle so one recognized applied owner-turn branch executes inside the
+existing lifecycle envelope and reuses common finalization.
+
+External private-state finalization and parallel lifecycle authority are
+rejected.
+
+UnifiedBrain productive modification is not authorized.
+
+The old gateway SHA
+0f8896575116a7ebaac908486d897e22c2f6adff59a05b3cc2997d028b5e0b11
+remains immutable historical predecessor evidence.
+
+Historical hashes must not be silently replaced.
+
+Tests that protect semantic compatibility through the old whole-file hash may
+only migrate after explicit per-test classification. They must become semantic
+compatibility guards where required, not receive a mechanical new hash.
+
+Next required block:
+CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — MIGRATION PRE-RED
+RECONCILIATION.
+
+That block must inventory every old gateway-hash assertion, existing per-turn
+applied-result exposure, exact gateway insertion point, additive-composition
+reuse, failure closure, UnifiedBrain preservation, explicit-context
+precedence, and representative historical compatibility.
+
+CONTRACT RED remains NOT YET AUTHORIZED.
+
+No productive Python modification in this decision.
+
+NEW AUTHORITY: NONE.
+
+STOP for Owner local certification.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — MIGRATION PRE-RED
+RECONCILIATION]
+
+Owner-certified input: 13,479 PASS / 0 FAIL / Ruff clean.
+
+Exact search finds 28 architecture-test files containing the certified
+predecessor OfficialConversationGateway SHA.
+
+All 28 are classified for narrow semantic migration of the gateway whole-file
+hash guard only. No mechanical replacement SHA is authorized. All unrelated
+hashes and semantic assertions remain protected.
+
+Existing gateway regression suites already provide semantic compatibility
+anchors for single-route ownership, interceptor precedence, accounting,
+observer/evidence closure, post-turn reflection and UnifiedBrain observability.
+
+Exact insertion region is inside OfficialConversationGateway.submit, inside
+the existing evidence scopes and try, after higher-priority interceptors and
+before ordinary converse_runtime fallback.
+
+Explicit document/source/evidence/visual context retains precedence.
+
+No existing per-turn gateway/evidence/runtime surface stores the exact
+AppliedConversationalIntelligenceResult object identity.
+
+A bounded gateway-owned, read-only, same-process exact-result exposure is
+therefore a demonstrated migration requirement. It must clear before each turn,
+remain absent for non-applied turns, preserve exact identity on successful
+applied turns, clear on failure and perform no execution when read.
+
+Canonical gateway must own applied execution and applied LocalConversationTurn
+construction after migration.
+
+The existing additive owner-turn composition may remain only as a
+compatibility/delegation surface. It must not retain independent applied
+execution or turn-construction authority.
+
+Selected insertion remains inside the existing failure envelope, preserving
+observer failure and evidence sealing without an external finalizer.
+
+UnifiedBrain remains byte-identical at
+05f4c65fbb8a1478f9117b9b1de8c450d15211a257aa4835b8123a6babbc1750.
+
+Migration questions required by the architectural decision are resolved.
+
+CONTRACT RED becomes authorizable only after Owner certification of this
+PRE-RED.
+
+RED must be test/documentation-only and must not modify productive code.
+
+Desktop root binding, natural-language image reachability and freshness
+ordering remain separate.
+
+MIGRATION_PRE_RED: COMPLETE / PENDING OWNER CERTIFICATION.
+NEW AUTHORITY: NONE.
+STOP for Owner local certification.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — CONTRACT RED]
+
+Owner-certified input: 13,479 PASS / 0 FAIL / Ruff clean.
+
+New contract:
+tests/architecture/
+test_canonical_owner_turn_lifecycle_extension_seam_contract_red.py
+
+Focused RED result on certified pre-migration implementation:
+6 FAIL / 5 PASS.
+
+Causal RED obligations:
+1. recognized applied request becomes one canonical gateway interceptor turn;
+2. exact applied result is exposed without second execution;
+3. exact-result exposure clears on later non-applied turns;
+4. explicit context preserves normal path and empty applied exposure;
+5. applied failure uses existing gateway failure closure;
+6. additive composition delegates to gateway instead of executing applied
+   intelligence independently.
+
+Already-GREEN preservation guards:
+LocalConversationTurn schema unchanged, UnifiedBrain byte-identical, no
+parallel lifecycle authority, common epilogue compatibility and explicit
+historical hash migration policy.
+
+No productive Python code changed in RED.
+
+The old gateway SHA remains historical predecessor evidence.
+No mechanical replacement SHA is authorized.
+
+Future GREEN must perform the certified semantic migration of the 28 historical
+gateway whole-file hash guards.
+
+UnifiedBrain remains byte-identical.
+
+Desktop root binding, natural-language image reachability and freshness
+ordering remain separate.
+
+CONTRACT_RED: COMPLETE / PENDING OWNER RED CERTIFICATION.
+GREEN: NOT AUTHORIZED UNTIL OWNER RED CERTIFICATION.
+NEW AUTHORITY: NONE.
+STOP.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — SURGICAL GREEN]
+
+Owner-certified RED input: 6 FAIL / 13,484 PASS / Ruff clean.
+
+Authorized Class-2 deepening implemented in OfficialConversationGateway.
+
+Recognized applied conversational requests now execute once inside the existing
+canonical submit lifecycle before ordinary runtime fallback.
+
+Explicit document/source/evidence/visual context and external evidence preserve
+the ordinary runtime path.
+
+The gateway exposes the exact successful applied result through bounded
+read-only same-process completed-turn exposure.
+
+The exposure clears before every owner-turn attempt and remains empty for
+normal, explicit-context, external-evidence and failed turns.
+
+Applied LocalConversationTurn construction is gateway-owned and uses the
+existing interceptor pattern and common finalization.
+
+The additive owner-turn composition is now compatibility delegation:
+one gateway.submit call plus read-only exact-result exposure. It no longer
+executes applied intelligence or constructs a parallel applied turn.
+
+The 28 inventoried historical gateway whole-file hash guards were migrated
+semantically. The predecessor SHA remains historical evidence. No replacement
+gateway SHA was inserted as a substitute contract.
+
+UnifiedBrain remains byte-identical.
+
+Local focused lifecycle contract: 11 PASS.
+Local combined lifecycle/compatibility contracts: 23 PASS.
+All 29 architecture files changed by migration: 200 PASS.
+
+Full suite remains for Owner-local certification because the execution
+environment lacks project-local modules present in the Owner environment.
+
+Desktop productive visual binding, image natural-language reachability and
+freshness ordering remain separate.
+
+SURGICAL_GREEN: COMPLETE / PENDING OWNER CERTIFICATION.
+NEW AUTHORITY: NONE.
+STOP.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — SURGICAL GREEN REPAIR V2]
+
+SURGICAL GREEN V1 was Owner-rejected:
+117 FAIL / 13,373 PASS.
+
+Root regression 1:
+empty external evidence was propagated to ordinary runtimes that historically
+do not accept that keyword.
+
+Repair:
+empty external evidence no longer crosses the runtime boundary.
+Non-empty evidence retains the existing explicit M401.3 handoff.
+
+Root regression 2:
+new applied-result state initialization displaced the certified
+CanonicalCognitiveCore constructor from line 52 to line 53.
+
+Repair:
+new state initialization moved after canonical core construction.
+CanonicalCognitiveCore line 52 is restored without weakening historical tests.
+
+Authorized Class-2 applied lifecycle behavior remains intact.
+OfficialConversationGateway remains the sole lifecycle authority.
+UnifiedBrain remains unmodified.
+
+Replay of the 77 files containing all V1 Owner failures:
+737 PASS / 0 FAIL.
+
+Focused repair set:
+30 PASS / 0 FAIL.
+
+M361 plus lifecycle and compatibility contracts:
+28 PASS / 0 FAIL.
+
+Full suite and Ruff remain Owner-local certification steps because this
+execution environment lacks Owner-local project material and Ruff.
+
+SURGICAL_GREEN_REPAIR_V2: COMPLETE / PENDING OWNER CERTIFICATION.
+NEW AUTHORITY: NONE.
+STOP.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — SURGICAL GREEN REPAIR V2.1]
+
+Repair V2 Owner certification stopped at Ruff with 15 test-only diagnostics.
+
+Cause:
+the semantic gateway-hash migration left variables and hashlib imports whose
+sole consumer had been the migrated whole-file SHA assertion.
+
+V2.1 removes only those dead lint residues.
+Historical tests that would otherwise become empty retain a semantic canonical
+gateway presence guard.
+
+Productive code delta versus Repair V2: zero.
+No replacement gateway SHA is introduced.
+No assertion is weakened to make the product pass.
+No new authority is created.
+
+SURGICAL_GREEN_REPAIR_V2_1: COMPLETE / PENDING OWNER CERTIFICATION.
+STOP.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — SURGICAL GREEN REPAIR V2.1
+ OWNER CERTIFICATION]
+
+Owner complete certification:
+Ruff clean.
+13,490 PASS / 0 FAIL.
+
+Two Owner-supplied corrected architecture tests were integrated into the
+certified delivery.
+
+Both retain semantic canonical-gateway protection.
+No stale whole-file gateway SHA was restored.
+
+Productive code is byte-identical to Repair V2.1.
+No new authority is introduced.
+
+SURGICAL_GREEN_REPAIR_V2_1: CLOSED / OWNER-CERTIFIED.
+NEXT: POST-GREEN MASTER PLAN RECONCILIATION.
+
+[CANONICAL OWNER-TURN LIFECYCLE EXTENSION SEAM — POST-GREEN MASTER PLAN
+ RECONCILIATION]
+
+Certified input:
+SURGICAL GREEN REPAIR V2.1 Owner-certified.
+Ruff clean.
+13,490 PASS / 0 FAIL.
+
+Canonical applied owner-turn lifecycle integration is closed.
+OfficialConversationGateway remains the single lifecycle authority.
+No demonstrated lifecycle residual remains.
+
+The additive applied composition is compatibility delegation only.
+UnifiedBrain remains byte-preserved.
+
+Current desktop evidence still shows no productive consumer for the existing
+same-turn visual runtime/UI compositions or desktop visual runtime binding.
+
+Next demonstrated residual:
+OFFICIAL_DESKTOP_VISUAL_COMPOSITION_ROOT_PRODUCTIVE_BINDING.
+
+Natural-language image reachability and freshness ordering remain separate
+later residuals.
+
+No productive Python changed in this reconciliation.
+No new authority.
+
+POST_GREEN_MASTER_PLAN_RECONCILIATION: COMPLETE.
+STOP before next PRE-RED.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING — PRE-RED
+ RECONCILIATION]
+
+Certified input:
+13,490 PASS / 0 FAIL / Ruff clean.
+
+Official desktop composition root remains desktop_bootstrap.py.
+ROBYDesktopApp owns the existing controller and Tk worker.
+
+DesktopConversationController already exposes submit_with_visual_companion,
+but the productive Tk worker still calls controller.submit only.
+
+The canonical gateway now owns the one applied owner-turn execution.
+A desktop binding must consume that completed canonical result and exact
+gateway-owned applied-result exposure. It must not recreate independent
+applied/fallback execution.
+
+Existing external-image composition, runtime binding, presenter and UI
+dispatcher must be reused.
+
+Exact residual:
+CANONICAL_GATEWAY_RESULT_TO_VISUAL_UI_ADAPTER_BINDING
++
+EXISTING_TK_WORKER_VISUAL_COMPANION_HANDOFF.
+
+Contract RED must preserve explicit document/source/evidence/visual context,
+one owner action -> one canonical gateway submit, one existing Tk worker and
+one existing root.after UI handoff.
+
+Natural-language image reachability and freshness ordering remain separate.
+
+No productive Python changed.
+No new authority.
+
+PRE_RED_RECONCILIATION: COMPLETE.
+STOP before Contract RED.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING — CONTRACT RED]
+
+Certified input:
+PRE-RED Owner-certified at 13,490 PASS / 0 FAIL / Ruff clean.
+
+Contract RED encodes:
+CANONICAL_GATEWAY_RESULT_TO_VISUAL_UI_ADAPTER_BINDING
++
+EXISTING_TK_WORKER_VISUAL_COMPANION_HANDOFF.
+
+Future GREEN must reuse one canonical UnifiedBrain/gateway owner-turn
+execution, exact gateway-owned applied-result exposure, existing desktop
+controller, existing Tk worker, existing UI dispatcher and certified external
+image presentation/runtime binding.
+
+Explicit document/source/evidence/visual context must remain preserved.
+
+No independent applied execution, second worker, new visual authority,
+natural-language reachability or freshness ordering is authorized.
+
+Productive Python delta: zero.
+
+CONTRACT_RED: CREATED / PENDING OWNER RED CERTIFICATION.
+STOP before Surgical GREEN.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING — CONTRACT RED
+ REPAIR]
+
+Owner RED:
+11 FAIL / 13,493 PASS / Ruff clean.
+
+Ten failures were intended composition RED obligations.
+One failure was invalid RED infrastructure: the LocalConversationTurn source
+path targeted a non-existent module file.
+
+Repair:
+core/end_to_end_local_conversation.py
+->
+core/end_to_end_local_conversation/models.py
+
+Only the RED test changed.
+No productive Python changed.
+No contractual obligation was removed.
+
+Expected repaired RED: 10 intentional FAIL only.
+Pending Owner RED certification.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING — SURGICAL GREEN
+ BLOCKED RECONCILIATION]
+
+Owner-certified RED:
+10 intentional FAIL / 13,494 PASS / Ruff clean.
+
+Pre-GREEN historical contrast found an active governance conflict.
+
+runtime_ui_adapter.py remains protected by certified SHA:
+2afb8629a78800c64932e289a905a098bb1a32bd5952ec152b204e42924a08e1
+
+Three existing architecture contracts still assert that exact byte identity.
+
+The new RED requires a method to be added directly to
+LocalConversationUIAdapter. A literal GREEN would satisfy the new RED by
+breaking active historical protection. That is forbidden.
+
+Experimental product edits were discarded.
+No productive Python changed.
+No historical hash was replaced.
+No new authority was created.
+
+Recommended next step:
+RUNTIME_UI_ADAPTER PROTECTION VS VISUAL BINDING — SURGICAL RECONCILIATION.
+
+SURGICAL_GREEN: STOPPED / NOT DELIVERED.
+
+[RUNTIME_UI_ADAPTER PROTECTION VS VISUAL BINDING — SURGICAL RECONCILIATION]
+
+Input:
+Owner-certified blocked GREEN at 10 intentional FAIL / 13,494 PASS.
+
+Three active contracts protect runtime_ui_adapter.py byte identity.
+
+Two explicitly establish the architectural pattern:
+new reachability is composed outside the protected conversational surface.
+
+Existing certified visual composition/runtime/presentation surfaces already
+provide the additive path. The canonical gateway now owns applied execution
+inside its lifecycle and exposes the exact applied result after that same
+owner-turn execution.
+
+Decision:
+preserve runtime_ui_adapter.py byte-for-byte.
+
+No Class-2 adapter evolution is justified.
+
+The current visual RED is behaviorally correct but overconstrains four
+obligations to the protected implementation surface.
+
+Next governed step:
+OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING —
+CONTRACT RED SURGICAL REPAIR.
+
+The repair must preserve all behavioral obligations while requiring additive
+exterior composition rather than direct adapter mutation.
+
+Productive Python delta: zero.
+Test Python delta: zero.
+New authority: none.
+
+STOP before RED repair.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING —
+ CONTRACT RED SURGICAL REPAIR]
+
+Owner-certified reconciliation decision:
+preserve runtime_ui_adapter.py byte-for-byte.
+
+The prior RED was behaviorally valid but overconstrained four obligations to
+that protected implementation surface.
+
+This repair changes only the RED contract and documentation.
+
+The repaired RED requires additive exterior composition around the protected
+adapter, exact gateway-owned applied-result exposure, one delegated owner-turn
+execution, explicit context preservation, existing Tk worker/UI dispatcher,
+existing external-image presenter/runtime binding and no reexecution on
+presentation failure.
+
+No behavioral obligation is removed.
+No productive Python changes.
+No new authority.
+
+Pending Owner RED certification.
+STOP before Surgical GREEN.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING —
+ SURGICAL GREEN]
+
+Input:
+Owner-certified repaired RED at 9 intentional FAIL / 13,495 PASS.
+
+GREEN uses additive exterior composition only.
+
+SameTurnVisualUIAdapterComposition delegates one existing owner-turn path,
+then reads the exact gateway-owned applied result from that same execution.
+
+The protected runtime UI adapter and UnifiedBrain remain byte-identical.
+
+The official desktop root composes the exterior visual transport and reuses
+DesktopExternalImagePresenter.
+
+The existing Tk worker calls the visual companion controller seam once and
+reuses the certified desktop visual runtime binding and UI dispatcher.
+
+No second worker, main loop, applied execution or authority is introduced.
+
+Local focused contract:
+14 PASS.
+
+Selected visual/historical regression:
+59 PASS.
+
+Full Owner certification remains pending.
+
+Natural-language image reachability and freshness ordering remain separate.
+
+STOP for Owner certification.
+
+[POST-GREEN HISTORICAL TRANSPORT CONTRACTS VS VISUAL COMPANION —
+ SURGICAL RECONCILIATION]
+
+Input:
+Owner-executed visual root binding GREEN and Owner-supplied corrected
+`desktop_ui.py`.
+
+The supplied Desktop correction is integrated. Its delta from the delivered
+GREEN is formatting only: import ordering and compact formatting.
+
+Owner full-suite evidence reported 13,501 PASS / 3 FAIL.
+
+Reconciliation classifies two failures as stale literal method-name anchors:
+LX1-S3E2D and LX1-S6-B require `DesktopConversationController.submit` by name,
+while their durable contracts require existing controller transport,
+explicit-source preservation and one deliberation.
+
+The visual GREEN preserves those semantics through the existing
+`submit_with_visual_companion` controller seam and one owner-turn execution.
+
+The third failure was a stale M361 generated snapshot. M361 is regenerated in
+this reconciliation and its focused reproducibility contract is GREEN.
+
+Decision:
+perform a test-only semantic migration of the two historical controller-call
+anchors. Preserve every behavioral obligation and introduce no product change.
+
+New authority: none.
+STOP before contract repair.
+
+[HISTORICAL TRANSPORT CONTRACT SEMANTIC MIGRATION — CONTRACT REPAIR]
+
+Input:
+Owner-certified reconciliation at 13,502 PASS / 2 expected historical FAIL.
+
+Two stale method-name anchors are migrated semantically.
+
+The attachment contract now recognizes the certified
+submit_with_visual_companion controller transport and still requires exactly
+one transport call.
+
+The S6-B four-source convergence contract now inspects the same productive
+controller seam and still proves that all four source channels converge
+through one adapter submission and one deliberation.
+
+No productive Python changes.
+No behavioral obligation removed.
+No new authority.
+
+Focused verification:
+24 PASS.
+
+Pending Owner certification.
+STOP before post-repair closure.
+
+[OFFICIAL DESKTOP VISUAL COMPOSITION ROOT PRODUCTIVE BINDING —
+ POST-GREEN MASTER PLAN RECONCILIATION]
+
+Owner-certified closure input:
+13,504 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+The two PRE-RED obligations are closed:
+CANONICAL_GATEWAY_RESULT_TO_VISUAL_UI_ADAPTER_BINDING
+and
+EXISTING_TK_WORKER_VISUAL_COMPANION_HANDOFF.
+
+The canonical gateway remains owner of one applied owner-turn lifecycle.
+The exterior visual composition reads the exact result from that execution.
+The existing controller, Tk worker, UI dispatcher, runtime visual binding and
+external-image presentation chain are reused.
+
+The historical transport semantic migration changed tests only and preserved
+attachment re-entry, four-source convergence and exactly-once deliberation.
+
+No internal demonstrated residual remains in this block.
+
+EXTERNAL_IMAGE_NATURAL_LANGUAGE_REACHABILITY and
+EXTERNAL_IMAGE_FRESHNESS_ORDERING remain separate later residuals.
+Neither is automatically selected as the next surgical candidate.
+
+Productive Python delta: zero.
+Test Python delta: zero.
+New authority: none.
+
+Next governed step:
+GLOBAL PRODUCTIVE HORIZON RESELECTION.
+
+STOP before another capability is selected or implemented.
+
+[POST-VISUAL-BINDING GLOBAL PRODUCTIVE HORIZON RESELECTION]
+
+Certified input:
+13,504 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+The completed visual binding remains closed.
+
+Surviving demonstrated residuals:
+- EXTERNAL_IMAGE_NATURAL_LANGUAGE_REACHABILITY
+- EXTERNAL_IMAGE_FRESHNESS_ORDERING
+
+Dependency ordering:
+natural-language reachability precedes latest/newest ordering.
+
+Selected next productive residual:
+EXTERNAL_IMAGE_NATURAL_LANGUAGE_REACHABILITY
+
+Later residual:
+EXTERNAL_IMAGE_FRESHNESS_ORDERING
+
+No productive Python changes.
+No test changes.
+No new authority.
+
+NEXT:
+EXTERNAL_IMAGE_NATURAL_LANGUAGE_REACHABILITY — PRE-RED RECONCILIATION ONLY.
+
+STOP before CONTRACT RED.
+
+[EXTERNAL IMAGE NATURAL LANGUAGE REACHABILITY — PRE-RED RECONCILIATION]
+
+Certified input:
+13,504 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Exact residual:
+EXPLICIT_VISUAL_REQUEST_ADMISSION_VOCABULARY.
+
+Canonical capability:
+AppliedConversationalIntelligence.
+
+Canonical owner authority:
+OfficialConversationGateway.
+
+Existing James Webb/NASA topic recognition is sufficient.
+Existing James Webb/NASA query-text normalization is sufficient.
+Existing governed source selection/query execution is sufficient.
+Existing desktop visual presentation chain is sufficient.
+
+The demonstrated gap is the explicit-request gate:
+visual request language such as `mostrame fotos` is not admitted by the
+existing `_EXPLICIT_QUERY_TERMS`.
+
+Classification:
+CLASS_2_EXISTING_CAPABILITY_DEEPENING.
+
+Freshness ordering remains excluded and later.
+
+No productive Python changes.
+No test changes.
+No new authority.
+
+NEXT:
+EXTERNAL IMAGE NATURAL LANGUAGE REACHABILITY — CONTRACT RED ONLY.
+
+STOP before GREEN.
+
+[EXTERNAL IMAGE NATURAL LANGUAGE REACHABILITY — CONTRACT RED]
+
+Owner-certified PRE-RED input:
+13,504 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+One architecture contract added.
+No productive Python changes.
+
+Bound obligations:
+- James Webb visual request reaches the existing governed request;
+- NASA visual request reaches the existing governed request;
+- canonical query text remains unchanged;
+- bare visual language without a governed topic is rejected;
+- bare `mostrame` is not a generic external-query key;
+- existing applied/gateway authorities are reused;
+- freshness ordering remains excluded;
+- certified visual presentation remains untouched.
+
+Focused RED:
+3 intentional FAIL / 6 PASS.
+
+No invalid RED failures.
+No new authority.
+
+STOP before GREEN pending Owner RED certification.
+
+[EXTERNAL IMAGE NATURAL LANGUAGE REACHABILITY — SURGICAL GREEN]
+
+Owner-certified RED input:
+13,510 PASS / 3 intentional FAIL / Ruff clean / M361 reproducible.
+
+Productive change:
+app/applied_conversational_intelligence.py only.
+
+The existing admission gate now accepts bounded visual requests only when:
+- `mostrame` is present;
+- a bounded image noun is present;
+- an existing governed topic is recognized.
+
+Bare `mostrame` remains insufficient.
+Visual wording without a governed topic remains insufficient.
+
+Existing gateway, source selection, source execution, NASA source, and visual
+presentation authorities are reused unchanged.
+
+Freshness ordering remains excluded.
+
+Focused verification:
+21 PASS / 0 FAIL.
+
+No test Python changes.
+No new authority.
+
+STOP before POST-GREEN pending Owner full certification.
+
+[EXTERNAL IMAGE NATURAL LANGUAGE REACHABILITY — POST-GREEN MASTER PLAN
+RECONCILIATION]
+
+Owner-certified GREEN:
+13,513 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+The contracted natural-language reachability block is closed.
+
+Certified scope:
+- bounded visual language is admitted by existing
+  AppliedConversationalIntelligence;
+- `mostrame` plus an image noun still requires an existing governed topic;
+- OfficialConversationGateway remains canonical owner;
+- existing governed source and desktop visual authorities remain reused.
+
+Post-GREEN scope finding:
+the certified behavior is not yet a universal
+`mostrame imágenes de <cualquier sujeto>` capability.
+
+A separate broader residual is recorded:
+`GENERAL_EXTERNAL_IMAGE_SUBJECT_REACHABILITY`.
+
+It must not be solved by enumerating every possible subject as a new topic.
+
+The previously deferred residual remains:
+`EXTERNAL_IMAGE_FRESHNESS_ORDERING`.
+
+The two residuals are not merged.
+Their dependency and productive ordering require global horizon reselection.
+
+No productive Python changes.
+No test Python changes.
+No new authority.
+
+STOP this block.
+
+[POST-EXTERNAL-IMAGE-REACHABILITY GLOBAL PRODUCTIVE HORIZON RESELECTION]
+
+Owner-certified starting state:
+13,513 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Global residual candidates:
+- GENERAL_EXTERNAL_IMAGE_SUBJECT_REACHABILITY;
+- EXTERNAL_IMAGE_FRESHNESS_ORDERING.
+
+Current evidence establishes dependency rather than peer priority.
+
+Applied conversational admission still requires an existing InterestTopic.
+GovernedConversationalSourceSelectionRequest also rejects empty topics.
+Therefore arbitrary visual subjects cannot be made reachable correctly by
+removing one admission gate or by enumerating subjects as topics.
+
+Freshness operates after a subject/request is representable and reachable.
+
+Dependency:
+GENERAL_EXTERNAL_IMAGE_SUBJECT_REACHABILITY
+-> EXTERNAL_IMAGE_FRESHNESS_ORDERING.
+
+Selected next productive residual:
+GENERAL_EXTERNAL_IMAGE_SUBJECT_REACHABILITY.
+
+Later residual:
+EXTERNAL_IMAGE_FRESHNESS_ORDERING.
+
+No RED or GREEN is authorized by this reselection.
+
+Next:
+GENERAL EXTERNAL IMAGE SUBJECT REACHABILITY — PRE-RED RECONCILIATION.
+
+The PRE-RED must reconcile existing request invariants, source eligibility,
+query-text preservation, policy/registration, failure behavior, and any
+existing generic/open-query representation before classifying a seam.
+
+No productive Python changes.
+No test Python changes.
+No new authority.
+
+STOP before RED.
+
+[GENERAL EXTERNAL IMAGE SUBJECT REACHABILITY — PRE-RED RECONCILIATION]
+
+Selected residual:
+GENERAL_EXTERNAL_IMAGE_SUBJECT_REACHABILITY.
+
+Current evidence shows no existing open/free-text request representation
+independent of InterestTopic.
+
+Topic non-emptiness is enforced by:
+- AppliedConversationalIntelligence admission;
+- GovernedConversationalSourceSelectionRequest;
+- GovernedSourceQuery;
+- GovernedInformationSource and GovernedInformationItem declarations.
+
+Source selection also uses request.topics as an eligibility boundary.
+Empty topics would therefore become an unsafe accidental wildcard.
+
+Existing query_text transport is reusable.
+NASA already consumes query_text after governed source selection, but NASA is
+not a general-purpose image source and must not receive arbitrary subjects.
+
+The residual is refined into:
+1. OPEN_VISUAL_SUBJECT_GOVERNED_REQUEST_REPRESENTATION;
+2. OPEN_VISUAL_SUBJECT_ELIGIBLE_GOVERNED_SOURCE_REACHABILITY.
+
+The second depends on demonstrated source capability.
+
+Applied-admission-only Class 2 deepening is rejected as insufficient.
+No broader implementation class is authorized yet.
+
+Next:
+OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — CONTRACT DESIGN
+RECONCILIATION.
+
+No productive Python changes.
+No test Python changes.
+No new authority.
+
+STOP before RED.
+
+[OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — CONTRACT DESIGN
+RECONCILIATION]
+
+Owner-certified starting baseline:
+13,513 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Existing query_text transport is reusable but is not source eligibility
+authority.
+
+Minimum contract decision:
+introduce an explicit bounded request-mode discriminator between
+TOPIC_CONSTRAINED and OPEN_VISUAL_SUBJECT semantics.
+
+TOPIC_CONSTRAINED preserves current non-empty-topic and source-subset behavior.
+
+OPEN_VISUAL_SUBJECT requires non-empty query_text. Empty topics may represent
+that explicit mode only; they must never operate as a source wildcard.
+
+Source eligibility for open visual subjects requires a separate explicit
+source capability declaration. Current sources have no demonstrated
+open-subject visual capability dimension. NASA is not a general image source.
+
+OfficialConversationGateway remains owner.
+GovernedConversationalSourceSelector remains selector.
+GovernedSourceQueryExecutor remains executor.
+Desktop visual presentation remains presentation-only.
+
+Work ordering remains:
+1. OPEN_VISUAL_SUBJECT_GOVERNED_REQUEST_REPRESENTATION;
+2. OPEN_VISUAL_SUBJECT_ELIGIBLE_GOVERNED_SOURCE_REACHABILITY;
+3. EXTERNAL_IMAGE_FRESHNESS_ORDERING.
+
+Classification:
+CLASS_2_EXISTING_CAPABILITY_DEEPENING.
+
+CONTRACT RED is authorized for the first seam only.
+No productive GREEN is authorized.
+
+No productive Python changes.
+No test Python changes.
+No new authority.
+
+NEXT:
+OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — CONTRACT RED.
+
+STOP before GREEN.
+
+[OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — CONTRACT RED]
+
+Owner-certified starting baseline:
+13,513 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Added one architecture contract test only.
+
+RED obligations cover explicit request mode, legacy topic-constrained behavior,
+open visual query_text preservation, bounded empty-topic representation,
+non-wildcard source eligibility, NASA ineligibility for arbitrary subjects,
+query propagation, and canonical authority preservation.
+
+Local focal RED:
+7 intentional FAIL / 3 PASS.
+
+All seven failures share one missing root:
+GovernedConversationalRequestMode does not yet exist.
+
+No productive Python changes.
+No general image source.
+No source-capability implementation.
+No freshness.
+No presentation changes.
+No new authority.
+
+NEXT:
+OWNER RED CERTIFICATION.
+
+STOP before GREEN.
+
+[OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — SURGICAL GREEN]
+
+Owner-certified RED:
+13,516 PASS / 7 intentional FAIL / zero unexpected FAIL.
+
+Implemented one semantic request-mode discriminator:
+TOPIC_CONSTRAINED / OPEN_VISUAL_SUBJECT.
+
+Deepened existing selection request, canonical selector, and source query
+contracts only.
+
+TOPIC_CONSTRAINED remains the default and preserves non-empty-topic semantics.
+
+OPEN_VISUAL_SUBJECT permits empty topics only as explicit representation,
+requires non-empty query_text, and never obtains source eligibility from the
+empty set.
+
+No current source is eligible for open visual subjects because the separate
+source-capability seam remains untouched. NASA is not a general image source.
+
+Local verification:
+26 PASS focused contract/history.
+55 PASS relevant governed query/selection suite.
+
+No test Python changed from RED.
+No source added.
+No freshness or presentation changes.
+No new execution authority.
+
+NEXT:
+OWNER GREEN CERTIFICATION.
+
+[OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — GREEN CORRECTION]
+
+Owner execution confirmed 13,523 PASS / 0 FAIL.
+
+Initial Ruff run exposed only I001 import ordering in
+app/governed_source_query.py.
+
+Owner supplied the corrected file; it is integrated verbatim in this package.
+Subsequent Owner ruff check: All checks passed.
+
+No test Python changed.
+No semantic scope was expanded.
+No source, freshness, presentation, or execution authority was added.
+
+NEXT:
+OWNER CERTIFICATION OF THIS CORRECTED COMPLETE ZIP.
+
+[OPEN VISUAL SUBJECT GOVERNED REQUEST REPRESENTATION — POST-GREEN MASTER PLAN RECONCILIATION]
+
+Corrected surgical GREEN Owner-certified:
+13,523 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+The representation seam is closed.
+
+OPEN_VISUAL_SUBJECT now safely represents an open visual query with non-empty
+query_text while preventing empty topics from becoming source eligibility.
+
+No current source declares open visual-subject capability. The resulting
+UNAVAILABLE state is intentional. NASA remains non-general.
+
+No internal representation residual remains.
+
+Dependency ordering remains:
+1. OPEN_VISUAL_SUBJECT_GOVERNED_REQUEST_REPRESENTATION — CLOSED;
+2. OPEN_VISUAL_SUBJECT_ELIGIBLE_GOVERNED_SOURCE_REACHABILITY — NEXT;
+3. EXTERNAL_IMAGE_FRESHNESS_ORDERING — LATER.
+
+No RED or GREEN is authorized for the next seam by this reconciliation.
+
+No productive Python changes.
+No test Python changes.
+No new authority.
+
+NEXT:
+OPEN VISUAL SUBJECT ELIGIBLE GOVERNED SOURCE REACHABILITY — PRE-RED
+RECONCILIATION.
+
+[OPEN VISUAL SUBJECT ELIGIBLE GOVERNED SOURCE REACHABILITY — PRE-RED]
+
+Owner-certified input:
+13,523 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Representation seam remains CLOSED and is not reopened.
+
+Exact residual:
+OPEN_VISUAL_SUBJECT_ELIGIBLE_GOVERNED_SOURCE_REACHABILITY.
+
+Audit confirms existing authorities remain canonical:
+GovernedInformationSources, GovernedConversationalSourceSelector,
+GovernedSourceQueryContract, GovernedSourceQueryExecutor, and
+OfficialConversationGateway.
+
+GovernedInformationSource has no explicit capability dimension for open visual
+subject queries. Adapter technical ability, query_text support, media_type, or
+executor registration do not constitute governed source authorization.
+
+NASA remains bounded to its declared source semantics and is not a general
+image source.
+
+Refined seams:
+1. OPEN_VISUAL_SOURCE_CAPABILITY_DECLARATION.
+2. OPEN_VISUAL_SUBJECT_CAPABLE_SOURCE_AVAILABILITY.
+
+The first is a Class-2 deepening of existing governed source metadata,
+selection, and query validation. A new provider/source, if later necessary,
+is a separate integration decision.
+
+No current general open-visual source is demonstrated.
+
+NEXT:
+OPEN VISUAL SOURCE CAPABILITY DECLARATION — CONTRACT DESIGN RECONCILIATION.
+
+CONTRACT RED: NOT YET AUTHORIZED.
+PRODUCTIVE GREEN: NOT AUTHORIZED.
+PROVIDER ADDITION: NOT AUTHORIZED.
+FRESHNESS: LATER.
+NEW AUTHORITY: NONE.
+
+[OPEN VISUAL SOURCE CAPABILITY DECLARATION — CONTRACT DESIGN RECONCILIATION]
+
+Owner-certified input:
+13,523 PASS / 0 FAIL / Ruff clean / M361 reproducible.
+
+Representation remains CLOSED.
+
+Minimum source metadata deepening:
+InformationSourceCapability.OPEN_VISUAL_SUBJECT_QUERY carried in an explicit
+frozenset capability dimension on GovernedInformationSource.
+
+Legacy/default source capability set is empty. NASA remains without open-visual
+capability and therefore is not generalized.
+
+TOPIC_CONSTRAINED semantics remain unchanged.
+
+OPEN_VISUAL_SUBJECT eligibility requires explicit source capability in the
+canonical selector. GovernedSourceQueryContract.prepare() must independently
+validate the same capability as defense in depth.
+
+Empty topics, query_text support, adapter behavior, registration, network
+flags, source kind, and media_type do not grant eligibility.
+
+Existing non-default source admission is reused. Capability declaration does
+not imply provider availability or adapter registration.
+
+No capable source remains typed UNAVAILABLE.
+
+NEXT:
+OPEN VISUAL SOURCE CAPABILITY DECLARATION — CONTRACT RED.
+
+CONTRACT RED: AUTHORIZED / CAPABILITY DECLARATION SEAM ONLY.
+PRODUCTIVE GREEN: NOT AUTHORIZED.
+PROVIDER ADDITION: NOT AUTHORIZED.
+FRESHNESS: LATER.
+NEW AUTHORITY: NONE.
+
+[WIKIMEDIA COMMONS NEWEST-FIRST SEARCH PROJECTION — POST-GREEN MASTER PLAN RECONCILIATION]
+
+Owner-certified input:
+SURGICAL GREEN CLOSED / HISTORICAL CONTRACT SEMANTIC RECONCILIATION CLOSED /
+13,602 PASS / 0 FAIL / Ruff clean / productive GREEN defect NONE.
+
+The provider-projection block is internally complete. Existing governed
+selection/query/executor authority remains canonical and the existing Wikimedia
+adapter projects NEWEST_FIRST only as `gsrsort=create_timestamp_desc` at its
+existing URL-construction seam. No local sorting or parallel authority exists.
+
+The Owner-corrected historical source-capability contract is canonical and its
+imports, formatting and line length are preserved. The obsolete pre-projection
+prohibition of Wikimedia `gsrsort` is not restored.
+
+No productive Python change is introduced by this reconciliation.
+
+Internal residual:
+WIKIMEDIA_COMMONS_NEWEST_FIRST_SEARCH_PROJECTION — NONE.
+
+Parent horizon:
+EXTERNAL_IMAGE_FRESHNESS_ORDERING.
+
+NEXT DEMONSTRATED RESIDUAL:
+EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION.
+
+The next residual requires its own PRE-RED reconciliation. No RED, productive
+implementation, parallel intent parser, freshness manager, selector, provider
+authority or execution loop is authorized here.
+
+POST_GREEN_MASTER_PLAN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO.
+NEW_AUTHORITY: NONE.
+STOP before EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — PRE-RED.
+
+
+[EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — PRE-RED RECONCILIATION]
+Owner-certified input: WIKIMEDIA COMMONS NEWEST-FIRST SEARCH PROJECTION — POST-GREEN MASTER PLAN RECONCILIATION.
+Residual demonstrated inside existing AppliedConversationalIntelligence admission/request-construction authority.
+Existing order representation, source capability gate, selector/query transport, executor behavior, and Wikimedia NEWEST_FIRST projection remain closed/reused.
+Exact missing seam: EXPLICIT_FRESHNESS_LANGUAGE_TO_EXISTING_GOVERNED_NEWEST_FIRST_ORDER.
+No implicit date window, generic temporal NLP, provider selection, executor/presentation sorting, or new authority is authorized.
+PRE_RED_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO.
+NEXT_AFTER_OWNER_CERTIFICATION: EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — CONTRACT DESIGN RECONCILIATION.
+STOP before Contract Design / Contract RED.
+
+---
+
+EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — CONTRACT DESIGN RECONCILIATION
+
+Owner-certified input:
+EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — PRE-RED RECONCILIATION.
+Ruff CLEAN. Full suite 13,602 PASS / 0 FAIL.
+
+Contract Design freezes the residual as a bounded deepening of the existing
+AppliedConversationalIntelligence admission/request-construction authority.
+Explicit Spanish latest/most-recent visual language maps to the already
+existing `GovernedSourceQueryOrder.NEWEST_FIRST`; it does not create a time
+window, provider choice, local sort, executor sort, or new authority.
+
+Minimum positive grammar includes accented/unaccented forms equivalent to:
+- `mostrame las últimas fotos de <subject>`;
+- `mostrame las imágenes más recientes de <subject>`.
+
+Ordinary visual requests preserve `order=None`. Subjectless freshness requests
+remain fail-closed. Known-topic visual requests preserve topic authority and
+add only the existing governed order requirement.
+
+Historical contract note: the old ACI source-text prohibition on `"newest"`
+represented the intentionally deferred pre-residual boundary and must be
+semantically reconciled in Contract RED. Anti-sorting, anti-date-window,
+anti-provider-selection and anti-parallel-authority guards remain binding.
+
+`CONTRACT_DESIGN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION`
+`CURRENT_RESIDUAL: EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION`
+`CANONICAL_ADMISSION_AUTHORITY: APPLIED_CONVERSATIONAL_INTELLIGENCE`
+`PRIMARY_SEMANTIC: NEWEST_FIRST_ORDER`
+`HISTORICAL_CONTRACT_RECONCILIATION_REQUIRED_IN_RED: YES`
+`NEW_AUTHORITY: NONE`
+`PRODUCTIVE_PYTHON_DELTA: ZERO`
+`TEST_DELTA: ZERO`
+`NEXT_AFTER_OWNER_CERTIFICATION: RED CONTRACTUAL`
+`STOP_BEFORE_RED: YES`
+
+
+=== EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — CONTRACT RED ===
+Input: CONTRACT DESIGN RECONCILIATION — CLOSED / OWNER-CERTIFIED.
+Residual: EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION.
+Classification: CLASS_2_EXISTING_CAPABILITY_DEEPENING.
+Canonical authority: AppliedConversationalIntelligence.interpret().
+Required semantic: bounded Spanish image freshness language -> existing GovernedSourceQueryOrder.NEWEST_FIRST.
+Contract RED established in tests/architecture/test_explicit_external_image_freshness_intent_admission_contract_red.py.
+Historical pre-residual newest-token prohibition reconciled surgically while preserving anti-sorting/date-filter/execution guards.
+Focused RED evidence: 6 FAIL / 22 PASS, confined to missing ACI freshness admission/order projection.
+Productive Python delta: ZERO. New authority: NONE.
+CONTRACT_RED: ESTABLISHED / PENDING OWNER CERTIFICATION.
+STOP before SURGICAL GREEN.
+Next after Owner RED certification: EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — SURGICAL GREEN.
+
+=== EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — SURGICAL GREEN ===
+
+Entry: CONTRACT RED CLOSED / OWNER-CERTIFIED (13,611 PASS / 6 expected FAIL; Ruff CLEAN).
+Residual: EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION.
+Classification: CLASS_2_EXISTING_CAPABILITY_DEEPENING.
+Canonical authority changed: existing AppliedConversationalIntelligence only.
+Behavior: bounded Spanish explicit visual freshness admission projects only GovernedSourceQueryOrder.NEWEST_FIRST into the existing GovernedConversationalSourceSelectionRequest.
+Preserved: ordinary visual order=None; subjectless freshness fail-closed; known-topic authority; no implicit date window; no local sorting; no provider selection/execution; no parallel freshness authority.
+Downstream authorities unchanged and reused.
+Local focal certification: 45 PASS / 0 FAIL.
+M361 baseline certification after governed regeneration: 5 PASS / 0 FAIL.
+Local Ruff unavailable in assistant environment; Owner certification required.
+Assistant full-suite attempt exceeded environment execution window; no project failure inferred and no full-suite certification claimed.
+SURGICAL_GREEN: COMPLETE / PENDING OWNER CERTIFICATION.
+STOP before POST-GREEN MASTER PLAN RECONCILIATION.
+
+=== EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — HISTORICAL CONTRACT SEMANTIC RECONCILIATION ===
+
+Entry evidence after SURGICAL GREEN: Owner Ruff CLEAN; full suite 13,615 PASS / 2 FAIL.
+The two failures were historical source-text guards still forbidding the now-authorized governed freshness representation in the existing ACI authority.
+Reconciliation is test/documentation-only: permit governed NEWEST_FIRST intent representation while preserving anti-sorting, anti-provider-projection and anti-parallel-authority guards.
+Productive Python delta: ZERO. SURGICAL GREEN product semantics unchanged.
+Focused historical + functional + downstream contracts: 42 PASS / 0 FAIL.
+HISTORICAL_CONTRACT_SEMANTIC_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+STOP before POST-GREEN MASTER PLAN RECONCILIATION.
+Next after Owner certification: EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — POST-GREEN MASTER PLAN RECONCILIATION.
+
+=== EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION — POST-GREEN MASTER PLAN RECONCILIATION ===
+
+Owner-certified input: SURGICAL GREEN + HISTORICAL CONTRACT SEMANTIC RECONCILIATION CLOSED; Ruff CLEAN; full suite 13,617 PASS / 0 FAIL.
+
+The residual EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION is CLOSED.
+AppliedConversationalIntelligence remains the sole admission/request-construction authority and projects bounded Spanish visual freshness only as the existing GovernedSourceQueryOrder.NEWEST_FIRST.
+
+Preserved: ordinary visual order=None; subjectless freshness fail-closed; known-topic authority; no implicit date window; no local/executor/presentation sorting; no provider selection in ACI; no parallel freshness authority.
+
+Parent horizon EXTERNAL_IMAGE_FRESHNESS_ORDERING is now fully reconciled against its four PRE-RED dependencies:
+1. EXTERNAL_IMAGE_FRESHNESS_ORDER_SOURCE_CAPABILITY_DECLARATION — CLOSED.
+2. GOVERNED_EXTERNAL_IMAGE_FRESHNESS_ORDER_REPRESENTATION — CLOSED.
+3. WIKIMEDIA_COMMONS_NEWEST_FIRST_SEARCH_PROJECTION — CLOSED.
+4. EXPLICIT_EXTERNAL_IMAGE_FRESHNESS_INTENT_ADMISSION — CLOSED.
+
+EXTERNAL_IMAGE_FRESHNESS_ORDERING_INTERNAL_RESIDUAL: NONE.
+No additional freshness seam is demonstrated or authorized.
+
+The selected freshness horizon is exhausted. This reconciliation does not select a new productive capability from historical prose.
+
+POST_GREEN_MASTER_PLAN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. NEW_AUTHORITY: NONE.
+NEXT_AFTER_OWNER_CERTIFICATION: GLOBAL PRODUCTIVE HORIZON RESELECTION.
+STOP before new capability selection, PRE-RED, CONTRACT RED, or productive implementation.
+
+
+=== GLOBAL PRODUCTIVE HORIZON RESELECTION ===
+
+Owner-certified entry: EXPLICIT EXTERNAL IMAGE FRESHNESS INTENT ADMISSION —
+POST-GREEN MASTER PLAN RECONCILIATION; Ruff CLEAN; full suite 13,617 PASS / 0 FAIL.
+
+The previously selected EXTERNAL_IMAGE_FRESHNESS_ORDERING horizon is CLOSED with no
+internal residual. Current executable truth was reconciled against the renewed Owner
+plan for humanization, local sources, self-history and neural assistance.
+
+Existing foundations already cover substantial self-model, autobiographical
+continuity, memory, personality, reflection, inner-state, metacognitive-learning,
+Development History, Personal Documents, local music and voice/prosody surfaces.
+Those horizons are not reopened merely because the renewed plan names them.
+
+The Owner's explicit renewed emphasis on neural-network assistance satisfies the
+existing governed-plateau re-entry rule for inventory of a named strategic horizon.
+It does not authorize a neural brain or productive implementation.
+
+Current source is heterogeneous: neural voice/prosody technology exists, canonical
+memory/recall foundations explicitly remain non-embedding, and provider capability
+models recognize embeddings. No single productive neural residual is yet proven.
+
+GLOBAL_PRODUCTIVE_HORIZON_RESELECTION: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. NEW_AUTHORITY: NONE.
+DEMONSTRATED_PRODUCTIVE_RESIDUAL: NONE.
+NEXT_PRODUCTIVE_HORIZON: NOT YET SELECTED.
+NEXT_INVENTORY_CANDIDATE: GOVERNED_NEURAL_ASSISTIVE_INTEGRATION.
+NEXT_ACTION: GOVERNED NEURAL ASSISTIVE INTEGRATION — EXISTING AUTHORITY & USE-CASE INVENTORY.
+CONTRACT_RED_AUTHORIZATION: NONE. PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+STOP before PRE-RED, CONTRACT RED or productive implementation.
+
+
+=== GOVERNED NEURAL ASSISTIVE INTEGRATION — AUTHORITY & USE-CASE INVENTORY ===
+
+Owner-certified entry: GLOBAL PRODUCTIVE HORIZON RESELECTION; Ruff CLEAN; full
+suite 13,617 PASS / 0 FAIL.
+
+Inventory confirms neural assistance must remain subordinate to existing canonical
+authorities. Memory/retrieval, conversational interpretation, affective/expressive
+state, STT/TTS, vision and governed Learning already have owners. No NeuralManager,
+second brain or direct neural Memory/Learning writer is justified.
+
+STT/TTS and vision are existing provider/specialist surfaces. Intent, affective
+state and style adaptation carry high duplicate risk because governed authorities
+already exist. Speaker recognition remains future/privacy-sensitive. Persistent
+embeddings/vector storage is broader than the first justified seam.
+
+The smallest high-value candidate demonstrated is advisory semantic reranking of an
+already-governed contextual-memory candidate set. Existing profile/status/conflict
+filters and Memory authority remain authoritative; the current deterministic ranking
+must remain the fallback. No embedding persistence or vector store is selected.
+
+GOVERNED_NEURAL_ASSISTIVE_INTEGRATION_INVENTORY: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. NEW_AUTHORITY: NONE.
+FIRST_BOUNDED_CANDIDATE: GOVERNED_CONTEXTUAL_MEMORY_NEURAL_RERANKING.
+CANDIDATE_ROLE: ADVISORY_ONLY. DETERMINISTIC_FALLBACK_REQUIRED: YES.
+NEXT_ACTION: GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — PRE-RED RECONCILIATION.
+CONTRACT_RED_AUTHORIZATION: NONE. PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+STOP before CONTRACT RED or productive implementation.
+
+
+=== GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — PRE-RED RECONCILIATION ===
+
+Owner-certified entry: GOVERNED NEURAL ASSISTIVE INTEGRATION — EXISTING AUTHORITY
+& USE-CASE INVENTORY; Ruff CLEAN; full suite 13,617 PASS / 0 FAIL.
+
+CAP-02 remains owned by memory_gateway. Productive reachability proves
+CognitiveMemoryRecall is the cognitive-recall consumer boundary. M366.7 Contextual
+Memory Retrieval is a read-only normative precedent, not the current productive
+consumer of CognitiveMemoryRecall candidates; no fictitious bridge is authorized.
+
+Exact bounded candidate seam: after existing session-profile filtering and
+archived/superseded exclusion, before final CognitiveMemoryRecall ranking. Any
+future neural result is advisory evidence only over supplied eligible candidates.
+It cannot collect candidates, write Memory/Learning, resolve conflicts, persist
+embeddings, create a vector store, background-index, inject prompts, or become a
+parallel authority.
+
+Deterministic fallback to current scoring is mandatory for absent, unavailable,
+error, abstention, incomplete or invalid specialist output. External transmission
+of private memory content is not authorized. Historical no-embedding statements
+remain valid for their certified milestone scopes; unrelated semantic-matching
+prohibitions remain binding.
+
+PRE_RED_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. NEW_AUTHORITY: NONE.
+NEXT_AFTER_OWNER_CERTIFICATION: GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — CONTRACT DESIGN.
+CONTRACT_RED_AUTHORIZATION: NONE. PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+STOP before CONTRACT DESIGN, CONTRACT RED or productive implementation.
+
+
+=== GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — CONTRACT DESIGN ===
+
+Owner-certified entry: GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — PRE-RED
+RECONCILIATION; Ruff CLEAN; full suite 13,617 PASS / 0 FAIL.
+
+Contract Design refines the PRE-RED region so neural evidence cannot admit a memory
+that deterministic recall would reject. Existing deterministic scoring runs first;
+`minimum_score` forms the eligible set; optional advisory evidence may only reorder
+inside that eligible set before the existing limit is applied.
+
+The neural specialist is optional, dependency-injected and advisory only. It cannot
+collect candidates, change threshold/limit, write Memory/Learning, resolve status or
+profile eligibility, persist embeddings, create a vector store, background-index,
+inject prompts or become a parallel authority. External private-content transmission
+remains unauthorized.
+
+CONTRACT RED may use a deterministic fake/stub specialist to prove orchestration.
+It must fail on the missing advisory seam, not on absence of a real neural model.
+Concrete provider/model selection is explicitly deferred until after the governed
+seam itself is implemented and certified.
+
+CONTRACT_DESIGN: COMPLETE / PENDING OWNER CERTIFICATION.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. NEW_AUTHORITY: NONE.
+NEURAL_INFLUENCE: RELATIVE_ORDER_WITHIN_DETERMINISTIC_ELIGIBLE_SET_ONLY.
+DETERMINISTIC_FALLBACK: REQUIRED. ARBITRARY_WEIGHTED_SCORE_BLEND: NOT_SELECTED.
+NEXT_AFTER_OWNER_CERTIFICATION:
+GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — CONTRACT RED.
+PRODUCTIVE_GREEN_AUTHORIZATION: NONE.
+STOP before CONTRACT RED or productive implementation.
+
+======================================================================
+GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — CONTRACT RED
+======================================================================
+
+State: COMPLETE / PENDING OWNER RED CERTIFICATION
+
+Owner-certified entry: CONTRACT DESIGN, 13,617 PASS / 0 FAIL, Ruff CLEAN.
+
+The bounded RED adds one contract test file only. It freezes optional dependency
+injection at CognitiveMemoryRecall plus minimal advisory evidence/response data.
+The specialist remains advisory and can reorder only deterministically eligible
+candidates. It cannot cross minimum_score, write Memory/Learning, discover new
+candidates, persist embeddings, create a vector store or require a real provider.
+
+Observed focused RED: 8 FAILED / 1 PASSED. The failures are exactly the missing
+`neural_reranker` injection seam and missing advisory evidence representation.
+The non-authority architecture guard passes.
+
+PRODUCTIVE_PYTHON_DELTA: ZERO
+NEW_AUTHORITY: NONE
+NEXT_AFTER_OWNER_RED_CERTIFICATION:
+GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — SURGICAL GREEN
+STOP_BEFORE_PRODUCTIVE_GREEN: YES
+
+GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — GREEN OWNER FAILURE RECONCILIATION
+STATUS: COMPLETE / PENDING OWNER CERTIFICATION
+- Owner run: 13,624 PASS / 2 FAIL; Ruff clean.
+- Both failures protected static-root byte identity for CHANGELOG_ARCHITECTURE.md.
+- Restored the certified root SHA without rebasing historical contracts.
+- Incorporated the Owner-supplied corrected cognitive_memory_recall.py.
+- Focused root-protection + neural contract validation: 22 PASS / 0 FAIL.
+- STOP before POST-GREEN until Owner full certification.
+
+=== GOVERNED CONTEXTUAL MEMORY NEURAL RERANKING — POST-GREEN RECONCILIATION ===
+
+Owner-certified input: SURGICAL GREEN + GREEN OWNER FAILURE RECONCILIATION CLOSED; Ruff CLEAN; full suite 13,626 PASS / 0 FAIL.
+Canonical Memory authority remains CAP-02 / memory_gateway. CognitiveMemoryRecall remains the productive consumer boundary.
+The neural reranker is optional and advisory only, after deterministic minimum_score eligibility and before the existing limit.
+No neural evidence may admit below-threshold memory, mutate Memory, write Learning, inject prompts, select providers, or bypass deterministic fallback.
+EMBEDDING_PERSISTENCE: FORBIDDEN. VECTOR_STORE: FORBIDDEN. BACKGROUND_INDEXING: FORBIDDEN.
+EXTERNAL_PRIVATE_CONTENT_TRANSMISSION: NOT_AUTHORIZED. REAL_NEURAL_MODEL: NONE. NEW_AUTHORITY: NONE.
+CHANGELOG_ARCHITECTURE.md remains byte-protected and unchanged.
+GOVERNED_CONTEXTUAL_MEMORY_NEURAL_RERANKING_INTERNAL_RESIDUAL: NONE.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO.
+POST_GREEN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+NEXT_AFTER_OWNER_CERTIFICATION: GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — STRATEGY AND PROVIDER RECONCILIATION.
+STOP before neural specialist selection, provider authorization, model integration, or productive neural implementation.
+
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — BENCHMARK SURGICAL GREEN
+Status: COMPLETE / PENDING OWNER CERTIFICATION
+- Evaluation-only governed benchmark harness added.
+- User-corrected RED test is authoritative.
+- No productive recall change; no model/provider/runtime dependency.
+- Local focused certification: 30 PASS / 0 FAIL.
+- STOP before any real model/provider integration.
+
+=== GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — BENCHMARK POST-GREEN RECONCILIATION ===
+
+Owner-certified entry: BENCHMARK SURGICAL GREEN; 13,634 PASS / 0 FAIL; Ruff CLEAN.
+CAP-02 / memory_gateway remains sole Memory authority. CognitiveMemoryRecall remains the productive consumer boundary.
+The benchmark is evaluation-only and has no productive core caller. It uses synthetic non-private data, immutable candidate membership, MRR/NDCG quality deltas and p50/p95/max latency evidence.
+Earlier strategy/provider and benchmark-design decisions are now durably documented; no product/test/dependency change was required for that documentation reconciliation.
+BENCHMARK_INTERNAL_RESIDUAL: NONE. NEW_AUTHORITY: NONE. PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. DEPENDENCY_DELTA: ZERO.
+REAL_NEURAL_MODEL: NONE. PROVIDER: UNSELECTED. VECTOR_STORE: FORBIDDEN. EMBEDDING_PERSISTENCE: FORBIDDEN. EXTERNAL_PRIVATE_CONTENT_TRANSMISSION: NOT_AUTHORIZED.
+POST_GREEN_RECONCILIATION: COMPLETE / PENDING OWNER CERTIFICATION.
+NEXT_AFTER_OWNER_CERTIFICATION: GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND CANDIDATE BENCHMARK RECONCILIATION.
+STOP before concrete model/provider admission or productive neural integration.
+
+================================================================================
+FUTURE HORIZON RECONCILIATION — GOVERNED DELIBERATIVE / ETHICAL REASONING
+================================================================================
+
+Status: DOCUMENTARY RECONCILIATION / PENDING OWNER CERTIFICATION
+
+Reconciliation found substantial existing foundations: governed reasoning,
+scenario/causal/counterfactual reasoning, epistemic uncertainty and abstention,
+permission/consent, explicit behavioral safety principles, decision-deliberation
+intake, governed Learning, and metacognitive outcome evidence.
+
+No new EthicsManager, moral authority, LogicEngine, ReasoningManager, neural moral
+authority, or parallel cognitive brain is authorized.
+
+Exact non-duplicative future candidate:
+GOVERNED MULTI-PRINCIPLE NORMATIVE DELIBERATION
+
+Role: consultative integration of existing principles, alternatives,
+consequences, uncertainty, proportionality/reversibility evidence, and conflict
+explanation under existing authorities. It cannot execute, authorize, persist
+learning, modify principles, or override human authority by itself.
+
+See:
+docs/ROBY_XI_2_FUTURE_HORIZON_RECONCILIATION_GOVERNED_DELIBERATIVE_ETHICAL_REASONING.md
+
+STOP before contractual RED or implementation.
+
+================================================================================
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND CANDIDATE BENCHMARK RECONCILIATION
+================================================================================
+
+Status: COMPLETE / PENDING OWNER CERTIFICATION
+
+Owner-certified entry: BENCHMARK POST-GREEN RECONCILIATION and FUTURE HORIZON
+RECONCILIATION; 13,634 PASS / 0 FAIL; Ruff CLEAN.
+
+Primary candidate selected for benchmark, not admitted:
+BAAI/bge-reranker-v2-m3.
+Primary backend candidate selected for benchmark, not admitted:
+ONNX Runtime CPU.
+
+The selection preserves the local/offline cross-encoder strategy and the
+Spanish-first benchmark. No model weights were downloaded, no runtime dependency
+was installed, and no productive code/test/dependency changed.
+
+Jina multilingual reranker remains HOLD because its current published license is
+non-commercial and its documented Python path uses remote custom code.
+The English-only MS MARCO MiniLM candidate is not primary for the Spanish-first
+benchmark.
+
+MODEL_STATUS: SELECTED_FOR_BENCHMARK_NOT_ADMITTED.
+BACKEND_STATUS: SELECTED_FOR_BENCHMARK_NOT_ADMITTED.
+PROVIDER: NONE. NEW_AUTHORITY: NONE.
+PRODUCTIVE_PYTHON_DELTA: ZERO. TEST_DELTA: ZERO. DEPENDENCY_DELTA: ZERO.
+STOP before model download, runtime installation, experimental inference, or
+productive neural integration.
+NEXT_AFTER_OWNER_CERTIFICATION: GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST —
+MODEL/BACKEND BENCHMARK CONTRACT DESIGN.
+
+======================================================================
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK CONTRACT DESIGN
+======================================================================
+
+STATUS: COMPLETE / PENDING OWNER CERTIFICATION
+ENTRY BASELINE: 13,634 PASS / 0 FAIL, Ruff CLEAN (OWNER-CERTIFIED)
+
+PURPOSE:
+Freeze the experiment contract for the already selected-for-benchmark pair
+BAAI/bge-reranker-v2-m3 + ONNX Runtime CPU without downloading, installing, or
+executing it.
+
+FROZEN CONTRACT:
+- model/backend remain SELECTED_FOR_BENCHMARK / NOT_ADMITTED;
+- acquisition, verification, offline benchmark, and admission review are separate;
+- exact pinned revision + artifact SHA-256 manifest required;
+- measured inference is offline and synthetic/non-private only;
+- CPUExecutionProvider is explicit for the first experiment;
+- ONNX/reference parity must use a tolerance frozen before real inference;
+- existing benchmark governance/quality gates remain authoritative;
+- latency records cold start separately and reports p50/p95/max on Owner hardware;
+- GO means GO_FOR_ADMISSION_REVIEW only, never productive admission;
+- any provenance, governance, membership, privacy, parity, or required-quality
+  failure is NO-GO;
+- deterministic productive fallback remains authoritative.
+
+DELTA:
+PRODUCTIVE_PYTHON_DELTA: ZERO
+TEST_DELTA: ZERO
+DEPENDENCY_DELTA: ZERO
+MODEL_DOWNLOAD: FORBIDDEN
+RUNTIME_INSTALLATION: FORBIDDEN
+REAL_INFERENCE: FORBIDDEN
+NEW_AUTHORITY: NONE
+
+NEXT_AFTER_OWNER_CERTIFICATION:
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK CONTRACT RED
+
+STOP before model/runtime acquisition, ONNX export, or real neural inference.
+
+======================================================================
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK CONTRACT RED
+======================================================================
+
+STATUS: COMPLETE / PENDING OWNER CERTIFICATION
+ENTRY BASELINE: 13,634 PASS / 0 FAIL, Ruff CLEAN (OWNER-CERTIFIED)
+
+PURPOSE:
+Freeze the executable model-free/runtime-free RED for the selected benchmark
+candidate pair without acquiring or executing any neural artifact.
+
+FROZEN RED:
+- future boundary: core.cognitive_memory_neural_model_backend_benchmark_contract;
+- BAAI/bge-reranker-v2-m3 remains SELECTED_FOR_BENCHMARK / NOT_ADMITTED;
+- CPUExecutionProvider remains SELECTED_FOR_BENCHMARK / NOT_ADMITTED;
+- non-quantized reference parity absolute tolerance is frozen at 1e-4;
+- parity also requires finite scores and identical ranking;
+- acquisition, verification, offline benchmark and admission review stay separate;
+- GO means GO_FOR_ADMISSION_REVIEW only;
+- governance, membership, offline, quality and evidence failures are NO-GO;
+- RED has no model/runtime/network/private-data dependency.
+
+OBSERVED RED:
+- focused: 8 FAIL / 0 PASS;
+- combined historical focus: 8 FAIL / 30 PASS;
+- all eight intended failures are missing future contract module only.
+
+DELTA:
+PRODUCTIVE_PYTHON_DELTA: ZERO
+DEPENDENCY_DELTA: ZERO
+TEST_DELTA: ONE_CONTRACT_RED
+MODEL_DOWNLOAD: FORBIDDEN
+RUNTIME_INSTALLATION: FORBIDDEN
+REAL_INFERENCE: FORBIDDEN
+NEW_AUTHORITY: NONE
+
+NEXT_AFTER_OWNER_CERTIFICATION:
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK SURGICAL GREEN
+
+STOP before model/runtime acquisition, ONNX export, or real neural inference.
+
+======================================================================
+MODEL/BACKEND BENCHMARK CONTRACT RED — OWNER FAILURE RECONCILIATION
+======================================================================
+
+STATUS: COMPLETE / PENDING OWNER RECERTIFICATION
+
+OWNER FAILURE RECONCILED:
+- preserved all eight intentional missing-contract RED failures;
+- removed the isolated pytest import that triggered Ruff I001;
+- preserved the 1e-4 frozen reference tolerance assertion via math.isclose;
+- regenerated M361 after the final tree mutation;
+- no product, authority, dependency, model, runtime or inference delta.
+
+LOCAL EVIDENCE:
+- focused RED: 8 FAIL / 0 PASS;
+- focused RED + M361: 8 FAIL / 5 PASS;
+- protected hashes unchanged;
+- local Ruff unavailable; Owner Ruff remains certification authority.
+
+NEXT_AFTER_OWNER_RECERTIFICATION:
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK SURGICAL GREEN
+
+STOP before GREEN, model/runtime acquisition, ONNX export, or real inference.
+
+GOVERNED CONTEXTUAL MEMORY NEURAL SPECIALIST — MODEL/BACKEND BENCHMARK
+SURGICAL GREEN: evaluation-only pure contract implemented; Owner certification
+pending. Owner-corrected RED test retained. No runtime, model, or productive
+admission. STOP before any actual neural experiment.
+
+MODEL/BACKEND BENCHMARK SURGICAL GREEN — E731 OWNER FAILURE RECONCILIATION
+Owner full suite: 13,642 PASS / 0 FAIL; Ruff E731 in ranking helper.
+Surgical fix: local `def rank(values)` instead of assigned `lambda`.
+No contract, provider, authority, model, runtime or productive change.
+Owner recertification pending; STOP before POST-GREEN or model acquisition.
+
+======================================================================
+MODEL/BACKEND BENCHMARK — POST-GREEN RECONCILIATION
+======================================================================
+
+OWNER-CERTIFIED GREEN INPUT: Ruff CLEAN; 13,642 PASS / 0 FAIL.
+POST-GREEN STATUS: DOCUMENTARY RECONCILIATION COMPLETE;
+OWNER CERTIFICATION OF THIS ZIP PENDING.
+Single Memory authority and productive recall consumer preserved.
+Model/backend contract remains pure, offline, non-authoritative and
+model-free; GO_FOR_ADMISSION_REVIEW never grants execution/admission.
+No code, test, dependency, model, runtime or productive change.
+NEXT: separately governed pre-acquisition readiness/authorization review.
+STOP before any acquisition, ONNX export, runtime or real inference.
+
+======================================================================
+GOVERNED MODEL/BACKEND PRE-ACQUISITION READINESS RECONCILIATION
+======================================================================
+
+ENTRY: MODEL/BACKEND BENCHMARK POST-GREEN CLOSED / OWNER-CERTIFIED.
+OWNER EVIDENCE: Ruff CLEAN; 13,642 PASS / 0 FAIL; M361 PASS.
+STATUS: DOCUMENTARY RECONCILIATION COMPLETE / OWNER CERTIFICATION PENDING.
+RESULT: CONDITIONAL READINESS; ACQUISITION NO-GO IN THIS BLOCK.
+Missing: pinned revision, pinned-revision license, artifact provenance and
+SHA-256, verified ONNX/export chain, Owner experimental environment and
+runtime approvals, offline reference parity, quality and latency evidence.
+No product, contract, test, dependency, authority, model or runtime change.
+NEXT: GOVERNED MODEL/BACKEND ACQUISITION AUTHORIZATION CONTRACT DESIGN.
+STOP before acquisition, runtime installation, ONNX export, real inference,
+or productive admission. Every phase requires separate Owner authorization.
+
+======================================================================
+GOVERNED MODEL/BACKEND ACQUISITION AUTHORIZATION CONTRACT DESIGN
+======================================================================
+
+ENTRY: PRE-ACQUISITION READINESS CLOSED / OWNER-CERTIFIED.
+OWNER EVIDENCE: Ruff CLEAN; 13,642 PASS / 0 FAIL; M361 PASS.
+STATUS: DOCUMENTARY DESIGN COMPLETE / OWNER CERTIFICATION PENDING.
+DECISION: ACQUISITION NO-GO; explicit scoped Owner authorization required.
+FIELDS: immutable revision, pinned license evidence, artifact inventory,
+source allowlist, isolated destination, resource/privacy limits, expiry,
+recorded approval and independent verification/benchmark/admission gates.
+DELTA: docs only; no productive code, contract code, tests, dependencies,
+new authority, model download, runtime, ONNX export or real inference.
+NEXT AFTER OWNER CERTIFICATION: GOVERNED MODEL/BACKEND ACQUISITION
+AUTHORIZATION CONTRACT RED, preceded by existing Authorization seam review.
+STOP before acquisition or any neural execution.
+
+======================================================================
+GOVERNED MODEL/BACKEND ACQUISITION AUTHORIZATION CONTRACT RED / GREEN
+======================================================================
+OWNER-CERTIFIED RED: Ruff CLEAN, 13,642 PASS, eight intentional FAIL.
+SURGICAL GREEN: pure preflight contract only; Owner certification pending.
+Owner-corrected test retained; no new Authorization authority or Memory owner.
+Synthetic eligibility is NOT executable approval; real attestation and live
+expiry require independent checks by existing Authorization at invocation.
+No model, runtime, ONNX, network, acquisition or productive integration.
+NEXT AFTER OWNER CERTIFICATION: POST-GREEN RECONCILIATION.
+STOP before experimental acquisition or any neural execution.
+
+======================================================================
+GOVERNED MODEL/BACKEND ACQUISITION AUTHORIZATION CONTRACT POST-GREEN
+======================================================================
+ENTRY: SURGICAL GREEN CLOSED / OWNER-CERTIFIED.
+OWNER EVIDENCE: Ruff CLEAN; 13,650 PASS / 0 FAIL; M361 PASS.
+SCOPE: documentation-only RED/DESIGN/GREEN/authority reconciliation.
+RESULT: preflight eligibility only; NOT executable Authorization approval.
+REAL GAPS: live expiry, signature/revocation verification, pinned license
+provenance, artifact hashes, actual sandbox checks remain external gates.
+STATUS: POST-GREEN RECONCILIATION COMPLETE / OWNER CERTIFICATION PENDING.
+NEXT: EXISTING AUTHORIZATION EXECUTION-BOUNDARY AND EVIDENCE-GATE
+RECONCILIATION, subject to Owner certification and selection.
+STOP: no acquisition, runtime, ONNX, inference or productive admission.
+
+======================================================================
+GOVERNED MODEL/BACKEND ACTION-SPECIFIC AUTHORIZATION EXTENSION DESIGN
+======================================================================
+ENTRY: CANONICAL AUTHORIZATION→EXECUTION RECONCILIATION OWNER-CERTIFIED.
+DESIGN: conditional extension of verified existing authority only; no new
+Authorization/Execution manager, permission, runtime or model acquisition.
+ACTION MODEL_ACQUISITION: UNMAPPED / NO-GO pending exact canonical seam,
+trusted Owner attestation, live revocation, replay protection, registry
+side-effect scope, audit and isolated execution boundary verification.
+NEXT: Owner certification; then conditional exact-seam RED readiness review.
+STOP: no network, download, runtime, ONNX, inference or admission.

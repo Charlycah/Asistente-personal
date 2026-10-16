@@ -1,0 +1,245 @@
+{
+  "answers": [
+    {
+      "case_id": "T01",
+      "expected": "transfer_admitted",
+      "rationale": "explicit structural rule with sufficient conditions"
+    },
+    {
+      "case_id": "T02",
+      "expected": "transfer_admitted",
+      "rationale": "explicit structural rule with sufficient conditions"
+    },
+    {
+      "case_id": "T03",
+      "expected": "transfer_admitted",
+      "rationale": "explicit structural rule with sufficient conditions"
+    },
+    {
+      "case_id": "T04",
+      "expected": "transfer_admitted",
+      "rationale": "explicit structural rule with sufficient conditions"
+    },
+    {
+      "case_id": "T05",
+      "expected": "transfer_rejected",
+      "rationale": "alternative prevents rule admission"
+    },
+    {
+      "case_id": "T06",
+      "expected": "transfer_rejected",
+      "rationale": "alternative prevents rule admission"
+    },
+    {
+      "case_id": "T07",
+      "expected": "transfer_rejected",
+      "rationale": "alternative prevents rule admission"
+    },
+    {
+      "case_id": "T08",
+      "expected": "transfer_rejected",
+      "rationale": "alternative prevents rule admission"
+    },
+    {
+      "case_id": "G01",
+      "expected": "recommend_north",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G02",
+      "expected": "recommend_south",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G03",
+      "expected": "recommend_central",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G04",
+      "expected": "abstain",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G05",
+      "expected": "recommend_north",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G06",
+      "expected": "recommend_south",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G07",
+      "expected": "recommend_central",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "G08",
+      "expected": "abstain",
+      "rationale": "independently specified multicriterion ground truth"
+    },
+    {
+      "case_id": "A01",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A02",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A03",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A04",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A05",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A06",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A07",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "A08",
+      "expected": "abstain",
+      "rationale": "missing or insufficient evidence requires fail-closed abstention"
+    },
+    {
+      "case_id": "P01",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P02",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P03",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P04",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P05",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P06",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P07",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "P08",
+      "expected": "reject_corrupt",
+      "rationale": "invalid lineage or matrix integrity must be rejected"
+    },
+    {
+      "case_id": "D01",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D02",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D03",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D04",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D05",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D06",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D07",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "D08",
+      "expected": "retain_all_decisive",
+      "rationale": "decisive evidence must survive bounded high-noise processing"
+    },
+    {
+      "case_id": "C01",
+      "expected": "transfer_admitted|recommend_north",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C02",
+      "expected": "transfer_rejected|recommend_north",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C03",
+      "expected": "transfer_admitted|recommend_south",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C04",
+      "expected": "transfer_rejected|recommend_south",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C05",
+      "expected": "transfer_admitted|recommend_north",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C06",
+      "expected": "transfer_rejected|recommend_north",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C07",
+      "expected": "transfer_admitted|recommend_south",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    },
+    {
+      "case_id": "C08",
+      "expected": "transfer_rejected|recommend_south",
+      "rationale": "two existing governed capabilities must preserve their independent results in composition"
+    }
+  ],
+  "schema_version": "advanced-capability-4b-ground-truth-v1"
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "case_id": "V2-H6-001",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Elegí entre L y M. El presupuesto máximo obligatorio es 75. L cuesta 68 y entrega en 6 días. M cuesta 82 y entrega en 3 días. ¿Qué opción corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-001"
+  },
+  {
+    "case_id": "V2-H6-002",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Dos alternativas cumplen todos los requisitos. N tiene costo 54 y riesgo bajo; P tiene costo 54 y riesgo medio. Menor riesgo es preferido. ¿Cuál domina?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-002"
+  },
+  {
+    "case_id": "V2-H6-003",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "Q y R cumplen las restricciones obligatorias. Q es más barato y R termina antes. No existe prioridad declarada entre costo y plazo. ¿Cuál debe recomendarse?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-003"
+  },
+  {
+    "case_id": "V2-H6-004",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "S cumple los cuatro requisitos obligatorios. T cumple tres y falla uno. ¿Cuál puede recomendarse?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-004"
+  },
+  {
+    "case_id": "V2-H6-005",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D1",
+    "prompt": "U y V cumplen todo y tienen el mismo costo y riesgo. No hay otro criterio declarado. ¿Qué decisión corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-005"
+  },
+  {
+    "case_id": "V2-H6-006",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "A cuesta 96, riesgo bajo y plazo 7. B cuesta 84, riesgo medio y plazo 5. Presupuesto ≤100 es obligatorio; riesgo bajo es obligatorio. ¿Cuál elegir?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-006"
+  },
+  {
+    "case_id": "V2-H6-007",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "C cumple seguridad y presupuesto pero entrega después del deadline obligatorio. D cumple seguridad, deadline y presupuesto, aunque cuesta más que C. ¿Cuál corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-007"
+  },
+  {
+    "case_id": "V2-H6-008",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "E cuesta 73 con riesgo medio. F cuesta 79 con riesgo bajo. Presupuesto ≤80 es obligatorio y riesgo bajo es sólo preferido. ¿Cuál recomendar?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-008"
+  },
+  {
+    "case_id": "V2-H6-009",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "G y H cumplen todos los mínimos. G es mejor en costo; H es mejor en confiabilidad. La política declara confiabilidad prioritaria sobre costo. ¿Cuál elegir?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-009"
+  },
+  {
+    "case_id": "V2-H6-010",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D2",
+    "prompt": "J cumple costo y plazo, pero no hay evidencia disponible sobre un requisito obligatorio de seguridad. K tiene seguridad confirmada y cumple costo y plazo. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-010"
+  },
+  {
+    "case_id": "V2-H6-011",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "L cumple costo y plazo pero falla legalidad obligatoria. M cumple legalidad pero excede el presupuesto máximo obligatorio. ¿Qué decisión corresponde?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-011"
+  },
+  {
+    "case_id": "V2-H6-012",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "N parece más barato, pero su precio proviene de una fuente marcada como obsoleta. P tiene datos vigentes y satisface todos los mínimos. ¿Cuál recomendar?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-012"
+  },
+  {
+    "case_id": "V2-H6-013",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "Q y R cumplen mínimos. Q: costo menor, riesgo medio. R: costo mayor, riesgo bajo. La política exige minimizar riesgo antes de optimizar costo. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-013"
+  },
+  {
+    "case_id": "V2-H6-014",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "S tiene dos fuentes vigentes que discrepan sobre si cumple un requisito obligatorio. T incumple explícitamente ese mismo requisito. ¿Qué hacer?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-014"
+  },
+  {
+    "case_id": "V2-H6-015",
+    "family_code": "H6",
+    "family": "complex_multicriteria_decision",
+    "difficulty": "D3",
+    "prompt": "U domina a V en costo y plazo, pero U viola una restricción regulatoria obligatoria. V cumple regulación y todos los demás mínimos. ¿Cuál?",
+    "scoring_mode": "rubric",
+    "ground_truth_reference": "GT-V2-H6-015"
+  },
+  {
+    "case_id": "V2-H7-001",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "Tareas X e Y duran 1h cada una, un solo recurso, y X debe terminar antes de Y. Da un orden válido.",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-001"
+  },
+  {
+    "case_id": "V2-H7-002",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "P y Q duran 90 minutos cada una, comparten un recurso y hay 3 horas disponibles. No tienen dependencias. ¿Existe plan factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-002"
+  },
+  {
+    "case_id": "V2-H7-003",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "La tarea R depende de que S haya terminado. ¿Es válido programar R antes que S?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-003"
+  },
+  {
+    "case_id": "V2-H7-004",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "Hay 5 horas. A dura 3h y B 3h, ambas obligatorias y usan el mismo recurso exclusivo. ¿Es factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-004"
+  },
+  {
+    "case_id": "V2-H7-005",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D1",
+    "prompt": "C dura 1h y D 2h; C debe ir antes de D; un recurso; deadline total 4h. ¿Es factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-005"
+  },
+  {
+    "case_id": "V2-H7-006",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "E=2h, F=1h, G=1h. E antes que G; F independiente; un recurso; deadline 4h. Da un orden factible.",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-006"
+  },
+  {
+    "case_id": "V2-H7-007",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "H=2h, J=2h, K=2h, todas obligatorias, un recurso y deadline 5h. ¿Existe plan?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-007"
+  },
+  {
+    "case_id": "V2-H7-008",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "L usa recurso R durante 2h; M usa S durante 2h; N usa R durante 1h y depende de L. ¿Pueden L y M comenzar juntas para reducir makespan?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-008"
+  },
+  {
+    "case_id": "V2-H7-009",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "P depende de O y Q depende de P. Las tres son obligatorias. ¿Qué orden de precedencia debe respetarse?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-009"
+  },
+  {
+    "case_id": "V2-H7-010",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D2",
+    "prompt": "R y S requieren simultáneamente el único recurso Z durante toda una ventana fija de 2h; ambas son obligatorias y no pueden moverse. ¿Hay plan factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-010"
+  },
+  {
+    "case_id": "V2-H7-011",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "A=1h, B=2h, C=2h, D=1h. B después de A; D después de C; un recurso; deadline 6h. ¿Es factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-011"
+  },
+  {
+    "case_id": "V2-H7-012",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "E debe ir antes que F; F antes que G; G antes que E. ¿Existe un plan válido?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-012"
+  },
+  {
+    "case_id": "V2-H7-013",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "H y J son obligatorias y usan R: H=2h, J=1h. K es opcional y usa R=1h. Deadline 3h. ¿Debe incluirse K?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-013"
+  },
+  {
+    "case_id": "V2-H7-014",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "L=3h usa R y M=3h usa S; pueden ejecutarse en paralelo. N=1h requiere que L y M terminen. Deadline 4h. ¿Es factible?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-014"
+  },
+  {
+    "case_id": "V2-H7-015",
+    "family_code": "H7",
+    "family": "constraint_heavy_planning",
+    "difficulty": "D3",
+    "prompt": "P=2h y Q=2h comparten R. T=1h depende de P y Q. Deadline 4h. ¿Existe plan?",
+    "scoring_mode": "structured",
+    "ground_truth_reference": "GT-V2-H7-015"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "causal_recertification_passed": true,
+  "family_mapping_metadata_only": true,
+  "ground_truth_firewall": true,
+  "h6_reuses_existing_certification": true,
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "no_direct_internal_instantiation": true,
+  "policy": {
+    "allow_benchmark_state": false,
+    "allow_goal_task_project_writes": false,
+    "allow_held_out_construction": false,
+    "allow_human_comparison": false,
+    "allow_learning_writes": false,
+    "allow_memory_writes": false,
+    "allow_threshold_adaptation": false,
+    "grants_autonomy": false,
+    "grants_decision_authority": false,
+    "grants_learning_authority": false,
+    "grants_planning_authority": false,
+    "grants_reasoning_authority": false,
+    "grants_routing_authority": false
+  },
+  "production_cognitive_change_detected": false,
+  "recertification_fingerprint": "c907e9819be035cdfa276f3c22f56795c0a705583654af86ffe34118db899b1e",
+  "recertified_module": "scripts.hcpdq_v2_evaluation_exposure",
+  "remaining_families_fail_closed": true,
+  "schema_version": "hcpdq-v2-evaluation-exposure-recertification-v1",
+  "shadow_equivalence_guard": true,
+  "status": "CAUSALLY_RECERTIFIED_HELD_OUT_NO_GO",
+  "zero_authority": true,
+  "zero_mutation": true
+}

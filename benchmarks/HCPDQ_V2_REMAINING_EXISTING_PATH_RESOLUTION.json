@@ -1,0 +1,122 @@
+{
+  "already_certified_family": "H6",
+  "architectural_determination": "All seven families have existing capability evidence, but none has a presently certified official read-only path exposing the complete HCPDQ family semantics. Fail closed without production changes.",
+  "baseline": "12830-pass-0-fail-ruff-clean",
+  "family_results": {
+    "H1": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "UnifiedCognitiveCoordinator exists.",
+        "Existing A5 diagnostic finds a shared reasoning/planning/reflection/executive bundle rather than stage-specific relevance."
+      ],
+      "family": "H1",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P1",
+      "productive_surface_exists": true,
+      "prohibited_inference": "Do not infer deterministic-reasoning path certification.",
+      "resolution": "EXISTING_COMPOSITION_COARSE_NOT_H1_CERTIFIED"
+    },
+    "H2": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "GovernedEpistemicSufficiencyProductiveConsumptionV1 exists.",
+        "Its own rationale states no reasoning or stopping invocation."
+      ],
+      "family": "H2",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P2",
+      "productive_surface_exists": true,
+      "prohibited_inference": "Do not equate epistemic context consumption with H2 abstention.",
+      "resolution": "PRODUCTIVE_EPISTEMIC_CONTEXT_CONSUMER_NOT_ABSTENTION_EXECUTOR"
+    },
+    "H3": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "CognitivePlanner and context-sensitive inhibition evidence exist.",
+        "No official read-only productive H3 distractor interface is certified."
+      ],
+      "family": "H3",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P1",
+      "productive_surface_exists": false,
+      "prohibited_inference": "Do not instantiate CognitivePlanner from the benchmark.",
+      "resolution": "INTERNAL_CONTEXT_SENSITIVITY_NO_OFFICIAL_H3_EVALUATION_SURFACE"
+    },
+    "H4": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "GovernedStructuralKnowledgeTransferMatcher exists.",
+        "Whole-system diagnostic evidence covers novel-context transfer."
+      ],
+      "family": "H4",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P1",
+      "productive_surface_exists": false,
+      "prohibited_inference": "Do not treat diagnostic/test reachability as productive exposure.",
+      "resolution": "STRUCTURAL_TRANSFER_AUTHORITY_NO_PRODUCTIVE_EXPOSURE"
+    },
+    "H5": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "Target structural projection and contextual case grounding exist.",
+        "No official read-only H5 generalization surface is certified."
+      ],
+      "family": "H5",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P1",
+      "productive_surface_exists": false,
+      "prohibited_inference": "Do not create a benchmark generalization facade.",
+      "resolution": "GENERALIZATION_AUTHORITIES_NO_PRODUCTIVE_EXPOSURE"
+    },
+    "H7": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "CanonicalPlanningFacade exists and delegates only when bound.",
+        "OfficialConversationGateway constructs CanonicalPlanningFacade unbound."
+      ],
+      "family": "H7",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P2",
+      "productive_surface_exists": true,
+      "prohibited_inference": "Do not bind or instantiate a planner merely for benchmark coverage.",
+      "resolution": "CANONICAL_PLANNING_SURFACE_UNBOUND_AT_OFFICIAL_GATEWAY"
+    },
+    "H8": {
+      "authority_exists": true,
+      "calibration_path_certified": false,
+      "evidence": [
+        "GovernedReasoningMethodProvenanceProductiveConsumptionV1 exists.",
+        "Its guard forbids selecting/recommending methods and modifying reasoning."
+      ],
+      "family": "H8",
+      "full_family_semantics_exposed": false,
+      "prior_state": "P2",
+      "productive_surface_exists": true,
+      "prohibited_inference": "Do not equate provenance availability with H8 conflict resolution.",
+      "resolution": "PRODUCTIVE_PROVENANCE_CONSUMER_NOT_CONFLICT_RESOLUTION_EXECUTOR"
+    }
+  },
+  "held_out_construction_authorized": false,
+  "new_authority_authorized": false,
+  "newly_certified_families": [],
+  "next_gate": "HCPDQ-v2 Evaluation Exposure Gap — Contract / Go-No-Go",
+  "production_changes_authorized": false,
+  "remaining_uncertified_families": [
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H7",
+    "H8"
+  ],
+  "resolution_fingerprint": "e60565767bdc935d50ad385788e46483fb7c10feb20e593a30f1703b90bd0ad5",
+  "schema_version": "hcpdq-v2-remaining-existing-path-resolution-v1",
+  "status": "RESOLVED_NO_ADDITIONAL_FAMILY_CERTIFIED"
+}

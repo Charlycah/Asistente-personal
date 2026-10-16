@@ -1,0 +1,5 @@
+
+
+python scripts/generate_quality_baseline.py
+ruff check .
+pytest -q

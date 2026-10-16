@@ -1,0 +1,9 @@
+ROBY XI.2 — RP.17 Cognitive Episodic Memory
+
+Expected local certification:
+
+ruff check .
+pytest
+
+RP.17 adds a governed episodic memory after the Cognitive World Model while
+preserving the historical state.rationale contract and all prior behavior.

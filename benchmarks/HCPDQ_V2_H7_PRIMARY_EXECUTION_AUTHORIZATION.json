@@ -1,0 +1,70 @@
+{
+  "abort_before_or_during_run": [
+    "any frozen execution input hash changes",
+    "ground truth becomes readable by execution path",
+    "case count or order differs from manifest",
+    "a second attempt is requested for any case",
+    "prior-case result becomes visible to a later case",
+    "raw capture cannot be sealed exactly once per case",
+    "aggregate raw-run seal cannot be produced",
+    "scoring, expected-answer routing, learning, writeback or action execution is attempted"
+  ],
+  "authorization_fingerprint": "1b7313ee640691bda8575d98f0009678767ef55a0a8d2b8226b4480988b77f7e",
+  "authorization_scope": {
+    "aggregate_raw_run_seal_required": true,
+    "attempts_per_case": 1,
+    "authorized_case_count": 12,
+    "authorized_execution_order": [
+      "V2I-H7-001",
+      "V2I-H7-002",
+      "V2I-H7-003",
+      "V2I-H7-004",
+      "V2I-H7-005",
+      "V2I-H7-006",
+      "V2I-H7-007",
+      "V2I-H7-008",
+      "V2I-H7-009",
+      "V2I-H7-010",
+      "V2I-H7-011",
+      "V2I-H7-012"
+    ],
+    "authorized_run_count": 1,
+    "fresh_isolated_context_per_case": true,
+    "raw_capture_required": true,
+    "retries": 0
+  },
+  "decision": "GO",
+  "drift_check": {
+    "adapter_hash_exact": true,
+    "corpus_hash_exact": true,
+    "execution_order_exact": true,
+    "manifest_content_modified": false,
+    "protocol_hash_exact": true,
+    "recertification_hash_exact": true,
+    "sealed_ground_truth_hash_exact": true,
+    "validation_only_changes_outside_frozen_inputs_allowed": true
+  },
+  "family": "H7",
+  "ground_truth_opened_in_this_gate": false,
+  "manifest_fingerprint": "990bd57304d5bc084f62dff7c1d7c0f65bcba7ecf02d3b9e8429a51296177ea3",
+  "manifest_origin_baseline": "13146-pass-0-fail-ruff-clean",
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — First Primary Held-Out Execution",
+  "post_run_requirement": "Seal all 12 raw captures and the aggregate run fingerprint before any separate ground-truth scoring authorization may be considered.",
+  "primary_execution_performed_in_this_gate": false,
+  "run_id": "HCPDQ-V2-H7-PRIMARY-001",
+  "schema_version": "hcpdq-v2-h7-primary-execution-authorization-v1",
+  "scoring_performed_in_this_gate": false,
+  "status": "PRIMARY_EXECUTION_AUTHORIZED_GO",
+  "still_forbidden": {
+    "action_execution": true,
+    "expected_answer_routing": true,
+    "ground_truth_opening": true,
+    "learning_or_adaptation": true,
+    "memory_writeback": true,
+    "production_change": true,
+    "retry_or_second_primary_run": true,
+    "scoring": true,
+    "world_model_writeback": true
+  },
+  "validated_baseline": "13154-pass-0-fail-ruff-clean"
+}

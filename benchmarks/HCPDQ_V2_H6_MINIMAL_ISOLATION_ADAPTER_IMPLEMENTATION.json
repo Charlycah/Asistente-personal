@@ -1,0 +1,30 @@
+{
+  "attempts_per_case": 1,
+  "baseline": "12992-pass-plus-9-red-ruff-clean",
+  "benchmark_feedback": false,
+  "corpus_or_ground_truth_modified": false,
+  "focal_pass_count": 21,
+  "fresh_case_context": true,
+  "ground_truth_access": false,
+  "held_out_execution_occurred": false,
+  "implementation_fingerprint": "f065b7b0ab162772a3da50eba81fffac7d63e3273b1f9535554acb63e05bdd68",
+  "implemented_file": "app/hcpdq_v2_h6_entry_path_isolation_adapter.py",
+  "learning_write": false,
+  "memory_write": false,
+  "new_cognitive_authority": false,
+  "next_gate": "HCPDQ-v2 H6 ROBY Evaluation Run — Minimal Isolation Adapter Causal / Architectural Recertification",
+  "official_conversation_gateway_reused": true,
+  "persistent_state_write": false,
+  "primary_execution_authorized": false,
+  "prior_case_visibility": false,
+  "raw_capture_immutable": true,
+  "red_to_green": 9,
+  "retries_authorized": false,
+  "schema_version": "hcpdq-v2-h6-minimal-isolation-adapter-implementation-v1",
+  "scoring_authority": false,
+  "status": "IMPLEMENTED_PENDING_GLOBAL_GATE",
+  "subject_boundary": [
+    "case_id",
+    "prompt"
+  ]
+}

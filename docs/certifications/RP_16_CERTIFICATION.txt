@@ -1,0 +1,17 @@
+RP.16 — Cognitive World Model
+
+Focused suite:
+72 passed
+
+Full suite:
+6344 passed
+
+Additional checks:
+- compileall: PASS
+- modified Python lines over 88 chars: 0
+- caches and compiled artifacts removed
+- ZIP integrity verified
+
+Ruff is not installed in the container. Run locally:
+ruff check .
+pytest

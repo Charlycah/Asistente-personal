@@ -1,0 +1,71 @@
+--- a/docs/M360_0E_PHASE_II_MASTER_PLAN.md
++++ b/docs/M360_0E_PHASE_II_MASTER_PLAN.md
+@@ -136,3 +136,68 @@
+ ## 9. Conclusión
+ 
+ La Fase II queda ordenada desde consolidación interna hacia percepción, sistema operativo, dispositivos, automatización, interoperabilidad y planificación avanzada. El roadmap prioriza valor personal, reutilización, gobernanza y validación completa por encima de la novedad tecnológica.
++
++---
++
++## Anexo evolutivo R-MP-EVOL-S2 — Objetivos cognitivos, humanización y entorno local (2026-10-12)
++
++**Tipo:** integración documental aprobada por el Owner; sin habilitación productiva ni experimental.
++**Alcance:** amplía objetivos y condiciones de reentrada; no reemplaza el orden histórico M360 ni los cierres posteriores.
++**Precedencia:** `ROBY_XI_2_CURRENT_TRUTH.md` y última decisión del Owner; luego registro canónico raíz, inventario cognitivo y reconciliaciones posteriores. Las prioridades P0–P3 de este anexo **no sustituyen** las prioridades P0–P4 históricas de M360: son prioridades temáticas de evaluación.
++**Antecedentes:** `R_MP_EVOL_S1_RECONCILIACION_PREVIA_OBJETIVOS_COGNITIVOS.md`, `R_MP_EVOL_S1_CONTRASTE_COBERTURA_CANONICA_ZIP10.md`, `R_MP_EVOL_S2_PROPUESTA_ACTUALIZACION_QUIRURGICA_PLAN_MAESTRO_ZIP10.md` y 25 documentos `docs/R_RIQ_S2_*.md`. Los tres R-MP-EVOL son documentos de trabajo locales y deben incorporarse por separado a `docs/` si se desea referenciarlos desde el repositorio.
++
++### A. Objetivos y límites de maduración
++
++### Eje EVOL-C — Maduración cognitiva gobernada
++
++**Propósito.** Mejorar capacidad efectiva de ROBY para razonar, generalizar, recordar, planificar, explicar incertidumbre y corregirse, reutilizando las autoridades canónicas. Se distinguen: **documentado**, **integrado productivamente**, **medido**, **validado científicamente**. Ninguna categoría implica automáticamente la siguiente.
++
++| Objetivo Owner | Reutilización / estado documental S1 | Resultado exigible antes de declarar mejora | Dependencia y límite |
++|---|---|---|---|
++| Razonamiento abstracto | CAP-04/07/08, razonamiento gobernado; acotado | Resolver problemas inéditos con evidencia y explicación | Sin segundo razonador |
++| Zero-shot / few-shot | CAP-08/11/12; parcial | Transferencia comparativa con tareas independientes | Protocolo y admisión separados |
++| Memoria de trabajo y largo plazo | CAP-01/02/03, Memory Gateway/Knowledge; gobernada | Recuperación pertinente, procedencia y conexión a salida | H1 científico: evidencia insuficiente |
++| Multimodalidad | H5 parcial; rutas visuales y audio distintas | Composición verificable de modalidades efectivamente disponibles | No afirmar tacto/sensores inexistentes |
++| Modelos de mundo | CAP-06; predicción causal/temporal acotada | Predicciones contrastables y límites explícitos | No simulador universal |
++| Aprendizaje continuo | CAP-12/20, aprobación humana; parcial | Retención, transferencia, no regresión T0/T1/T2 | H4 científico sin admisión |
++| Metacognición | CAP-09/13/15; acotada | Detección de límites, revisión y atribución a respuesta final | H2 científico sin admisión |
++| Agencialidad y planificación | CAP-11/13 y autorización canónica | Planes revisables, trazabilidad decisión–resultado | H3 científico parcialmente factible |
++| Teoría de la mente | Contexto/presencia; evidencia específica pendiente | Hipótesis sociales prudentes, calibradas y corregibles | No lectura mental ni inferencia sensible gratuita |
++| Alineación y ética | Gates, consentimiento, supervisión; gobernada | Cumplimiento de restricciones y justificación | No equivaler a ética humana general |
++| Bucles de crítica y corrección | CAP-05/09/14; efectividad pendiente | Mejora observable del resultado, sin degradación | No loop/autoridad paralela |
++| Entropía y confianza | CAP-09; evidencia específica pendiente | Calibración de confianza; entropía solo si hay distribución válida | No porcentajes inventados |
++| Planificación por imaginación | CAP-06/11/13; acotada | Comparar escenarios y consecuencias antes de actuar | Simulación ≠ permiso de ejecución |
++
++### Eje EVOL-H — Identidad, humanización y conversación
++
++ROBY debe conservar identidad propia y expresión natural, coherente, configurable y respetuosa. TARS (humor/franqueza), Data (precisión/curiosidad), Samantha (fluidez), Dolores (continuidad narrativa) y Giskard/Daneel (prudencia) son **referencias de diseño**, no identidades a copiar ni evidencia de conciencia. Reutilizar M55/M377 y la proyección canónica post-GREEN ya documentada; verificar consumidor ordinario antes de abrir residual. Conciencia funcional = autodescripción veraz, continuidad y metacognición evaluable; **no** prometer experiencia subjetiva. La identidad vocal permanece FUTURE salvo evidencia específica.
++
++### Eje EVOL-L — Fuentes locales y experiencia multimedia
++
++Mantener acceso explícito y gobernado por raíz configurada, propósito, autorización y límites. `D:\Biblioteca` tiene antecedente CAP-17; `D:\Documentos` y `D:\Roby` cuentan con GREEN de admisión/consulta específicos; no generalizar a exploración irrestricta. La petición Owner `D:\Pinacoteca` requiere identificar si el contenido es visual, musical o mixto y verificar configuración real. CAP-18 visual **no** equivale a catálogo musical. Para música, separar búsqueda, selección, reproducción, STOP y controles adicionales; no afirmar que todas las pistas están indexadas. Consulta de historia de desarrollo = lectura autorizada, no autoedición de código.
++
++### Eje EVOL-G — Aprendizaje y mejora bajo gobierno
++
++Las propuestas de mejora de ROBY pueden ser evaluadas por Owner y autoridades existentes; nunca equivalen a auto-modificación productiva. Cualquier red neuronal o proveedor adicional permanece `MODEL_ACQUISITION: UNMAPPED / DENY / NO-GO` hasta nueva autorización y seam concreto. Preservar `M377: HOLD`, privacidad, reversibilidad, no regresión y `STOP_PRODUCTIVE`.
++
++### B. Orden condicionado de evaluación
++
++**P0 — Experiencia conversacional ordinaria:** comprobar de forma focalizada la llegada efectiva de capacidades existentes al turno real; sin repetir auditoría histórica post-GREEN.  
++**P1 — Autocrítica, calibración y planificación:** definir un caso observable y autorizado por cada residual demostrado; sin reabrir experimentalmente R-RIQ-H1–H4.  
++**P2 — Directorios y música:** verificar requisitos concretos del Owner frente a raíces, tipos de activo y funciones ya disponibles.  
++**P3 — Multimodalidad ampliada, aprendizaje longitudinal y modelos nuevos:** condicionados a evidencia, dependencias, seguridad y autorizaciones adicionales.
++
++Estas prioridades son **orden de análisis de requisitos**, no backlog autorizado de implementación. Si no hay brecha reproducible y reutilización agotada: `NO PRODUCTIVE RESIDUAL / EVIDENCE_WAITING`.
++
++### C. Barreras científicas preservadas
++
++H1 memoria/evidencia `INSUFFICIENT_EVIDENCE`; H2 calibración `INSUFFICIENT_EVIDENCE`; H3 acción/resultado `PARTIALLY_FEASIBLE`; H4 aprendizaje `INSUFFICIENT_EVIDENCE`. `EXPERIMENTAL_ADMISSION: NOT_GRANTED`. Cualquier experimento requiere B1 autorización específica; B2 trazabilidad; B3 referencia independiente; B4 comparabilidad; B5 seguridad/privacidad; B6 protocolo, Owner y STOP. La propuesta no satisface esas barreras por sí sola.
++
++### D. Control de cambios y autorización
++
++- No crear nuevos módulos, gestores, agentes, cerebros, loops, stores o autoridades sin prueba de residual y contrato separado.
++- No modificar Current Truth, Capability Registry, Cognitive Inventory, R-MPHR ni R-RIQ-S2 mediante este anexo.
++- No confundir metas de capacidad, integración productiva y validación científica.
++- `M377: HOLD`; `MODEL_ACQUISITION: UNMAPPED / DENY / NO-GO`.
++- `EXPERIMENTAL_ADMISSION: NOT_GRANTED`; `NEXT_PRODUCTIVE_HORIZON: NOT_SELECTED`.
++- `STOP_PRODUCTIVE: ACTIVE`.

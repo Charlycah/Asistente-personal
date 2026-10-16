@@ -1,0 +1,52 @@
+{
+  "architectural_determination": "The existing shadow path is real and productively wired, but its observable records do not expose the complete causal semantics of H1 or H3. Because no read-only adapter can recover semantics that are absent from the records, H1/H3 must be excluded from HCPDQ-v2 rather than creating benchmark-specific production observability.",
+  "audit_fingerprint": "810ca5c1950b3f030488ba85e6158bf828c013ea86b5e83e6b2c38ec0b244e88",
+  "baseline": "12898-pass-0-fail-ruff-clean",
+  "benchmark_semantic_classifier_authorized": false,
+  "capability_observation_wired": true,
+  "context_observation_wired": true,
+  "families": {
+    "H1": {
+      "disposition": "EXCLUDE_H1_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H1",
+      "family_semantics_fully_exposed": false,
+      "held_out_authorized": false,
+      "ordinary_productive_path_wired": true,
+      "production_change_authorized": false,
+      "rationale": [
+        "Ordinary runtime turns do invoke the existing shadow planner.",
+        "The shadow exposes intent, needs, tools, evidence, policy and decision-context observability.",
+        "H1 requires deterministic reasoning-path semantics, but the shadow plan is advisory and does not expose stage-specific reasoning execution or a causal reasoning-path outcome.",
+        "Using shadow plan metadata as H1 would overclaim observability."
+      ],
+      "red_authorized": false,
+      "shadow_surface_exists": true
+    },
+    "H3": {
+      "disposition": "EXCLUDE_H3_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H3",
+      "family_semantics_fully_exposed": false,
+      "held_out_authorized": false,
+      "ordinary_productive_path_wired": true,
+      "production_change_authorized": false,
+      "rationale": [
+        "Ordinary runtime turns populate shadow planning observations.",
+        "Existing runtime paths also observe selected conversation context and governed capability selection.",
+        "Those assessors compare planned versus selected context/capability, but they do not expose the semantic negation, quoted-span and distractor evidence required for complete H3 certification.",
+        "Creating benchmark semantic labels would cross the evaluation boundary."
+      ],
+      "red_authorized": false,
+      "shadow_surface_exists": true
+    }
+  },
+  "held_out_authorized": false,
+  "new_authority_authorized": false,
+  "next_gate": "HCPDQ-v2 Measurable Family Set — Final Scope Freeze / Held-Out Readiness Decision",
+  "ordinary_plan_observation_wired": true,
+  "preimplementation_red_authorized": false,
+  "production_change_authorized": false,
+  "schema_version": "hcpdq-v2-h1-h3-shadow-observability-audit-v1",
+  "shadow_runtime_existing_authority": "CognitivePlanner",
+  "shadow_runtime_is_observer": true,
+  "status": "RESOLVED_EXCLUDE_H1_H3_FROM_V2_MEASURABLE_SCOPE"
+}

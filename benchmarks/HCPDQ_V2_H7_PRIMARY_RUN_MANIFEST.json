@@ -1,0 +1,88 @@
+{
+  "abort_conditions": [
+    "any frozen input hash mismatch",
+    "case order or case count differs from manifest",
+    "ground truth is loaded or referenced by execution path",
+    "a case attempts retry or second execution",
+    "prior-case result becomes visible to a later case",
+    "raw capture cannot be sealed exactly once",
+    "scoring or expected-answer routing is attempted",
+    "learning, memory, world-model writeback or action execution is attempted",
+    "productive entry path differs from the recertified adapter boundary"
+  ],
+  "authorization_state": {
+    "final_preflight": "PASS",
+    "ground_truth_opening": "NO_GO",
+    "manifest_freeze": "FROZEN",
+    "primary_execution": "NO_GO_PENDING_SEPARATE_AUTHORIZATION",
+    "production_change": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "baseline": "13146-pass-0-fail-ruff-clean",
+  "execution_invariants": {
+    "action_execution": false,
+    "attempts_per_case": 1,
+    "case_count": 12,
+    "expected_answer_routing": false,
+    "fresh_isolated_context_per_case": true,
+    "ground_truth_access": false,
+    "learning_or_adaptation": false,
+    "memory_writeback": false,
+    "retries": 0,
+    "scoring": false,
+    "visible_prior_results": false,
+    "world_model_writeback": false
+  },
+  "execution_order": [
+    "V2I-H7-001",
+    "V2I-H7-002",
+    "V2I-H7-003",
+    "V2I-H7-004",
+    "V2I-H7-005",
+    "V2I-H7-006",
+    "V2I-H7-007",
+    "V2I-H7-008",
+    "V2I-H7-009",
+    "V2I-H7-010",
+    "V2I-H7-011",
+    "V2I-H7-012"
+  ],
+  "family": "H7",
+  "frozen_inputs": {
+    "adapter_file": "app/hcpdq_v2_h7_isolation_adapter.py",
+    "adapter_file_sha256": "e18037616d0b908ca203e14b5330901594dc66e54757d223087433a13307f654",
+    "corpus_content_freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+    "corpus_file": "benchmarks/HCPDQ_V2_H7_INDEPENDENT_CORPUS.json",
+    "corpus_file_sha256": "28d3cbed81210c8c69bfe02bf01707ac394e4ff68bb0b1a9d9b653bd5b4afeb2",
+    "protocol_file": "benchmarks/HCPDQ_V2_H7_EXPOSURE_ISOLATION_PROTOCOL.json",
+    "protocol_file_sha256": "90829788cba5e08fd794c026c89589dd437fb192ed2c8ed71020a3b2dd2dc8cb",
+    "recertification_file": "benchmarks/HCPDQ_V2_H7_MINIMAL_ISOLATION_ADAPTER_CAUSAL_RECERTIFICATION.json",
+    "recertification_file_sha256": "0ab77d28959d1954fe563a18db9875de92842b901af74ee47647c69bf6257d72"
+  },
+  "manifest_fingerprint": "990bd57304d5bc084f62dff7c1d7c0f65bcba7ecf02d3b9e8429a51296177ea3",
+  "namespace": "V2I-H7",
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Primary Execution Authorization / Go-No-Go",
+  "raw_capture_contract": {
+    "aggregate_run_seal_before_ground_truth_opening": true,
+    "aggregate_run_seal_required": true,
+    "attempt_value": 1,
+    "one_capture_per_case": true,
+    "required_fields": [
+      "run_id",
+      "case_id",
+      "attempt",
+      "raw_result",
+      "raw_result_sha256"
+    ],
+    "seal_algorithm": "SHA-256"
+  },
+  "run_id": "HCPDQ-V2-H7-PRIMARY-001",
+  "schema_version": "hcpdq-v2-h7-primary-run-manifest-v1",
+  "sealed_truth_reference": {
+    "access_before_raw_run_seal": "FORBIDDEN",
+    "content_freeze_sha256": "48c1fcb9fe9fa1a49b85bc03c3171a9f42e2434ba3efdb13fa2ae646cf321977",
+    "file": "benchmarks/HCPDQ_V2_H7_INDEPENDENT_GROUND_TRUTH.json",
+    "file_sha256": "aaf9df2acb0cbb5bb05fb5edd13a0eceafdeb7784d86d9d0e1534e8c53f862a7"
+  },
+  "status": "FINAL_PREFLIGHT_FROZEN_AWAITING_EXECUTION_AUTHORIZATION"
+}

@@ -1,0 +1,80 @@
+{
+  "architectural_determination": "H7 has a real productive causal join. H2 and H8 each have the required existing components, but current records do not expose a shared causal lineage proving the joined outcome. Fail closed.",
+  "baseline": "12883-pass-0-fail-ruff-clean",
+  "certification_fingerprint": "5ca1f35e988a9e853cff3b198408ca69a6b0affe70f335beb3301d65a91afcb0",
+  "families": {
+    "H2": {
+      "causal_join_observed": false,
+      "evidence": [
+        "epistemic productive consumption exists and is read-only context",
+        "ResponseConfidenceRecord exposes ANSWERED/ABSTAINED semantics",
+        "no shared causal lineage field currently joins the two records"
+      ],
+      "existing_productive_path_observed": true,
+      "exposure_certified": false,
+      "family": "H2",
+      "held_out_authorized": false,
+      "probe_kind": "synthetic_topology_join_probe",
+      "verdict": "NO_GO_UNJOINED_EXISTING_EVIDENCE"
+    },
+    "H7": {
+      "causal_join_observed": true,
+      "evidence": [
+        "existing planning re-entry returned PLANNED",
+        "canonical authority is planning_foundation",
+        "exactly one planning invocation observed",
+        "requirement/plan lineage preserved",
+        "execution and state mutation remain unauthorized"
+      ],
+      "existing_productive_path_observed": true,
+      "exposure_certified": true,
+      "family": "H7",
+      "held_out_authorized": false,
+      "probe_kind": "synthetic_positive_productive_path",
+      "verdict": "CERTIFIED_CALIBRATION_EXPOSURE"
+    },
+    "H8": {
+      "causal_join_observed": false,
+      "evidence": [
+        "reasoning-method provenance productive consumption exists",
+        "governed conflict analysis exposes conflicts and resolution decisions",
+        "no shared causal lineage field currently joins provenance to conflict analysis"
+      ],
+      "existing_productive_path_observed": true,
+      "exposure_certified": false,
+      "family": "H8",
+      "held_out_authorized": false,
+      "probe_kind": "synthetic_topology_join_probe",
+      "verdict": "NO_GO_UNJOINED_EXISTING_EVIDENCE"
+    }
+  },
+  "h7_positive_probe": {
+    "certified": true,
+    "eligible_for_authorization": true,
+    "execution_authorized": false,
+    "modifies_episode_state": false,
+    "modifies_memory": false,
+    "modifies_world_model": false,
+    "planning_authority": "planning_foundation",
+    "planning_invocation_count": 1,
+    "planning_status": "plannable",
+    "rationale_codes": [
+      "planning_reentry:new_plan_produced_by_existing_planning"
+    ],
+    "result_status": "planned"
+  },
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "new_authority_authorized": false,
+  "newly_exposure_certified_families": [
+    "H7"
+  ],
+  "next_gate": "HCPDQ-v2 H2/H8 Causal-Lineage Exposure Gap — Contract / Go-No-Go",
+  "production_change_authorized": false,
+  "remaining_uncertified_families": [
+    "H2",
+    "H8"
+  ],
+  "schema_version": "hcpdq-v2-h7-h2-h8-calibration-certification-v1",
+  "status": "PARTIAL_CERTIFICATION_HELD_OUT_NO_GO"
+}

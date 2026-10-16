@@ -1,0 +1,17 @@
+Post-M409.1 — Governed Longitudinal Reasoning Assessment Foundation v1
+
+Apply this delta over the certified Post-M409.1 baseline (11,786 tests + Ruff clean).
+
+Adds only:
+- core/governed_reasoning/longitudinal_reasoning_assessment.py
+- focused architecture tests
+- synchronized documentation/changelog entries
+
+No HistoricalAnalysisAuthority changes.
+No ReasoningContextBundle changes.
+No Memory, Learning, Reflection, persistence, runtime wiring, new authority,
+automatic adaptation, temporal trend or autonomous behavior.
+
+Official certification gate after integration:
+    ruff check .
+    pytest -q

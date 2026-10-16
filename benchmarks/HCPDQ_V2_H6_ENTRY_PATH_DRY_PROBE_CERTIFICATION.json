@@ -1,0 +1,57 @@
+{
+  "architectural_determination": "Three synthetic non-held-out probes independently satisfy the exact existing structured H6 intake and complete through the productive conversation path while a fail-closed runtime fallback is armed. This certifies entry-path reachability only; it does not score H6 cognition. Construction of a new independent corpus and ground truth is authorized under the frozen contract, but held-out exposure and execution remain prohibited.",
+  "baseline": "12969-pass-0-fail-ruff-clean",
+  "benchmark_router_authorized": false,
+  "benchmark_translation_authorized": false,
+  "certification_fingerprint": "65d74e097ab8f999da38d119fb0282bb74a89e5e2bb934c0e1d31fd294861e51",
+  "construction_authorized": true,
+  "dry_probe_count": 3,
+  "dry_probe_records": [
+    {
+      "criteria_status": "explicit",
+      "deliberation_status": "explicit",
+      "held_out": false,
+      "intake_status": "complete",
+      "option_criterion_status": "explicit",
+      "probe_id": "DP-H6-01",
+      "productive_response_captured": true,
+      "prompt_fingerprint": "b60991e330a787b2bc70567a1001cded9938f2189a2acb1994da0d0225422829",
+      "runtime_fallback_reached": false
+    },
+    {
+      "criteria_status": "explicit",
+      "deliberation_status": "explicit",
+      "held_out": false,
+      "intake_status": "complete",
+      "option_criterion_status": "explicit",
+      "probe_id": "DP-H6-02",
+      "productive_response_captured": true,
+      "prompt_fingerprint": "692f82ff87d764488782a63614d2b20e6aedeb347b066884a3b4dab8318895a2",
+      "runtime_fallback_reached": false
+    },
+    {
+      "criteria_status": "explicit",
+      "deliberation_status": "explicit",
+      "held_out": false,
+      "intake_status": "complete",
+      "option_criterion_status": "explicit",
+      "probe_id": "DP-H6-03",
+      "productive_response_captured": true,
+      "prompt_fingerprint": "fe892e0c31482ccdf2540ffef0e2f331e8ead762d4148330d955a435223c5baf",
+      "runtime_fallback_reached": false
+    }
+  ],
+  "dry_probe_reuse_as_held_out_authorized": false,
+  "dry_probes_are_held_out": false,
+  "entry_path_certified": true,
+  "family": "H6",
+  "ground_truth_construction_authorized": true,
+  "held_out_exposure_authorized": false,
+  "next_gate": "HCPDQ-v2 H6 Entry-Path Equivalent Corpus — Independent Construction / Ground-Truth Freeze",
+  "old_consumed_case_reuse_authorized": false,
+  "primary_execution_authorized": false,
+  "production_change_authorized": false,
+  "roby_held_out_execution_authorized": false,
+  "schema_version": "hcpdq-v2-h6-entry-path-dry-probe-certification-v1",
+  "status": "DRY_PROBES_CERTIFIED_CONSTRUCTION_AUTHORIZED"
+}

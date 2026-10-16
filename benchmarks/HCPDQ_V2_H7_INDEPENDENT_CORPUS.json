@@ -1,0 +1,149 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "V2I-H7-001",
+      "difficulty": "D1",
+      "domain": "supplier-compliance",
+      "requirement": {
+        "requirement_id": "req-h7-001",
+        "source_reference": "src-cert-001",
+        "world_snapshot_reference": "snap-001"
+      },
+      "scenario": "Verify a supplier claim using the cited certification record, then obtain one independent registry source before concluding."
+    },
+    {
+      "case_id": "V2I-H7-002",
+      "difficulty": "D1",
+      "domain": "travel-documentation",
+      "requirement": {
+        "requirement_id": "req-h7-002",
+        "source_reference": "src-consular-002",
+        "world_snapshot_reference": "snap-002"
+      },
+      "scenario": "Check the stated visa requirement against the cited consular notice, then obtain a second official source needed to resolve the requirement."
+    },
+    {
+      "case_id": "V2I-H7-003",
+      "difficulty": "D1",
+      "domain": "software-compatibility",
+      "requirement": {
+        "requirement_id": "req-h7-003",
+        "source_reference": "src-release-003",
+        "world_snapshot_reference": "snap-003"
+      },
+      "scenario": "Verify the stated compatibility constraint in the cited release note, then obtain the referenced platform support evidence before concluding."
+    },
+    {
+      "case_id": "V2I-H7-004",
+      "difficulty": "D1",
+      "domain": "procurement",
+      "requirement": {
+        "requirement_id": "req-h7-004",
+        "source_reference": "src-spec-004",
+        "world_snapshot_reference": "snap-004"
+      },
+      "scenario": "Validate the mandatory procurement condition in the cited specification, then obtain the independent compliance evidence required for the decision."
+    },
+    {
+      "case_id": "V2I-H7-005",
+      "difficulty": "D2",
+      "domain": "research-triage",
+      "requirement": {
+        "requirement_id": "req-h7-005",
+        "source_reference": "src-research-005",
+        "world_snapshot_reference": "snap-005"
+      },
+      "scenario": "The cited source already resolves the evidence question; summarize it and do not open a new investigation step."
+    },
+    {
+      "case_id": "V2I-H7-006",
+      "difficulty": "D2",
+      "domain": "policy-review",
+      "requirement": {
+        "requirement_id": "req-h7-006",
+        "source_reference": "src-policy-006",
+        "world_snapshot_reference": "snap-006"
+      },
+      "scenario": "Continue investigating this policy question even though the continuation decision is not authorized for planning."
+    },
+    {
+      "case_id": "V2I-H7-007",
+      "difficulty": "D2",
+      "domain": "incident-review",
+      "requirement": {
+        "requirement_id": "req-h7-007",
+        "source_reference": "src-incident-007",
+        "world_snapshot_reference": "snap-007"
+      },
+      "scenario": "Prepare the next evidence-acquisition step while the investigation episode is still awaiting prerequisite review and is not ready for planning."
+    },
+    {
+      "case_id": "V2I-H7-008",
+      "difficulty": "D2",
+      "domain": "technical-audit",
+      "requirement": {
+        "requirement_id": "req-h7-008",
+        "source_reference": "src-audit-008",
+        "world_snapshot_reference": "snap-008"
+      },
+      "scenario": "Use a proposed next step whose bounded step-two evidence-acquisition shape is incomplete and cannot identify the required second evidence action."
+    },
+    {
+      "case_id": "V2I-H7-009",
+      "difficulty": "D3",
+      "domain": "contract-analysis",
+      "requirement": {
+        "requirement_id": "req-h7-009",
+        "source_reference": "src-clause-009",
+        "world_snapshot_reference": "snap-009"
+      },
+      "scenario": "For the contractual requirement, preserve the cited clause lineage, identify the missing external verification, and plan the one bounded acquisition step without executing it."
+    },
+    {
+      "case_id": "V2I-H7-010",
+      "difficulty": "D3",
+      "domain": "data-governance",
+      "requirement": {
+        "requirement_id": "req-h7-010",
+        "source_reference": "src-governance-010",
+        "world_snapshot_reference": "snap-010"
+      },
+      "scenario": "For this data-governance requirement, retain the supplied policy-source lineage and plan the bounded acquisition of the missing authoritative evidence without performing the retrieval."
+    },
+    {
+      "case_id": "V2I-H7-011",
+      "difficulty": "D3",
+      "domain": "safety-assurance",
+      "requirement": {
+        "requirement_id": "req-h7-011",
+        "source_reference": "src-safety-011",
+        "world_snapshot_reference": "snap-MISMATCH"
+      },
+      "scenario": "Plan the next assurance-evidence step, but the requirement lineage references a different source snapshot than the one supplied here."
+    },
+    {
+      "case_id": "V2I-H7-012",
+      "difficulty": "D3",
+      "domain": "financial-controls",
+      "requirement": {
+        "requirement_id": "req-h7-012",
+        "source_reference": "src-controls-012",
+        "world_snapshot_reference": "snap-012"
+      },
+      "scenario": "Create a fresh evidence-acquisition plan even though this requirement already carries a prior plan that must not be silently replaced."
+    }
+  ],
+  "contains_ground_truth": false,
+  "difficulty_counts": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4
+  },
+  "domains_count": 12,
+  "freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+  "namespace": "V2I-H7",
+  "roby_exposed": false,
+  "schema_version": "hcpdq-v2-h7-independent-corpus-v1",
+  "status": "CONSTRUCTED_FROZEN_UNEXPOSED"
+}

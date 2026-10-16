@@ -1,0 +1,25 @@
+{
+  "baseline": "12923-pass-0-fail-ruff-clean",
+  "failures_are_contractual": true,
+  "ground_truth_visibility_authorized": false,
+  "import_or_fixture_accident": false,
+  "learning_or_adaptation_authorized": false,
+  "minimal_isolation_adapter_implementation_authorized": true,
+  "next_gate": "HCPDQ-v2 H6/H7 ROBY Evaluation Run — Minimal Isolation Adapter Implementation",
+  "primary_execution_authorized": false,
+  "production_change_authorized": false,
+  "red_contract_fingerprint": "84210df1bdb28e6e695a9b86076f0dae76d3bb2ab3903fc0f9678d95c7115ee9",
+  "red_failure_count": 6,
+  "red_test_count": 6,
+  "required_adapter_contract": [
+    "minimal subject envelope only",
+    "reject ground-truth material",
+    "no memory/learning/persistence/adaptation writes",
+    "fresh per-case context with no cross-case result visibility",
+    "raw capture before scoring",
+    "primary execution remains blocked"
+  ],
+  "schema_version": "hcpdq-v2-h6-h7-preexecution-red-isolation-v1",
+  "single_causal_failure": "missing app.hcpdq_v2_h6_h7_isolation_adapter",
+  "status": "RED_CONFIRMED_MINIMAL_ISOLATION_ADAPTER_AUTHORIZED"
+}

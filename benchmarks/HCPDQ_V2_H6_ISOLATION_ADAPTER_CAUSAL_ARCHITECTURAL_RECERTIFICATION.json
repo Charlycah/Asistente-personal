@@ -1,0 +1,21 @@
+{
+  "adapter_sha256": "49faf57ca3c26075212f6066a16320aa961525fab36a66e167697c5aeaa21b02",
+  "baseline": "13001-pass-0-fail-ruff-clean",
+  "benchmark_case_file_reference_present": false,
+  "corpus_modified": false,
+  "ground_truth_file_reference_present": false,
+  "ground_truth_modified": false,
+  "held_out_execution_occurred": false,
+  "new_cognitive_authority": false,
+  "next_gate": "HCPDQ-v2 H6 ROBY Evaluation Run — Final Preflight / Run Manifest Freeze",
+  "official_gateway_constructed": true,
+  "official_gateway_imported": true,
+  "parallel_decision_authority_constructed": false,
+  "persistent_write_api_present": false,
+  "primary_execution_authorized": false,
+  "recertification_fingerprint": "14cec586ff6809f14746e548e23c67cade6a9467358f329eceb2102bf8258e3e",
+  "red_contract_green_count": 9,
+  "schema_version": "hcpdq-v2-h6-isolation-adapter-causal-architectural-recertification-v1",
+  "scoring_method_present": false,
+  "status": "CAUSAL_ARCHITECTURAL_RECERTIFIED_PRIMARY_EXECUTION_STILL_BLOCKED"
+}

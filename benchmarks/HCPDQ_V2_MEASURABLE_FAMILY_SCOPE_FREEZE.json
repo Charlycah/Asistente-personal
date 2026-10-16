@@ -1,0 +1,126 @@
+{
+  "baseline": "12893-pass-0-fail-ruff-clean",
+  "excluded_families": [
+    "H2",
+    "H4",
+    "H5",
+    "H8"
+  ],
+  "families": {
+    "H1": {
+      "disposition": "PENDING_SHADOW_OBSERVABILITY_AUDIT",
+      "evidence_basis": [
+        "authority exists",
+        "shadow runtime exists and is observational",
+        "ordinary-turn H1 causal exposure is not yet certified"
+      ],
+      "family": "H1",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    },
+    "H2": {
+      "disposition": "EXCLUDED_NOT_VALIDLY_MEASURABLE",
+      "evidence_basis": [
+        "Both existing components are independently observable.",
+        "No existing productive path joins sufficiency consumption to a specific response decision.",
+        "Adding identifiers alone would manufacture correlation rather than expose an already-existing causal join.",
+        "HCPDQ must fail closed instead of changing response semantics."
+      ],
+      "family": "H2",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    },
+    "H3": {
+      "disposition": "PENDING_SHADOW_OBSERVABILITY_AUDIT",
+      "evidence_basis": [
+        "context-sensitive authority evidence exists",
+        "shadow runtime exists and is observational",
+        "ordinary-turn H3 causal exposure is not yet certified"
+      ],
+      "family": "H3",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    },
+    "H4": {
+      "disposition": "EXCLUDED_NO_PRODUCTIVE_EXPOSURE",
+      "evidence_basis": [
+        "Structural-transfer authority and causal tests exist internally.",
+        "No official productive read-only consumer is currently certified.",
+        "Do not create an HCPDQ structural-transfer facade to force measurability."
+      ],
+      "family": "H4",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    },
+    "H5": {
+      "disposition": "EXCLUDED_NO_PRODUCTIVE_EXPOSURE",
+      "evidence_basis": [
+        "Target projection and contextual grounding authorities exist.",
+        "Their complete generalization composition lacks productive exposure.",
+        "Exclude from v2 rather than construct benchmark-only composition."
+      ],
+      "family": "H5",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    },
+    "H6": {
+      "disposition": "CERTIFIED_CALIBRATION_PATH",
+      "evidence_basis": [
+        "OfficialConversationGateway explicit complex-decision intake",
+        "productive GCDR integration",
+        "governed complex decision reasoning",
+        "runtime fallback bypassed by positive calibration probe"
+      ],
+      "family": "H6",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": true
+    },
+    "H7": {
+      "disposition": "CERTIFIED_CALIBRATION_EXPOSURE",
+      "evidence_basis": [
+        "existing planning re-entry returned PLANNED",
+        "canonical authority is planning_foundation",
+        "exactly one planning invocation observed",
+        "requirement/plan lineage preserved",
+        "execution and state mutation remain unauthorized"
+      ],
+      "family": "H7",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": true
+    },
+    "H8": {
+      "disposition": "EXCLUDED_NOT_VALIDLY_MEASURABLE",
+      "evidence_basis": [
+        "Method provenance and conflict analysis both exist.",
+        "No existing productive path joins a consumed provenance record to a specific conflict analysis or resolution decision.",
+        "Source/world similarity is insufficient causal evidence.",
+        "HCPDQ may not create a conflict-selection or provenance bridge."
+      ],
+      "family": "H8",
+      "held_out_use_authorized": false,
+      "measurable_in_v2": false
+    }
+  },
+  "held_out_construction_authorized": false,
+  "held_out_execution_authorized": false,
+  "held_out_readiness": "NO_GO",
+  "human_comparison_authorized": false,
+  "measurable_families": [
+    "H6",
+    "H7"
+  ],
+  "measurable_family_count": 2,
+  "new_authority_authorized": false,
+  "next_gate": "HCPDQ-v2 H1/H3 Shadow Observability — Existing-Path Audit / Scope Resolution",
+  "pending_scope_families": [
+    "H1",
+    "H3"
+  ],
+  "production_changes_authorized": false,
+  "reason": "H6 and H7 are measurably certified. H2/H8 are excluded for missing productive causal lineage; H4/H5 are excluded for missing productive exposure. H1/H3 remain unresolved because an existing read-only shadow runtime is present and must be audited before the v2 measurable scope can be frozen without leaving reachable evidence unexamined.",
+  "required_family_count": 8,
+  "schema_version": "hcpdq-v2-measurable-family-scope-freeze-v1",
+  "scope_fingerprint": "40c892304aa4ce19fb2636dff00b4f0d1cf1aca93b3cd4eb6d8cca5777aeafb7",
+  "scope_freeze_complete": false,
+  "status": "SCOPE_PARTIALLY_FROZEN_HELD_OUT_NO_GO"
+}

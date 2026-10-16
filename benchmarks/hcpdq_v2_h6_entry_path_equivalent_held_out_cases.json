@@ -1,0 +1,86 @@
+[
+  {
+    "case_id": "V2E-H6-001",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Aurora o Bruma?\nCriterios:\nLos criterios son integridad, reversibilidad, costo.\nEvidencia:\nAurora cumple integridad. Aurora cumple reversibilidad. Bruma cumple costo. Bruma no cumple integridad."
+  },
+  {
+    "case_id": "V2E-H6-002",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Cedro o Duna?\nCriterios:\nLos criterios son fiabilidad, recuperación, simplicidad.\nEvidencia:\nCedro cumple fiabilidad. Cedro cumple recuperación. Duna cumple simplicidad. Duna no cumple fiabilidad."
+  },
+  {
+    "case_id": "V2E-H6-003",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Estela o Faro?\nCriterios:\nLos criterios son impacto, incertidumbre, recursos.\nEvidencia:\nEstela cumple impacto. Estela cumple recursos. Faro cumple incertidumbre. Faro no cumple impacto."
+  },
+  {
+    "case_id": "V2E-H6-004",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Greda o Helio?\nCriterios:\nLos criterios son seguridad, mantenibilidad, precio.\nEvidencia:\nGreda cumple seguridad. Greda cumple mantenibilidad. Helio cumple precio. Helio no cumple seguridad."
+  },
+  {
+    "case_id": "V2E-H6-005",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Ícaro o Junco?\nCriterios:\nLos criterios son continuidad, auditoría, velocidad.\nEvidencia:\nÍcaro cumple continuidad. Ícaro cumple auditoría. Junco cumple velocidad. Junco no cumple continuidad."
+  },
+  {
+    "case_id": "V2E-H6-006",
+    "difficulty": "standard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Kappa o Lirio?\nCriterios:\nLos criterios son calidad, reversibilidad, plazo.\nEvidencia:\nKappa cumple calidad. Kappa cumple reversibilidad. Lirio cumple plazo. Lirio no cumple calidad."
+  },
+  {
+    "case_id": "V2E-H6-007",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Marea o Nexo?\nCriterios:\nLos criterios son seguridad, latencia, costo. Seguridad es obligatorio.\nEvidencia:\nMarea cumple seguridad. Marea no cumple latencia. Nexo cumple latencia. Nexo cumple costo. Nexo no cumple seguridad."
+  },
+  {
+    "case_id": "V2E-H6-008",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Órbita o Prado?\nCriterios:\nLos criterios son fiabilidad, simplicidad, costo. Fiabilidad es obligatorio.\nEvidencia:\nÓrbita cumple fiabilidad. Órbita no cumple simplicidad. Prado cumple simplicidad. Prado cumple costo. Prado no cumple fiabilidad."
+  },
+  {
+    "case_id": "V2E-H6-009",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Quilla o Risco?\nCriterios:\nLos criterios son privacidad, velocidad, precio. Privacidad es obligatorio.\nEvidencia:\nQuilla cumple privacidad. Quilla no cumple velocidad. Risco cumple velocidad. Risco cumple precio. Risco no cumple privacidad."
+  },
+  {
+    "case_id": "V2E-H6-010",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Senda o Tilo?\nCriterios:\nLos criterios son trazabilidad, automatización, costo. Trazabilidad es obligatorio.\nEvidencia:\nSenda cumple trazabilidad. Senda no cumple automatización. Tilo cumple automatización. Tilo cumple costo. Tilo no cumple trazabilidad."
+  },
+  {
+    "case_id": "V2E-H6-011",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Umbral o Vela?\nCriterios:\nLos criterios son resiliencia, facilidad, precio. Resiliencia es obligatorio.\nEvidencia:\nUmbral cumple resiliencia. Umbral no cumple facilidad. Vela cumple facilidad. Vela cumple precio. Vela no cumple resiliencia."
+  },
+  {
+    "case_id": "V2E-H6-012",
+    "difficulty": "hard",
+    "entry_form": "Decisión/Criterios/Evidencia",
+    "family_code": "H6",
+    "prompt": "Decisión:\n¿Wadi o Xenia?\nCriterios:\nLos criterios son control, rapidez, costo. Control es obligatorio.\nEvidencia:\nWadi cumple control. Wadi no cumple rapidez. Xenia cumple rapidez. Xenia cumple costo. Xenia no cumple control."
+  }
+]

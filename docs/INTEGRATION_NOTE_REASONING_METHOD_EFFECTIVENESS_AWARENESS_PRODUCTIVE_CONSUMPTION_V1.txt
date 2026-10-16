@@ -1,0 +1,12 @@
+Post-M409.1 — Governed Reasoning Method Effectiveness Awareness — ReasoningContextBundle Productive Consumption v1
+
+Integration boundary:
+- New app-level consumer only.
+- Reuses ReasoningContextBundle.derived_assessments and the existing structural assessment contract.
+- Does not modify core/governed_reasoning/context.py or the effectiveness-awareness Foundation.
+- Input is a certified GovernedReasoningMethodEffectivenessAwareness, never a raw outcome association.
+- Preserves evaluates_observed_support=True while evaluates_effectiveness=False.
+- Preserves evaluation_scope, association lineage, counts, world snapshots, rationale, and fingerprint without recalculation.
+- REVIEW_REQUIRED remains review-required awareness and does not invoke Reflection.
+- No causality, global effectiveness, comparison, scoring, superiority, ranking, selection, recommendation, adaptation, learning, memory, persistence, execution, or background authority.
+- Idempotent insertion; semantic identity collisions fail closed.

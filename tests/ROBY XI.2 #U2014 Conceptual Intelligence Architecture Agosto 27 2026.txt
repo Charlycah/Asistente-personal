@@ -1,0 +1,758 @@
+ROBY XI.2 — Conceptual Intelligence Architecture Audit
+
+Baseline auditada: HCE Zero-Residual Certified — 13.439 PASS + Ruff limpio
+Modo: auditoría arquitectónica / sin implementación
+Objeto: determinar qué inteligencia conceptual posee realmente ROBY, qué foundations deben reutilizarse y cuál es el gap exacto antes de autorizar Hierarchical Concept Formation.
+
+1. Dictamen ejecutivo
+
+La auditoría cambia y precisa parcialmente la hipótesis inicial del Next Cognitive Evolution Decision.
+
+ROBY no parte de cero en inteligencia conceptual ni en analogía estructural.
+
+El repositorio ya contiene, bajo core.governed_reasoning, una cadena considerable:
+
+semantic grounding
+→ relational abstraction
+→ human-governed learning bridge
+→ approved structural reuse
+→ structural knowledge transfer
+→ explicit role correspondence
+
+Por tanto:
+
+NO debe implementarse un nuevo Concept Engine, Analogy Engine, Concept Memory, Ontology Manager ni otra authority cognitiva.
+
+El Inventario ya advertía que ROBY posee abstracción relacional gobernada y structural transfer aprobado, aunque no construcción jerárquica general de conceptos.
+
+La inspección del código confirma esa frontera.
+
+Gap certificado por esta auditoría
+
+El gap real es más estrecho:
+
+ROBY puede inducir una relación invariante acotada, aprender determinadas estructuras aprobadas y reconocer posteriormente correspondencia estructural dentro de familias certificadas; no posee todavía una representación canónica de concepto compuesto y jerárquico capaz de integrar múltiples relaciones, propiedades, subestructuras, restricciones y excepciones como una única estructura conceptual gobernada.
+
+En consecuencia:
+
+Hierarchical Concept Formation sigue siendo candidato válido.
+
+Pero:
+
+Structural Analogy no debe tratarse inicialmente como una capacidad nueva.
+
+ROBY ya posee una forma bounded de discriminación/transferencia estructural análoga. Una futura analogía más rica tendría que demostrarse como extensión necesaria de esa foundation, no como otro subsystem.
+
+2. Hallazgos concretos del repositorio
+
+La búsqueda arquitectónica encontró aproximadamente 370 archivos de código, tests o documentación que contienen terminología relacionada con concepto, abstracción, semántica, transferencia, generalización o analogía.
+
+Esto confirma que crear nuevas clases a partir del nombre de la capacidad sin auditar lo existente habría tenido un riesgo alto de duplicación.
+
+Las foundations relevantes se concentran especialmente en:
+
+core/governed_reasoning/
+
+y no justifican crear otra authority.
+
+3. Foundation 1 — Semantic Grounding
+
+Existe:
+
+GovernedBoundedSemanticRoleRelationGrounder
+
+con productos del tipo:
+
+GovernedContextualSemanticGroundingCandidate.
+
+La authority declarada es:
+
+canonical_authority = "governed_reasoning".
+
+El mecanismo representa actualmente roles y relaciones semánticas tipadas, incluyendo:
+
+dependent;
+resource;
+capability;
+prerequisite;
+dependency;
+availability;
+alternative;
+required_for.
+
+Su contrato es deliberadamente estrecho.
+
+Un resultado grounded debe pertenecer a una familia semántica certificada y cumplir una topología determinada de roles y slots.
+
+Además, permanece:
+
+read-only;
+session-local;
+non-persistent;
+sin creación/modificación de Memory;
+sin creación/modificación de Learning;
+sin modificación del World Model;
+sin establecer verdad;
+sin autorizar inferencia;
+sin ejecución.
+Dictamen
+
+REUTILIZAR.
+
+Ésta es una foundation semántica legítima para concept formation cuando corresponda.
+
+NO GENERALIZARLA silenciosamente convirtiendo su vocabulario acotado actual en una ontología universal.
+
+4. Foundation 2 — Governed Relational Abstraction
+
+Existe:
+
+GovernedRelationalAbstractionInducer
+
+y produce:
+
+GovernedRelationalAbstractionCandidate.
+
+Su propia documentación la define como la primera primitive acotada de concept formation.
+
+Esto coincide exactamente con el Inventario, que clasifica Concept Formation & Abstraction como L4 — GOVERNED / SELECTIVE.
+
+Actualmente puede inducir:
+
+multiple explicit examples
+→ shared relation + shared outcome
+→ review-only relational abstraction candidate
+
+El contrato exige:
+
+mínimo dos ejemplos;
+scope común;
+relación común;
+outcome común;
+counterexamples explícitos;
+provenance;
+abstención/fail-closed.
+
+Estados existentes:
+
+INSUFFICIENT_EVIDENCE;
+NO_ABSTRACTION;
+REVIEW_REQUIRED;
+CONTESTED;
+ABSTAIN.
+
+El candidate explícitamente:
+
+no persiste;
+no crea Memory;
+no crea Learning;
+no establece truth;
+no autoriza inference;
+no registra reglas;
+no ejecuta acciones;
+no concede authority.
+Dictamen
+
+ÉSTA ES LA FOUNDATION PRIMARIA DE LA PRÓXIMA EVOLUCIÓN.
+
+No debe aparecer una implementación competidora denominada, por ejemplo:
+
+ConceptInducer,
+ConceptFormationEngine,
+ConceptReasoner
+
+si realiza nuevamente esta función.
+
+Hierarchical Concept Formation debe profundizar este contrato.
+
+5. Limitación exacta de Relational Abstraction
+
+El modelo actual posee esencialmente:
+
+scope_reference
+
+invariant_relation
+
+invariant_outcome
+
+supporting_example_ids
+
+counterexample_ids
+
+confidence
+
+provenance.
+
+Eso permite representar una invariante relacional, pero no un concepto estructural complejo.
+
+No existe en este contrato una representación general de:
+
+concept identity;
+parent concept;
+child concepts;
+múltiples relaciones internas;
+propiedades estructurales múltiples;
+necessary/optional features;
+restricciones;
+excepciones;
+concept boundaries;
+relaciones entre conceptos;
+composición de abstracciones;
+niveles jerárquicos;
+evidencia diferenciada por componente.
+
+Éste es el primer gap verdaderamente demostrado.
+
+6. Foundation 3 — Governed Learning Bridge
+
+Existe:
+
+GovernedRelationalAbstractionLearningBridge.
+
+Es arquitectónicamente muy importante porque demuestra que no necesitamos inventar Concept Learning.
+
+El bridge reutiliza:
+
+LearningFoundation;
+PreferenceLearning;
+SafeLearningPolicies.
+
+Y mantiene:
+
+abstraction candidate
+→ existing governed learning evaluation
+→ human approval todavía requerida.
+
+El código además es todavía más restrictivo de lo que una lectura superficial del Inventario podría sugerir.
+
+Actualmente _supported_statement() sólo reconoce una familia concreta:
+
+required_for
++
+blocked_when_unavailable.
+
+Por tanto, aunque la arquitectura posee un closed loop de aprendizaje estructural, no existe autorización para aprender arbitrariamente cualquier concepto que una futura hierarchy produzca.
+
+Dictamen
+
+REUTILIZAR SIN MODIFICAR EN LA PRIMERA ETAPA.
+
+Hierarchical Concept Formation debe comenzar:
+
+transient / read-only / non-learning.
+
+Sólo después de demostrar concept formation correcta tendría sentido estudiar un bridge de aprendizaje adicional.
+
+No mezclar ambos problemas.
+
+7. Foundation 4 — Structural Knowledge Transfer
+
+Existe:
+
+GovernedStructuralKnowledgeTransferMatcher.
+
+Éste es un hallazgo decisivo.
+
+El matcher ya puede reconocer cuándo conocimiento previamente grounded comparte una estructura relacional certificada con un target nuevo aunque las entidades concretas no compartan vocabulario.
+
+Produce:
+
+NO_TRANSFER;
+TRANSFER_CANDIDATE;
+AMBIGUOUS.
+
+Y puede exponer:
+
+StructuralRoleCorrespondence.
+
+La documentación existente dice expresamente que:
+
+no se introdujo un generalization engine ni analogy engine.
+
+Eso significa que la arquitectura deliberadamente modeló la operación como transferencia estructural gobernada, no como una autoridad separada de analogía.
+
+Además, existe evidencia diagnóstica F6:
+
+Analogy versus superficial similarity — PASS
+
+pero la propia documentación limita correctamente el significado:
+
+demuestra discriminación estructural dentro de la gramática bounded; una analogía más amplia permanece sin demostrar.
+
+Dictamen
+
+La decisión previa debe refinarse:
+
+NO AUTORIZAR todavía un “Structural Analogy Engine”.
+
+ROBY ya posee el núcleo de:
+
+same structure / different vocabulary
+
+y rechazo de:
+
+similar vocabulary / different structure.
+
+Una analogía futura sólo estará justificada si exige algo que GovernedStructuralKnowledgeTransferMatcher no puede representar.
+
+8. Qué analogía NO posee ROBY
+
+La capacidad actual está ligada a:
+
+familias semánticas certificadas;
+role ordering;
+role/relation topology;
+structural signatures;
+bounded target projection;
+correspondencias explícitas.
+
+No encontramos evidencia suficiente para afirmar una facultad general de:
+
+Concept A
+↔
+Concept B
+
+donde ambos conceptos posean varias subestructuras y ROBY pueda determinar:
+
+qué componentes corresponden;
+cuáles no;
+qué relaciones son estructuralmente equivalentes;
+qué propiedades son irrelevantes;
+dónde se rompe la analogía;
+qué inferencias NO pueden transferirse;
+qué nivel jerárquico es el comparable.
+
+Por tanto:
+
+bounded structural transfer = existente
+
+pero:
+
+multi-concept hierarchical analogy = no certificada.
+
+Esto coincide con el Inventario, que coloca la analogía estructural multi-concepto entre los candidatos futuros y no entre las capacidades cerradas.
+
+9. Gap arquitectónico definitivo
+
+Después de revisar las foundations existentes, el gap puede formularse con mayor precisión:
+
+Governed Hierarchical Concept Composition
+
+ROBY necesita poder tomar varias abstracciones/relaciones legítimas y formar un candidate conceptual compuesto sin convertirlo en verdad, memoria o aprendizaje.
+
+Ejemplo abstracto:
+
+ConceptCandidate
+
+→ identity/reference
+→ constituent abstractions
+→ structural relations
+→ constraints
+→ boundary evidence
+→ counterevidence
+→ optional parent
+→ optional children
+→ provenance
+→ epistemic status.
+
+La palabra importante es:
+
+composition.
+
+No necesitamos otra primitive que descubra nuevamente relaciones.
+
+Necesitamos una primitive que pueda componer relaciones ya gobernadas en una estructura conceptual de orden superior.
+
+10. Authority decision
+
+La auditoría encuentra evidencia suficiente para decidir provisionalmente:
+
+Authority primaria recomendada: governed_reasoning
+
+No crear:
+
+concept_authority;
+concept_brain;
+concept_manager;
+ontology_authority;
+analogy_authority.
+
+La razón es causal:
+
+semantic grounding ya pertenece a governed_reasoning;
+relational abstraction pertenece a governed_reasoning;
+structural knowledge transfer pertenece a governed_reasoning;
+la nueva operación es una composición inferencial de esos productos.
+
+Por tanto, salvo que un audit más profundo del composition root revele una frontera canónica distinta:
+
+Hierarchical Concept Formation debe permanecer bajo Governed Reasoning.
+
+Memory conservará autoridad sobre persistencia.
+
+Learning conservará autoridad sobre aprendizaje.
+
+Knowledge conservará su función consultiva.
+
+Ninguna de ellas debe ser absorbida por concept formation.
+
+11. Modelo mínimo recomendado
+
+No recomiendo comenzar con una ontología completa.
+
+El primer contrato podría conceptualmente representar:
+
+GovernedHierarchicalConceptCandidate
+
+con una estructura mínima equivalente a:
+
+concept_reference;
+scope_reference;
+constituent_abstraction_fingerprints;
+structural_relations;
+parent_reference | None;
+child_references;
+supporting_evidence;
+counterevidence;
+status;
+rationale_codes;
+source_fingerprint.
+
+Y los mismos límites arquitectónicos existentes:
+
+read-only;
+session-local;
+no persistence;
+no Memory mutation;
+no Learning mutation;
+no World Model mutation;
+no truth establishment;
+no inference authorization;
+no rule registration;
+no execution;
+no authority grant.
+
+Los nombres exactos no quedan autorizados por esta auditoría. Son una descripción contractual para diseñar la siguiente fase.
+
+12. Estados: reutilizar antes que inventar
+
+Relational Abstraction ya dispone de una semántica útil:
+
+insufficient evidence;
+no abstraction;
+review required;
+contested;
+abstain.
+
+Antes de crear estados como:
+
+SUPPORTED,
+PARTIAL,
+CONFLICTED
+
+debe comprobarse si los estados existentes pueden extenderse semánticamente sin confusión.
+
+La arquitectura gobernada favorece:
+
+reutilizar vocabulario epistemológico existente cuando representa realmente el mismo estado.
+
+No debemos multiplicar enums porque el nuevo objeto tenga otro nombre.
+
+13. Source contract
+
+La nueva primitive NO debe recibir conversación libre como si fuese evidencia conceptual.
+
+Primer alcance recomendado:
+
+explicit governed relational abstractions
+
+como source primario.
+
+Eventualmente podrían admitirse otros productos canónicos, pero mediante contratos explícitos.
+
+La vía inicial debe ser:
+
+governed evidence
+→ relational abstraction candidates
+→ hierarchical composition candidate.
+
+No:
+
+free text
+→
+invented concept hierarchy.
+
+Esto mantiene la misma disciplina que HCE aplicó a Scenario/Causal: la vía fuerte sólo se activa con source válido. El Inventario documenta ese precedente de admisión selectiva y atómica.
+
+14. Persistencia
+Prohibida en la primera implementación.
+
+Un Hierarchical Concept Candidate no debe convertirse automáticamente en:
+
+Memory;
+Knowledge;
+Learning;
+World Model fact;
+reusable durable ontology.
+
+La arquitectura actual ya demuestra la separación correcta:
+
+abstraction ≠ learning.
+
+La nueva evolución debe añadir:
+
+concept composition ≠ concept truth ≠ concept learning.
+
+Si posteriormente queremos persistencia:
+
+hierarchical concept candidate
+→ epistemic evaluation
+→ explicit governed approval
+→ existing Learning authority
+→ existing Memory authority.
+
+No crear ConceptMemory.
+
+15. Relación con Knowledge
+
+El mapa maestro clasifica Knowledge como CONSULTATIVE, mientras Reasoning es la authority operacional de inferencia.
+
+Por ello Knowledge puede proporcionar material gobernado y posteriormente consumir estructuras legítimas cuando el contrato lo permita.
+
+Pero Knowledge no debe convertirse en un segundo concept-former.
+
+16. Relación con World Model
+
+El World Model ya representa personas, lugares, objetos, relaciones, objetivos, proyectos y estados explícitos cuando existe evidencia gobernada.
+
+Una jerarquía conceptual no debe duplicar esas entidades.
+
+Ejemplo:
+
+World Model:
+
+objeto X existe / tiene relación Y.
+
+Conceptual intelligence:
+
+X puede ser interpretado como instancia/evidencia de una estructura conceptual C.
+
+Son responsabilidades distintas.
+
+El candidate conceptual debe referenciar evidencia existente, no apropiársela.
+
+17. Relación con Pattern Recognition
+
+La existencia de pattern_recognition no autoriza a utilizarlo como nueva authority conceptual.
+
+Pattern recognition puede aportar señales/candidates donde su contrato ya lo permita.
+
+La formación conceptual sigue necesitando:
+
+provenance;
+evidence;
+scope;
+epistemic boundary;
+Governed Reasoning.
+
+pattern ≠ concept.
+
+18. Relación con generalización
+
+El repositorio contiene abundante trabajo previo sobre generalización y structural transfer.
+
+Por ello el nombre “generalization” debe tratarse con cautela.
+
+La nueva capacidad no debe declararse un Generalization Engine.
+
+El objetivo no es simplemente:
+
+usar una regla en otro caso.
+
+Eso ROBY ya puede hacerlo de forma bounded.
+
+El objetivo nuevo es:
+
+representar explícitamente una estructura conceptual compuesta que pueda posteriormente participar en operaciones cognitivas.
+
+19. RED arquitectónico recomendado
+
+Antes de implementar producción, recomiendo un único bloque de tests RED que demuestre el gap.
+
+Casos mínimos:
+
+RED-1 — Multi-relation composition
+
+Dos o más abstracciones compatibles deben poder pertenecer al mismo concept candidate.
+
+Hoy no existe ese producto canónico.
+
+RED-2 — Hierarchy
+
+Un concepto debe poder representar relación parent/child sin convertirla automáticamente en verdad persistente.
+
+RED-3 — Boundary evidence
+
+Contraevidencia debe limitar sólo la parte correspondiente de la estructura y no destruir arbitrariamente todo el concepto.
+
+RED-4 — Same words, different concept structure
+
+Similitud lexical no debe producir concept composition.
+
+RED-5 — Different words, compatible conceptual structure
+
+La composición no debe depender exclusivamente de tokens idénticos.
+
+RED-6 — Scope mismatch
+
+Abstracciones de scopes incompatibles deben producir abstención/rechazo.
+
+RED-7 — Insufficient evidence
+
+Una única relación aislada no debe ser presentada artificialmente como una jerarquía rica.
+
+RED-8 — No persistence
+
+El candidate no debe escribir Memory/Learning/World Model.
+
+RED-9 — Determinism
+
+Misma evidencia gobernada en distinto orden debe producir la misma identidad/fingerprint conceptual cuando semánticamente corresponda.
+
+RED-10 — Authority
+
+El resultado debe preservar governed_reasoning como authority y no crear otra.
+
+20. Lo que NO debe incluir la primera wave
+
+No incluir todavía:
+
+analogía general;
+aprendizaje de conceptos;
+persistencia conceptual;
+generación autónoma de conceptos;
+curiosity conceptual;
+theory formation;
+explicación teórica;
+contrafactuales;
+planificación conceptual;
+ontology building;
+taxonomías universales;
+LLM-driven concept discovery;
+background concept mining.
+
+Eso produciría un bloque demasiado amplio e impediría demostrar qué mecanismo causó qué mejora.
+
+21. Secuencia revisada
+
+La auditoría recomienda sustituir la secuencia anterior:
+
+Hierarchical Concept Formation → Structural Analogy
+
+por una más precisa:
+
+Fase A — Governed Hierarchical Concept Composition
+
+Construir una representación conceptual compuesta a partir de products gobernados existentes.
+
+Fase B — Productive Cognitive Consumption
+
+Demostrar que reasoning puede consumir el mismo concept candidate canónico en una tarea legítima sin recomponerlo por una vía paralela.
+
+Fase C — Hierarchical Structural Mapping Audit
+
+Recién entonces evaluar cuánto de la analogía deseada ya puede obtenerse extendiendo GovernedStructuralKnowledgeTransferMatcher.
+
+Fase D — Multi-Concept Structural Analogy
+
+Sólo implementar si Fase C demuestra un gap irreductible.
+
+Fase E — Governed Concept Learning
+
+Sólo si posteriormente se decide que determinados conceptos deben sobrevivir sesiones y existe suficiente valor para justificar persistencia.
+
+22. Riesgo principal descubierto
+
+El mayor riesgo de la próxima evolución no es técnico.
+
+Es reimplementar bajo nombres nuevos cosas que ROBY ya hace.
+
+Especialmente:
+
+relational abstraction;
+structural matching;
+transfer;
+generalization;
+semantic grounding;
+approved structural learning.
+
+El Inventario ya identificaba precisamente duplicación histórica y dificultad para distinguir capability vigente de foundation antigua como riesgos centrales del proyecto.
+
+Esta auditoría confirma que ese riesgo es real.
+
+23. Decisión arquitectónica
+AUDIT: PASS
+
+Existe un gap intelectual real que justifica continuar estudiando Hierarchical Conceptual Intelligence.
+
+Pero el alcance queda reducido y gobernado.
+
+AUTORIZADO PARA SIGUIENTE DISEÑO
+
+Governed Hierarchical Concept Composition
+
+AUTHORITY
+
+governed_reasoning, sujeto a confirmación mediante integración/reachability en el composition root.
+
+FOUNDATIONS OBLIGATORIAS
+contextual semantic grounding;
+governed relational abstraction;
+epistemic boundaries existentes;
+structural knowledge transfer cuando posteriormente corresponda;
+Learning/Memory existentes exclusivamente para cualquier eventual persistencia.
+NO AUTORIZADO
+Concept Brain;
+Concept Manager como authority;
+Concept Memory;
+nuevo Learning engine;
+nuevo Knowledge repository;
+nuevo Generalization engine;
+nuevo Analogy engine en esta fase;
+persistencia;
+expansión ontológica autónoma.
+24. Siguiente gate recomendado
+Governed Hierarchical Concept Composition — Pre-Implementation Contract & RED Evidence
+
+Ese bloque debe definir antes del código:
+
+source exacto;
+authority;
+modelo mínimo del candidate;
+semántica de hierarchy;
+reglas de composición;
+counterevidence;
+fail-closed;
+provenance/fingerprint;
+límites de persistencia;
+RED tests que fallen porque la capacidad realmente no existe.
+
+Sólo si esos RED demuestran un gap que no puede satisfacerse mediante las foundations actuales corresponde modificar core/.
+
+25. Conclusión
+
+La auditoría confirma la dirección intelectual, pero evita una duplicación importante.
+
+ROBY ya sabe, de forma gobernada y bounded:
+
+ground relations → abstract invariant structure → approve selected learning → recall → structurally match a new domain → expose role correspondence.
+
+Lo que falta no es simplemente «analogía».
+
+Lo que falta primero es poder:
+
+componer múltiples abstracciones gobernadas en una representación conceptual jerárquica de orden superior, conservando evidencia, fronteras, incertidumbre y autoridad.
+
+Ésa es una evolución genuina respecto de lo que ROBY puede hacer hoy.
+
+Decisión final del audit: avanzar a Pre-Implementation Contract & RED Evidence para Governed Hierarchical Concept Composition; no escribir todavía implementación productiva.

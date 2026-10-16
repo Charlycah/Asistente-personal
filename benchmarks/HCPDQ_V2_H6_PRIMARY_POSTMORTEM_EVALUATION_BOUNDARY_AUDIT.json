@@ -1,0 +1,32 @@
+{
+  "architectural_determination": "The one-shot primary run is provenance-bound to the frozen manifest and authorization, preserves exact case order and single attempts, contains 12 self-consistent sealed raw captures with zero infrastructure errors, and records no ground-truth access, scoring, learning, memory writeback or benchmark feedback during execution. No rerun is authorized. A separate ground-truth scoring authorization gate may now be considered.",
+  "audit_fingerprint": "faf26a11cf7d21ab323994aaef25e83a4d9c0f1e70673199cb56db8e62eb04b3",
+  "baseline": "13024-pass-0-fail-ruff-clean",
+  "checks": {
+    "all_raw_captures_sealed": true,
+    "authorization_consumed_once": true,
+    "evidence_authorization_binding": true,
+    "evidence_manifest_binding": true,
+    "exact_case_order": true,
+    "exact_record_count": true,
+    "no_benchmark_feedback": true,
+    "no_ground_truth_during_run": true,
+    "no_infrastructure_errors": true,
+    "no_learning": true,
+    "no_memory_writeback": true,
+    "no_retries": true,
+    "no_scoring_during_run": true,
+    "raw_hashes_self_consistent": true,
+    "single_attempt": true
+  },
+  "family": "H6",
+  "ground_truth_scoring_authorized_by_this_gate": false,
+  "ground_truth_scoring_performed": false,
+  "measurement_boundary_valid": true,
+  "next_gate": "HCPDQ-v2 H6 Primary Run — Ground-Truth Scoring Authorization / Go-No-Go",
+  "primary_run_repeat_authorized": false,
+  "raw_capture_mutation_authorized": false,
+  "schema_version": "hcpdq-v2-h6-primary-postmortem-boundary-audit-v1",
+  "scoring_gate_eligible": true,
+  "status": "BOUNDARY_AUDIT_PASS_SCORING_GATE_ELIGIBLE"
+}

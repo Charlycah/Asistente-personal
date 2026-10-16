@@ -1,0 +1,18 @@
+Post-M409.1 — Governed Reasoning Quality Productive Consumption v1
+
+Apply this delta over the certified 11,777-test + Ruff-clean baseline.
+
+New productive surface:
+- app/governed_reasoning_quality_productive_consumption.py
+
+New architecture tests:
+- tests/architecture/test_post_m409_1_governed_reasoning_quality_productive_consumption_v1.py
+
+Documentation synchronized:
+- docs/POST_M409_1_GOVERNED_REASONING_QUALITY_PRODUCTIVE_CONSUMPTION_V1.md
+- CHANGELOG.md
+- CHANGELOG_ARCHITECTURE.md
+- architecture_rules.md
+
+The Foundation remains unchanged. No Reflection/Learning/rerun/stopping/authority wiring is added.
+Certification gate remains: ruff check . && pytest -q

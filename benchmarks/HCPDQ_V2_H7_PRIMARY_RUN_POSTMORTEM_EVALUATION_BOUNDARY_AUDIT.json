@@ -1,0 +1,95 @@
+{
+  "audit_fingerprint": "5294a90588a9e10402874f2290a520b628956b97bd10f691b7f0feb8cf15d4a8",
+  "authorization_consumed": true,
+  "authorization_reusable": false,
+  "baseline": "13167-pass-0-fail-ruff-clean",
+  "benchmark_translation_authorized": false,
+  "cognitive_scoring_valid": false,
+  "corpus_content_mutated": false,
+  "family": "H7",
+  "findings": {
+    "adapter_determination": {
+      "fault_demonstrated": false,
+      "reason": "adapter correctly rejected unauthorized material and did not translate frozen identifiers or synthesize missing causal state"
+    },
+    "causal_state_serialization": {
+      "corpus_case_fields": [
+        "case_id",
+        "difficulty",
+        "domain",
+        "requirement",
+        "scenario"
+      ],
+      "corpus_requirement_fields": [
+        "requirement_id",
+        "source_reference",
+        "world_snapshot_reference"
+      ],
+      "determination": "FAIL",
+      "required_productive_conditions_not_structurally_frozen": [
+        "continuation.eligible_for_existing_planning",
+        "continuation.decision",
+        "resulting_state.status",
+        "current_step",
+        "remaining_acquisitions",
+        "source_requirement object identity and lineage",
+        "existing resulting_state.plan_ids for prior-plan reuse"
+      ]
+    },
+    "dry_probe_gap": {
+      "declared_method": "static schema/topology probe against frozen H7 hypothesis and productive input guards",
+      "declared_result": "CERTIFIED_CONSTRUCTIBLE",
+      "determination": "FALSE_POSITIVE_CONSTRUCTIBILITY_CERTIFICATION",
+      "missing_check": "no materialized case was instantiated through the exact productive requirement/continuation constructors"
+    },
+    "productive_roby_determination": {
+      "cognitive_failure_demonstrated": false,
+      "reason": "execution failed before a valid productive H7 input object reached the governed planning re-entry surface"
+    },
+    "requirement_identifier_equivalence": {
+      "determination": "FAIL",
+      "frozen_case_count": 12,
+      "frozen_pattern": "req-h7-NNN",
+      "productive_compatible_count": 0,
+      "productive_incompatible_count": 12,
+      "productive_required_pattern": "discrimination-requirement-*"
+    }
+  },
+  "go_no_go": {
+    "benchmark_translation_patch": "NO_GO",
+    "new_independent_freeze_scope": "GO_AFTER_RECONTRACT",
+    "new_independent_recontract": "GO",
+    "old_corpus_retry": "NO_GO",
+    "old_ground_truth_opening": "NO_GO",
+    "old_primary_rerun": "NO_GO",
+    "old_run_scoring": "NO_GO",
+    "production_change": "NO_GO"
+  },
+  "ground_truth_inspected_in_audit": false,
+  "ground_truth_validity_determined": false,
+  "new_primary_run_authorized": false,
+  "next_gate": "HCPDQ-v2 H7 Evaluation Entry-Path Equivalence — Recontract / New Independent Freeze Scope",
+  "performance_conclusion_authorized": false,
+  "primary_run_status": "PRIMARY_RUN_ABORTED_FAIL_CLOSED_RAW_RUN_NOT_SEALED",
+  "production_change_authorized": false,
+  "required_recontract_properties": [
+    "new independent H7 corpus namespace and freeze; do not repair old corpus in place",
+    "every positive case must instantiate the exact governed productive input types before freeze",
+    "all fail-closed causal state must be structurally encoded, not inferred from scenario prose",
+    "requirement identifiers and lineage must satisfy productive constructors exactly",
+    "entry-path equivalence dry probe must materialize representative D1/D2/D3 cases without ROBY outputs",
+    "ground truth must remain independently sealed and unavailable during construction validation",
+    "old aborted run and old corpus remain immutable historical evidence"
+  ],
+  "retry_authorized": false,
+  "root_cause": "The H7 construction contract froze a descriptive corpus schema but did not freeze entry-path-equivalent productive input semantics. Constructibility was certified without materializing a representative case through the exact governed requirement and continuation types.",
+  "run_id": "HCPDQ-V2-H7-PRIMARY-001",
+  "schema_version": "hcpdq-v2-h7-primary-run-postmortem-evaluation-boundary-audit-v1",
+  "status": "EVALUATION_DESIGN_INVALID_RECONTRACT_REQUIRED",
+  "why_preflight_missed_it": [
+    "freeze certification verified hashes, separation and case balance",
+    "exposure protocol verified field isolation but not productive type validity",
+    "adapter RED/recertification verified authority boundaries, not corpus semantics",
+    "final preflight verified no drift against already-invalid frozen inputs"
+  ]
+}

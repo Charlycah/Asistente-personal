@@ -1,0 +1,326 @@
+ROBY XI.2 — Next Cognitive Evolution Decision
+
+Baseline de decisión: 13.439 PASS + Ruff limpio
+Estado previo: Higher Cognitive Evolution — CLOSED / ZERO-RESIDUAL CERTIFIED
+Mapa maestro: Inventario Cognitivo Integral de ROBY XI.2
+Objeto: determinar cuál debe ser la próxima evolución intelectual de ROBY antes de autorizar nueva implementación.
+
+1. Dictamen ejecutivo
+
+La próxima evolución recomendada es:
+
+Hierarchical Conceptual Intelligence & Structural Analogy
+
+No recomiendo iniciar por una capacidad completamente separada ni por otra expansión lateral.
+
+La evolución debe profundizar una frontera que ROBY ya alcanzó pero todavía no domina plenamente:
+
+pasar de abstracciones relacionales acotadas a estructuras conceptuales jerárquicas capaces de participar en analogías estructurales entre conceptos y dominios.
+
+El Inventario establece que ROBY ya posee abstracción relacional gobernada: puede comparar ejemplos explícitos, inducir candidatos estructurales, usar contraejemplos y rechazar abstracciones insuficientemente sustentadas. Sin embargo, una abstracción candidata no se convierte automáticamente en verdad ni aprendizaje.
+
+El mismo Inventario identifica explícitamente como facultades todavía no completas:
+
+construcción jerárquica de conceptos más allá de la abstracción relacional acotada;
+analogía estructural multi-concepto.
+
+Por ello existe un gap real y documentado, no una capacidad inventada para continuar el roadmap.
+
+2. Qué NO debemos volver a implementar
+
+La nueva evolución no debe crear versiones alternativas de:
+
+Memory;
+World Model;
+governed reasoning;
+Scenario/Causal reasoning;
+epistemic evaluation;
+relational abstraction;
+LearningFoundation;
+structural transfer;
+strategy synthesis;
+metacognition;
+planning.
+
+Todas esas facultades ya pertenecen al cerebro actual y varias están productivamente conectadas. El Inventario las clasifica expresamente como “YA EXISTE: no reimplementar”.
+
+Por tanto, Hierarchical Conceptual Intelligence debe consumir esas autoridades, no reemplazarlas.
+
+3. Gap cognitivo exacto
+
+ROBY puede actualmente inducir algo semejante a:
+
+A se relaciona con B mediante R.
+
+Y puede aprender determinadas estructuras aprobadas y reutilizarlas posteriormente. El closed loop certificado llega desde abstracción inducida hasta aprobación, LearningFoundation, Memory, recall y structural transfer.
+
+Lo que el Inventario no certifica es una facultad general capaz de construir gobernadamente estructuras del tipo:
+
+concepto → sub-conceptos → propiedades estructurales → relaciones → restricciones → excepciones → conceptos relacionados
+
+y después razonar:
+
+estructura conceptual A ↔ estructura conceptual B
+
+preservando correspondencias, diferencias, incertidumbre y procedencia.
+
+Ese es el gap.
+
+No consiste simplemente en «saber más cosas».
+
+Consiste en poder organizar abstracciones en estructuras conceptuales más profundas y relacionar esas estructuras entre sí.
+
+4. Por qué ésta debe preceder a otros candidatos
+Modelos explicativos y revisión de teorías
+
+Es un candidato intelectualmente fuerte, pero una teoría rica necesita conceptos y relaciones suficientemente estructurados para poder comparar explicaciones, revisar supuestos y localizar qué parte del modelo falla.
+
+Dependencia conceptual alta.
+
+Contrafactual multi-etapa
+
+ROBY ya posee Scenario/Causal selectivo. Ampliarlo directamente podría aumentar profundidad causal, pero no ataca primero la limitación representacional conceptual.
+
+Conviene después.
+
+Planificación intelectual de largo horizonte
+
+ROBY ya posee planificación y estrategia. Profundizar nuevamente planificación antes de mejorar qué estructuras intelectuales puede manipular corre el riesgo de producir planificación más sofisticada sobre representaciones conceptuales todavía limitadas.
+
+No prioritaria.
+
+Curiosity / question generation
+
+Sería útil para localizar gaps, pero generar mejores preguntas no garantiza que ROBY disponga después de una representación intelectual suficientemente rica para integrar las respuestas.
+
+Debe apoyarse en una mejor estructura conceptual.
+
+Síntesis de conocimiento entre dominios
+
+Tiene enorme valor, pero prácticamente presupone capacidad para determinar qué estructuras de dos dominios son comparables.
+
+La analogía estructural es una foundation natural para ella.
+
+Aprendizaje metacognitivo durable
+
+No es un residual de HCE. La no persistencia actual es deliberada y convertirla en durable constituiría una nueva decisión arquitectónica.
+
+No priorizar.
+
+5. Arquitectura propuesta
+
+No recomiendo crear una nueva authority cognitiva de alto nivel.
+
+La regla debe ser:
+
+Concept formation continúa siendo una capacidad gobernada dentro del cerebro existente; hierarchical concept formation amplía su profundidad, no crea otro cerebro conceptual.
+
+La evolución debería reutilizar como mínimo:
+
+Knowledge / World Model
+Aporta hechos y representaciones gobernadas.
+
+Memory
+Aporta evidencia persistente legítimamente admitida.
+
+Governed Reasoning
+Realiza inferencia canónica.
+
+Relational Abstraction
+Debe ser la foundation inmediata, no una implementación competidora.
+
+Epistemic Evaluation
+Evalúa suficiencia, conflictos y límites.
+
+LearningFoundation + OfficialMemoryGateway
+Única ruta si posteriormente un concepto llega a ser candidato legítimo de aprendizaje durable.
+
+La authority exacta propietaria debe decidirse mediante inspección del código antes de implementar. No debe inventarse desde este documento si el repositorio ya contiene una authority adecuada.
+
+6. Principio de separación obligatorio
+
+Hay que distinguir tres estados:
+
+Concept Candidate
+
+Una estructura conceptual inferida durante cognición.
+Read-only / transient.
+
+Validated Conceptual Structure
+
+Una estructura que superó las condiciones epistemológicas exigidas para el episodio correspondiente.
+
+Eso todavía no implica persistencia.
+
+Learned Concept
+
+Sólo existe si atraviesa el contrato gobernado de aprendizaje y persistencia correspondiente.
+
+Por tanto:
+
+formation ≠ validation ≠ learning ≠ memory
+
+Esta separación es fundamental para evitar que ROBY transforme inferencias conceptuales en «conocimiento» por el mero hecho de haberlas construido.
+
+7. Primera capacidad productiva objetivo
+
+El primer objetivo no debería ser una ontología universal.
+
+Debe ser mucho más acotado:
+
+Dados varios conceptos o ejemplos explícitamente sustentados, ROBY puede construir una representación jerárquica candidata, identificar relaciones estructurales internas y explicar qué evidencia sostiene o limita esa estructura.
+
+Debe poder abstenerse.
+
+Debe poder producir:
+
+SUPPORTED / PARTIAL / CONFLICTED / INSUFFICIENT
+
+o estados equivalentes ya existentes en la arquitectura, reutilizándolos cuando corresponda en lugar de inventar otra taxonomía innecesaria.
+
+8. Segunda capacidad: Structural Analogy
+
+Sólo después de cerrar concept hierarchy.
+
+Objetivo:
+
+Dados dos conceptos o estructuras conceptuales legítimamente disponibles, ROBY puede buscar correspondencias estructurales, distinguir semejanza superficial de semejanza relacional y producir una analogía candidata trazable.
+
+Una analogía válida no debe significar que ambos dominios son iguales.
+
+Debe conservar:
+
+source;
+correspondencias;
+diferencias;
+restricciones;
+excepciones;
+confidence/sufficiency cuando proceda;
+provenance;
+episodio de reasoning responsable.
+
+Y debe poder concluir:
+
+NO VALID ANALOGY
+
+sin fabricar semejanzas.
+
+9. Closed loop deseado
+
+La evolución completa debería aspirar a:
+
+evidence
+→ governed reasoning
+→ relational abstractions
+→ hierarchical concept candidate
+→ epistemic evaluation
+→ structural analogy
+→ reasoning/strategy consumption
+→ outcome evidence
+
+Sólo cuando exista autorización explícita:
+
+validated conceptual structure
+→ governed learning approval
+→ LearningFoundation
+→ OfficialMemoryGateway
+→ future recall
+→ legitimate conceptual reuse
+
+No se necesita otra memoria conceptual paralela.
+
+10. Límites de seguridad arquitectónica
+
+La nueva evolución debe quedar bloqueada desde el comienzo frente a:
+
+persistencia automática de conceptos;
+creación de hechos a partir de analogías;
+promoción de semejanza a causalidad;
+aprendizaje silencioso;
+modificación autónoma de authorities;
+planner mutation;
+duplicación de Memory/Knowledge/Learning;
+ontologías globales autoexpansivas;
+inferencias sobre personas sin evidencia gobernada;
+generación ilimitada de conceptos por conversación ordinaria;
+segundo reasoning engine;
+segundo concept-learning engine.
+11. Criterios de certificación futura
+
+No declarar esta evolución CLOSED sólo porque existan clases y tests unitarios.
+
+La certificación debería demostrar:
+
+Authority — existe un único propietario legítimo.
+
+Source — todo concepto puede rastrearse hasta evidencia admisible.
+
+Reachability — la facultad puede ser alcanzada por el lifecycle cognitivo real.
+
+Identity/Lineage — consumidores posteriores reutilizan el producto canónico correcto.
+
+Epistemic boundary — candidato no equivale a verdad.
+
+Fail-closed — evidencia insuficiente no fabrica conceptos o analogías.
+
+Persistence boundary — ningún candidato escribe Memory/Learning directamente.
+
+Reuse — el resultado puede aportar legítimamente a razonamiento futuro.
+
+No parallel cognition — no aparece otro cerebro conceptual.
+
+Regression gate — ruff check . limpio + pytest -q completo.
+
+12. Orden de desarrollo recomendado
+
+No recomiendo convertir inmediatamente esto en una larga serie de mini-M.
+
+Primero realizar:
+
+Conceptual Intelligence Architecture Audit
+
+Buscar en el repositorio todo lo relacionado con:
+
+concept, abstraction, relation, semantic, knowledge, ontology, category, schema, pattern, analogy, transfer, generalization.
+
+El objetivo es determinar qué foundations ya existen y cuál es la authority correcta.
+
+Después, si el audit confirma el gap:
+
+Hierarchical Concept Formation
+
+Un bloque razonable y cerrado.
+
+Y sólo cuando ese bloque esté productivamente certificado:
+
+Structural Analogy
+
+No implementar ambos simultáneamente si eso impide demostrar lineage y autoridad de cada operación.
+
+13. Decisión
+
+SELECCIONADO PARA AUDITORÍA PRE-IMPLEMENTACIÓN
+
+Hierarchical Conceptual Intelligence & Structural Analogy
+
+Primera facultad a construir: Hierarchical Concept Formation.
+
+Facultad dependiente posterior: Structural Analogy.
+
+Razón: constituye una profundización directa de la abstracción relacional que ROBY ya posee y crea una foundation intelectual reutilizable para varias evoluciones posteriores —síntesis entre dominios, explicación, revisión de teorías, contrafactuales y curiosity— sin duplicar Memory, Reasoning, Learning, Strategy ni Metacognition.
+
+No autorizado todavía: implementación.
+
+Siguiente gate: Conceptual Intelligence Architecture Audit sobre el ZIP certificado de 13.439 PASS.
+
+La arquitectura actual ya conecta una secuencia intelectual considerable:
+
+recordar → representar → razonar → hipotetizar → evaluar → abstraer → aprender con aprobación → transferir → componer estrategia → observar → adaptar.
+
+La próxima evolución debe profundizar esa cadena.
+
+La decisión es introducir entre abstraer y transferir una capacidad que ROBY todavía no tiene certificada:
+
+estructurar conceptos → relacionar conceptos → reconocer estructuras análogas.
+
+Ése es el próximo gap intelectual que recomiendo estudiar.

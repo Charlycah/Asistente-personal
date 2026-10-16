@@ -1,0 +1,59 @@
+from __future__ import annotations
+
+import inspect
+
+from app import desktop_bootstrap
+from app.governed_proposal_executive_notification_runtime import (
+    GovernedProposalExecutiveNotificationRuntime,
+)
+from app.runtime_ui_adapter import LocalConversationUIAdapter
+
+
+def test_red_certified_proposal_review_transport_desktop_composition_contract() -> None:
+    """RED: compose certified proposal review transport into the real desktop edges."""
+    bootstrap_source = inspect.getsource(desktop_bootstrap.build_unified_desktop_app)
+    notification_source = inspect.getsource(
+        GovernedProposalExecutiveNotificationRuntime
+    )
+    adapter_source = inspect.getsource(LocalConversationUIAdapter)
+
+    # Composition Root must reuse the two already-certified E1-B-S1 authorities.
+    assert "GovernedProposalHumanReviewProjection" in bootstrap_source, (
+        "RED: desktop Composition Root does not construct the certified proposal "
+        "human-review projection"
+    )
+    assert "GovernedPresentedProposalReviewTransport" in bootstrap_source, (
+        "RED: desktop Composition Root does not construct the certified "
+        "exact-reference review transport"
+    )
+
+    # The proposal notification edge must retain the exact proposal_id only after the
+    # existing broker dispatch has made that exact proposal OFFERED.
+    assert "retain_presented_proposal_reference" in notification_source, (
+        "RED: broker-dispatched proposal identity is not retained by the certified "
+        "review transport"
+    )
+
+    # The real desktop human-response edge must delegate to the same certified transport
+    # before falling through to the ordinary conversation path.
+    assert "review_presented_proposal" in adapter_source, (
+        "RED: desktop human response does not reach the certified proposal review "
+        "transport"
+    )
+    assert "bind_governed_proposal_review_transport" in adapter_source, (
+        "RED: LocalConversationUIAdapter has no bounded composition binding for the "
+        "certified proposal review transport"
+    )
+
+    # Do not recreate proposal state/authority or open downstream authority here.
+    combined = (bootstrap_source + notification_source + adapter_source).casefold()
+    forbidden = (
+        "unique_offered",
+        "latest_offered",
+        "proposal_title_lookup",
+        "proposal_summary_lookup",
+        "humanresponsebrain",
+        "proposalbrain",
+        "self_modif",
+    )
+    assert not any(token in combined for token in forbidden)

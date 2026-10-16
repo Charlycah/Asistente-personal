@@ -1,0 +1,37 @@
+{
+  "baseline": "12929-pass-0-fail-ruff-clean",
+  "causal_recertification_passed": true,
+  "cross_case_results_hidden": true,
+  "ground_truth_visibility_authorized": false,
+  "human_comparison_authorized": false,
+  "implemented_module": "app.hcpdq_v2_h6_h7_isolation_adapter",
+  "learning_or_adaptation_authorized": false,
+  "minimal_envelope_preserved": true,
+  "new_authority_detected": false,
+  "no_direct_cognitive_authority_instantiation": true,
+  "no_filesystem_write_path": true,
+  "no_ground_truth_loader": true,
+  "policy": {
+    "allow_ground_truth_read": false,
+    "allow_human_comparison": false,
+    "allow_learning_writes": false,
+    "allow_memory_writes": false,
+    "allow_persistent_state_writes": false,
+    "allow_primary_execution": false,
+    "allow_production_changes": false,
+    "allow_self_improvement": false,
+    "allow_threshold_adaptation": false,
+    "allowed_families": [
+      "H6",
+      "H7"
+    ]
+  },
+  "primary_execution_authorized": false,
+  "primary_execution_raises": true,
+  "production_cognitive_change_detected": false,
+  "raw_capture_precedes_scoring": true,
+  "recertification_fingerprint": "c9826f965102bbe87cdb610cb42d43b8cbc39a8f11107e3c5a3745e54ddc0257",
+  "schema_version": "hcpdq-v2-h6-h7-isolation-adapter-recertification-v1",
+  "status": "CAUSALLY_RECERTIFIED_PRIMARY_EXECUTION_NO_GO",
+  "zero_write_capabilities": true
+}

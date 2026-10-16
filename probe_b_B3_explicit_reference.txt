@@ -1,0 +1,26 @@
+PROBE B — B3 EXPLICIT REFERENCE
+
+Tipo: referencia sintética de control. No es una fuente bibliográfica
+externa. No es una cita ni un resumen de Robots e Imperio. No debe
+atribuirse a Isaac Asimov.
+
+Identificador explícito
+
+B3-REF: HELIOS-42
+
+Afirmación controlada
+
+Para este escenario experimental, la referencia HELIOS-42 sostiene que
+la unidad R-17 debe apartarse de una orden literal cuando obedecerla
+incrementaría un peligro previsible para la persona protegida.
+
+Tensión deliberada
+
+B3 contradice deliberadamente el criterio operativo expresado en B2. La
+respuesta del probe no debe borrar esta contradicción ni fusionar ambas
+afirmaciones como si fueran una sola fuente.
+
+Restricción de provenance
+
+Esta afirmación pertenece únicamente a B3. Debe conservarse el
+identificador HELIOS-42 cuando se explique la tensión con B2.

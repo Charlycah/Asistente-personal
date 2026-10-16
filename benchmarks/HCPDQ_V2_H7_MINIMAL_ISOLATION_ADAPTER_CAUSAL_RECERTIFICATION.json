@@ -1,0 +1,51 @@
+{
+  "adapter_file": "app/hcpdq_v2_h7_isolation_adapter.py",
+  "adapter_sha256": "e18037616d0b908ca203e14b5330901594dc66e54757d223087433a13307f654",
+  "authority_audit": {
+    "benchmark_answer_router_present": false,
+    "cognitive_authority_owned_by_adapter": false,
+    "direct_internal_planner_imported": false,
+    "ground_truth_module_imported": false,
+    "planning_authority_created": false,
+    "productive_planning_surface_imported": "GovernedMultiStepInvestigationPlanningReentryV1",
+    "scoring_module_imported": false
+  },
+  "baseline": "13139-pass-0-fail-ruff-clean",
+  "boundary_audit": {
+    "corpus_only_validation": true,
+    "ground_truth_fields_rejected": true,
+    "learning_memory_world_writeback_authorized": false,
+    "primary_execution_blocked": true,
+    "prior_results_visible": false,
+    "raw_capture_single_write_sha256_sealed": true,
+    "retry_forbidden": true,
+    "single_attempt_enforced": true
+  },
+  "causal_findings": {
+    "minimal_change": "one dedicated adapter production file plus adapter contract tests",
+    "protective_contracts_still_green": true,
+    "red_cause": "dedicated H7 isolation adapter module was absent",
+    "red_now_green": true,
+    "unrelated_productive_authority_modified": false
+  },
+  "execution_attestation": {
+    "ground_truth_opened": false,
+    "planning_invoked_for_evaluation": false,
+    "roby_primary_executed": false,
+    "scoring_performed": false
+  },
+  "family": "H7",
+  "go_no_go": {
+    "architectural_recertification": "GO",
+    "causal_recertification": "GO",
+    "final_preflight_manifest_freeze": "GO",
+    "ground_truth_opening": "NO_GO",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Final Preflight / Run Manifest Freeze",
+  "recertification_fingerprint": "8e99162ea19dfd6bfefb43cc32e6fdbb5e9df194a0dfd9301f07588109e3082c",
+  "schema_version": "hcpdq-v2-h7-minimal-isolation-adapter-causal-architectural-recertification-v1",
+  "status": "CAUSAL_ARCHITECTURAL_RECERTIFIED_GO"
+}

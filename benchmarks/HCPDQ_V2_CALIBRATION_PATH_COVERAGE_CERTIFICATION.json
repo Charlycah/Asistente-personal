@@ -1,0 +1,153 @@
+{
+  "certification_fingerprint": "cb5a3b55311ff800ba27e0e719531b0a005d1821b09031816648367536420345",
+  "certified_family_count": 1,
+  "family_results": {
+    "H1": {
+      "audit_state": "P1",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "unified_cognitive_coordination exists",
+        "no official read-only H1 reasoning path certified"
+      ],
+      "family": "H1",
+      "held_out_authorized": false,
+      "official_surface_found": false,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H2": {
+      "audit_state": "P2",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "OfficialConversationGateway exists",
+        "epistemic/withholding surface exists",
+        "family-specific authority path not yet calibrated"
+      ],
+      "family": "H2",
+      "held_out_authorized": false,
+      "official_surface_found": true,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H3": {
+      "audit_state": "P1",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "contextual governed reasoning authorities exist",
+        "no official H3 productive evaluation surface certified"
+      ],
+      "family": "H3",
+      "held_out_authorized": false,
+      "official_surface_found": false,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H4": {
+      "audit_state": "P1",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "GovernedStructuralKnowledgeTransferMatcher exists",
+        "no official productive evaluation surface certified"
+      ],
+      "family": "H4",
+      "held_out_authorized": false,
+      "official_surface_found": false,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H5": {
+      "audit_state": "P1",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "target projection/generalization authorities exist",
+        "no official productive evaluation surface certified"
+      ],
+      "family": "H5",
+      "held_out_authorized": false,
+      "official_surface_found": false,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H6": {
+      "audit_state": "P3",
+      "authority_exists": true,
+      "authority_path_certified": true,
+      "evidence": [
+        "OfficialConversationGateway explicit complex-decision intake",
+        "productive GCDR integration",
+        "governed complex decision reasoning",
+        "runtime fallback bypassed by positive calibration probe"
+      ],
+      "family": "H6",
+      "held_out_authorized": false,
+      "official_surface_found": true,
+      "positive_probe_executed": true,
+      "verdict": "CERTIFIED_CALIBRATION_PATH"
+    },
+    "H7": {
+      "audit_state": "P2",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "CanonicalPlanningFacade exists",
+        "facade is unbound in OfficialConversationGateway",
+        "read-only H7 execution path not certified"
+      ],
+      "family": "H7",
+      "held_out_authorized": false,
+      "official_surface_found": true,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    },
+    "H8": {
+      "audit_state": "P2",
+      "authority_exists": true,
+      "authority_path_certified": false,
+      "evidence": [
+        "OfficialConversationGateway and epistemic/provenance surfaces exist",
+        "family-specific conflict/provenance path not yet calibrated"
+      ],
+      "family": "H8",
+      "held_out_authorized": false,
+      "official_surface_found": true,
+      "positive_probe_executed": false,
+      "verdict": "NO_GO"
+    }
+  },
+  "h6_positive_probe": {
+    "authority_path_evidence": {
+      "evidence_fingerprint": "e00e5c2ed5a2c426fde63e4e7b0f487b8be63ca389a8852246e130589e9214a1",
+      "first_interruption_node_id": "unified_coordination",
+      "grants_authority": false,
+      "participated_node_ids": [
+        "conversation_ingress",
+        "perception_and_evidence",
+        "response_composition"
+      ],
+      "read_only": true
+    },
+    "certified": true,
+    "rationale": [
+      "explicit_complex_decision_intake",
+      "productive_gcdr_intake_integration",
+      "integration:advisory_ready",
+      "governed_complex_decision_reasoning",
+      "human_decision_preserved",
+      "realization:recommendation_present"
+    ],
+    "response_path": "interceptor",
+    "runtime_fallback_calls": 0,
+    "validity": "valid"
+  },
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "production_changes_authorized": false,
+  "required_family_count": 8,
+  "schema_version": "hcpdq-v2-calibration-path-coverage-certification-v1",
+  "status": "PARTIAL_CERTIFICATION_HELD_OUT_NO_GO"
+}

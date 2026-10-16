@@ -1,0 +1,44 @@
+{
+  "baseline": "13074-pass-0-fail-ruff-clean",
+  "benchmark_specific_behavior_present": false,
+  "closure_evidence": [
+    "ground-truth scoring completed and sealed",
+    "post-mortem localized a productive cognitive gap",
+    "limited productive contract authorized only required-constraint survivor rule",
+    "pre-implementation RED reproduced exactly the contracted defect",
+    "minimal governed implementation made the RED green",
+    "causal/architectural recertification preserved authority and boundaries",
+    "seven independent calibration/generalization cases passed fail-closed checks",
+    "user full validation confirmed 13074 PASS / 0 FAIL / Ruff clean"
+  ],
+  "closure_fingerprint": "9ffe4d688048536c8e218efe3f1938df60b4714c33fce4ad42d51aba9f6a16f2",
+  "closure_surface": {
+    "fail": 0,
+    "pass": 48
+  },
+  "decision": "CLOSE",
+  "determination": "All authorized H6 productive-gap work is complete. The narrow general rule is implemented, causally localized, architecturally governed, calibrated, and fully validated. The original 0/12 remains sealed as historical evidence and is not a closure blocker.",
+  "family": "H6",
+  "generic_incomplete_evidence_dominance_authorized": false,
+  "held_out_rerun_required": false,
+  "historical_primary_result": {
+    "accuracy": 0.0,
+    "fail": 12,
+    "meaning": "historical measurement of the pre-fix productive behavior",
+    "pass": 0,
+    "status": "SEALED_PRESERVED"
+  },
+  "next_gate": "HCPDQ-v2 H6 — Post-Closure Evidence Preservation / H7 Readiness Review",
+  "old_primary_rescoring_required": false,
+  "old_primary_result_must_remain_unchanged": true,
+  "production_change_scope": "closed and frozen",
+  "reopen_conditions": [
+    "regression of required-constraint blocking semantics",
+    "recommendation when multiple required-constraint survivors remain",
+    "recommendation when required evidence is insufficient",
+    "benchmark-specific or parallel decision authority is introduced",
+    "new independent evidence falsifies the calibrated rule"
+  ],
+  "schema_version": "hcpdq-v2-h6-productive-gap-final-validation-closure-v1",
+  "status": "PRODUCTIVE_GAP_CLOSED"
+}

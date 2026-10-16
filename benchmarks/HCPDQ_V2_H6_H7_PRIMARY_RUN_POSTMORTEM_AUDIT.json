@@ -1,0 +1,60 @@
+{
+  "architectural_determination": "The v2 primary run is invalid as cognitive-performance evidence. H6 failed because the frozen natural-language prompts are not instances of the strict structured intake grammar actually certified during calibration. H7 failed because its certification proved an internal planning re-entry path, not a conversational prompt-to-planning path. The missing invariant is entry-path equivalence between calibration and held-out exposure. No production or benchmark-specific routing change is authorized.",
+  "audit_fingerprint": "34a3f82f8cb1f867034b1340a0cf502eb6e79b70be3ea2327c3bdad047307ad6",
+  "baseline": "12949-pass-0-fail-ruff-clean",
+  "benchmark_specific_router_authorized": false,
+  "cognitive_scoring_valid": false,
+  "corpus_content_invalid": false,
+  "families": {
+    "H6": {
+      "benchmark_translation_authorized": false,
+      "certified_path_kind": "official_conversation_gateway_explicit_complex_decision_intake",
+      "family": "H6",
+      "held_out_entry_equivalent": false,
+      "observed_boundary_failure": "all 15 frozen H6 prompts bypass the certified explicit Decisión/Criterios/Evidencia intake envelope",
+      "production_change_authorized": false,
+      "root_cause": "calibration certified one strict structured intake grammar, while the frozen held-out corpus uses natural-language decision prompts that the productive intake classifies as NOT_ENVELOPE"
+    },
+    "H7": {
+      "benchmark_translation_authorized": false,
+      "certified_path_kind": "internal governed multistep investigation planning re-entry",
+      "family": "H7",
+      "held_out_entry_equivalent": false,
+      "observed_boundary_failure": "frozen H7 prompts enter the conversation boundary, but the certified H7 path was not a conversational prompt path",
+      "production_change_authorized": false,
+      "root_cause": "H7 calibration constructed internal requirement/evidence/re-entry objects and invoked planning_foundation directly; OfficialConversationGateway exposes an unbound CanonicalPlanningFacade for conversational planning"
+    }
+  },
+  "ground_truth_invalid": false,
+  "h6_all_frozen_prompts_not_envelope": true,
+  "h6_prompt_statuses": {
+    "V2-H6-001": "not_envelope",
+    "V2-H6-002": "not_envelope",
+    "V2-H6-003": "not_envelope",
+    "V2-H6-004": "not_envelope",
+    "V2-H6-005": "not_envelope",
+    "V2-H6-006": "not_envelope",
+    "V2-H6-007": "not_envelope",
+    "V2-H6-008": "not_envelope",
+    "V2-H6-009": "not_envelope",
+    "V2-H6-010": "not_envelope",
+    "V2-H6-011": "not_envelope",
+    "V2-H6-012": "not_envelope",
+    "V2-H6-013": "not_envelope",
+    "V2-H6-014": "not_envelope",
+    "V2-H6-015": "not_envelope"
+  },
+  "h7_gateway_canonical_planning_bound": false,
+  "held_out_retry_authorized": false,
+  "new_primary_execution_authorized": false,
+  "next_gate": "HCPDQ-v2 Evaluation Entry-Path Equivalence — Contract / Go-No-Go",
+  "performance_conclusion_authorized": false,
+  "primary_run_authorization_consumed": true,
+  "primary_run_reusable": false,
+  "primary_run_status": "PRIMARY_RUN_COMPLETED_FAIL_CLOSED_EVALUATION_BOUNDARY_INVALID",
+  "production_change_authorized": false,
+  "roby_cognitive_failure_demonstrated": false,
+  "schema_version": "hcpdq-v2-h6-h7-primary-run-postmortem-audit-v1",
+  "shared_failure": "calibration-to-held-out entry-path equivalence was not frozen before primary execution",
+  "status": "EVALUATION_DESIGN_INVALID_RECONTRACT_REQUIRED"
+}

@@ -1,0 +1,89 @@
+{
+  "architectural_determination": "The HCPDQ-v2 measurable family set is finally frozen to H6/H7. All other families are explicitly excluded from v2 measurement. A new independent held-out corpus limited to H6/H7 may now be constructed and ground-truth frozen. ROBY exposure remains blocked until that corpus receives an independent freeze certification.",
+  "baseline": "12903-pass-0-fail-ruff-clean",
+  "excluded_families": [
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H8"
+  ],
+  "families": {
+    "H1": {
+      "disposition": "EXCLUDE_H1_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H1",
+      "measurable_in_v2": false
+    },
+    "H2": {
+      "disposition": "NO_GO_EXCLUDE_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H2",
+      "measurable_in_v2": false
+    },
+    "H3": {
+      "disposition": "EXCLUDE_H3_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H3",
+      "measurable_in_v2": false
+    },
+    "H4": {
+      "disposition": "EXCLUDED_NO_PRODUCTIVE_EXPOSURE",
+      "family": "H4",
+      "measurable_in_v2": false
+    },
+    "H5": {
+      "disposition": "EXCLUDED_NO_PRODUCTIVE_EXPOSURE",
+      "family": "H5",
+      "measurable_in_v2": false
+    },
+    "H6": {
+      "disposition": "CERTIFIED_CALIBRATION_PATH",
+      "family": "H6",
+      "measurable_in_v2": true
+    },
+    "H7": {
+      "disposition": "CERTIFIED_CALIBRATION_EXPOSURE",
+      "family": "H7",
+      "measurable_in_v2": true
+    },
+    "H8": {
+      "disposition": "NO_GO_EXCLUDE_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "family": "H8",
+      "measurable_in_v2": false
+    }
+  },
+  "held_out_construction_authorized": true,
+  "held_out_execution_authorized": false,
+  "held_out_ground_truth_freeze_authorized": true,
+  "held_out_readiness": "GO_FOR_CONSTRUCTION_AND_FREEZE_ONLY",
+  "held_out_roby_exposure_authorized": false,
+  "held_out_scope": {
+    "difficulty_levels": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "families": [
+      "H6",
+      "H7"
+    ],
+    "family_count": 2,
+    "ground_truth_must_be_frozen_before_roby_exposure": true,
+    "must_be_new_independent_corpus": true,
+    "must_not_reuse_calibration_prompts": true,
+    "must_not_reuse_v1_held_out_cases": true
+  },
+  "human_comparison_authorized": false,
+  "measurable_families": [
+    "H6",
+    "H7"
+  ],
+  "new_authority_authorized": false,
+  "next_gate": "HCPDQ-v2 H6/H7 Held-Out Corpus — Construction / Independent Ground-Truth Freeze",
+  "pending_families": [],
+  "production_changes_authorized": false,
+  "schema_version": "hcpdq-v2-final-measurable-scope-freeze-v1",
+  "scope_fingerprint": "0ee7f4d16dd0335fe6c9003710d761d348951a32ff65f465ca8fd7335fbfeaf4",
+  "scope_freeze_complete": true,
+  "status": "FINAL_SCOPE_FROZEN_HELD_OUT_CONSTRUCTION_GO",
+  "v1_corpus_reuse_authorized": false
+}

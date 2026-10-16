@@ -1,0 +1,48 @@
+.FF                                                                      [100%]
+=================================== FAILURES ===================================
+____________ test_cap17_o2_search_exposes_scan_and_match_durations _____________
+
+    def test_cap17_o2_search_exposes_scan_and_match_durations() -> None:
+        """RED: the search boundary must expose distinct monotonic stage durations."""
+        names = {field.name for field in fields(GovernedLibrarySearchResult)}
+>       assert {"catalogue_scan_elapsed_ms", "matching_elapsed_ms"} <= names, (
+            "O2 RED: search result has no distinct catalogue/matching timing evidence"
+        )
+E       AssertionError: O2 RED: search result has no distinct catalogue/matching timing evidence
+E       assert {'catalogue_s...g_elapsed_ms'} <= {'bounded', '...hes', 'query'}
+E         
+E         Extra items in the left set:
+E         'catalogue_scan_elapsed_ms'
+E         'matching_elapsed_ms'
+
+tests/architecture/test_cap17_o2_latency_observability_contract_red.py:37: AssertionError
+______ test_cap17_o2_conversation_exposes_last_stage_and_elapsed_evidence ______
+
+    def test_cap17_o2_conversation_exposes_last_stage_and_elapsed_evidence() -> None:
+        """RED: expose the last reached phase and elapsed times without lateral state."""
+        names = {field.name for field in fields(GovernedLocalLibraryConversationResult)}
+>       assert {"last_completed_stage", "stage_elapsed_ms"} <= names, (
+            "O2 RED: conversational result has no per-request causal stage evidence"
+        )
+E       AssertionError: O2 RED: conversational result has no per-request causal stage evidence
+E       assert {'last_comple...e_elapsed_ms'} <= {'artifact', ...e_label', ...}
+E         
+E         Extra items in the left set:
+E         'stage_elapsed_ms'
+E         'last_completed_stage'
+
+tests/architecture/test_cap17_o2_latency_observability_contract_red.py:45: AssertionError
+=========================== short test summary info ============================
+FAILED tests/architecture/test_cap17_o2_latency_observability_contract_red.py::test_cap17_o2_search_exposes_scan_and_match_durations - AssertionError: O2 RED: search result has no distinct catalogue/matching timing evidence
+assert {'catalogue_s...g_elapsed_ms'} <= {'bounded', '...hes', 'query'}
+  
+  Extra items in the left set:
+  'catalogue_scan_elapsed_ms'
+  'matching_elapsed_ms'
+FAILED tests/architecture/test_cap17_o2_latency_observability_contract_red.py::test_cap17_o2_conversation_exposes_last_stage_and_elapsed_evidence - AssertionError: O2 RED: conversational result has no per-request causal stage evidence
+assert {'last_comple...e_elapsed_ms'} <= {'artifact', ...e_label', ...}
+  
+  Extra items in the left set:
+  'stage_elapsed_ms'
+  'last_completed_stage'
+2 failed, 1 passed in 1.26s

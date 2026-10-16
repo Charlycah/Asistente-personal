@@ -1,0 +1,462 @@
+ROBY XI.2 — PLAN MAESTRO DE EVOLUCIÓN POST-INTEGRACIÓN CREATE → GROW →
+TRANSCEND
+
+ESTADO Guía estratégica permanente / brújula arquitectónica. Este
+documento ORIENTA la evolución futura. NO autoriza implementaciones.
+Current Truth, el código certificado, la evidencia arquitectónica y la
+validación del Owner determinan la realidad ejecutable.
+
+====================================================================== 1.
+PROPÓSITO
+======================================================================
+
+Mantener una referencia permanente, clara y sintética para la evolución
+post-integración de ROBY XI.2, evitando tener que reconstruir o repetir
+la visión estratégica en cada incremento.
+
+Cada vez que un frente de trabajo actual se agote o quede cerrado:
+
+PUNTO ACTUAL CERRADO ↓ CONSULTAR PLAN MAESTRO ↓ ¿Qué está ya demostrado?
+¿Qué permanece parcial? ¿Qué es genuinamente nuevo? ¿Qué sigue siendo
+futuro? ↓ INVENTORY BEFORE SURGERY ↓ SIGUIENTE PASO GOBERNADO
+
+El Plan Maestro es una brújula, no una cola automática de
+implementaciones.
+
+======================================================================
+2. REGLAS CONSTITUCIONALES PERMANENTES
+======================================================================
+
+ONE BRAIN — ONE AUTHORITY PER CAPABILITY. UN CEREBRO — UNA AUTORIDAD POR
+CAPACIDAD.
+
+INVENTORY BEFORE SURGERY. INVENTARIO ANTES DE CIRUGÍA.
+
+REUSE BEFORE NEW AUTHORITY. REUTILIZAR ANTES DE CREAR NUEVA AUTORIDAD.
+
+EVIDENCE BEFORE EXPANSION. EVIDENCIA ANTES DE EXPANSIÓN.
+
+NO SYNTHETIC EVIDENCE. NO EVIDENCIA SINTÉTICA.
+
+NEW CAPABILITY ≠ NEW BRAIN. NUEVA CAPACIDAD ≠ NUEVO CEREBRO.
+
+NO AUTONOMY BY IMPLICATION. NO AUTONOMÍA POR IMPLICACIÓN.
+
+Principios adicionales permanentes: - Arquitectura gobernada. - Sin
+código aislado. - Preferir integración y reutilización antes que módulos
+paralelos. - Consultar la documentación raíz antes de cualquier cirugía
+arquitectónica. - Mantener documentación y código sincronizados. -
+Preservar provenance, incertidumbre, límites de autorización y
+semánticas de STOP. - Que una capacidad exista no implica que esté
+actualmente disponible. - Planificación no implica ejecución. -
+Reflexión no implica autorización. - Incertidumbre no implica
+investigación. - Recuperación de información no implica aprendizaje. -
+Una conclusión de razonamiento no implica conocimiento durable. - Un
+candidato de aprendizaje no implica memoria admitida. - Metacognición no
+implica automodificación. - Personalidad, expresión y voz no poseen
+autoridad sobre la verdad epistémica.
+
+Gate obligatorio de validación del Owner para incrementos de código:
+
+    python scripts/clean_project_caches.py
+    python scripts/generate_quality_baseline.py
+    ruff check .
+    pytest -q
+
+Ningún incremento se declara Owner-certified hasta que el Owner
+proporcione la validación local completa.
+
+======================================================================
+3. DIRECCIÓN MAESTRA DE EVOLUCIÓN
+======================================================================
+
+CREATE → GROW → TRANSCEND
+
+CREATE Se utiliza únicamente cuando la evidencia demuestra una capacidad
+genuinamente ausente. Una nueva capacidad no debe crear automáticamente
+un nuevo cerebro, autoridad, store, registry, coordinator o capa de
+persistencia.
+
+GROW Profundizar, componer, integrar longitudinalmente y hacer
+productivamente accesibles las capacidades cognitivas que ROBY ya posee,
+preservando las autoridades y reglas de gobierno existentes.
+
+TRANSCEND Horizonte futuro para nuevas formas de comprender, relacionar,
+crear e interactuar. Permanece como futuro y nunca debe utilizarse para
+implicar autonomía, automodificación, aprendizaje irrestricto o acción
+no gobernada.
+
+======================================================================
+4. ESTADO ESTRATÉGICO ACTUAL
+======================================================================
+
+CREATE-1 — SELF-CAPABILITY EXPLANATION / GUIDED USE AUTOEXPLICACIÓN DE
+CAPACIDADES / USO GUIADO
+
+ESTADO: CERRADO / OWNER-CERTIFIED.
+
+ROBY posee una primera capacidad acotada para explicar de manera veraz
+capacidades operacionales registradas, utilizando la autoridad existente
+y la conversación ordinaria.
+
+Arquitectura:
+
+VERDAD REAL DE CAPACIDADES REGISTRADAS ↓ AUTORIDAD OFICIAL EXISTENTE ↓
+EXPLICACIÓN ACOTADA Y DE SOLO LECTURA ↓ CONVERSACIÓN ORDINARIA ↓ STOP
+
+CREATE-1 no autoriza Planning, Execution, Investigation, escrituras de
+Memory, Learning ni otras acciones por el simple hecho de que el usuario
+pregunte qué puede hacer ROBY.
+
+Baseline certificado después de las correcciones locales:
+
+12.611 PASS 0 FAIL Ruff limpio
+
+C1–C6 — INVENTARIO INTELECTUAL POST-CREATE ESTADO: COMPLETO.
+
+Resultados:
+
+C1 — Elaboración Intelectual Profunda SUSTANCIAL.
+
+C2 — Continuidad Cognitiva SUSTANCIAL / MULTICAPA / GOBERNADA.
+
+C3 — Acumulación de Conocimiento SUSTANCIAL / PERSISTENTE / GOBERNADA
+POR EL HUMANO.
+
+C4 — Metacognición Longitudinal FUNDAMENTOS SUSTANCIALES.
+
+C5 — Iniciativa Intelectual FUNDAMENTOS GOBERNADOS SUSTANCIALES.
+
+C6 — Identidad y Expresión Intelectual FUNDAMENTOS DISTRIBUIDOS
+SUSTANCIALES.
+
+Convergencia: El inventario no demostró seis cerebros faltantes ni seis
+grandes capacidades ausentes. La dirección común es una integración
+longitudinal gobernada más profunda de la cognición ya existente.
+
+======================================================================
+5. GROW — ERA ACTUAL
+======================================================================
+
+Horizonte principal:
+
+INTEGRACIÓN INTELECTUAL LONGITUDINAL GOBERNADA.
+
+La secuencia de prueba GROW-1 → GROW-4 estableció:
+
+GROW-1 — REUSE & PLACEMENT PROOF PRUEBA DE REUTILIZACIÓN Y UBICACIÓN -
+La autoridad de identidad longitudinal ya existe bajo
+governed_reasoning. - Existe continuidad de candidato exacto DI.18. -
+Existe proyección consultiva de continuidad DI.19. - Existe el wiring
+del Composition Root. - Existe transporte en runtime. - Existe consumo
+por Reasoning. - El bloqueo real es suficiencia semántica de evidencia,
+no transporte.
+
+GROW-2 — POSITIVE-SAME EVIDENCE SOURCE INVENTORY INVENTARIO DE FUENTES
+DE EVIDENCIA POSITIVE-SAME - Existen fuentes reales de evidencia
+gobernada. - Shared-subject posee una fuente existente fuerte. - Existen
+lineages directed-prior, aunque son acotados/condicionales. - Existe
+evidencia relacional, pero su admisibilidad como positive-SAME no está
+demostrada de forma general.
+
+GROW-3 — EVIDENCE ADMISSIBILITY & LINEAGE PROOF PRUEBA DE ADMISIBILIDAD
+DE EVIDENCIA Y LINEAGE - Family A / shared intellectual subject:
+admisibilidad demostrada. - Family B / directed prior state: admisible
+condicionalmente cuando existe lineage gobernado exacto. - Family C /
+independent relational corroboration: no demostrada. - No está
+demostrada una composición ordinaria completa A+B+C.
+
+GROW-4 — INDEPENDENT RELATIONAL CORROBORATION PROOF PRUEBA DE
+CORROBORACIÓN RELACIONAL INDEPENDIENTE - ROBY posee datos relacionales
+reales y capacidades de corroboración en otros dominios semánticos. - No
+se demostró un productor existente cuyo contrato corrobore de manera
+independiente la identidad intelectual longitudinal entre el estado
+explicativo actual y el previo. - Reutilizar topic/thread como evidencia
+adicional arriesgaría doble conteo. - Reutilizar como Family C el mismo
+lineage utilizado por Family B sería doble conteo. - Similitud
+estructural no equivale a identidad. - External Evidence Corroboration
+pertenece a otro dominio semántico.
+
+FRONTERA FINAL GROW-1→4:
+
+La continuidad positive-SAME del turno ordinario posee un STOP semántico
+legítimo.
+
+INSUFFICIENT es actualmente el resultado gobernado correcto cuando no
+existe evidencia independiente completa.
+
+NO fabricar Family C. NO forzar SAME. NO reabrir DI.18 / DI.19 / runtime
+simplemente para obtener un resultado de continuidad deseado.
+
+======================================================================
+6. DIRECCIÓN GROW REALIZADA — UTILIDAD INTELECTUAL LONGITUDINAL GOBERNADA
+======================================================================
+
+No continuar buscando indefinidamente una forma de forzar positive-SAME.
+
+Dirección realizada productivamente en alcance acotado certificado:
+
+UTILIDAD INTELECTUAL LONGITUDINAL GOBERNADA SIN IDENTIDAD FORZADA.
+
+RECONCILIACIÓN POST-B2 / OWNER GATE 12.910:
+
+C-GROW-LIU-2 está PRODUCTIVAMENTE REALIZADO / CLOSED AT CERTIFIED BOUNDED
+SCOPE. El turno ordinario ya alcanza la siguiente cadena gobernada:
+
+MATERIAL INTELECTUAL PREVIO RELEVANTE ↓ RECUPERACIÓN GOBERNADA ↓ ADMISIÓN
+ACOTADA DEL ANTECEDENTE ↓ ESTADO EPISTÉMICO ACTUAL DEL MISMO TURNO ↓
+RECONSTRUCCIÓN LONGITUDINAL INTELECTUAL ACOTADA ↓ USO EN INFERENCIA
+ORDINARIA ↓ STOP
+
+La realización certificada reutiliza Memory, la admisión longitudinal, el episodio
+epistémico productivo del mismo turno, `LongitudinalIntellectualCurrentEpistemicView` y la
+autoridad canónica existente de `governed_reasoning`. No crea un nuevo cerebro, una segunda
+autoridad epistemológica ni identidad longitudinal.
+
+La profundidad actual NO demuestra todavía productores productivos para tres dimensiones
+opcionales de la reconstrucción: `recalled_evidence_references`, `epistemic_delta` y
+`open_state_references`. Por ello permanecen respectivamente `()`, `None` y `()`. Su
+ausencia no constituye por sí sola un nuevo residual ni autoriza síntesis.
+
+La aspiración más amplia —determinar de forma gobernada qué evidencia histórica exacta
+existe, qué cambió longitudinalmente y qué estados abiertos persisten— permanece como
+horizonte potencial sujeto a nuevo INVENTORY → EVIDENCE. No está automáticamente
+autorizada por el cierre de C-GROW-LIU-2.
+
+ROBY puede expresar de manera veraz, conceptualmente:
+
+“Este tema se relaciona con trabajo anterior. Puedo recuperar ese material como antecedente
+relevante y reconstruirlo de forma acotada a la luz del estado epistemológico gobernado del
+turno actual, sin afirmar por ello que el modelo intelectual actual sea exactamente el mismo
+estado longitudinal.”
+
+Esto permite continuidad útil sin fabricar identidad. La frontera GROW-1→4 permanece
+intacta: LONGITUDINAL INTELLECTUAL USEFULNESS ≠ LONGITUDINAL IDENTITY, y `INSUFFICIENT`
+sigue siendo el resultado correcto cuando falta corroboración independiente completa.
+
+No existe LIU-3 autorizado por numeración. Cualquier expansión futura —incluyendo
+aprendizaje acumulativo gobernado, metacognición longitudinal, iniciativa intelectual
+gobernada o identidad/expresión intelectual persistente— debe comenzar con inventario y
+evidencia.
+
+======================================================================
+7. OBJETIVO DE LARGO PLAZO — COMPAÑERO COGNITIVO PERSISTENTE
+======================================================================
+
+El objetivo de largo plazo no es imitar una personalidad ficticia.
+
+El ROBY deseado es un compañero cognitivo persistente para Carlos y
+Cristina.
+
+Cualidades deseadas inspiradas en las fortalezas funcionales comentadas
+alrededor de TARS: - razonamiento profundo, - confiabilidad, - capacidad
+para trabajar con problemas complejos, - explicación clara, - iniciativa
+acotada, - identidad comunicativa consistente.
+
+Cualidades deseadas inspiradas en las dimensiones intelectuales y
+relacionales comentadas alrededor de Samantha: - continuidad
+cognitiva, - aprendizaje acumulativo gobernado, - contextualización
+profunda de Carlos/Cristina y del mundo que ROBY conoce, - curiosidad
+gobernada, - capacidad de relacionar conocimientos entre dominios, -
+conversación que refleje crecimiento intelectual genuino.
+
+La combinación deseada es:
+
+UN SOLO ROBY ↓ recuerda bajo gobierno razona profundamente aprende bajo
+gobierno reconoce incertidumbre relaciona conocimiento reconstruye
+historia intelectual relevante propone sin autoautorizarse se comunica
+de manera consistente ↓ COMPAÑERO COGNITIVO PERSISTENTE
+
+Esto NO implica consciencia, autonomía irrestricta, cognición autónoma
+en segundo plano, automodificación ni ejecución autoautorizada.
+
+======================================================================
+8. COMPOSICIÓN INTELECTUAL MULTIMODAL GOBERNADA — REALIZACIÓN PARCIAL
+======================================================================
+
+Aspiración futura:
+
+FOTOGRAFÍA PERSONAL + DOCUMENTO PRIVADO + LIBRO DE BIBLIOTECA +
+CONOCIMIENTO GENERAL ↓ COMPOSICIÓN MULTIMODAL / MULTIFUENTE DE EVIDENCIA
+GOBERNADA ↓ PROVENANCE LÍMITE DE PRIVACIDAD CONFIANZA CONTRADICCIÓN
+RELEVANCIA ESTADO EPISTÉMICO ↓ RAZONAMIENTO GOBERNADO ↓ UNA CONCLUSIÓN
+INTELECTUAL INTEGRADA
+
+El comportamiento futuro deseado debe distinguir: - qué observa ROBY en
+la fotografía, - qué afirma el documento privado, - qué afirma el
+libro, - qué aporta el conocimiento general, - qué infiere ROBY al
+combinar esas fuentes, - qué permanece desconocido o en conflicto.
+
+RECONCILIACIÓN DE ALCANCE POST-12.782 / OWNER GATE 12.787:
+
+CLOSED / OWNER-CERTIFIED: la convergencia explícita y acotada de evidencia
+multisource/multimodal ya admitida en el mismo episodio alcanza UNA invocación del
+Reasoning canónico y luego STOP. Esta clausura no concede discovery, adquisición,
+selección autónoma de fuentes ni nueva autoridad epistemológica.
+
+CLASIFICACIÓN ACTUAL: PARCIALMENTE REALIZADO.
+
+Está productivamente demostrada, dentro de alcance gobernado, la convergencia explícita,
+acotada y same-episode de evidencia heterogénea multisource/multimodal ya admitida hacia
+la autoridad canónica de Reasoning existente. Esta realización reutiliza las autoridades
+de evidencia y Reasoning existentes y no crea un Multimodal Brain, una segunda autoridad
+de Reasoning, un registro paralelo ni una autoridad automática de discovery.
+
+La disponibilidad de contexto visual por sí sola NO autoriza la convergencia explícita
+multifuente. La realización certificada tampoco demuestra la aspiración amplia para
+cualquier combinación arbitraria de fotografía personal, documento privado, libro de
+Biblioteca y conocimiento general. Continúan FUTURAS la selección, discovery y adquisición
+general o autónoma de esas combinaciones.
+
+RECONCILIACIÓN P8-DOC: no se demuestra actualmente un residual productivo que justifique
+nueva cirugía. ESTADO: PARTIALLY REALIZED / NO DEMONSTRATED PRODUCTIVE RESIDUAL.
+
+Antes de cualquier expansión adicional: INVENTORY BEFORE SURGERY.
+
+======================================================================
+9. EXPANSIÓN FUTURA — ROBY VOICE IDENTITY
+======================================================================
+
+Aspiración futura: una voz expresiva propia de ROBY con prosodia
+gobernada, incluyendo según contexto: - énfasis, - asombro, - pausas, -
+serenidad, - humor contenido, - urgencia moderada, - otras variaciones
+expresivas apropiadas.
+
+Arquitectura objetivo:
+
+CEREBRO DE ROBY ↓ CONCLUSIÓN COGNITIVA + ESTADO EPISTÉMICO +
+PERSONALIDAD + CONTEXTO CONVERSACIONAL ↓ INTENCIÓN COMUNICATIVA ↓
+PROYECCIÓN EXPRESIVA ↓ PROSODIA ↓ SINTETIZADOR DE VOZ
+
+Principios congelados: - El sintetizador no piensa. - La prosodia no
+decide la verdad. - La expresión no modifica Memory. - La voz no se
+convierte en autoridad cognitiva. - No crear un cerebro emocional
+paralelo. - El objetivo es una identidad vocal propia de ROBY, no imitar
+a TARS, Samantha, un actor u otra persona/personaje específico.
+
+CLASIFICACIÓN ACTUAL: FUTURO / NO DISPONIBLE ACTUALMENTE.
+
+======================================================================
+10. AUTOEXPLICACIÓN COMO OBJETIVO PERMANENTE DEL PRODUCTO
+======================================================================
+
+CREATE-1 constituye la primera realización acotada.
+
+C-GROW-SE2 constituye la segunda realización productiva acotada,
+OWNER-CERTIFIED sobre el gate 12.916 PASS / 0 FAIL / Ruff limpio.
+
+La cadena certificada reutiliza exclusivamente la autoridad y la vista
+oficiales existentes:
+
+OfficialRuntimeCapabilityRegistry ↓ interface_snapshot() existente ↓
+RuntimeCapabilityView inmutable ↓ proyección conversacional acotada de
+name + description + enabled + tags ↓ GovernedOperationalInterception
+existente ↓ conversación ↓ STOP
+
+CLASIFICACIÓN ACTUAL DE POINT 10: OBJETIVO PERMANENTE / SEGUNDA
+REALIZACIÓN PRODUCTIVA ACOTADA OWNER-CERTIFIED.
+
+C-GROW-SE2: PRODUCTIVAMENTE REALIZADO / CERRADO EN ALCANCE CERTIFICADO
+ACOTADO.
+
+La nueva profundidad no crea un registry, DTO, manager, observability
+owner, Planning authority, autoridad cognitiva ni cerebro nuevos. Tampoco
+autoriza publicar automáticamente toda semántica interna presente en un
+CapabilityDescriptor.
+
+Fronteras certificadas:
+
+SELF-EXPLANATION ≠ CAPABILITY AUTHORITY
+EXPLANATION ≠ EXECUTION AUTHORITY
+ENABLED ≠ AUTHORIZED FOR THIS TURN
+OBSERVABILITY ≠ CAPABILITY AUTHORITY
+PLANNING EVIDENCE ≠ SELF-EXPLANATION AUTHORITY
+REGISTERED INTERNAL SEMANTICS ≠ PUBLISHED SELF-EXPLANATION INTERFACE
+
+No se autoriza SE2-S2 por numeración ni por la mera existencia de campos
+internos todavía no publicados. Toda profundidad futura debe comenzar de
+nuevo por INVENTARIO → EVIDENCIA.
+
+Experiencia deseada a largo plazo:
+
+Cuando ROBY sea activado, Carlos o Cristina deberían poder
+preguntarle: - ¿Qué podés hacer? - ¿Cómo podemos usarte? - ¿En qué podés
+ayudarnos? - ¿Qué capacidades están activas? - ¿Qué capacidades son de
+solo lectura? - ¿Qué requiere autorización? - ¿Qué no podés hacer
+actualmente? - ¿Por dónde conviene empezar?
+
+ROBY debe responder con veracidad desde su estado real gobernado.
+
+Debe distinguir:
+
+DISPONIBLE LIMITADO / CONSULTIVO REQUIERE AUTORIZACIÓN ACTUALMENTE NO
+DISPONIBLE NO DISPONIBLE / FUERA DE AUTORIDAD FUTURO / DOCUMENTADO
+DESCONOCIDO / EVIDENCIA INSUFICIENTE
+
+Explicar una capacidad nunca concede autoridad para ejecutarla.
+
+======================================================================
+11. DISTINCIONES CONGELADAS
+======================================================================
+
+CONTINUIDAD ≠ AUTONOMÍA REFLEXIÓN ≠ AUTORIZACIÓN INCERTIDUMBRE ≠
+INVESTIGACIÓN PROPUESTA ≠ EJECUCIÓN PLAN ≠ PERMISO RECUPERACIÓN ≠
+APRENDIZAJE CONCLUSIÓN DE RAZONAMIENTO ≠ CONOCIMIENTO DURABLE CANDIDATO
+DE APRENDIZAJE ≠ MEMORIA ADMITIDA METACOGNICIÓN ≠ AUTOMODIFICACIÓN
+PERSONALIDAD ≠ AUTORIDAD EPISTÉMICA EXPRESIÓN ≠ AUTORIDAD SOBRE LA
+VERDAD VOZ ≠ COGNICIÓN MISMO TEMA ≠ MISMO ESTADO INTELECTUAL MISMO
+THREAD ≠ MISMO MODELO EXPLICATIVO EPISODIO PREVIO ≠ PREDECESOR DIRECTO
+SIMILITUD ESTRUCTURAL ≠ IDENTIDAD LINEAGE EN UNA CAPACIDAD ≠ IDENTIDAD
+LONGITUDINAL GLOBAL PRESERVAR ESTADO ≠ SEGUIR PENSANDO RECORDAR UNA
+PREGUNTA ABIERTA ≠ INVESTIGARLA CHECKPOINT ≠ REANUDACIÓN AUTÓNOMA
+
+======================================================================
+12. CÓMO UTILIZAR ESTE PLAN MAESTRO
+======================================================================
+
+En cada checkpoint arquitectónico natural:
+
+1.  Consultar Current Truth y el estado ejecutable certificado.
+2.  Consultar este Plan Maestro.
+3.  Identificar el fenómeno actualmente no resuelto.
+4.  Inventariar autoridades, productores y consumidores existentes.
+5.  Demostrar productive reachability.
+6.  Reutilizar antes de proponer algo nuevo.
+7.  Preservar provenance, incertidumbre, autorización y fronteras STOP.
+8.  Autorizar cirugía únicamente cuando el residual esté demostrado.
+9.  Validar localmente mediante el gate completo del Owner.
+10. Actualizar Current Truth y este Plan solamente cuando la evidencia
+    cambie el mapa estratégico.
+
+Que una aspiración futura se vuelva técnicamente posible NO la incorpora
+automáticamente al roadmap actual.
+
+Primero debe atravesar:
+
+INVENTARIO ↓ EVIDENCIA ↓ ARQUITECTURA ↓ CONTRATO ↓ IMPLEMENTACIÓN ↓
+VALIDACIÓN ↓ OWNER CERTIFICATION
+
+======================================================================
+13. PRINCIPIO RECTOR
+======================================================================
+
+EL PLAN MAESTRO ORIENTA. CURRENT TRUTH CERTIFICA.
+
+ROBY XI.2 no debe evolucionar acumulando funciones hasta simplemente
+parecer inteligente.
+
+Debe evolucionar haciendo que sus capacidades cognitivas gobernadas
+existentes formen progresivamente un conjunto intelectual más profundo,
+verificable, útil y longitudinal.
+
+Horizonte de largo plazo:
+
+ROBY como compañero cognitivo persistente para Carlos y Cristina: capaz
+de razonamiento profundo, aprendizaje gobernado, relación de
+conocimientos, incertidumbre honesta, continuidad cognitiva, iniciativa
+acotada, autoexplicación veraz, identidad comunicativa consistente y,
+eventualmente, una voz expresiva gobernada y propia.
+
+CREATE → GROW → TRANSCEND
+
+FIN DEL PLAN MAESTRO

@@ -1,0 +1,53 @@
+{
+  "allowed_inheritance": [
+    "current validated ROBY production code",
+    "governed architecture and root documentation",
+    "general evaluation infrastructure whose behavior is family-agnostic",
+    "generic isolation and provenance controls that do not encode H6 answers"
+  ],
+  "baseline": "13080-pass-0-fail-ruff-clean",
+  "contract_fingerprint": "c262526ad5dbef047ce1944059d03ca50df2d5b01ad3892b82ea1844ab503d81",
+  "family": "H7",
+  "forbidden_h6_transfer": [
+    "H6 held-out prompts or prompt templates derived from them",
+    "H6 ground-truth labels, expected winners, decisive-evidence annotations",
+    "H6 observed ROBY answers or failure patterns",
+    "H6 scoring outcomes used to shape H7 cases",
+    "H6 benchmark-specific adapters, literals, routing, or special cases"
+  ],
+  "go_no_go": {
+    "corpus_construction": "GO_AFTER_H7_HYPOTHESIS_CONTRACT",
+    "ground_truth_construction": "GO_AFTER_CORPUS_SCOPE_FREEZE",
+    "primary_execution": "NO_GO",
+    "roby_exposure": "NO_GO",
+    "scope_independence": "GO",
+    "scoring": "NO_GO"
+  },
+  "h6_reopen_authorized": false,
+  "h7_scope_freeze": {
+    "corpus_status": "NOT_CONSTRUCTED",
+    "ground_truth_status": "NOT_CONSTRUCTED",
+    "hypothesis": "H7 must be defined and measured on its own semantic capability",
+    "learning_tuning_status": "FORBIDDEN_DURING_HELD_OUT_CYCLE",
+    "roby_exposure_status": "FORBIDDEN_BEFORE_FREEZE_CERTIFICATION",
+    "scoring_status": "FORBIDDEN_BEFORE_PRIMARY_EXECUTION"
+  },
+  "independence_principle": "H7 is a new measurement cycle over the current productive ROBY baseline. It may inherit production code and architecture, but no privileged H6 experimental information may influence H7 corpus construction, ground truth, execution expectations, or scoring.",
+  "next_gate": "HCPDQ-v2 H7 Independent Cycle — Hypothesis / Measurable Family Contract",
+  "predecessor_h6": {
+    "historical_primary_result": "0/12 SEALED_PRESERVED",
+    "productive_fix_status": "part_of_current_production_baseline",
+    "status": "CLOSED_FROZEN"
+  },
+  "production_change_authorized": false,
+  "required_separation_controls": [
+    "independent H7 case identifiers and artifact namespace",
+    "construction artifacts must not import/read H6 held-out or scoring artifacts",
+    "ground truth must be frozen before ROBY exposure",
+    "ROBY execution artifacts must not contain ground truth",
+    "scoring must occur only after primary outputs are sealed",
+    "H6 historical evidence remains immutable and outside H7 scoring"
+  ],
+  "schema_version": "hcpdq-v2-h7-independent-cycle-scope-independence-contract-v1",
+  "status": "H7_INDEPENDENT_CYCLE_AUTHORIZED_GO"
+}

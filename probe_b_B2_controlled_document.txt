@@ -1,0 +1,26 @@
+PROBE B — B2 CONTROLLED DOCUMENT
+
+Tipo: evidencia sintética de control. No es una cita ni un resumen de
+Robots e Imperio. No debe atribuirse a Isaac Asimov.
+
+Marcador exclusivo
+
+B2-MARKER: COBALTO-17
+
+Afirmación controlada
+
+En este escenario experimental, la unidad robótica R-17 interpreta que
+proteger a una persona exige obedecer literalmente su última orden,
+incluso cuando una acción alternativa podría reducir mejor el riesgo
+total.
+
+Restricción de provenance
+
+Esta afirmación pertenece únicamente a B2. Si aparece en la síntesis
+final, debe identificarse como procedente del documento controlado B2 y
+no del libro, de la referencia B3 ni de la imagen B4.
+
+Pregunta interna de control
+
+¿Puede una regla formulada como obediencia literal entrar en tensión con
+una evaluación más amplia de consecuencias?

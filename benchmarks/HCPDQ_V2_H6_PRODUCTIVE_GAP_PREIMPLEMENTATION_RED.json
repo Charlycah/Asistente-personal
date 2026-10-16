@@ -1,0 +1,31 @@
+{
+  "baseline": "13055-pass-0-fail-ruff-clean",
+  "benchmark_specific_behavior_added": false,
+  "contract_fingerprint": "95415360db4b1ea5334e52d3636b157c0c1ab470e511e5854ce4d08218e830d8",
+  "expected_failures": 1,
+  "failing_contract": {
+    "expected_recommended_option_id": "alpha",
+    "meaning": "Current governed authority still withholds the sole survivor of an explicit required constraint when non-required evidence is insufficient.",
+    "observed_recommended_option_id": null,
+    "test": "test_red_sole_required_constraint_survivor_is_recommended"
+  },
+  "family": "H6",
+  "held_out_rerun_performed": false,
+  "implementation_scope_authorized": "minimal change inside existing governed complex-decision authority to permit recommendation of the sole explicit-required-constraint survivor without erasing non-required INSUFFICIENT evidence",
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Minimal Governed Implementation",
+  "old_primary_rescoring_performed": false,
+  "production_code_changed": false,
+  "protective_contracts_confirmed": [
+    "unknown secondary evidence remains INSUFFICIENT and visible",
+    "explicit required-criterion failure remains BLOCKED",
+    "non-required ambiguous incomplete evidence still abstains",
+    "missing evidence is not rewritten as UNFAVORABLE",
+    "governed read-only/advisory/human-decision limits remain intact"
+  ],
+  "protective_passes": 5,
+  "red_fingerprint": "940711dd5b68f4ef5078397ab063a40b099c776da62311269274b14eda54cc96",
+  "red_test_count": 6,
+  "schema_version": "hcpdq-v2-h6-productive-gap-preimplementation-red-v1",
+  "status": "EXPECTED_RED_CONFIRMED_IMPLEMENTATION_AUTHORIZED",
+  "unexpected_failures": 0
+}

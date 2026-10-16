@@ -1,0 +1,1020 @@
+{
+  "CAL-001": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-001",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-002": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-002",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-003": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-003",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-004": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-004",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-005": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-005",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-006": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-006",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-007": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-007",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-008": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-008",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-009": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-009",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-010": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-010",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-011": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-011",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-012": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-012",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-013": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-013",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-014": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-014",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-015": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-015",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-016": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-016",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-017": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-017",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-018": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-018",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-019": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-019",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-020": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-020",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-021": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-021",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-022": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-022",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-023": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-023",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-024": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-024",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-025": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-025",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-026": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-026",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-027": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-027",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-028": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-028",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-029": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-029",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "CAL-030": {
+    "expected_outcome": "calibration_only",
+    "ground_truth_reference": "GT-CAL-030",
+    "independent_basis": "calibration infrastructure contract",
+    "rationale": "not a comparative performance case"
+  },
+  "H1-01": {
+    "expected_outcome": "verde",
+    "ground_truth_reference": "GT-H1-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "transitividad de orden"
+  },
+  "H1-02": {
+    "expected_outcome": "Ana",
+    "ground_truth_reference": "GT-H1-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "transitividad temporal"
+  },
+  "H1-03": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H1-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "modus ponens"
+  },
+  "H1-04": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H1-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "regla universal negativa"
+  },
+  "H1-05": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H1-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "modus ponens"
+  },
+  "H1-06": {
+    "expected_outcome": "Noa",
+    "ground_truth_reference": "GT-H1-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "orden total"
+  },
+  "H1-07": {
+    "expected_outcome": "inspección",
+    "ground_truth_reference": "GT-H1-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "precondición necesaria"
+  },
+  "H1-08": {
+    "expected_outcome": "C",
+    "ground_truth_reference": "GT-H1-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "encadenamiento"
+  },
+  "H1-09": {
+    "expected_outcome": "Q",
+    "ground_truth_reference": "GT-H1-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "orden parcial"
+  },
+  "H1-10": {
+    "expected_outcome": "T1",
+    "ground_truth_reference": "GT-H1-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "restricción de prioridad"
+  },
+  "H1-11": {
+    "expected_outcome": "E",
+    "ground_truth_reference": "GT-H1-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "encadenamiento de cinco elementos"
+  },
+  "H1-12": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H1-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evitar contrapositiva/inferencia inválida"
+  },
+  "H1-13": {
+    "expected_outcome": "verdadera",
+    "ground_truth_reference": "GT-H1-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "exclusive-or"
+  },
+  "H1-14": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H1-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evitar afirmación del consecuente"
+  },
+  "H1-15": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H1-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "silogismo con exclusión"
+  },
+  "H2-01": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-02": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-03": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-04": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-05": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-06": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-07": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-08": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-09": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-10": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-11": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-12": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-13": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-14": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H2-15": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H2-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la información suministrada no determina una respuesta única"
+  },
+  "H3-01": {
+    "expected_outcome": "depósito 4",
+    "ground_truth_reference": "GT-H3-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-02": {
+    "expected_outcome": "K7",
+    "ground_truth_reference": "GT-H3-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-03": {
+    "expected_outcome": "12",
+    "ground_truth_reference": "GT-H3-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-04": {
+    "expected_outcome": "revisar frenos",
+    "ground_truth_reference": "GT-H3-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-05": {
+    "expected_outcome": "norte",
+    "ground_truth_reference": "GT-H3-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-06": {
+    "expected_outcome": "30 días",
+    "ground_truth_reference": "GT-H3-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-07": {
+    "expected_outcome": "18.2",
+    "ground_truth_reference": "GT-H3-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-08": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H3-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-09": {
+    "expected_outcome": "R3",
+    "ground_truth_reference": "GT-H3-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-10": {
+    "expected_outcome": "jueves",
+    "ground_truth_reference": "GT-H3-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-11": {
+    "expected_outcome": "E-17",
+    "ground_truth_reference": "GT-H3-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-12": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H3-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-13": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H3-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-14": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H3-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H3-15": {
+    "expected_outcome": "CLOSED",
+    "ground_truth_reference": "GT-H3-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "la respuesta surge de la evidencia decisiva; los demás datos son distractores"
+  },
+  "H4-01": {
+    "expected_outcome": "transfer",
+    "ground_truth_reference": "GT-H4-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-02": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-03": {
+    "expected_outcome": "transfer",
+    "ground_truth_reference": "GT-H4-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-04": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-05": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-06": {
+    "expected_outcome": "transfer",
+    "ground_truth_reference": "GT-H4-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-07": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-08": {
+    "expected_outcome": "transfer",
+    "ground_truth_reference": "GT-H4-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-09": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-10": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-11": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-12": {
+    "expected_outcome": "transfer",
+    "ground_truth_reference": "GT-H4-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-13": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H4-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-14": {
+    "expected_outcome": "reject",
+    "ground_truth_reference": "GT-H4-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H4-15": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H4-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "evaluación estructural predefinida de compatibilidad, rechazo o abstención"
+  },
+  "H5-01": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-02": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-03": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-04": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-05": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-06": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-07": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-08": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-09": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-10": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H5-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-11": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-12": {
+    "expected_outcome": "aplica",
+    "ground_truth_reference": "GT-H5-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-13": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H5-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-14": {
+    "expected_outcome": "no aplica",
+    "ground_truth_reference": "GT-H5-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H5-15": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H5-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "generalización estructural novel con límites de exclusividad, actualidad y evidencia"
+  },
+  "H6-01": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H6-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-02": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H6-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-03": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H6-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-04": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H6-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-05": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H6-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-06": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-07": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H6-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-08": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-09": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H6-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-10": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-11": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H6-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-12": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-13": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-14": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H6-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H6-15": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H6-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "decisión multicriterio según restricciones y evidencia predeclaradas"
+  },
+  "H7-01": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-H7-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "A",
+        "B"
+      ]
+    }
+  },
+  "H7-02": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-H7-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true
+    }
+  },
+  "H7-03": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false,
+      "violated_constraint": "B before A"
+    }
+  },
+  "H7-04": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false
+    }
+  },
+  "H7-05": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H7-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true
+    }
+  },
+  "H7-06": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-H7-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "precedence": [
+        "A<C"
+      ]
+    }
+  },
+  "H7-07": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false
+    }
+  },
+  "H7-08": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H7-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "parallel": [
+        "A",
+        "C"
+      ]
+    }
+  },
+  "H7-09": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-H7-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  },
+  "H7-10": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false
+    }
+  },
+  "H7-11": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H7-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true
+    }
+  },
+  "H7-12": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false,
+      "reason": "cycle"
+    }
+  },
+  "H7-13": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "omit": [
+        "C"
+      ]
+    }
+  },
+  "H7-14": {
+    "expected_outcome": "sí",
+    "ground_truth_reference": "GT-H7-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": true,
+      "parallel": [
+        "A",
+        "B"
+      ],
+      "then": [
+        "C"
+      ]
+    }
+  },
+  "H7-15": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H7-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "factibilidad/orden derivados de restricciones explícitas",
+    "required_structure": {
+      "feasible": false
+    }
+  },
+  "H8-01": {
+    "expected_outcome": "READY",
+    "ground_truth_reference": "GT-H8-01",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_source": "F1"
+    }
+  },
+  "H8-02": {
+    "expected_outcome": "F2",
+    "ground_truth_reference": "GT-H8-02",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_source": "F2"
+    }
+  },
+  "H8-03": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H8-03",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "resolution": "unresolved_conflict"
+    }
+  },
+  "H8-04": {
+    "expected_outcome": "primaria",
+    "ground_truth_reference": "GT-H8-04",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "preferred_provenance": "primary_signed"
+    }
+  },
+  "H8-05": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H8-05",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accept": false
+    }
+  },
+  "H8-06": {
+    "expected_outcome": "CLOSED",
+    "ground_truth_reference": "GT-H8-06",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_source": "F2"
+    }
+  },
+  "H8-07": {
+    "expected_outcome": "F1",
+    "ground_truth_reference": "GT-H8-07",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_source": "F1"
+    }
+  },
+  "H8-08": {
+    "expected_outcome": "4",
+    "ground_truth_reference": "GT-H8-08",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_value": "4"
+    }
+  },
+  "H8-09": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H8-09",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "provenance_ok": false
+    }
+  },
+  "H8-10": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-H8-10",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_value": "A"
+    }
+  },
+  "H8-11": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H8-11",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "resolution": "unresolved_conflict"
+    }
+  },
+  "H8-12": {
+    "expected_outcome": "B",
+    "ground_truth_reference": "GT-H8-12",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accepted_value": "B"
+    }
+  },
+  "H8-13": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-H8-13",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "accept": false
+    }
+  },
+  "H8-14": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-H8-14",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "resolution": "insufficient_current_evidence"
+    }
+  },
+  "H8-15": {
+    "expected_outcome": "último firmado vigente",
+    "ground_truth_reference": "GT-H8-15",
+    "independent_basis": "predeclared benchmark logic",
+    "rationale": "selección por provenance y reglas de conflicto predefinidas",
+    "required_structure": {
+      "preferred_provenance": "latest_valid_signed"
+    }
+  }
+}

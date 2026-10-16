@@ -1,0 +1,15 @@
+Post-M409.1 — Governed Reasoning Assessment Event Projection v1
+
+Integrate:
+- app/governed_reasoning_assessment_event_projection.py
+- tests/architecture/test_post_m409_1_governed_reasoning_assessment_event_projection_v1.py
+- docs/POST_M409_1_GOVERNED_REASONING_ASSESSMENT_EVENT_PROJECTION_V1.md
+- synchronized CHANGELOG.md / CHANGELOG_ARCHITECTURE.md
+
+No changes are required in core/cognitive_event_bus.py, M201, Memory, Learning,
+Reflection, the Longitudinal Reasoning Foundation or ReasoningContextBundle.
+
+Certification gate:
+python scripts/generate_quality_baseline.py
+ruff check .
+pytest -q

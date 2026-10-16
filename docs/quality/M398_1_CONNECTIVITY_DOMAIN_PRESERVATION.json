@@ -1,0 +1,16 @@
+{
+  "schema_version": "m398.1",
+  "purpose": "protect_m397_connectivity_domain_during_physical_transport_constitution",
+  "files": {
+    "core/connectivity_domain/__init__.py": "57d285fe77f5f501ab3ca76947163a919fc9a2fe956d703a2c2e34a31c8d9587",
+    "core/connectivity_domain/admission.py": "48a3a410aa64abb6c5f41069e55dacd4b02f4130ae6ab3253e41e1ac917e8ca6",
+    "core/connectivity_domain/authentication.py": "e2f41c1888086673163e06d6ca0da35607a0ef17caa6868e3a5d481167b3fb40",
+    "core/connectivity_domain/failure.py": "c1d9beba6f327308fe7223e71f75104da8571c2893ccee6096aebdd48b2053ec",
+    "core/connectivity_domain/health.py": "8575d4d76cbcf1440562fed99b9da2b3e9b36acea56f9519d3b45c300181ed7f",
+    "core/connectivity_domain/integration.py": "07e7181b78658eb18fb844835f1a15e1d32c346d4f6bc1c589c9574427a0cf87",
+    "core/connectivity_domain/message.py": "43f9dc13794568376aa2065a9e7c7557c989c6f454e363dd42d52afcae3f95fb",
+    "core/connectivity_domain/models.py": "205a8cb834d46007be41903756b6379a06f874c87a536cfccfdebb1a522773b1",
+    "core/connectivity_domain/session.py": "b162ae3b5688c785d376daed913cb825f639fa42f45cd50cd0561fabbb75082e",
+    "core/connectivity_domain/transport.py": "16a26b8912875f3d199bdbc92aeff37bd83c4e3edaa17aa14060b0a4df60257c"
+  }
+}

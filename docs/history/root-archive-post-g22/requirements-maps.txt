@@ -1,0 +1,2 @@
+# Optional map-document rendering dependency for M325.9.
+folium>=0.20,<1

@@ -1,0 +1,645 @@
+# ROBY XI.2 — Whole-System Novel Generalization Boundary
+
+## Contract / Go-No-Go
+
+**Stage:** Contract / Go-No-Go
+**Production state:** **FROZEN**
+**Official baseline:** **12,760 PASS · 0 FAIL · Ruff clean**
+**Previous determination:** **0 Genuine Missing Mechanisms demonstrated**
+**Purpose:** determine whether ROBY's existing governed cognitive authorities can compose learned structural knowledge in genuinely novel but structurally compatible contexts.
+
+---
+
+# 1. Architectural question
+
+This stage answers one precise question:
+
+> **Can ROBY reuse previously learned structural knowledge in a context whose surface vocabulary, subject matter or concrete entities are genuinely different, while the relevant underlying structure remains compatible, using only existing authorities and preserving governance?**
+
+The test is **not** whether ROBY has unrestricted general intelligence.
+
+It is also not whether arbitrary similarity can cause transfer.
+
+The intended capability is:
+
+**learned structural knowledge**
+→ **novel context**
+→ **structural compatibility detection**
+→ **semantic/cognitive selection**
+→ **governed transfer**
+→ **bounded composition**
+→ **reviewable reasoning result**
+
+without creating a new cognitive authority.
+
+---
+
+# 2. Existing-authority hypothesis
+
+The current architecture already contains the likely complete authority chain:
+
+**Cognitive Memory / Learned Knowledge**
+↓
+**Contextual Grounding**
+↓
+**Governed Structural Knowledge Transfer**
+↓
+**Transfer Instantiation / Admission Guard**
+↓
+**Semantic Selection & Composition — `CognitivePlanner`**
+↓
+**Governed Reasoning**
+↓
+**Mental Model / Reflection / Planning**
+↓
+**Canonical decision path where applicable**
+
+Therefore the contract begins with this hypothesis:
+
+> **Novel generalization should emerge from composition of existing authorities rather than from a new “generalization engine.”**
+
+### Forbidden interpretation
+
+A RED test must **not** be taken automatically as justification for:
+
+* new generalization manager;
+* new semantic classifier;
+* new analogy engine;
+* new orchestrator;
+* new memory authority;
+* new planner;
+* new autonomous learning system.
+
+A RED result first indicates only:
+
+> **the existing composition failed the contract.**
+
+Its cause must be determined separately.
+
+---
+
+# 3. Definition of “novel context”
+
+A test qualifies as **novel** only when the target context differs materially from the learned/source context in surface representation.
+
+At least two of these should differ:
+
+* domain vocabulary;
+* entity names;
+* concrete objects;
+* narrative framing;
+* sentence construction;
+* incidental details;
+* target task wording.
+
+But the relevant abstract structure must remain compatible.
+
+Example conceptual pattern:
+
+**Source learned structure**
+
+> A resource with limited capacity must be allocated among competing demands while preserving a mandatory reserve.
+
+Possible novel target:
+
+> scheduling available laboratory time across experiments while keeping mandatory calibration capacity.
+
+The surface domain changes.
+
+The structural relation does not.
+
+The contract is therefore testing **structural reuse**, not keyword overlap.
+
+---
+
+# 4. Positive contract
+
+ROBY should be capable of producing a governed transfer when all of the following hold:
+
+1. relevant source knowledge has actually been acquired or provided;
+2. source knowledge is grounded;
+3. target context is grounded sufficiently;
+4. a structurally relevant mapping exists;
+5. the mapping preserves role relations;
+6. owner/scope rules remain compatible;
+7. provenance remains traceable;
+8. ambiguity is below the admission threshold;
+9. no negation or quoted-span protection invalidates the candidate;
+10. transfer does not create new authority;
+11. transferred knowledge remains subject to existing review/admission rules;
+12. downstream composition uses existing cognitive authorities.
+
+Expected outcome:
+
+# **TRANSFER / COMPOSITION AVAILABLE UNDER GOVERNED BOUNDARIES**
+
+not:
+
+**automatic truth promotion**.
+
+---
+
+# 5. Negative contract
+
+ROBY must refuse, abstain or require review when structural justification is insufficient.
+
+The following must **not** trigger confident generalization merely because vocabulary looks related.
+
+### Surface similarity without structural compatibility
+
+Same words or domain, different causal/relational structure.
+
+Expected:
+
+**NO TRANSFER**
+
+---
+
+### Structural ambiguity
+
+Two or more learned structures fit the target with insufficient evidence to prefer one.
+
+Expected:
+
+**AMBIGUOUS / REVIEW REQUIRED**
+
+---
+
+### Scope mismatch
+
+The learned rule belongs to an incompatible scope.
+
+Expected:
+
+**NO TRANSFER**
+
+---
+
+### Ungrounded target
+
+The target lacks enough evidence to establish the structural roles required for transfer.
+
+Expected:
+
+**NO TRANSFER / INSUFFICIENT EVIDENCE**
+
+---
+
+### Negated evidence
+
+A relevant relation appears only inside a negated proposition.
+
+Expected:
+
+**must not be promoted into affirmative evidence**
+
+---
+
+### Quoted span
+
+A structurally relevant phrase appears only as quoted/reported material and is not asserted by the current context.
+
+Expected:
+
+**must not become active target evidence merely by lexical presence**
+
+---
+
+### Distractor similarity
+
+The target contains high-overlap vocabulary unrelated to the operative structure.
+
+Expected:
+
+**distractor must not win selection**
+
+---
+
+### Provenance corruption
+
+The transferred structure lacks valid source/provenance correspondence.
+
+Expected:
+
+**REJECT**
+
+---
+
+# 6. Novelty families to certify
+
+The RED package should not depend on one phrase family.
+
+It should include multiple kinds of novelty.
+
+## N1 — Domain shift
+
+Same abstract structure, different real-world domain.
+
+Example classes:
+
+* logistics → scheduling;
+* maintenance → household organization;
+* resource allocation → project planning;
+* queue management → task prioritization.
+
+Purpose:
+
+**verify structural transfer beyond source-domain vocabulary.**
+
+---
+
+## N2 — Lexical shift
+
+Same structure expressed with substantially different language.
+
+Purpose:
+
+**verify that transfer is not synonym-list matching.**
+
+---
+
+## N3 — Entity-role substitution
+
+Concrete entities differ completely while relational roles remain equivalent.
+
+Purpose:
+
+**verify role mapping rather than entity memorization.**
+
+---
+
+## N4 — Narrative reformulation
+
+Source is declarative; target is conversational, hypothetical or indirect.
+
+Purpose:
+
+**verify composition across formulation styles.**
+
+---
+
+## N5 — Cross-capability reuse
+
+Knowledge learned or stabilized in one cognitive context becomes useful in another existing capability.
+
+For example:
+
+**learning → planning**
+
+or:
+
+**mental model → decision reasoning**
+
+or:
+
+**reflection → replanning**
+
+Purpose:
+
+**verify whole-system composition rather than isolated transfer-unit behavior.**
+
+---
+
+## N6 — Mixed novel context with distractors
+
+A valid structural mapping exists while multiple lexical distractors are present.
+
+Purpose:
+
+**verify selection precedence under novelty.**
+
+---
+
+# 7. Mandatory adversarial families
+
+A valid RED package must also contain adversarial counterexamples.
+
+At minimum:
+
+### A1 — Same domain, wrong structure
+
+This distinguishes genuine structure from domain classification.
+
+### A2 — Different domain, correct structure
+
+This is the fundamental positive generalization test.
+
+### A3 — Near structural match missing a required relation
+
+Expected:
+
+**NO TRANSFER**
+
+### A4 — Two valid structural candidates
+
+Expected:
+
+**AMBIGUOUS / REVIEW REQUIRED**
+
+### A5 — Negated target relation
+
+Expected:
+
+**NO affirmative transfer**
+
+### A6 — Quoted target relation
+
+Expected:
+
+**quotation protection preserved**
+
+### A7 — Strong lexical distractor
+
+Expected:
+
+**structural candidate wins or system abstains; distractor must not dominate**
+
+### A8 — Provenance mismatch
+
+Expected:
+
+**REJECT**
+
+### A9 — Owner/scope incompatibility
+
+Expected:
+
+**REJECT**
+
+### A10 — Existing semantic-family collision
+
+A novel transfer target contains current-affairs/weather/planning/etc. language that could incorrectly route the request.
+
+Expected:
+
+**existing precedence and semantic-selection contracts remain preserved.**
+
+---
+
+# 8. Composition contract
+
+The strongest tests should not stop at:
+
+> “transfer matcher returned candidate.”
+
+They should verify useful downstream composition.
+
+A positive whole-system case should establish:
+
+**learned structure recognized**
+
+→ **transfer candidate produced**
+
+→ **admission rules preserved**
+
+→ **relevant existing cognitive path selected**
+
+→ **reasoning/planning result reflects the transferred structure**
+
+while preserving:
+
+* provenance;
+* owner;
+* scope;
+* review status;
+* lack of unauthorized execution.
+
+This is the distinction between:
+
+**transfer detection**
+
+and:
+
+# **novel knowledge reuse**
+
+The latter is the actual capability under audit.
+
+---
+
+# 9. Authority contract
+
+All GREEN behavior must arise through existing authorities.
+
+### Required
+
+Existing authority must remain identifiable for every stage.
+
+### Forbidden
+
+No test may require:
+
+* new global generalizer;
+* autonomous creation of semantic families;
+* automatic permanent learning from one transfer;
+* automatic authority expansion;
+* automatic execution;
+* autonomous modification of transfer policy.
+
+The transfer result must not itself:
+
+* authorize inference beyond its contract;
+* execute actions;
+* grant authority;
+* silently become permanent knowledge.
+
+---
+
+# 10. No sentinel hard-coding
+
+Future production, if ever justified, must not pass this package by:
+
+* matching exact test sentences;
+* matching specific proper nouns;
+* enumerating target-domain examples;
+* introducing one-off lexical exceptions;
+* recognizing test fixture IDs;
+* creating test-specific routing.
+
+The RED package should therefore use **paired variants** and **held-out paraphrases** so that literal memorization cannot satisfy the contract.
+
+---
+
+# 11. RED evidence requirements
+
+A proper Pre-Implementation RED phase must produce three kinds of evidence.
+
+## E1 — Expected RED
+
+New positive or negative contracts that expose the specific unresolved generalization boundary.
+
+## E2 — Existing GREEN guards
+
+Previously certified behavior that must remain GREEN, including:
+
+* existing structural transfer;
+* A5/A6 semantic selection/composition;
+* L3 adversarial protections;
+* negation;
+* quoted spans;
+* distractors;
+* provenance;
+* owner/scope;
+* autonomy boundaries.
+
+## E3 — Causal localization
+
+The failures must cluster around a coherent architectural limitation.
+
+We do **not** proceed if the RED set consists of unrelated failures scattered across multiple authorities.
+
+---
+
+# 12. Go / No-Go decision rules
+
+## Case A — New contracts are already GREEN
+
+### Verdict
+
+# **NO-GO FOR PRODUCTION**
+
+Interpretation:
+
+Novel generalization was already latent in the existing architecture.
+
+Action:
+
+**certify and close.**
+
+This is the preferred outcome.
+
+---
+
+## Case B — Some REDs expose only missing test wiring or missing evidence composition
+
+### Verdict
+
+# **NO-GO FOR NEW COGNITIVE MECHANISM**
+
+First determine whether existing authorities can already produce the required evidence through an existing route.
+
+---
+
+## Case C — REDs expose excessive semantic narrowness inside an existing authority
+
+### Verdict
+
+# **CONDITIONAL GO**
+
+Production may be authorized **only on that existing authority**.
+
+This would be analogous to A5/A6.
+
+---
+
+## Case D — REDs reveal an actual structural operation that no existing authority owns
+
+### Verdict
+
+# **STOP / ARCHITECTURAL REVIEW**
+
+Do **not** create the mechanism immediately.
+
+A separate **Existing-Authority Reassessment** is mandatory before any new authority could be considered.
+
+---
+
+## Case E — Passing requires authority expansion, autonomous promotion or unrestricted extrapolation
+
+### Verdict
+
+# **NO-GO**
+
+The requested behavior is outside the certified architecture.
+
+---
+
+# 13. Success criteria for eventual GREEN
+
+The novel-generalization boundary may be considered certified only if the eventual result demonstrates simultaneously:
+
+1. successful transfer across genuinely different surface contexts;
+2. structural rather than lexical causation;
+3. rejection of structurally invalid analogies;
+4. ambiguity preservation;
+5. negation preservation;
+6. quoted-span preservation;
+7. distractor resistance;
+8. provenance integrity;
+9. owner/scope integrity;
+10. existing authority preservation;
+11. no autonomous promotion;
+12. no unauthorized action;
+13. downstream cognitive reuse where applicable;
+14. existing baseline remains regression-free.
+
+---
+
+# 14. What this contract does NOT attempt to prove
+
+Even a complete GREEN result would **not** certify:
+
+* AGI;
+* unrestricted analogy;
+* universal semantic comprehension;
+* arbitrary domain transfer;
+* truth discovery from analogy alone;
+* self-generated authority;
+* unrestricted autonomous learning;
+* autonomous self-modification;
+* superiority over humans.
+
+The certified claim would be narrower and defensible:
+
+> **ROBY can reuse grounded learned structural knowledge in genuinely novel but structurally compatible contexts through its existing governed cognitive architecture.**
+
+---
+
+# 15. Preliminary Go / No-Go
+
+The architecture audit found no Genuine Missing Mechanism.
+
+Therefore the present decision is:
+
+# **GO — PRE-IMPLEMENTATION CONTRACT TEST DESIGN**
+
+and simultaneously:
+
+# **NO-GO — PRODUCTION IMPLEMENTATION**
+
+The next permitted stage is exclusively:
+
+# **Whole-System Novel Generalization Boundary — Pre-Implementation RED Contract Tests**
+
+Production remains frozen until those tests establish whether there is a genuine unresolved limitation.
+
+---
+
+# FINAL CONTRACT VERDICT
+
+**Whole-System Novel Generalization Boundary — Contract / Go-No-Go**
+
+# **CONTRACT: APPROVED**
+
+# **GO: PRE-IMPLEMENTATION RED EVIDENCE**
+
+# **NO-GO: PRODUCTION**
+
+### Existing-authority hypothesis
+
+**Strongly preserved.**
+
+### New authority justified
+
+**NO.**
+
+### Genuine Missing Mechanism demonstrated
+
+**NO — not yet.**
+
+### Next stage
+
+# **Whole-System Novel Generalization Boundary — Pre-Implementation RED Contract Tests**
+
+The purpose of the next stage is not to force RED.
+
+It is to discover whether the existing ROBY XI.2 architecture is **already GREEN under genuinely novel structural transfer**, or whether a bounded residual limitation still exists.

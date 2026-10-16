@@ -1,0 +1,19 @@
+{
+  "adaptation": false,
+  "baseline": "12923-pass-plus-6-red-ruff-clean",
+  "cross_case_result_visibility": false,
+  "focal_pass_count": 21,
+  "ground_truth_visibility": false,
+  "implementation_fingerprint": "a230656d9894f1f97f615fb11e736b43afa138a8a3f5ae8efe7d131962c3fb7c",
+  "implemented_file": "app/hcpdq_v2_h6_h7_isolation_adapter.py",
+  "learning_writes": false,
+  "memory_writes": false,
+  "new_cognitive_authority": false,
+  "next_gate": "HCPDQ-v2 H6/H7 ROBY Evaluation Run — Minimal Isolation Adapter Causal / Architectural Recertification",
+  "persistent_state_writes": false,
+  "primary_execution_authorized": false,
+  "raw_capture_before_scoring": true,
+  "red_to_green": 6,
+  "schema_version": "hcpdq-v2-h6-h7-minimal-isolation-adapter-implementation-v1",
+  "status": "IMPLEMENTED_PENDING_GLOBAL_GATE"
+}

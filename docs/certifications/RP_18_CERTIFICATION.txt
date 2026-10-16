@@ -1,0 +1,15 @@
+ROBY XI.2 — RP.18 Cognitive Self Model
+
+Estado de construcción:
+- Pruebas focalizadas RP.10–RP.18: 94 passed
+- Suite completa: 6366 passed
+- compileall: PASS
+- Integración: ContinuousCognitiveState.self_model
+- Compatibilidad: state.rationale preservado
+- Cadena privada de razonamiento: no almacenada
+- Ejecución autónoma: no incorporada
+
+Ruff no está disponible en el entorno de construcción.
+Validación local requerida:
+    ruff check .
+    pytest

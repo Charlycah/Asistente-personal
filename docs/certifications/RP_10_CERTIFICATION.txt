@@ -1,0 +1,3 @@
+RP.10 — Continuous Internal Cognitive Loop
+Status: certified and consolidated by RP.18.1
+Authoritative owner: app/continuous_internal_cognitive_loop.py

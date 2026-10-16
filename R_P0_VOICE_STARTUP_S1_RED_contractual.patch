@@ -1,0 +1,34 @@
+--- a/tests/test_m24_desktop_ui.py
++++ b/tests/test_m24_desktop_ui.py
+@@ -1,3 +1,5 @@
++import subprocess
++
+ from app.desktop_ui import (
+     DesktopConversationController,
+     DesktopMessage,
+@@ -105,6 +107,25 @@
+     assert app.startup_messages() == []
+ 
+ 
++def test_startup_voice_failure_preserves_written_greeting():
++    class FailingVoiceOutput:
++        def speak(self, text: str) -> None:
++            raise subprocess.CalledProcessError(
++                returncode=1,
++                cmd=["edge-playback", "--text", text],
++            )
++
++    app = ROBYDesktopApp(
++        adapter=FakeAdapter(),
++        voice_output=FailingVoiceOutput(),
++        startup_announcer=lambda: "Buenas noches. ¿Cómo va todo?",
++    )
++
++    assert app.startup_messages() == [
++        DesktopMessage("Roby", "Buenas noches. ¿Cómo va todo?")
++    ]
++
++
+ def test_startup_announcer_uses_voice_prosody_formatter():
+     voice = RecordingVoiceOutput()
+     app = ROBYDesktopApp(

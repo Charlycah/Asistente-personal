@@ -1,0 +1,55 @@
+{
+  "baseline": "13111-pass-0-fail-ruff-clean",
+  "certification_checks": [
+    "corpus content hash exactly matches frozen hash",
+    "ground-truth content hash exactly matches frozen hash",
+    "ground truth is cryptographically bound to frozen corpus",
+    "case IDs align exactly across corpus and ground truth",
+    "ROBY-facing corpus contains no expected answers",
+    "ground truth remains separate and unexposed",
+    "construction attests zero ROBY and zero planning invocations",
+    "H6/prior-H7 experimental leakage remains forbidden"
+  ],
+  "certification_fingerprint": "b993ec1bb0d28194492a6cbbf650d0f918e34fa28d5f1fd46012be327f18236c",
+  "certified_bindings": {
+    "case_count": 12,
+    "class_counts": {
+      "FAIL_CLOSED": 6,
+      "PLANNED": 6
+    },
+    "corpus_freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+    "difficulty_counts": {
+      "D1": 4,
+      "D2": 4,
+      "D3": 4
+    },
+    "ground_truth_freeze_sha256": "48c1fcb9fe9fa1a49b85bc03c3171a9f42e2434ba3efdb13fa2ae646cf321977"
+  },
+  "determination": "The V2I-H7 corpus and separate ground truth are unchanged, hash-valid and properly separated. Exposure is authorized only for isolation preparation; this authorization does not permit ROBY execution, planning invocation, ground-truth access or scoring.",
+  "exposure_protocol": {
+    "allowed_purpose": "prepare isolated ROBY-facing evaluation input and adapter contract",
+    "authorized_input": "HCPDQ_V2_H7_INDEPENDENT_CORPUS.json only",
+    "ground_truth_access_during_exposure": "FORBIDDEN",
+    "ground_truth_access_during_primary_execution": "FORBIDDEN",
+    "may_execute_roby": false,
+    "may_invoke_planning": false,
+    "may_modify_corpus": false,
+    "may_modify_ground_truth": false,
+    "may_score": false
+  },
+  "family": "H7",
+  "go_no_go": {
+    "corpus_exposure_preparation": "GO",
+    "freeze_certification": "GO",
+    "ground_truth_opening": "NO_GO",
+    "isolation_contract_tests": "GO",
+    "minimal_isolation_adapter": "GO_AFTER_RED",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "namespace": "V2I-H7",
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Exposure / Isolation Protocol",
+  "schema_version": "hcpdq-v2-h7-freeze-certification-exposure-authorization-v1",
+  "status": "FREEZE_CERTIFIED_EXPOSURE_AUTHORIZED"
+}

@@ -1,0 +1,118 @@
+{
+  "aggregate_raw_run_sha256": "5ec5391e1ce3a8d4d6b8a0b957cb8d8c288132ac59d230327c3ef53def6eddae",
+  "attempts_per_case": 1,
+  "authorization_consumed": true,
+  "authorization_reusable": false,
+  "captures": [
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-001",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-001\",\"continuation_decision\":\"continue_allowed\",\"current_step\":2,\"eligible_for_existing_planning\":true,\"planning_invocation_count\":1,\"planning_reentry_status\":\"planned\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"ready_for_planning\"}",
+      "raw_result_sha256": "6aae75a4aac4cc481590281959ee685a98231ad56f23fa160d2e5140a69f44f3",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-002",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-002\",\"continuation_decision\":\"continue_allowed\",\"current_step\":2,\"eligible_for_existing_planning\":true,\"planning_invocation_count\":1,\"planning_reentry_status\":\"planned\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"ready_for_planning\"}",
+      "raw_result_sha256": "16b520c12472a58897702d04c0e2040d98ab8e5aeebd1f524cb7474f9fcc10f9",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-003",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-003\",\"continuation_decision\":\"continue_allowed\",\"current_step\":2,\"eligible_for_existing_planning\":true,\"planning_invocation_count\":1,\"planning_reentry_status\":\"planned\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"ready_for_planning\"}",
+      "raw_result_sha256": "714cc6ab388f756e4e2cc87cd9e2d57dcba388f21aef3e79520888dc590563ef",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-004",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-004\",\"continuation_decision\":\"continue_allowed\",\"current_step\":2,\"eligible_for_existing_planning\":true,\"planning_invocation_count\":1,\"planning_reentry_status\":\"planned\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"ready_for_planning\"}",
+      "raw_result_sha256": "7b14fb7576ec3ce719025d6fdb2278a43978ab8391fb5799a23cbaec35a89df4",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-005",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-005\",\"continuation_decision\":\"stop_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"closed\"}",
+      "raw_result_sha256": "3e0618bd6a4e69a12f5b7ad7b7bc73139b586a002650218370b65785ebcd58d5",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-006",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-006\",\"continuation_decision\":\"stop_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"closed\"}",
+      "raw_result_sha256": "9fd7a0fe75ce4ba2d158dcc206255ebe217e1ff86e52c6c7f0447f0d55986a45",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-007",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-007\",\"continuation_decision\":\"stop_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"closed\"}",
+      "raw_result_sha256": "5843b567073a361a9b321684ea5da7a09d615734f2a76d65a03410f492b54330",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-008",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-008\",\"continuation_decision\":\"stop_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"closed\"}",
+      "raw_result_sha256": "43a61d101452ca4a0d1586041d6137a97266e1cf85c1bee51528289bc5b9cd1a",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-009",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-009\",\"continuation_decision\":\"review_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"review_required\"}",
+      "raw_result_sha256": "96ee9c1d7fb197a5f2ff0c4fa749d2343841aa6ab7ff11654b342e38c4aa9116",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-010",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-010\",\"continuation_decision\":\"review_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"review_required\"}",
+      "raw_result_sha256": "8a3f2e35fbb34123b3963c682a65fcfa7b75357550d9c9959815f8071a4ae483",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-011",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-011\",\"continuation_decision\":\"review_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"review_required\"}",
+      "raw_result_sha256": "afa86f14cd0921d5b6f736ca98c76b6ec2dcf80a0c3ed63afb9d3418682d8885",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    },
+    {
+      "attempt": 1,
+      "case_id": "V2I-H7V2-012",
+      "raw_result": "{\"case_id\":\"V2I-H7V2-012\",\"continuation_decision\":\"review_required\",\"current_step\":1,\"eligible_for_existing_planning\":false,\"planning_invocation_count\":0,\"planning_reentry_status\":\"not_eligible\",\"remaining_acquisitions\":1,\"resulting_state_status\":\"review_required\"}",
+      "raw_result_sha256": "41f27ffd38f3edcad8974e86902b7fecbb3e3348b0ff7683f46a46006f47feb6",
+      "run_id": "HCPDQ-V2-H7V2-PRIMARY-001"
+    }
+  ],
+  "case_count": 12,
+  "case_order": [
+    "V2I-H7V2-001",
+    "V2I-H7V2-002",
+    "V2I-H7V2-003",
+    "V2I-H7V2-004",
+    "V2I-H7V2-005",
+    "V2I-H7V2-006",
+    "V2I-H7V2-007",
+    "V2I-H7V2-008",
+    "V2I-H7V2-009",
+    "V2I-H7V2-010",
+    "V2I-H7V2-011",
+    "V2I-H7V2-012"
+  ],
+  "fresh_materialization_per_case": true,
+  "ground_truth_loaded_during_execution": false,
+  "learning_or_writeback_performed": false,
+  "next_gate": "HCPDQ-v2 H7 — Ground-Truth Scoring + Cognitive Audit",
+  "retries": 0,
+  "run_evidence_fingerprint": "8559476b0206890516f94e3287608afedd445b22877124b8960015f0a3230422",
+  "run_id": "HCPDQ-V2-H7V2-PRIMARY-001",
+  "schema_version": "hcpdq-v2-h7v2-primary-execution-v1",
+  "scoring_performed_during_execution": false,
+  "sealed_raw_capture_count": 12,
+  "status": "PRIMARY_EXECUTION_COMPLETE_RAW_SEALED"
+}

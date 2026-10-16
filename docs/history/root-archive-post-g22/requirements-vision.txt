@@ -1,0 +1,11 @@
+# Dependencia opcional para captura local y Person Detection en ROBY XI.2.
+# El núcleo y sus pruebas funcionan sin instalar OpenCV.
+opencv-python>=4.10,<5
+
+# OCR local opcional para M351. También requiere instalar el ejecutable
+# Tesseract y el paquete de idioma correspondiente en el sistema operativo.
+pytesseract>=0.3.13,<1
+
+
+# Decodificación local opcional de QR y códigos de barras para M352.
+pyzbar>=0.1.9,<1

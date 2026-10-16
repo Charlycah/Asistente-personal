@@ -1,0 +1,6 @@
+Post-M409.1 — Admitted Reasoning Event History Reader v1
+- Adds app/admitted_reasoning_event_history_reader.py.
+- Reuses the certified reasoning-assessment event topic and schema.
+- Reads M203 only; does not write to M203 or Memory.
+- Produces neutral longitudinal reasoning observations without synthetic assessment rehydration.
+- Reuses the existing GovernedLongitudinalReasoningAssessmentFoundationV1 for assessment.

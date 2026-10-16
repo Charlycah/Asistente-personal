@@ -1,0 +1,16 @@
+ROBY XI.2 — RP.12 Cognitive Agenda Reasoning
+
+Scope:
+- Pure cognitive agenda reasoning domain
+- Governed executive dispositions
+- Immutable deliberation output
+- RP.10 resident loop integration
+- RP.11 observable-contract compatibility
+- No autonomous external action execution
+
+Focused validation:
+- RP.10 + RP.11 + RP.12: 28 passed
+
+Run locally:
+ruff check .
+pytest

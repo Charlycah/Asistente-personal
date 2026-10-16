@@ -1,0 +1,47 @@
+{
+  "architectural_determination": "The recontracted evaluation scope can legitimately proceed for H6 using only the already productive structured decision intake. H7 cannot enter a new independent freeze yet because no equivalent user-entry path to planning_foundation is currently certified. This gate freezes scope only and creates no cases or ground truth.",
+  "baseline": "12959-pass-0-fail-ruff-clean",
+  "benchmark_specific_router_authorized": false,
+  "benchmark_specific_translation_authorized": false,
+  "families": {
+    "H6": {
+      "allowed_entry_form": "existing explicit Decisión/Criterios/Evidencia intake grammar",
+      "existing_authority": "official conversation gateway -> productive GCDR intake",
+      "family": "H6",
+      "independent_freeze_authorized": true,
+      "measurable_now": true,
+      "reason": "The existing productive H6 intake accepts this structured form without benchmark-specific translation or production changes.",
+      "status": "IN_SCOPE_ENTRY_FORM_FROZEN"
+    },
+    "H7": {
+      "allowed_entry_form": null,
+      "existing_authority": "planning_foundation",
+      "family": "H7",
+      "independent_freeze_authorized": false,
+      "measurable_now": false,
+      "reason": "No equivalent user/conversation entry path to the certified planning authority is currently bound. Internal re-entry is not sufficient under the entry-path equivalence contract.",
+      "status": "OUT_OF_SCOPE_PENDING_REAL_USER_ENTRY_PATH"
+    }
+  },
+  "h6_new_independent_freeze_scope_authorized": true,
+  "h7_new_independent_freeze_scope_authorized": false,
+  "h7_production_work_authorized": false,
+  "held_out_exposure_occurred": false,
+  "independence_requirements": [
+    "new case identifiers and new case content",
+    "no reuse or semantic rewrite of consumed held-out cases",
+    "ground truth frozen independently before ROBY exposure",
+    "entry-path equivalence certified before held-out exposure",
+    "no benchmark-specific translation or routing",
+    "no production change made for benchmark performance"
+  ],
+  "new_corpus_constructed": false,
+  "new_ground_truth_constructed": false,
+  "next_gate": "HCPDQ-v2 H6 Entry-Path Equivalent Corpus — Independent Construction / Ground-Truth Freeze Contract",
+  "old_consumed_freeze_reusable": false,
+  "old_held_out_retry_authorized": false,
+  "prior_contract_status": "NO_GO_REFREEZE_REQUIRED",
+  "schema_version": "hcpdq-v2-entry-path-recontract-scope-v1",
+  "scope_fingerprint": "f5a29ab3f5e0fb181ce0db8b45b0ed110789800a0ad380cf1a7a7b28e5992c92",
+  "status": "SCOPE_FROZEN_H6_GO_H7_NO_GO"
+}

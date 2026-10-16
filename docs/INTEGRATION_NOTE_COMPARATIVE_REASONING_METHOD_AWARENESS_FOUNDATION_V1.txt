@@ -1,0 +1,10 @@
+Post-M409.1 — Governed Comparative Reasoning Method Awareness Foundation v1
+
+- Adds a read-only derivational comparison of exactly two certified Method Outcome Associations.
+- Requires distinct method fingerprints and a shared explicit source_reference.
+- Preserves unequal observation counts and snapshot lineage without normalization or scoring.
+- Derives only insufficient/same/different categorical awareness.
+- Adds no causality, effectiveness, superiority, ranking, selection, recommendation, adaptation,
+  Learning, Memory, persistence, runtime wiring, or productive context consumption.
+- Keeps governed_reasoning as the single canonical authority and reuses existing method/outcome
+  association products instead of rebuilding their semantics.

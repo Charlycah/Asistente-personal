@@ -1,0 +1,124 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "V2I-H7-001",
+      "decisive_condition": "eligible multi-step evidence acquisition",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-002",
+      "decisive_condition": "eligible multi-step evidence acquisition",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-003",
+      "decisive_condition": "eligible multi-step evidence acquisition",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-004",
+      "decisive_condition": "eligible multi-step evidence acquisition",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-005",
+      "decisive_condition": "continuation not planning-eligible",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-006",
+      "decisive_condition": "continuation decision is not CONTINUE_ALLOWED",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-007",
+      "decisive_condition": "episode not READY_FOR_PLANNING",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-008",
+      "decisive_condition": "bounded step-two shape is violated",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-009",
+      "decisive_condition": "eligible complex case with lineage preserved and non-execution boundary",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-010",
+      "decisive_condition": "eligible complex case with lineage preserved and non-execution boundary",
+      "expected_class": "PLANNED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 1,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-011",
+      "decisive_condition": "required lineage is mismatched",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    },
+    {
+      "case_id": "V2I-H7-012",
+      "decisive_condition": "prior plan reuse is present",
+      "expected_class": "FAIL_CLOSED",
+      "expected_execution_authorized": false,
+      "expected_planning_invocation_count": 0,
+      "expected_state_mutation": false,
+      "required_authority": "planning_foundation"
+    }
+  ],
+  "class_counts": {
+    "FAIL_CLOSED": 6,
+    "PLANNED": 6
+  },
+  "constructed_without_roby_outputs": true,
+  "corpus_freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+  "freeze_sha256": "48c1fcb9fe9fa1a49b85bc03c3171a9f42e2434ba3efdb13fa2ae646cf321977",
+  "namespace": "V2I-H7",
+  "roby_exposed": false,
+  "schema_version": "hcpdq-v2-h7-independent-ground-truth-v1",
+  "status": "GROUND_TRUTH_FROZEN_UNEXPOSED"
+}

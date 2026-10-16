@@ -1,0 +1,368 @@
+{
+  "CAL-006": {
+    "dimensions": {
+      "calibration_integrity": {
+        "weight": 1.0
+      }
+    },
+    "expected_recommendation": "calibration_only",
+    "minimum_pass": 1.0
+  },
+  "CAL-014": {
+    "dimensions": {
+      "calibration_integrity": {
+        "weight": 1.0
+      }
+    },
+    "expected_recommendation": "calibration_only",
+    "minimum_pass": 1.0
+  },
+  "CAL-022": {
+    "dimensions": {
+      "calibration_integrity": {
+        "weight": 1.0
+      }
+    },
+    "expected_recommendation": "calibration_only",
+    "minimum_pass": 1.0
+  },
+  "CAL-030": {
+    "dimensions": {
+      "calibration_integrity": {
+        "weight": 1.0
+      }
+    },
+    "expected_recommendation": "calibration_only",
+    "minimum_pass": 1.0
+  },
+  "H6-01": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "A",
+    "minimum_pass": 0.8
+  },
+  "H6-02": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "A",
+    "minimum_pass": 0.8
+  },
+  "H6-03": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "abstain",
+    "minimum_pass": 0.8
+  },
+  "H6-04": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "A",
+    "minimum_pass": 0.8
+  },
+  "H6-05": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "A",
+    "minimum_pass": 0.8
+  },
+  "H6-06": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  },
+  "H6-07": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "A",
+    "minimum_pass": 0.8
+  },
+  "H6-08": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  },
+  "H6-09": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "abstain",
+    "minimum_pass": 0.8
+  },
+  "H6-10": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  },
+  "H6-11": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "abstain",
+    "minimum_pass": 0.8
+  },
+  "H6-12": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  },
+  "H6-13": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  },
+  "H6-14": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "abstain",
+    "minimum_pass": 0.8
+  },
+  "H6-15": {
+    "dimensions": {
+      "evidence_use": {
+        "description": "usa sólo la evidencia suministrada",
+        "weight": 0.25
+      },
+      "mandatory_constraints": {
+        "description": "respeta todos los requisitos obligatorios",
+        "weight": 0.4
+      },
+      "tradeoff_recognition": {
+        "description": "identifica trade-offs relevantes",
+        "weight": 0.2
+      },
+      "uncertainty_discipline": {
+        "description": "evita certeza no justificada",
+        "weight": 0.15
+      }
+    },
+    "expected_recommendation": "B",
+    "minimum_pass": 0.8
+  }
+}

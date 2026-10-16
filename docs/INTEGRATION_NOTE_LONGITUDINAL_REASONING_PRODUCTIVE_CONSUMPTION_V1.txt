@@ -1,0 +1,12 @@
+Post-M409.1 — Governed Longitudinal Reasoning Assessment — Productive Consumption v1
+
+Integrate this delta over the certified 11,797-test baseline.
+
+Adds:
+- app/governed_longitudinal_reasoning_productive_consumption.py
+- tests/architecture/test_post_m409_1_governed_longitudinal_reasoning_productive_consumption_v1.py
+- docs/POST_M409_1_GOVERNED_LONGITUDINAL_REASONING_PRODUCTIVE_CONSUMPTION_V1.md
+
+Carries forward the corrected Longitudinal Reasoning Assessment Foundation v1 files.
+No HistoricalAnalysisAuthority, Memory, Learning, Reflection, Curiosity, Planning,
+runtime, or ReasoningContextBundle core modification is included.

@@ -1,0 +1,79 @@
+{
+  "baseline": "13095-pass-0-fail-ruff-clean",
+  "construction_balance": {
+    "difficulty_counts": {
+      "D1": 4,
+      "D2": 4,
+      "D3": 4
+    },
+    "minimum_distinct_scenario_domains": 6,
+    "positive_vs_fail_closed": {
+      "FAIL_CLOSED": 6,
+      "PLANNED": 6
+    },
+    "target_case_count": 12
+  },
+  "construction_unit_schema": {
+    "case_id": "V2I-H7-NNN",
+    "difficulty": "D1|D2|D3",
+    "expected_class": "PLANNED|FAIL_CLOSED",
+    "ground_truth_detail": "withheld from ROBY-facing corpus",
+    "requirement_spec": {
+      "evidence_goal": "explicit",
+      "multi_step": true,
+      "source_reference": "synthetic-independent",
+      "world_snapshot_reference": "synthetic-independent"
+    },
+    "scenario": "natural-language evidence-acquisition situation"
+  },
+  "contract_fingerprint": "2ccc42da3c85e9511456848c0fc22588c8bedd43ebc9608127c8608bef88888c",
+  "corpus_namespace": "V2I-H7",
+  "dry_probe": {
+    "candidate_cases_materialized": false,
+    "ground_truth_opened_to_roby": false,
+    "method": "static schema/topology probe against frozen H7 hypothesis and productive input guards",
+    "observed_roby_outputs_used": false,
+    "planning_invocations": 0,
+    "purpose": "prove case constructibility without querying ROBY",
+    "result": "CERTIFIED_CONSTRUCTIBLE",
+    "roby_invocations": 0
+  },
+  "fail_closed_dimensions": [
+    "continuation not planning-eligible",
+    "continuation decision is not CONTINUE_ALLOWED",
+    "episode not READY_FOR_PLANNING",
+    "bounded step-two shape is violated",
+    "required lineage is missing or mismatched",
+    "prior plan reuse is present"
+  ],
+  "family": "H7",
+  "go_no_go": {
+    "construction_contract": "GO",
+    "dry_probe": "GO",
+    "freeze_certification": "REQUIRED_BEFORE_EXPOSURE",
+    "ground_truth_authoring": "GO_IN_SEPARATE_ARTIFACT",
+    "independent_case_authoring": "GO",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "roby_exposure": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "hypothesis_contract": "HCPDQ_V2_H7_HYPOTHESIS_MEASURABLE_FAMILY_CONTRACT.json",
+  "independence_guards": [
+    "no H6 held-out/scoring artifacts may be read by corpus-construction code",
+    "no prior H7 held-out or calibration prompts may be copied or paraphrased",
+    "no ROBY output may be consulted while writing cases or expected classes",
+    "case IDs and scenario texts must be newly authored under V2I-H7 namespace",
+    "ground-truth details must live in a separate artifact from ROBY-facing prompts"
+  ],
+  "next_gate": "HCPDQ-v2 H7 Independent Corpus — Construction / Ground-Truth Freeze",
+  "positive_case_requirements": [
+    "explicit multi-step evidence-acquisition requirement",
+    "eligible for the certified planning re-entry surface",
+    "must require one existing planning invocation when later executed",
+    "must have independently specifiable requirement/source/snapshot lineage",
+    "must not imply action execution or authorization"
+  ],
+  "schema_version": "hcpdq-v2-h7-independent-corpus-construction-dry-probe-v1",
+  "status": "CONSTRUCTION_CONTRACT_FROZEN_DRY_PROBE_CERTIFIED_GO"
+}

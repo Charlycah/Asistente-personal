@@ -1,0 +1,198 @@
+{
+  "schema_version": "whole-system-cross-capability-cognitive-integration-transfer-v1",
+  "generated_at": "2026-09-10T11:04:53.584520+00:00",
+  "diagnostic_only": true,
+  "production_roots_modified_by_harness": [],
+  "scenarios": [
+    {
+      "scenario_id": "CCI-01",
+      "name": "approved learning reaches durable governed memory",
+      "cognitive_flow": "learning -> human approval -> materialization -> OfficialMemoryGateway",
+      "status": "PASS",
+      "reached_stages": [
+        "learning",
+        "approval",
+        "materialization",
+        "productive_write",
+        "e2e_test"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "app/curiosity_m369_learning_evaluation.py",
+        "app/m369_explicit_human_learning_approval.py",
+        "app/approved_learning_memory_materialization.py",
+        "app/productive_governed_learning_wiring.py",
+        "tests/architecture/test_post_m409_1_governed_learning_productive_end_to_end_wiring_v1.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-02",
+      "name": "learned memory is later selected into cognition",
+      "cognitive_flow": "approved learning -> memory -> later relevant recall -> cognitive request",
+      "status": "PASS",
+      "reached_stages": [
+        "approved_memory",
+        "later_recall",
+        "cross_episode_proof"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "app/productive_governed_learning_wiring.py",
+        "core/memory_runtime_integration/runtime.py",
+        "tests/architecture/test_cross_capability_learned_memory_later_reasoning.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-03",
+      "name": "mental model materially constrains a later decision",
+      "cognitive_flow": "mental model/context -> governed reasoning -> decision consequence",
+      "status": "PASS",
+      "reached_stages": [
+        "mental_model",
+        "decision_evidence",
+        "decision",
+        "causal_bridge"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/adaptive_cognition/mental_models.py",
+        "core/mental_model_decision_evidence.py",
+        "core/governed_decision_advisory.py",
+        "tests/architecture/test_cross_capability_mental_model_decision.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-04",
+      "name": "memory evidence changes planning without new authority",
+      "cognitive_flow": "relevant memory -> canonical planning -> recommendation",
+      "status": "PASS",
+      "reached_stages": [
+        "memory_runtime",
+        "planning_runtime",
+        "integration_proof"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/memory_runtime_integration/runtime.py",
+        "core/planning_runtime_integration.py",
+        "tests/architecture/test_cross_capability_memory_planning.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-05",
+      "name": "reflection history improves later reasoning method selection",
+      "cognitive_flow": "reflection/quality evidence -> later method choice -> governed reasoning",
+      "status": "PASS",
+      "reached_stages": [
+        "reflection",
+        "historical_method_advisory",
+        "feedback_proof"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/cognitive_maturity/reflection_learning_evidence.py",
+        "core/governed_reasoning/historical_method_advisory.py",
+        "tests/architecture/test_cci_05_governed_historical_reasoning_method_advisory.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-06",
+      "name": "bounded structural knowledge transfer",
+      "cognitive_flow": "source structure -> transfer candidate -> instantiation -> canonical temporary admission",
+      "status": "PASS",
+      "reached_stages": [
+        "candidate",
+        "instantiation",
+        "admission",
+        "independent_evaluation"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "docs/INTEGRATION_NOTE_RC_1_GOVERNED_STRUCTURAL_KNOWLEDGE_TRANSFER_CANDIDATE_V1.md",
+        "core/governed_reasoning/transfer_instantiation.py",
+        "core/governed_reasoning/transfer_admission_guard.py",
+        "docs/quality/ADVANCED_CAPABILITY_4B_INDEPENDENT_REASONING_EVALUATION.json"
+      ]
+    },
+    {
+      "scenario_id": "CCI-07",
+      "name": "epistemic uncertainty remains visible in public explanation",
+      "cognitive_flow": "uncertainty/abstention -> governed decision -> authorized explanation",
+      "status": "PASS",
+      "reached_stages": [
+        "uncertainty",
+        "public_realization",
+        "independent_abstention"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/governed_reasoning/explanations.py",
+        "core/decision_advisory_conversational_realization.py",
+        "docs/quality/ADVANCED_CAPABILITY_4B_INDEPENDENT_REASONING_EVALUATION.json"
+      ]
+    },
+    {
+      "scenario_id": "CCI-08",
+      "name": "personality changes delivery but not cognitive content",
+      "cognitive_flow": "stable identity -> bounded adaptive delivery + source-owned explanation boundary",
+      "status": "PASS_BY_DESIGN",
+      "reached_stages": [
+        "adaptive_boundary",
+        "source_owned_explanation_boundary",
+        "boundary_test"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/adaptive_personality.py",
+        "core/governed_reasoning/explanations.py",
+        "tests/test_m377_adaptive_personality.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-09",
+      "name": "irrelevant memory is rejected rather than injected",
+      "cognitive_flow": "conversation text -> memory relevance -> no context when irrelevant",
+      "status": "PASS_BY_DESIGN",
+      "reached_stages": [
+        "relevance_recall",
+        "context_builder",
+        "negative_proof"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/memory_runtime_integration/runtime.py",
+        "core/memory_prompt_context.py",
+        "tests/test_m366_7_contextual_memory_retrieval.py"
+      ]
+    },
+    {
+      "scenario_id": "CCI-10",
+      "name": "changed conditions trigger bounded replanning",
+      "cognitive_flow": "changed evidence/state -> progress evaluation -> bounded replanning -> revised recommendation",
+      "status": "PASS",
+      "reached_stages": [
+        "progress",
+        "plan_reasoning",
+        "replanning_advisory",
+        "replanning_proof"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/progress_evaluation.py",
+        "core/plan_reasoning.py",
+        "core/governed_changed_condition_plan_revision_advisory.py",
+        "tests/architecture/test_cross_capability_changed_condition_replanning.py"
+      ]
+    }
+  ],
+  "status_counts": {
+    "PASS": 8,
+    "PASS_BY_DESIGN": 2,
+    "PARTIAL": 0,
+    "FAIL": 0
+  },
+  "overall_status": "PASS",
+  "primary_gap": "none_within_certified_cross_capability_contract",
+  "inventory_fingerprint": "f838a6e4ff1323867abfb9054167247d81176ea43cc795085a82d3519317c261",
+  "report_fingerprint": "b309948d1e5f0ed5bcf6378e14030468e9e67b38525832947525f50e34d68fa1"
+}

@@ -1,0 +1,37 @@
+{
+  "application_authorized": false,
+  "authority": {
+    "operational_code_application": "outside M399",
+    "self_diagnostics": "core.self_diagnostics.foundation.GovernedSelfDiagnostics",
+    "source_observation_authorities": "remain external to M399"
+  },
+  "baseline": "M399.7",
+  "certified_tests_before_closure": 10910,
+  "closed_chain": [
+    "observation",
+    "trend",
+    "anomaly",
+    "hypothesis",
+    "confidence",
+    "evidence",
+    "reproducible_proof",
+    "isolated_proposal",
+    "sandbox",
+    "tests",
+    "diff",
+    "explanation",
+    "human_decision"
+  ],
+  "schema_version": "m399.8",
+  "self_diagnostics_files": {
+    "core/self_diagnostics/__init__.py": "38fed125d755f29e038dac21f29522b8a7d298624c1c5b86f46276aa9ef53a9e",
+    "core/self_diagnostics/foundation.py": "7f534ca4e5b34de665fcd07db2593907f8d170636e7e2d2a4044ac3b85a9c5b8",
+    "core/self_diagnostics/hypothesis.py": "644568dec50f9e3d2d98ec84846dcef451b35b8b1da04f3d6dc6391bc86d9125",
+    "core/self_diagnostics/models.py": "81e8f4d153c0b7595dab423918dc1706875cc0f69835fa5e75ac1a2825cd8893",
+    "core/self_diagnostics/proof.py": "5476d1477b17fec77f9a09a458f9237db7f470527855fa6ef3751acf365ca0f3",
+    "core/self_diagnostics/proposal.py": "5d372b94db9f32d398c8bb082ce7f0c75926eee0883517153f17568842d62e0e",
+    "core/self_diagnostics/review.py": "adc1fe6ae6bb3da1cbfd8f746a3af000f79ed46adc6c557d0a6cb845c5e3a506",
+    "core/self_diagnostics/sandbox.py": "fcc9907737982e184c9a9c009e881179284cefab47d791b1abb87a6c9b986299"
+  },
+  "stage": "M399 — Governed Self-Diagnostics & Self-Maintenance"
+}

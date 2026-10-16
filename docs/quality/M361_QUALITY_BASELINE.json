@@ -1,0 +1,868 @@
+{
+  "schema_version": 1,
+  "milestone": "M361",
+  "canonical_predecessor": "M360.0.e",
+  "verified_predecessor_tests": 8677,
+  "scope": "static_repository_baseline",
+  "production_roots": [
+    "app",
+    "application",
+    "core",
+    "domain",
+    "handlers",
+    "infrastructure",
+    "interfaces",
+    "m6"
+  ],
+  "production": {
+    "module_count": 1175,
+    "non_empty_lines": 212092,
+    "function_count": 8988,
+    "class_count": 4109,
+    "broad_exception_handlers": 161,
+    "bare_exception_handlers": 0,
+    "syntax_errors": [],
+    "largest_modules": [
+      {
+        "path": "app/governed_reasoning_runtime.py",
+        "non_empty_lines": 2546
+      },
+      {
+        "path": "app/official_conversation_gateway.py",
+        "non_empty_lines": 1916
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "non_empty_lines": 1407
+      },
+      {
+        "path": "app/unified_cognitive_coordination.py",
+        "non_empty_lines": 1239
+      },
+      {
+        "path": "core/relationship_memory.py",
+        "non_empty_lines": 1134
+      },
+      {
+        "path": "app/vision_core.py",
+        "non_empty_lines": 1040
+      },
+      {
+        "path": "app/cognitive_agenda_manager.py",
+        "non_empty_lines": 949
+      },
+      {
+        "path": "app/secure_medication_registry.py",
+        "non_empty_lines": 913
+      },
+      {
+        "path": "app/runtime_root_factory.py",
+        "non_empty_lines": 876
+      },
+      {
+        "path": "app/current_affairs_router.py",
+        "non_empty_lines": 829
+      },
+      {
+        "path": "core/executive_runtime_integration/integration.py",
+        "non_empty_lines": 828
+      },
+      {
+        "path": "core/cognitive_pipeline.py",
+        "non_empty_lines": 794
+      },
+      {
+        "path": "core/runtime_composition_root/preparation.py",
+        "non_empty_lines": 686
+      },
+      {
+        "path": "core/governed_reasoning/contextual_case_grounding.py",
+        "non_empty_lines": 679
+      },
+      {
+        "path": "app/official_runtime_composition.py",
+        "non_empty_lines": 677
+      },
+      {
+        "path": "core/task_intelligence.py",
+        "non_empty_lines": 669
+      },
+      {
+        "path": "app/m369_explicit_human_learning_approval.py",
+        "non_empty_lines": 668
+      },
+      {
+        "path": "core/capability_registry.py",
+        "non_empty_lines": 643
+      },
+      {
+        "path": "core/governed_complex_decision_reasoning.py",
+        "non_empty_lines": 639
+      },
+      {
+        "path": "app/governed_multistep_investigation_episode.py",
+        "non_empty_lines": 634
+      }
+    ],
+    "longest_functions": [
+      {
+        "path": "app/runtime_root_factory.py",
+        "name": "build_runtime_root",
+        "line": 177,
+        "length": 709
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "name": "run",
+        "line": 835,
+        "length": 701
+      },
+      {
+        "path": "app/official_conversation_gateway.py",
+        "name": "submit",
+        "line": 1067,
+        "length": 464
+      },
+      {
+        "path": "app/always_on_personal_runtime_wiring.py",
+        "name": "build_continuous_cognitive_loop_from_environment",
+        "line": 125,
+        "length": 394
+      },
+      {
+        "path": "core/runtime_composition_root/root.py",
+        "name": "_bind_cognitive_runtime",
+        "line": 109,
+        "length": 386
+      },
+      {
+        "path": "core/runtime_composition_root/preparation.py",
+        "name": "prepare",
+        "line": 336,
+        "length": 370
+      },
+      {
+        "path": "core/cognitive_planning/diagnostics.py",
+        "name": "run",
+        "line": 33,
+        "length": 319
+      },
+      {
+        "path": "app/desktop_bootstrap.py",
+        "name": "build_unified_desktop_app",
+        "line": 166,
+        "length": 297
+      },
+      {
+        "path": "core/governed_provider_execution_adapter/adapter.py",
+        "name": "execute",
+        "line": 49,
+        "length": 295
+      },
+      {
+        "path": "app/governed_long_horizon_investigation_reassessment_requirement_admission.py",
+        "name": "consume",
+        "line": 167,
+        "length": 249
+      },
+      {
+        "path": "core/reasoning_runtime_integration.py",
+        "name": "contribute",
+        "line": 29,
+        "length": 245
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "name": "submit",
+        "line": 235,
+        "length": 234
+      },
+      {
+        "path": "core/capability_registry.py",
+        "name": "default_semantic_capabilities",
+        "line": 497,
+        "length": 221
+      },
+      {
+        "path": "application/brain/manual_test_bank.py",
+        "name": "build_m312_16_manual_test_bank",
+        "line": 67,
+        "length": 215
+      },
+      {
+        "path": "app/governed_reasoning_runtime.py",
+        "name": "_evaluate_with_recalled_structural_knowledge",
+        "line": 1731,
+        "length": 214
+      },
+      {
+        "path": "core/governed_reasoning/contextual_case_grounding.py",
+        "name": "ground",
+        "line": 193,
+        "length": 210
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "name": "submit_voice",
+        "line": 504,
+        "length": 200
+      },
+      {
+        "path": "core/cognitive_pipeline.py",
+        "name": "_run_pre_memory_observations",
+        "line": 325,
+        "length": 195
+      },
+      {
+        "path": "core/cross_context_continuity/engine.py",
+        "name": "_evaluate",
+        "line": 43,
+        "length": 191
+      },
+      {
+        "path": "core/governed_reasoning/contextual_rule_grounding_compilation.py",
+        "name": "compile",
+        "line": 143,
+        "length": 185
+      }
+    ],
+    "longest_classes": [
+      {
+        "path": "app/official_conversation_gateway.py",
+        "name": "OfficialConversationGateway",
+        "line": 37,
+        "length": 2062
+      },
+      {
+        "path": "app/governed_reasoning_runtime.py",
+        "name": "OfficialGovernedReasoningRuntimeGateway",
+        "line": 907,
+        "length": 1753
+      },
+      {
+        "path": "app/cognitive_agenda_manager.py",
+        "name": "CognitiveAgendaManager",
+        "line": 25,
+        "length": 964
+      },
+      {
+        "path": "app/secure_medication_registry.py",
+        "name": "SecureMedicationRegistryService",
+        "line": 134,
+        "length": 866
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "name": "ROBYDesktopApp",
+        "line": 706,
+        "length": 830
+      },
+      {
+        "path": "app/vision_core.py",
+        "name": "OfficialVisionCore",
+        "line": 302,
+        "length": 828
+      },
+      {
+        "path": "core/executive_runtime_integration/integration.py",
+        "name": "RuntimeExecutiveIntegration",
+        "line": 103,
+        "length": 742
+      },
+      {
+        "path": "app/current_affairs_router.py",
+        "name": "CurrentAffairsRouter",
+        "line": 151,
+        "length": 727
+      },
+      {
+        "path": "core/cognitive_pipeline.py",
+        "name": "CognitivePipeline",
+        "line": 129,
+        "length": 690
+      },
+      {
+        "path": "app/unified_cognitive_coordination.py",
+        "name": "UnifiedCognitiveCoordinator",
+        "line": 227,
+        "length": 687
+      },
+      {
+        "path": "core/runtime_composition_root/preparation.py",
+        "name": "GovernedRuntimePreparation",
+        "line": 63,
+        "length": 643
+      },
+      {
+        "path": "core/governed_reasoning/contextual_case_grounding.py",
+        "name": "GovernedContextualCaseRoleGrounder",
+        "line": 133,
+        "length": 581
+      },
+      {
+        "path": "app/audio_engine.py",
+        "name": "VoskAudioEngine",
+        "line": 91,
+        "length": 536
+      },
+      {
+        "path": "app/desktop_ui.py",
+        "name": "DesktopConversationController",
+        "line": 177,
+        "length": 527
+      },
+      {
+        "path": "core/cognitive_memory_store.py",
+        "name": "CognitiveMemoryStore",
+        "line": 50,
+        "length": 516
+      },
+      {
+        "path": "app/governed_multistep_investigation_episode.py",
+        "name": "GovernedMultiStepInvestigationEpisodeBoundaryV1",
+        "line": 192,
+        "length": 479
+      },
+      {
+        "path": "app/official_runtime_composition.py",
+        "name": "OfficialROBYRuntime",
+        "line": 150,
+        "length": 471
+      },
+      {
+        "path": "core/governed_reasoning/contextual_semantic_grounding.py",
+        "name": "GovernedBoundedSemanticRoleRelationGrounder",
+        "line": 179,
+        "length": 460
+      },
+      {
+        "path": "core/governed_complex_decision_reasoning.py",
+        "name": "GovernedComplexDecisionReasoningFoundationV1",
+        "line": 228,
+        "length": 458
+      },
+      {
+        "path": "app/governed_long_horizon_investigation_reassessment_requirement_admission.py",
+        "name": "GovernedLongHorizonInvestigationReassessmentRequirementAdmissionV1",
+        "line": 150,
+        "length": 443
+      }
+    ],
+    "most_imported_roots": [
+      {
+        "name": "core",
+        "count": 1605
+      },
+      {
+        "name": "__future__",
+        "count": 1002
+      },
+      {
+        "name": "dataclasses",
+        "count": 797
+      },
+      {
+        "name": "enum",
+        "count": 492
+      },
+      {
+        "name": "datetime",
+        "count": 476
+      },
+      {
+        "name": "app",
+        "count": 335
+      },
+      {
+        "name": "typing",
+        "count": 320
+      },
+      {
+        "name": "hashlib",
+        "count": 315
+      },
+      {
+        "name": "models",
+        "count": 238
+      },
+      {
+        "name": "pathlib",
+        "count": 100
+      },
+      {
+        "name": "infrastructure",
+        "count": 99
+      },
+      {
+        "name": "re",
+        "count": 96
+      },
+      {
+        "name": "collections",
+        "count": 87
+      },
+      {
+        "name": "uuid",
+        "count": 75
+      },
+      {
+        "name": "json",
+        "count": 74
+      },
+      {
+        "name": "domain",
+        "count": 73
+      },
+      {
+        "name": "os",
+        "count": 71
+      },
+      {
+        "name": "engine",
+        "count": 47
+      },
+      {
+        "name": "threading",
+        "count": 36
+      },
+      {
+        "name": "types",
+        "count": 34
+      }
+    ]
+  },
+  "tests": {
+    "module_count": 1381,
+    "non_empty_lines": 176544,
+    "function_count": 16001,
+    "class_count": 831,
+    "broad_exception_handlers": 0,
+    "bare_exception_handlers": 0,
+    "syntax_errors": [
+      "tests/test_r_conv_exp_02a_english_colon_red.py",
+      "tests/test_r_conv_exp_02a_metadata_contract_red.py",
+      "tests/test_r_conv_exp_02a_provider_technical_language_red.py",
+      "tests/test_r_conv_exp_02c_vos_opening_red.py",
+      "tests/test_r_conv_exp_02c_vos_presentation_red.py",
+      "tests/test_r_voice_edge_01_documented_dependency_contract_red.py"
+    ],
+    "largest_modules": [
+      {
+        "path": "tests/test_m133_visual_context_integration.py",
+        "non_empty_lines": 527
+      },
+      {
+        "path": "tests/test_m137_presence_continuity.py",
+        "non_empty_lines": 511
+      },
+      {
+        "path": "tests/test_m127_map_context_integration.py",
+        "non_empty_lines": 481
+      },
+      {
+        "path": "tests/test_m140_presence_situation_assessment.py",
+        "non_empty_lines": 480
+      },
+      {
+        "path": "tests/test_m139_presence_event_interpretation.py",
+        "non_empty_lines": 470
+      },
+      {
+        "path": "tests/test_m138_presence_change_detection.py",
+        "non_empty_lines": 467
+      },
+      {
+        "path": "tests/architecture/test_r_ci_si_s5_b2_b1_explicit_epistemic_path_preference_contract_red.py",
+        "non_empty_lines": 457
+      },
+      {
+        "path": "tests/test_rp_20_47_current_affairs_router.py",
+        "non_empty_lines": 429
+      },
+      {
+        "path": "tests/test_m132_visual_attention.py",
+        "non_empty_lines": 412
+      },
+      {
+        "path": "tests/test_m131_object_knowledge.py",
+        "non_empty_lines": 399
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_governed_complex_decision_reasoning_foundation_v1.py",
+        "non_empty_lines": 396
+      },
+      {
+        "path": "tests/test_m79_context_assembly.py",
+        "non_empty_lines": 395
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_rc_1_governed_structural_knowledge_transfer_candidate_v1.py",
+        "non_empty_lines": 375
+      },
+      {
+        "path": "tests/architecture/test_r_ci_si_s5_b2_a3_a_explicit_comparative_discrimination_effect_contract_red.py",
+        "non_empty_lines": 374
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_governed_multistep_investigation_episode_foundation_v1.py",
+        "non_empty_lines": 370
+      },
+      {
+        "path": "tests/test_m141_presence_context_integration.py",
+        "non_empty_lines": 370
+      },
+      {
+        "path": "tests/test_m136_presence_understanding.py",
+        "non_empty_lines": 363
+      },
+      {
+        "path": "tests/test_m125_route_intent_modeling.py",
+        "non_empty_lines": 357
+      },
+      {
+        "path": "tests/test_m142_presence_context_publication.py",
+        "non_empty_lines": 356
+      },
+      {
+        "path": "tests/test_m326_7_outcome_supervisor.py",
+        "non_empty_lines": 354
+      }
+    ],
+    "longest_functions": [
+      {
+        "path": "tests/architecture/test_cap11_long_horizon_n_step_full_cycle_green.py",
+        "name": "test_green_long_horizon_budget_four_closes_one_real_n_step_cycle",
+        "line": 149,
+        "length": 122
+      },
+      {
+        "path": "tests/architecture/test_e1_b_s1_a_exact_governed_proposal_human_review_disposition_contract_red.py",
+        "name": "test_red_exact_governed_proposal_human_review_disposition_contract",
+        "line": 18,
+        "length": 105
+      },
+      {
+        "path": "tests/test_m105_living_conversation_integration.py",
+        "name": "curiosity_plan",
+        "line": 46,
+        "length": 100
+      },
+      {
+        "path": "tests/test_m104_intellectual_curiosity_engine.py",
+        "name": "interest_assessment",
+        "line": 41,
+        "length": 93
+      },
+      {
+        "path": "tests/architecture/test_e1_b_creative_critical_disposition_existing_proposal_reachability_contract_red.py",
+        "name": "test_red_creative_disposition_to_existing_proposal_reachability_contract",
+        "line": 38,
+        "length": 90
+      },
+      {
+        "path": "tests/architecture/test_e1a_creative_candidate_critical_disposition_contract_red.py",
+        "name": "test_e1a_requires_bounded_creative_candidate_critical_disposition_red",
+        "line": 8,
+        "length": 81
+      },
+      {
+        "path": "tests/architecture/test_e1_b_s1_b_exact_presented_proposal_reference_human_review_transport_contract_red.py",
+        "name": "test_red_exact_presented_proposal_reference_human_review_transport_contract",
+        "line": 41,
+        "length": 80
+      },
+      {
+        "path": "tests/architecture/test_agrl_3e_novel_synthesis_governed_hypothesis_admission_red.py",
+        "name": "test_agrl_3e_requires_novel_synthesis_governed_hypothesis_admission_red",
+        "line": 11,
+        "length": 78
+      },
+      {
+        "path": "tests/test_m133_visual_context_integration.py",
+        "name": "chain",
+        "line": 51,
+        "length": 78
+      },
+      {
+        "path": "tests/architecture/test_post_hcpdq_unified_multimodal_visual_to_cognitive_bridge_challenge.py",
+        "name": "_context",
+        "line": 22,
+        "length": 77
+      },
+      {
+        "path": "tests/test_m312_10_safe_personal_context.py",
+        "name": "_context_service",
+        "line": 22,
+        "length": 70
+      },
+      {
+        "path": "tests/test_m58_trust_explainability.py",
+        "name": "_contextual_snapshots",
+        "line": 34,
+        "length": 70
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_rc_1_1_governed_recalled_knowledge_structural_projection_v1.py",
+        "name": "_target_dependency",
+        "line": 84,
+        "length": 69
+      },
+      {
+        "path": "tests/test_config.py",
+        "name": "test_settings_loader_builds_app_config_from_local_json",
+        "line": 44,
+        "length": 69
+      },
+      {
+        "path": "tests/test_m103_shared_intellectual_interests.py",
+        "name": "rhythm",
+        "line": 38,
+        "length": 69
+      },
+      {
+        "path": "tests/test_m312_12_conversation_context_preparation.py",
+        "name": "_context_service",
+        "line": 22,
+        "length": 69
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_governed_reasoning_method_effectiveness_awareness_foundation_v1.py",
+        "name": "_association",
+        "line": 16,
+        "length": 67
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_rc_1_governed_structural_knowledge_transfer_candidate_v1.py",
+        "name": "_dependency_grounding",
+        "line": 21,
+        "length": 67
+      },
+      {
+        "path": "tests/architecture/test_cih_2as_derived_canonical_episode_adaptive_cognition_exactly_once_continuity_red.py",
+        "name": "test_cih_2as_derived_canonical_episode_reaches_adaptive_cognition_exactly_once",
+        "line": 19,
+        "length": 66
+      },
+      {
+        "path": "tests/architecture/test_post_m409_1_rf_h_1_governed_bounded_rule_result_propagation_v1.py",
+        "name": "_base_context",
+        "line": 338,
+        "length": 66
+      }
+    ],
+    "longest_classes": [
+      {
+        "path": "tests/test_m66_mail_reader_adapter.py",
+        "name": "FakeMailProvider",
+        "line": 35,
+        "length": 54
+      },
+      {
+        "path": "tests/architecture/test_official_desktop_same_turn_visual_composition_root_binding_contract_red.py",
+        "name": "Gateway",
+        "line": 37,
+        "length": 43
+      },
+      {
+        "path": "tests/architecture/test_m377_same_turn_expression_behavioral_contract_red.py",
+        "name": "_Adapter",
+        "line": 32,
+        "length": 34
+      },
+      {
+        "path": "tests/architecture/test_gate5b31_canonical_runtime_capability_graph_unified_observability_dependency_snapshot_contract_red.py",
+        "name": "_Runtime",
+        "line": 45,
+        "length": 33
+      },
+      {
+        "path": "tests/test_m228_1_gmail_interactive_oauth_activation.py",
+        "name": "FakeCredentials",
+        "line": 19,
+        "length": 33
+      },
+      {
+        "path": "tests/test_m339_cognitive_goals.py",
+        "name": "RecordingUpdater",
+        "line": 21,
+        "length": 30
+      },
+      {
+        "path": "tests/architecture/test_cap11_long_horizon_execution_n_to_existing_reasoning_reentry_contract_red.py",
+        "name": "_Reasoning",
+        "line": 35,
+        "length": 28
+      },
+      {
+        "path": "tests/architecture/test_governed_contextual_memory_neural_reranking_contract_red.py",
+        "name": "_FakeReranker",
+        "line": 23,
+        "length": 27
+      },
+      {
+        "path": "tests/architecture/test_m386_13_identity_context_evidence_adapter.py",
+        "name": "IdentityAwareRuntimeStub",
+        "line": 28,
+        "length": 26
+      },
+      {
+        "path": "tests/architecture/test_cap11_long_horizon_n_step_full_cycle_green.py",
+        "name": "_Reasoning",
+        "line": 92,
+        "length": 25
+      },
+      {
+        "path": "tests/test_m65_weather_adapter.py",
+        "name": "FakeWeatherProvider",
+        "line": 38,
+        "length": 25
+      },
+      {
+        "path": "tests/architecture/test_m377_proposal_review_concurrency_s3_contract_red.py",
+        "name": "_Delegate",
+        "line": 21,
+        "length": 24
+      },
+      {
+        "path": "tests/architecture/test_m377_wrapper_chain_terminal_interceptors_s2_contract_red.py",
+        "name": "_Delegate",
+        "line": 16,
+        "length": 24
+      },
+      {
+        "path": "tests/test_m189_cognitive_runtime_orchestration.py",
+        "name": "Contributor",
+        "line": 19,
+        "length": 24
+      },
+      {
+        "path": "tests/test_m247_runtime_capability_registry.py",
+        "name": "_RecordingInterceptor",
+        "line": 13,
+        "length": 24
+      },
+      {
+        "path": "tests/test_m348_2_calendar_contract.py",
+        "name": "StubCalendarProvider",
+        "line": 73,
+        "length": 24
+      },
+      {
+        "path": "tests/test_medical_appointment_consultation_offer.py",
+        "name": "Source",
+        "line": 16,
+        "length": 24
+      },
+      {
+        "path": "tests/test_x_0_2_weather_conversation_integration.py",
+        "name": "Provider",
+        "line": 15,
+        "length": 24
+      },
+      {
+        "path": "tests/architecture/test_hce_governed_strategy_application_outcome_evidence_wave.py",
+        "name": "Contributor",
+        "line": 26,
+        "length": 23
+      },
+      {
+        "path": "tests/test_m348_7_calendar_conversational_queries.py",
+        "name": "OAuth",
+        "line": 35,
+        "length": 23
+      }
+    ],
+    "most_imported_roots": [
+      {
+        "name": "core",
+        "count": 2404
+      },
+      {
+        "name": "app",
+        "count": 1615
+      },
+      {
+        "name": "__future__",
+        "count": 834
+      },
+      {
+        "name": "pytest",
+        "count": 614
+      },
+      {
+        "name": "datetime",
+        "count": 540
+      },
+      {
+        "name": "pathlib",
+        "count": 517
+      },
+      {
+        "name": "dataclasses",
+        "count": 377
+      },
+      {
+        "name": "tests",
+        "count": 255
+      },
+      {
+        "name": "inspect",
+        "count": 214
+      },
+      {
+        "name": "ast",
+        "count": 162
+      },
+      {
+        "name": "infrastructure",
+        "count": 153
+      },
+      {
+        "name": "importlib",
+        "count": 133
+      },
+      {
+        "name": "domain",
+        "count": 86
+      },
+      {
+        "name": "json",
+        "count": 78
+      },
+      {
+        "name": "hashlib",
+        "count": 76
+      },
+      {
+        "name": "types",
+        "count": 72
+      },
+      {
+        "name": "application",
+        "count": 51
+      },
+      {
+        "name": "scripts",
+        "count": 48
+      },
+      {
+        "name": "uuid",
+        "count": 15
+      },
+      {
+        "name": "urllib",
+        "count": 12
+      }
+    ]
+  },
+  "ratios": {
+    "test_to_production_non_empty_lines": 0.8324,
+    "test_modules_per_production_module": 1.1753
+  },
+  "thresholds": {
+    "review_function_length": 100,
+    "review_class_length": 300,
+    "review_module_non_empty_lines": 500,
+    "new_bare_exception_handlers_allowed": 0
+  }
+}

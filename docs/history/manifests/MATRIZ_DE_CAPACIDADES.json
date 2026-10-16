@@ -1,0 +1,16 @@
+{
+  "release": "RP.23.1",
+  "statuses": ["available", "limited", "internal", "pending_integration"],
+  "capabilities": [
+    {"name": "conversation", "status": "available"},
+    {"name": "identity", "status": "available"},
+    {"name": "local_identity_profile", "status": "available"},
+    {"name": "cognitive_memory", "status": "available"},
+    {"name": "planning_and_explainability", "status": "available"},
+    {"name": "trace_anomaly_lifecycle", "status": "available"},
+    {"name": "voice", "status": "limited"},
+    {"name": "calendar_mail_web_weather", "status": "pending_integration"},
+    {"name": "device_control", "status": "pending_integration"},
+    {"name": "diagnostics_and_observability", "status": "internal"}
+  ]
+}

@@ -1,0 +1,1525 @@
+{
+  "cases": [
+    {
+      "case_id": "T01",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El observatorio depende exclusivamente del enlace orbital para recibir telemetría. El enlace orbital está indisponible y no existe alternativa.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T01"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T02",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El invernadero depende exclusivamente del bomba de agua para regar. El bomba de agua está indisponible y no existe alternativa.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T02"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T03",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El archivo digital depende exclusivamente del índice maestro para localizar documentos. El índice maestro está indisponible y no existe alternativa.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T03"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T04",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El laboratorio depende exclusivamente del reactivo X para completar ensayo. El reactivo X está indisponible y no existe alternativa.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T04"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T05",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El red doméstica depende exclusivamente del router principal para acceder a internet. El router principal está indisponible y existe una alternativa independiente.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T05"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T06",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El taller depende exclusivamente del compresor para usar herramienta neumática. El compresor está indisponible y existe una alternativa independiente.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T06"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T07",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El servidor depende exclusivamente del volumen cifrado para leer datos. El volumen cifrado está indisponible y existe una alternativa independiente.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T07"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "T08",
+      "dimension": "novel_transfer",
+      "input": {
+        "case_text": "El vehículo depende exclusivamente del módulo de navegación para calcular ruta. El módulo de navegación está indisponible y existe una alternativa independiente.",
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:T08"
+      },
+      "kind": "transfer"
+    },
+    {
+      "case_id": "G01",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G02",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G03",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "favorable"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G04",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "insufficient"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G05",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G06",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G07",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "unfavorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "favorable"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "G08",
+      "dimension": "novel_gcdr",
+      "input": {
+        "assessments": [
+          {
+            "criterion_id": "safety",
+            "option_id": "north",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "north",
+            "outcome": "insufficient"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "north",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "south",
+            "outcome": "neutral"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "south",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "safety",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "cost",
+            "option_id": "central",
+            "outcome": "favorable"
+          },
+          {
+            "criterion_id": "time",
+            "option_id": "central",
+            "outcome": "neutral"
+          }
+        ],
+        "criteria": [
+          {
+            "id": "safety",
+            "importance": 1.0,
+            "required": true,
+            "title": "Safety"
+          },
+          {
+            "id": "cost",
+            "importance": 0.6,
+            "required": false,
+            "title": "Cost"
+          },
+          {
+            "id": "time",
+            "importance": 0.8,
+            "required": false,
+            "title": "Time"
+          }
+        ],
+        "options": [
+          {
+            "id": "north",
+            "title": "North"
+          },
+          {
+            "id": "south",
+            "title": "South"
+          },
+          {
+            "id": "central",
+            "title": "Central"
+          }
+        ]
+      },
+      "kind": "gcdr"
+    },
+    {
+      "case_id": "A01",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "incomplete_matrix",
+        "omit_pair": [
+          "beta",
+          "cost"
+        ],
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A02",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "incomplete_matrix",
+        "omit_pair": [
+          "beta",
+          "cost"
+        ],
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A03",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "incomplete_matrix",
+        "omit_pair": [
+          "beta",
+          "cost"
+        ],
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A04",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "incomplete_matrix",
+        "omit_pair": [
+          "beta",
+          "cost"
+        ],
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A05",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "insufficient",
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A06",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "insufficient",
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A07",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "insufficient",
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "A08",
+      "dimension": "epistemic_abstention",
+      "input": {
+        "criteria": [
+          "reliability",
+          "cost"
+        ],
+        "mode": "insufficient",
+        "options": [
+          "alpha",
+          "beta"
+        ]
+      },
+      "kind": "abstention"
+    },
+    {
+      "case_id": "P01",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "unknown_option"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P02",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "unknown_criterion"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P03",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "duplicate_pair"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P04",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "missing_pair"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P05",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "unknown_option"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P06",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "unknown_criterion"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P07",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "duplicate_pair"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "P08",
+      "dimension": "provenance_attack",
+      "input": {
+        "attack": "missing_pair"
+      },
+      "kind": "provenance"
+    },
+    {
+      "case_id": "D01",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 100
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D02",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 1000
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D03",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 10000
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D04",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 50000
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D05",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 250
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D06",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 2500
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D07",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 12500
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "D08",
+      "dimension": "distractor_reasoning",
+      "input": {
+        "item_count": 40000
+      },
+      "kind": "noise"
+    },
+    {
+      "case_id": "C01",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El observatorio depende exclusivamente del enlace orbital para recibir telemetría. El enlace orbital está indisponible y no existe alternativa.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C01"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C02",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El invernadero depende exclusivamente del bomba de agua para regar. El bomba de agua está indisponible y existe una alternativa independiente.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C02"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C03",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El archivo digital depende exclusivamente del índice maestro para localizar documentos. El índice maestro está indisponible y no existe alternativa.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C03"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C04",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El laboratorio depende exclusivamente del reactivo X para completar ensayo. El reactivo X está indisponible y existe una alternativa independiente.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C04"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C05",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El red doméstica depende exclusivamente del router principal para acceder a internet. El router principal está indisponible y no existe alternativa.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C05"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C06",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El taller depende exclusivamente del compresor para usar herramienta neumática. El compresor está indisponible y existe una alternativa independiente.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C06"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C07",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El servidor depende exclusivamente del volumen cifrado para leer datos. El volumen cifrado está indisponible y no existe alternativa.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C07"
+      },
+      "kind": "compositional"
+    },
+    {
+      "case_id": "C08",
+      "dimension": "compositional",
+      "input": {
+        "case_text": "El vehículo depende exclusivamente del módulo de navegación para calcular ruta. El módulo de navegación está indisponible y existe una alternativa independiente.",
+        "gcdr": {
+          "assessments": [
+            {
+              "criterion_id": "safety",
+              "option_id": "north",
+              "outcome": "unfavorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "north",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "safety",
+              "option_id": "south",
+              "outcome": "favorable"
+            },
+            {
+              "criterion_id": "cost",
+              "option_id": "south",
+              "outcome": "favorable"
+            }
+          ],
+          "criteria": [
+            {
+              "id": "safety",
+              "importance": 1.0,
+              "required": true,
+              "title": "Safety"
+            },
+            {
+              "id": "cost",
+              "importance": 0.5,
+              "required": false,
+              "title": "Cost"
+            }
+          ],
+          "options": [
+            {
+              "id": "north",
+              "title": "North"
+            },
+            {
+              "id": "south",
+              "title": "South"
+            }
+          ]
+        },
+        "rule_text": "Usá esta regla: si un sistema depende exclusivamente de un recurso para una capacidad y ese recurso está indisponible y no existe alternativa, entonces el sistema pierde esa capacidad.",
+        "scope": "independent:C08"
+      },
+      "kind": "compositional"
+    }
+  ],
+  "schema_version": "advanced-capability-4b-cases-v1"
+}

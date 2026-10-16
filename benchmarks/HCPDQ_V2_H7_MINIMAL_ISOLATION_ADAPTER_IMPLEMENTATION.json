@@ -1,0 +1,38 @@
+{
+  "family": "H7",
+  "ground_truth_opened": false,
+  "implementation": {
+    "adapter": "HCPDQV2H7IsolationAdapter",
+    "corpus_only_payload": true,
+    "ground_truth_access": false,
+    "planning_authority_created": false,
+    "primary_execution_authorized": false,
+    "productive_entry_path": "GovernedMultiStepInvestigationPlanningReentryV1",
+    "raw_capture_sealed_by_sha256": true,
+    "retries_allowed": false,
+    "scoring_authority": false,
+    "single_attempt_enforced": true
+  },
+  "implementation_fingerprint": "413fb1250cd124f21a43ec2828df53f61f5bd97c795a1a82669d47a7cd861808",
+  "input_state": "13132-pass-1-intentional-red-ruff-clean",
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Minimal Isolation Adapter Causal / Architectural Recertification",
+  "planning_invoked_for_evaluation": false,
+  "production_files_added": [
+    "app/hcpdq_v2_h7_isolation_adapter.py"
+  ],
+  "production_files_modified": [],
+  "roby_primary_executed": false,
+  "schema_version": "hcpdq-v2-h7-minimal-isolation-adapter-implementation-v1",
+  "scoring_performed": false,
+  "status": "MINIMAL_ISOLATION_ADAPTER_IMPLEMENTED_GREEN",
+  "validation": {
+    "all_h7_architecture_surface": {
+      "fail": 0,
+      "pass": 87
+    },
+    "red_and_adapter_protocol_surface": {
+      "fail": 0,
+      "pass": 20
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "baseline": "13087-pass-0-fail-ruff-clean",
+  "construction_constraints": [
+    "cases must be new and independent",
+    "do not reuse H6 prompts, ground truth, observed answers or failure patterns",
+    "do not reuse prior H7 held-out cases or calibration prompts",
+    "do not derive expected answers from ROBY outputs",
+    "ground truth must be independently frozen before ROBY exposure",
+    "construction must test the frozen hypothesis rather than expand H7 semantics"
+  ],
+  "contract_fingerprint": "2cdd47ae6d0cf1aa95a1d9a9f78849b43465fcb1f49def05873574b87fdda90f",
+  "difficulty_dimensions": {
+    "D1": "clear eligible multi-step evidence-acquisition requirement",
+    "D2": "multi-step requirement with distractors or partial/ineligible structure requiring fail-closed discrimination",
+    "D3": "complex multi-step requirement stressing lineage, eligibility and non-execution boundaries without changing authority"
+  },
+  "explicit_non_scope": [
+    "plan execution or action authorization",
+    "general task planning outside the certified evidence-acquisition re-entry",
+    "all possible H7 planning semantics",
+    "learning, memory writes or world-model mutation",
+    "benchmark-specific planning policy or routing",
+    "direct internal planning authority instantiation for evaluation",
+    "human comparison"
+  ],
+  "family": "H7",
+  "go_no_go": {
+    "corpus_construction": "GO",
+    "ground_truth_freeze": "GO_AFTER_INDEPENDENT_CONSTRUCTION",
+    "hypothesis_freeze": "GO",
+    "independent_corpus_design": "GO",
+    "measurable_family_freeze": "GO",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "roby_exposure": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "hypothesis": {
+    "canonical_authority": "planning_foundation",
+    "capability_name": "governed multi-step evidence-acquisition planning re-entry",
+    "productive_surface": "GovernedMultiStepInvestigationPlanningReentryV1",
+    "statement": "Given an explicit multi-step evidence-acquisition requirement that is eligible for governed planning re-entry, ROBY can use the existing planning_foundation exactly once to produce a traceable plan while preserving requirement/source lineage and without executing the plan or mutating protected state."
+  },
+  "independence_scope_contract": "HCPDQ_V2_H7_INDEPENDENT_SCOPE_CONTRACT.json",
+  "measurable_observables": [
+    "result status",
+    "requirement_id",
+    "plan_id",
+    "planning_status",
+    "planning_invocation_count",
+    "eligible_for_authorization",
+    "rationale_codes",
+    "source_fingerprint",
+    "execution_authorized",
+    "modifies_episode_state",
+    "modifies_memory",
+    "modifies_world_model"
+  ],
+  "next_gate": "HCPDQ-v2 H7 Independent Corpus — Construction Contract / Dry-Probe Certification",
+  "pass_contract": {
+    "fail_closed_case": [
+      "invalid, incomplete, ineligible or unplannable input must not fabricate PLANNED",
+      "planning must not be invoked more than once",
+      "missing causal lineage cannot be scored as success",
+      "no evaluation layer may create or substitute a planning authority"
+    ],
+    "positive_case": [
+      "result is PLANNED for a valid eligible multi-step requirement",
+      "planning_invocation_count equals exactly 1",
+      "planning authority remains planning_foundation",
+      "requirement/plan/source lineage is preserved",
+      "a produced plan is eligible for later authorization only, not execution",
+      "execution_authorized is false",
+      "protected state mutation flags remain false"
+    ]
+  },
+  "preexisting_family_evidence_basis": [
+    "H7 is in the final HCPDQ-v2 measurable family set",
+    "existing productive re-entry returned PLANNED",
+    "canonical authority is planning_foundation",
+    "exactly one planning invocation was observed in calibration",
+    "requirement/plan/source lineage is observable",
+    "execution and state mutation remain unauthorized"
+  ],
+  "schema_version": "hcpdq-v2-h7-hypothesis-measurable-family-contract-v1",
+  "status": "H7_HYPOTHESIS_MEASURABLE_FAMILY_FROZEN_GO"
+}

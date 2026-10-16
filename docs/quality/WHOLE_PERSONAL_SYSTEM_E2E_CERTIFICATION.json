@@ -1,0 +1,213 @@
+{
+  "schema_version": "whole-personal-system-e2e-certification-v1",
+  "generated_at": "2026-09-10T23:10:01.802413+00:00",
+  "diagnostic_only": true,
+  "production_roots_modified_by_harness": [],
+  "scenarios": [
+    {
+      "scenario_id": "WPS-01",
+      "name": "personal identity and session reach the official local conversation path",
+      "personal_flow": "identity/session -> local conversation -> session-scoped context",
+      "status": "PASS",
+      "reached_stages": [
+        "identity_provisioning",
+        "identity_selection",
+        "runtime_binding",
+        "conversation",
+        "session_scope"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "app/household_always_on_bootstrap.py",
+        "app/personal_profile_factory.py",
+        "app/local_runtime_entrypoint.py",
+        "app/local_conversation_factory.py",
+        "core/end_to_end_local_conversation/runtime.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-02",
+      "name": "relevant personal memory can re-enter a later cognitive turn",
+      "personal_flow": "conversation -> governed memory recall -> enriched cognitive request",
+      "status": "PASS",
+      "reached_stages": [
+        "memory_runtime",
+        "memory_context",
+        "conversation_consumption"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/memory_runtime_integration/runtime.py",
+        "core/end_to_end_local_conversation/runtime.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-03",
+      "name": "personal organization remains one governed domain over all personal capabilities",
+      "personal_flow": "agenda/tasks/reminders/goals/projects/notes/prioritization -> PersonalOrganizationAuthority",
+      "status": "PASS",
+      "reached_stages": [
+        "authority",
+        "coverage",
+        "no_parallel_brain"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/personal_organization.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-04",
+      "name": "organization evidence can inform governed personal decision advisory",
+      "personal_flow": "personal organization evidence -> exact linkage -> M391.5 -> M391.6 advisory",
+      "status": "PASS",
+      "reached_stages": [
+        "projection",
+        "linkage",
+        "assembly",
+        "productive_wiring"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/productive_organization_evidence_projection.py",
+        "core/organization_decision_exact_identity_linkage.py",
+        "app/linked_organization_m391_6_advisory_assembly.py",
+        "app/productive_organization_advisory_wiring.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-05",
+      "name": "recalled memory can contribute bounded evidence to canonical planning",
+      "personal_flow": "memory recall -> planning evidence -> planning runtime",
+      "status": "PASS",
+      "reached_stages": [
+        "memory_projection",
+        "planning_runtime",
+        "bounded_application"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/memory_runtime_integration/runtime.py",
+        "core/planning_runtime_integration.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-06",
+      "name": "conversational commitments remain owner/session bounded and do not imply durable personal commitment continuity",
+      "personal_flow": "conversation -> bounded commitment assessment -> compatibility-only continuity boundary",
+      "status": "PASS",
+      "reached_stages": [
+        "commitment",
+        "runtime_contributor",
+        "compatibility_boundary"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/conversational_commitment_intelligence.py",
+        "docs/COGNITIVE_AGENDA_SOURCE_INTEGRATION_LOTE_A.md"
+      ]
+    },
+    {
+      "scenario_id": "WPS-07",
+      "name": "approved learning can become governed memory without authority expansion",
+      "personal_flow": "human-approved learning -> official memory writer -> later personal memory",
+      "status": "PASS",
+      "reached_stages": [
+        "learning_wiring",
+        "no_authority_gain",
+        "memory_write"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "app/productive_governed_learning_wiring.py",
+        "core/memory_runtime_integration/runtime.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-08",
+      "name": "personal notes remain governed knowledge and can project as organization evidence",
+      "personal_flow": "personal note -> knowledge authority -> organization evidence projection",
+      "status": "PASS",
+      "reached_stages": [
+        "knowledge",
+        "note_projection",
+        "distinct_memory_boundary"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/personal_knowledge_base.py",
+        "core/productive_organization_evidence_projection.py",
+        "core/personal_organization.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-09",
+      "name": "reminder awareness reaches the always-on personal runtime without creating a new reminder authority",
+      "personal_flow": "ReminderService-backed state -> reminder awareness -> ambient personal runtime",
+      "status": "PASS",
+      "reached_stages": [
+        "reminder_binding",
+        "reminder_awareness",
+        "ambient_runtime"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/personal_organization.py",
+        "app/always_on_personal_runtime_wiring.py"
+      ]
+    },
+    {
+      "scenario_id": "WPS-10",
+      "name": "personal action remains capability-scoped and permission/consent bounded",
+      "personal_flow": "personal intent -> ToolGatewayManager -> PermissionConsentManager -> registered handler",
+      "status": "PASS_BY_DESIGN",
+      "reached_stages": [
+        "gateway",
+        "permission",
+        "whole_system_guard"
+      ],
+      "missing_stages": [],
+      "evidence_paths": [
+        "core/tool_gateway.py",
+        "core/permission_consent.py",
+        "architecture_rules.md"
+      ]
+    }
+  ],
+  "negative_controls": [
+    {
+      "control_id": "WPS-NEG-01",
+      "description": "certification harness creates no production authority",
+      "status": "PASS_BY_DESIGN",
+      "observed": "ok"
+    },
+    {
+      "control_id": "WPS-NEG-02",
+      "description": "personal organization recommendations cannot authorize action",
+      "status": "PASS_BY_DESIGN",
+      "observed": "ok"
+    },
+    {
+      "control_id": "WPS-NEG-03",
+      "description": "whole-system integration leaves execution authority governed elsewhere",
+      "status": "PASS_BY_DESIGN",
+      "observed": "ok"
+    },
+    {
+      "control_id": "WPS-NEG-04",
+      "description": "approved learning wiring cannot expand authority",
+      "status": "PASS_BY_DESIGN",
+      "observed": "ok"
+    }
+  ],
+  "status_counts": {
+    "PASS": 9,
+    "PASS_BY_DESIGN": 1,
+    "PARTIAL": 0,
+    "FAIL": 0
+  },
+  "overall_status": "PASS",
+  "primary_gap": "none_within_certified_whole_personal_system_contract",
+  "inventory_fingerprint": "065632e22ad89775c51038272cfec62d2c2448a0c3c0d7510c4c1511b26f5699",
+  "report_fingerprint": "9bafffcee3bdf3973562f49bcda37526111207f307467c982f2367b12e417651"
+}

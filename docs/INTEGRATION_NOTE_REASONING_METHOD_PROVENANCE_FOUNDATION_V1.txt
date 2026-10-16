@@ -1,0 +1,11 @@
+Post-M409.1 — Governed Reasoning Method Provenance Foundation v1
+
+Integrate:
+- core/governed_reasoning/reasoning_method_provenance.py
+- tests/architecture/test_post_m409_1_governed_reasoning_method_provenance_foundation_v1.py
+- docs/POST_M409_1_GOVERNED_REASONING_METHOD_PROVENANCE_FOUNDATION_V1.md
+- CHANGELOG.md
+- CHANGELOG_ARCHITECTURE.md
+
+No existing governed reasoning producer is modified.
+Validation target: generate quality baseline, Ruff clean, full pytest without regressions.

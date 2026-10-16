@@ -1,0 +1,27 @@
+{
+  "baseline": "13067-pass-0-fail-ruff-clean",
+  "benchmark_specific_behavior_added": false,
+  "calibration_cases": 7,
+  "calibration_fail": 0,
+  "calibration_pass": 7,
+  "certification_fingerprint": "114b2ae064099469382a5e7179cb91e13f6b9553b746e2b9fc65a1859ad6b885",
+  "certified_behaviors": [
+    "generalizes to three options and multiple required criteria",
+    "multiple required-constraint survivors do not activate exception",
+    "INSUFFICIENT required evidence does not count as survival",
+    "absence of required criteria does not activate exception",
+    "an unblocked competitor prevents the exception",
+    "BLOCKED option remains non-recommendable",
+    "result is invariant to option and assessment ordering"
+  ],
+  "contract_plus_recertification_plus_calibration_pass": 19,
+  "determination": "The sole-required-constraint-survivor rule generalizes beyond the H6 shapes tested during implementation and remains fail-closed under ambiguity, required-evidence insufficiency, multiple survivors and ordering changes.",
+  "family": "H6",
+  "held_out_rerun_performed": false,
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Final Validation / Closure Decision",
+  "old_primary_rescoring_performed": false,
+  "production_code_changed": false,
+  "relevant_gcdr_complex_decision_surface_pass": 125,
+  "schema_version": "hcpdq-v2-h6-productive-gap-calibration-generalization-v1",
+  "status": "CALIBRATION_GENERALIZATION_CERTIFIED"
+}

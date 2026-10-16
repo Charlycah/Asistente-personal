@@ -1,0 +1,68 @@
+{
+  "architectural_determination": "Entry-path equivalence is a mandatory precondition, not an after-the-fact adapter. H6 and H7 both fail the invariant under the consumed v2 freeze. The current freeze cannot be retried or reused. A new evaluation contract may proceed only by selecting forms already accepted by existing productive entry paths and independently freezing a new corpus before exposure. No ROBY production change or benchmark-specific routing is authorized.",
+  "baseline": "12954-pass-0-fail-ruff-clean",
+  "benchmark_specific_router_authorized": false,
+  "benchmark_specific_translation_authorized": false,
+  "contract_fingerprint": "923a30b4ce5f2b63f20af2bd1db9e7c2af7c83049077361fd80a7aeca439adc8",
+  "corpus_semantic_rewrite_authorized": false,
+  "current_h6_h7_freeze_reusable": false,
+  "entry_path_equivalence_certified": false,
+  "family_results": {
+    "H6": {
+      "entry_path_equivalent": false,
+      "go": false,
+      "reason": "Held-out natural-language prompts do not satisfy the certified Decisión/Criterios/Evidencia productive intake grammar."
+    },
+    "H7": {
+      "entry_path_equivalent": false,
+      "go": false,
+      "reason": "Calibration proved internal planning re-entry, not an equivalent conversation-entry path to the same productive authority."
+    }
+  },
+  "ground_truth_change_authorized": false,
+  "held_out_retry_authorized": false,
+  "new_primary_execution_authorized": false,
+  "next_gate": "HCPDQ-v2 Entry-Path Equivalent Evaluation — Recontract / New Independent Freeze Scope",
+  "production_change_authorized": false,
+  "recontract_authorized": true,
+  "recontract_scope": "evaluation entry/exposure contract and a new independent freeze only",
+  "rules": [
+    {
+      "mandatory": true,
+      "requirement": "Calibration and held-out must enter through the same productive intake.",
+      "rule_id": "EPE-01"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Held-out prompts must satisfy the same intake grammar as calibration.",
+      "rule_id": "EPE-02"
+    },
+    {
+      "mandatory": true,
+      "requirement": "No benchmark-specific translation, router or semantic adapter is allowed.",
+      "rule_id": "EPE-03"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Internal re-entry certification cannot substitute for user-entry proof.",
+      "rule_id": "EPE-04"
+    },
+    {
+      "mandatory": true,
+      "requirement": "The same existing productive authority must be causally observed.",
+      "rule_id": "EPE-05"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Entry-path equivalence must be certified before held-out exposure.",
+      "rule_id": "EPE-06"
+    },
+    {
+      "mandatory": true,
+      "requirement": "A consumed invalid primary run cannot be retried under the same freeze.",
+      "rule_id": "EPE-07"
+    }
+  ],
+  "schema_version": "hcpdq-v2-entry-path-equivalence-contract-v1",
+  "status": "NO_GO_REFREEZE_REQUIRED"
+}

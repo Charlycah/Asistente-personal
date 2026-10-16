@@ -1,0 +1,47 @@
+ROBY XI.2 — INVENTARIO REAL POST-CAP-17/CAP-11 CONTINUATION
+Corte: 2026-09-02
+Baseline certificada por el usuario: 13.928 PASS + Ruff limpio + 0 FAIL
+
+REGLA RECTORA
+Un solo ROBY, un solo cerebro gobernado, una autoridad canónica por capacidad.
+No crear managers, planners, agents, loops, runtimes ni cerebros paralelos.
+
+CIERRE NUEVO CERTIFICADO
+- CAP-17 governed local evidence → existing Reasoning re-entry.
+- local evidence → same CAP-11 Episode recording/shared acquisition budget.
+- exact prior hypothesis provenance via source_report_id.
+- same-hypothesis reassessment under governed_reasoning.
+- existing CAP-11 reassessment requirement admission/continuation.
+- STOP before Planning N+1.
+- no Memory/Learning/background acquisition.
+
+RESIDUAL CAP-17/CAP-11 ANTERIOR
+CLOSED. Local Episode Recording → Existing Requirement Continuation ya no es residual.
+
+SIGUIENTE ORDEN
+GATE 3 — NUEVO INVENTARIO DE FUENTES PERSONALES.
+1. Reconciliar Documentos Personales como fuente privada separada de Biblioteca.
+2. Reconciliar colección visual / Pinacoteca provisional contra infraestructura real de image repository, vision y multimodal.
+3. Resolver privacy/provenance/authority boundaries antes de diseñar CAP-18.
+4. Música/audio queda separada del nombre Pinacoteca y sólo se audita si continúa en alcance.
+
+ANCLAS REALES A AUDITAR EN GATE 3
+- core/document_inbox.py
+- infraestructura document intelligence/extraction/classification existente
+- core/governed_image_repository.py
+- core/intelligent_vision/
+- app/vision_core.py
+- app/vision_gateway.py
+- app/multimodal_conversation_integration.py
+- tests de Document Inbox, Vision, Vision Gateway y visual-to-cognitive bridge.
+
+PROHIBIDO EN GATE 3
+- crear CAP-18 antes de reconciliar alcance;
+- crear segundo vision/reasoning/catalogue owner;
+- mezclar Biblioteca con Documentos Personales;
+- mezclar imágenes con música/audio por nomenclatura histórica;
+- conectar fuentes personales a Memory/Learning automáticamente.
+
+DESPUÉS DE GATE 3
+GATE 4 — Introspección: Capability Registry + Self Model + Self Diagnostics antes de Modo Análisis.
+GATE 5 — Aprendizaje intelectual: admisión gobernada hacia Learning sólo después de cerrar investigación y procedencia.

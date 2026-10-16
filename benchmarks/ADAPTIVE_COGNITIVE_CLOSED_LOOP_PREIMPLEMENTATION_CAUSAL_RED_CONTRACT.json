@@ -1,0 +1,36 @@
+{
+  "contract_id": "ADAPTIVE_COGNITIVE_CLOSED_LOOP_PREIMPLEMENTATION_CAUSAL_RED",
+  "baseline": "13198_PASS",
+  "mode": "diagnostic_tests_only",
+  "production_change_authorized": false,
+  "new_authority_authorized": false,
+  "target": "post_turn_reflection_to_review_only_learning_candidate_exposure",
+  "required_chain": [
+    "experience_or_turn_outcome",
+    "post_turn_reflection",
+    "explicit_review_only_learning_candidate",
+    "existing_learning_evidence_node",
+    "human_governed_learning_path",
+    "durable_memory",
+    "later_related_episode",
+    "cognitive_consequence",
+    "observable_improvement"
+  ],
+  "red_boundary": {
+    "component": "OfficialConversationGateway.submit",
+    "current_observation": "post_turn_reflection_is_observed_but_learning_candidate_is_forced_to_none",
+    "expected_bounded_behavior": "an explicitly supplied review-only candidate carried by reflection is exposed to the existing learning evidence node without acceptance, persistence, or authority"
+  },
+  "controls": [
+    "approved_learning_changes_later_planning_evidence",
+    "rejected_learning_does_not_change_later_planning",
+    "irrelevant_learning_does_not_change_later_planning",
+    "owner_scope_isolation_is_preserved",
+    "contextual_transfer_does_not_require_literal_repetition",
+    "review_only_candidate_never_auto_accepts_or_persists"
+  ],
+  "expected_preimplementation_result": {
+    "intentional_red": 1,
+    "unexpected_failures": 0
+  }
+}

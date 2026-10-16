@@ -1,0 +1,276 @@
+{
+  "V2-H6-001": {
+    "expected_outcome": "L",
+    "ground_truth_reference": "GT-V2-H6-001",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "L satisface el presupuesto obligatorio; M lo viola."
+  },
+  "V2-H6-002": {
+    "expected_outcome": "N",
+    "ground_truth_reference": "GT-V2-H6-002",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Con costo igual y requisitos satisfechos, N domina por menor riesgo."
+  },
+  "V2-H6-003": {
+    "expected_outcome": "tie_or_ask",
+    "ground_truth_reference": "GT-V2-H6-003",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "No hay base declarada para privilegiar costo o plazo."
+  },
+  "V2-H6-004": {
+    "expected_outcome": "S",
+    "ground_truth_reference": "GT-V2-H6-004",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Sólo S satisface todos los requisitos obligatorios."
+  },
+  "V2-H6-005": {
+    "expected_outcome": "tie",
+    "ground_truth_reference": "GT-V2-H6-005",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Las alternativas son equivalentes bajo todos los criterios declarados."
+  },
+  "V2-H6-006": {
+    "expected_outcome": "A",
+    "ground_truth_reference": "GT-V2-H6-006",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "A es la única que satisface simultáneamente presupuesto y riesgo obligatorio."
+  },
+  "V2-H6-007": {
+    "expected_outcome": "D",
+    "ground_truth_reference": "GT-V2-H6-007",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "D satisface todos los requisitos obligatorios; C viola el deadline."
+  },
+  "V2-H6-008": {
+    "expected_outcome": "F",
+    "ground_truth_reference": "GT-V2-H6-008",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Ambas cumplen presupuesto y F satisface la preferencia de menor riesgo."
+  },
+  "V2-H6-009": {
+    "expected_outcome": "H",
+    "ground_truth_reference": "GT-V2-H6-009",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La prioridad explícita de confiabilidad decide a favor de H."
+  },
+  "V2-H6-010": {
+    "expected_outcome": "K",
+    "ground_truth_reference": "GT-V2-H6-010",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "K tiene evidencia suficiente para todos los requisitos; J no."
+  },
+  "V2-H6-011": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-V2-H6-011",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Ninguna alternativa satisface todas las restricciones obligatorias."
+  },
+  "V2-H6-012": {
+    "expected_outcome": "P",
+    "ground_truth_reference": "GT-V2-H6-012",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La ventaja de N depende de evidencia no vigente; P tiene evidencia válida."
+  },
+  "V2-H6-013": {
+    "expected_outcome": "R",
+    "ground_truth_reference": "GT-V2-H6-013",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La prioridad lexicográfica declarada favorece R."
+  },
+  "V2-H6-014": {
+    "expected_outcome": "abstain",
+    "ground_truth_reference": "GT-V2-H6-014",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "T es inválida y S no tiene evidencia suficiente para certificar el requisito."
+  },
+  "V2-H6-015": {
+    "expected_outcome": "V",
+    "ground_truth_reference": "GT-V2-H6-015",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Una mejora en criterios blandos no compensa violar una restricción obligatoria."
+  },
+  "V2-H7-001": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-V2-H7-001",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La precedencia obliga X antes de Y.",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "X",
+        "Y"
+      ]
+    }
+  },
+  "V2-H7-002": {
+    "expected_outcome": "yes",
+    "ground_truth_reference": "GT-V2-H7-002",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La duración total es exactamente 3 horas.",
+    "required_structure": {
+      "feasible": true
+    }
+  },
+  "V2-H7-003": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-003",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "R antes que S viola la dependencia explícita.",
+    "required_structure": {
+      "feasible": false,
+      "invalid_order": [
+        "R",
+        "S"
+      ]
+    }
+  },
+  "V2-H7-004": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-004",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Se requieren 6 horas seriales para sólo 5 disponibles.",
+    "required_structure": {
+      "feasible": false,
+      "reason": "deadline"
+    }
+  },
+  "V2-H7-005": {
+    "expected_outcome": "yes",
+    "ground_truth_reference": "GT-V2-H7-005",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "C seguida de D tarda 3 horas, dentro del deadline.",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "C",
+        "D"
+      ]
+    }
+  },
+  "V2-H7-006": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-V2-H7-006",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "E,F,G satisface precedencia y suma 4 horas.",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "E",
+        "F",
+        "G"
+      ]
+    }
+  },
+  "V2-H7-007": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-007",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Las tareas requieren 6 horas seriales y sólo hay 5.",
+    "required_structure": {
+      "feasible": false,
+      "reason": "deadline"
+    }
+  },
+  "V2-H7-008": {
+    "expected_outcome": "yes",
+    "ground_truth_reference": "GT-V2-H7-008",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "L y M usan recursos distintos y pueden ejecutarse en paralelo.",
+    "required_structure": {
+      "feasible": true,
+      "parallel": [
+        [
+          "L",
+          "M"
+        ]
+      ]
+    }
+  },
+  "V2-H7-009": {
+    "expected_outcome": "plan",
+    "ground_truth_reference": "GT-V2-H7-009",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La cadena de dependencias fija O antes de P antes de Q.",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "O",
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "V2-H7-010": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-010",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Las ventanas fijas compiten por el mismo recurso exclusivo.",
+    "required_structure": {
+      "feasible": false,
+      "reason": "resource_conflict"
+    }
+  },
+  "V2-H7-011": {
+    "expected_outcome": "yes",
+    "ground_truth_reference": "GT-V2-H7-011",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "La duración total es 6 horas y existe un orden que respeta ambas dependencias.",
+    "required_structure": {
+      "feasible": true,
+      "order": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  },
+  "V2-H7-012": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-012",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "Las dependencias forman un ciclo.",
+    "required_structure": {
+      "feasible": false,
+      "reason": "cycle"
+    }
+  },
+  "V2-H7-013": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-013",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "H+J consumen todo el deadline; K es opcional y no cabe.",
+    "required_structure": {
+      "feasible": true,
+      "include_optional_K": false
+    }
+  },
+  "V2-H7-014": {
+    "expected_outcome": "yes",
+    "ground_truth_reference": "GT-V2-H7-014",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "L y M terminan a las 3h en paralelo y N termina a las 4h.",
+    "required_structure": {
+      "feasible": true,
+      "parallel": [
+        [
+          "L",
+          "M"
+        ]
+      ],
+      "then": [
+        "N"
+      ]
+    }
+  },
+  "V2-H7-015": {
+    "expected_outcome": "no",
+    "ground_truth_reference": "GT-V2-H7-015",
+    "independent_basis": "predeclared HCPDQ-v2 H6/H7 benchmark logic",
+    "rationale": "P y Q requieren 4h seriales y T agrega 1h; mínimo 5h.",
+    "required_structure": {
+      "feasible": false,
+      "reason": "deadline"
+    }
+  }
+}

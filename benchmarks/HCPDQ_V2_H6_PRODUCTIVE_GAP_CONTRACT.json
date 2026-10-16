@@ -1,0 +1,36 @@
+{
+  "adapter_change_authorized": false,
+  "architectural_determination": "The certified productive gap is real but only a narrow general policy change is justified by the evidence. ROBY may recommend the sole survivor of explicit required constraints while keeping unknown non-required evidence visible. The first six H6 cases do not justify a broader incomplete-evidence dominance heuristic.",
+  "authorized_change_scope": "required-criterion survivor recommendation only",
+  "baseline": "13048-pass-0-fail-ruff-clean",
+  "benchmark_specific_behavior_authorized": false,
+  "contract_fingerprint": "95415360db4b1ea5334e52d3636b157c0c1ab470e511e5854ce4d08218e830d8",
+  "contract_rules": {
+    "R1": "An explicitly unfavorable required criterion continues to BLOCK an option.",
+    "R2": "Missing evidence is not negative evidence and must never be converted to UNFAVORABLE.",
+    "R3": "Missing evidence on non-required criteria normally remains INSUFFICIENT and preserves epistemic uncertainty.",
+    "R4": "A recommendation may be emitted when exactly one option survives all explicit required criteria and every competing option is BLOCKED by at least one explicit required criterion.",
+    "R5": "Under R4, missing evidence on non-required criteria may not veto the sole required-criterion survivor, but must remain visible in rationale/tradeoff evidence.",
+    "R6": "No recommendation is authorized merely because one option has more favorable observations when criterion importance or complete comparative evidence is absent.",
+    "R7": "Explicit importance relations may support a future general dominance rule only under a separate contract; they are not part of this change.",
+    "R8": "The change must live in the existing governed complex-decision authority; no benchmark router, adapter rule or parallel decision authority is permitted."
+  },
+  "entry_path_change_authorized": false,
+  "existing_authority": "governed complex-decision evidence-completeness / recommendation-withholding policy",
+  "family": "H6",
+  "generic_missing_evidence_relaxation_authorized": false,
+  "ground_truth_change_authorized": false,
+  "hcpdq_case_disposition": {
+    "V2E-H6-001_to_006": "NO_CHANGE_AUTHORIZED_FROM_THIS_RESULT; current prompts do not express a required criterion or frozen importance relation sufficient for a principled recommendation under incomplete evidence.",
+    "V2E-H6-007_to_012": "IN_SCOPE; each prompt explicitly marks one criterion required, one option fails it, and the competing option satisfies it."
+  },
+  "held_out_rerun_authorized": false,
+  "implementation_must_be_general": true,
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Pre-Implementation RED Contract Tests",
+  "production_implementation_authorized": true,
+  "required_constraint_weakening_authorized": false,
+  "rescoring_old_primary_result_authorized": false,
+  "schema_version": "hcpdq-v2-h6-productive-gap-contract-v1",
+  "scoring_change_authorized": false,
+  "status": "LIMITED_PRODUCTIVE_CHANGE_AUTHORIZED_GO"
+}

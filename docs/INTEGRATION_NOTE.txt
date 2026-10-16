@@ -1,0 +1,17 @@
+ROBY XI.2 — Post-M409.1
+Governed Epistemic Sufficiency Assessment — Productive Consumption v1
+
+Apply this delta over the certified 11,759-test + Ruff-clean baseline carrying
+ReasoningContextBundle Derived Assessment Contract Generalization v1 CORRECTED.
+
+This ZIP carries forward the corrected contract-generalization and Sufficiency
+Foundation files required by the increment, including the user-supplied import-order
+correction already certified in the previous baseline.
+
+Expected validation gate after integration:
+  ruff check .
+  pytest -q
+
+This increment only exposes the existing sufficiency assessment through the existing
+ReasoningContextBundle derived-assessment surface. It adds no authority, stopping,
+Memory/Learning, Planning, Reasoning invocation, execution, or autonomous behavior.

@@ -1,0 +1,52 @@
+{
+  "baseline": "13103-pass-0-fail-ruff-clean",
+  "case_count": 12,
+  "class_counts": {
+    "FAIL_CLOSED": 6,
+    "PLANNED": 6
+  },
+  "corpus_file": "HCPDQ_V2_H7_INDEPENDENT_CORPUS.json",
+  "corpus_freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+  "difficulty_counts": {
+    "D1": 4,
+    "D2": 4,
+    "D3": 4
+  },
+  "family": "H7",
+  "freeze_certificate_fingerprint": "c31f4a79c86da06371c8a52132c458790641a900081dff67b8b7c2c7f006cfd5",
+  "freeze_rules": [
+    "corpus and ground truth are immutable after this freeze",
+    "any content change invalidates both freeze hashes and requires a new independent freeze",
+    "ROBY-facing exposure must use only the corpus artifact, never the ground-truth artifact",
+    "primary outputs must be sealed before scoring may open ground truth"
+  ],
+  "go_no_go": {
+    "construction": "COMPLETE",
+    "freeze_certification": "REQUIRED_NEXT",
+    "ground_truth_freeze": "GO",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "roby_exposure": "NO_GO",
+    "scoring": "NO_GO"
+  },
+  "ground_truth_file": "HCPDQ_V2_H7_INDEPENDENT_GROUND_TRUTH.json",
+  "ground_truth_freeze_sha256": "48c1fcb9fe9fa1a49b85bc03c3171a9f42e2434ba3efdb13fa2ae646cf321977",
+  "independence_attestation": {
+    "h6_material_used": false,
+    "planning_invocations_during_construction": 0,
+    "prior_h7_heldout_or_calibration_prompts_used": false,
+    "roby_invocations_during_construction": 0,
+    "roby_outputs_used_for_authoring": false
+  },
+  "namespace": "V2I-H7",
+  "next_gate": "HCPDQ-v2 H7 Independent Corpus — Freeze Certification / Exposure Authorization",
+  "schema_version": "hcpdq-v2-h7-independent-corpus-ground-truth-freeze-v1",
+  "separation_attestation": {
+    "corpus_exposed_to_roby": false,
+    "ground_truth_embedded_in_roby_corpus": false,
+    "ground_truth_exposed_to_roby": false,
+    "primary_execution_performed": false,
+    "scoring_performed": false
+  },
+  "status": "CORPUS_AND_GROUND_TRUTH_FROZEN_UNEXPOSED"
+}

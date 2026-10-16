@@ -1,0 +1,17 @@
+Post-M409.1 — Longitudinal Reasoning Observation Contract Generalization v1
+
+Integrate over the certified baseline 11,819 tests + Ruff clean.
+
+Changes:
+- generalizes GovernedReasoningAssessmentObservation to a neutral value object;
+- adds from_assessments(...) for fail-closed compatibility with live Quality/Sufficiency;
+- preserves all existing longitudinal statuses, counts, fingerprint/result semantics and authority;
+- adds focused architecture tests and synchronized documentation.
+
+Does not modify M203, Memory, Learning, Reflection, Curiosity, ReasoningContextBundle,
+HistoricalAnalysisAuthority, persistence or runtime wiring.
+
+Certification gate after integration:
+python scripts/generate_quality_baseline.py
+ruff check .
+pytest -q

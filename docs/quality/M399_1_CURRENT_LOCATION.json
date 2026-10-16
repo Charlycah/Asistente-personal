@@ -1,0 +1,43 @@
+{
+  "schema_version": "m399.1",
+  "stage": "M399 — Governed Self-Diagnostics & Self-Maintenance",
+  "increment": "M399.1 — Governed Current Location Audit & Activation",
+  "baseline": "M398.10",
+  "baseline_certification": {
+    "tests_passed": 10812,
+    "ruff": "clean",
+    "m361": "synchronized",
+    "regressions": 0
+  },
+  "authority": {
+    "device_evidence": "OfficialDeviceGateway",
+    "current_location": "CurrentLocationAuthority",
+    "maps": "maps_foundation",
+    "geocoding": "Nominatim adapter remains geocoder only",
+    "physical_transport": "M397/M398 unchanged"
+  },
+  "activation_scope": "governed observation and semantic projection boundary",
+  "physical_android_provider": "not implemented; GPS is not claimed operational",
+  "validation_in_this_environment": {
+    "targeted_tests": "157 passed",
+    "architecture_tests": "53 passed",
+    "compileall": "passed",
+    "ruff": "not available in environment",
+    "full_pytest": "started without reported failures but timed out before completion",
+    "expected_total_if_only_17_new_tests_are_added": 10829
+  },
+  "files": {
+    "core/android_location.py": "6b27bf2b97b889ce73b280ad6904c8d56ce8a931b20817ac8ab4dfc7a20055bb",
+    "core/current_location/__init__.py": "c7d72717eb59fd86595c0fbcf0201d0847a0630e0c30894cc22e70f647e8b1cc",
+    "core/current_location/models.py": "1dfac06c99c235877a773bf2515756c342f72ffe1443956b708142da80d944a5",
+    "core/current_location/authority.py": "584f80875ea9fa328539a7fd5712154ee9a4ef710983a5fad297c6d4e40ca2bd",
+    "app/device_gateway.py": "402ad80d1432d237e34046bb0246686a429805714bde0a222aaa406f9164a70c",
+    "tests/test_m399_1_governed_current_location.py": "b8021e532bb4310f2039ccf9324bdf39ccc7ee2df406ae5d709d0bf688b8c7c7",
+    "docs/M399_1_GOVERNED_CURRENT_LOCATION.md": "b46d0dd3c31763a1226b98906a9e338289247e67dab3735b823efc0ba6840d37",
+    "architecture_rules.md": "30bff627c4d71a0488720683fa3427eddca02bfc72e30c4ad896046bb6cb5c4f",
+    "integration_decision.md": "0165227bda7c95bb785fe3c86c3e356e52db713c32cca9b8fc51722a32c5044a",
+    "README.md": "743a18c72a7fcb80c222cec06baab640977c69baf5115ef2e55a0496f24368fe",
+    "CHANGELOG.md": "72420606bc81f0e4a265c28693aa925e0d040dfe2464639ea59638d32915db16",
+    "CHANGELOG_ARCHITECTURE.md": "07be90c88fe3555b570300cb3676281272efd9daf60626dd40ddab77099237b6"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "milestone": "M307",
+  "files": 1837,
+  "uncompressed_bytes": 68918902,
+  "vosk_model_bytes": 60286598,
+  "contains_credentials_json": false,
+  "contains_nested_duplicate_model": false,
+  "pytest": "6970 passed"
+}

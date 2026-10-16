@@ -1,0 +1,37 @@
+{
+  "adaptation_or_learning_authorized": false,
+  "architectural_determination": "The frozen H6/H7 corpus is internally consistent, hash-stable, balanced and unexposed. The freeze may be exposed only through a controlled read-only evaluation adapter. This certification does not authorize execution of a primary held-out run, ground-truth visibility, production changes, adaptation or human comparison.",
+  "baseline": "12913-pass-0-fail-ruff-clean",
+  "case_count": 30,
+  "case_sha256": "8cc21e2c0d06470dd82be8e84db3597c37d81e32e82fdccd5a745ebcbb2f2051",
+  "certification_fingerprint": "c5df6e5c0c6da99841b123a0c3ddf888c9368d91135b61f1db3f0c40ce93f690",
+  "certified_scope": [
+    "H6",
+    "H7"
+  ],
+  "contamination_detected": false,
+  "difficulty_counts": {
+    "D1": 10,
+    "D2": 10,
+    "D3": 10
+  },
+  "execution_occurred_before_certification": false,
+  "exposure_mode": "CONTROLLED_READ_ONLY_EVALUATION",
+  "family_counts": {
+    "H6": 15,
+    "H7": 15
+  },
+  "ground_truth_sha256": "3cbff6cbc491ddd76908a3ae9f18ef81343e8014ada07d506a64786b3189afc2",
+  "ground_truth_visibility_to_roby_authorized": false,
+  "held_out_execution_authorized": false,
+  "human_comparison_authorized": false,
+  "independence_pass": true,
+  "integrity_pass": true,
+  "next_gate": "HCPDQ-v2 H6/H7 ROBY Evaluation Run — Exposure / Isolation Protocol",
+  "production_changes_authorized": false,
+  "roby_exposure_authorized": true,
+  "roby_exposure_occurred_before_certification": false,
+  "schema_version": "hcpdq-v2-h6-h7-freeze-certification-v1",
+  "source_freeze_fingerprint": "fdec4468314b6e17c1809a8ab0c16647400bba8886d5e9b94cd831940713f551",
+  "status": "CERTIFIED_EXPOSURE_AUTHORIZED"
+}

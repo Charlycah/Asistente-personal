@@ -1,0 +1,62 @@
+{
+  "architectural_determination": "A RED gate is not justified because there is no already-existing productive causal join for a read-only adapter to expose. Creating one would cross the evaluation boundary into production integration.",
+  "baseline": "12888-pass-0-fail-ruff-clean",
+  "conflict_policy_change_authorized": false,
+  "contract_fingerprint": "c8146375827d55b0f0370da879e26cf623164d1f3d821c92a26d29fecf2b261c",
+  "existing_authority_determination": "The required authorities/components exist, but the causal joins required by H2 and H8 do not exist as productive observable paths.",
+  "families": {
+    "H2": {
+      "disposition": "NO_GO_EXCLUDE_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "existing_components": [
+        "GovernedEpistemicSufficiencyProductiveConsumptionV1",
+        "ResponseConfidenceRecord"
+      ],
+      "family": "H2",
+      "held_out_authorized": false,
+      "new_authority_authorized": false,
+      "preimplementation_red_authorized": false,
+      "production_change_authorized": false,
+      "productive_join_present": false,
+      "reason": [
+        "Both existing components are independently observable.",
+        "No existing productive path joins sufficiency consumption to a specific response decision.",
+        "Adding identifiers alone would manufacture correlation rather than expose an already-existing causal join.",
+        "HCPDQ must fail closed instead of changing response semantics."
+      ],
+      "shared_causal_lineage_present": false
+    },
+    "H8": {
+      "disposition": "NO_GO_EXCLUDE_FROM_HCPDQ_V2_MEASURABLE_SCOPE",
+      "existing_components": [
+        "GovernedReasoningMethodProvenanceProductiveConsumptionV1",
+        "ConflictAnalysis"
+      ],
+      "family": "H8",
+      "held_out_authorized": false,
+      "new_authority_authorized": false,
+      "preimplementation_red_authorized": false,
+      "production_change_authorized": false,
+      "productive_join_present": false,
+      "reason": [
+        "Method provenance and conflict analysis both exist.",
+        "No existing productive path joins a consumed provenance record to a specific conflict analysis or resolution decision.",
+        "Source/world similarity is insufficient causal evidence.",
+        "HCPDQ may not create a conflict-selection or provenance bridge."
+      ],
+      "shared_causal_lineage_present": false
+    }
+  },
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "measurement_failure_classification": "NOT_VALIDLY_MEASURABLE_UNDER_HCPDQ_V2",
+  "metadata_only_lineage_patch_authorized": false,
+  "minimal_production_implementation_authorized": false,
+  "new_authority_authorized": false,
+  "new_bridge_authorized": false,
+  "next_gate": "HCPDQ-v2 Measurable Family Set — Scope Freeze / Held-Out Readiness Reassessment",
+  "persistence_or_adaptation_authorized": false,
+  "preimplementation_red_authorized": false,
+  "response_semantic_change_authorized": false,
+  "schema_version": "hcpdq-v2-h2-h8-causal-lineage-gap-contract-v1",
+  "status": "NO_GO_EXCLUDE_H2_H8_FROM_V2_MEASURABLE_SCOPE"
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "m397.1",
+  "purpose": "protect_m396_residence_domain_during_connectivity_constitution",
+  "files": {
+    "core/residence_domain/__init__.py": "491bf7afa65f2fe5fa11ea3cee44df4cbdd61449ca9529b72d7ad096e5793f2e",
+    "core/residence_domain/models.py": "8ad6a4ed753d3ca7c3f7796f34e3ce3e9d196c3d09eba54f2779d3dfa7cf38cd"
+  }
+}

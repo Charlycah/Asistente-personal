@@ -1,0 +1,35 @@
+{
+  "anti_contamination": {
+    "benchmark_driven_learning": false,
+    "development_against_held_out": false,
+    "ground_truth_reaches_subject": false,
+    "human_results_reach_roby": false
+  },
+  "calibration": {
+    "case_count": 30,
+    "fingerprint": "4dbee93428aba9dc1813596d1131c1d175a43ed003801429adcf14ffbf8ad877"
+  },
+  "ground_truth_fingerprint": "2bc7d885e973dd99d97342880c803a9117df216e68605daf1298778418f6a287",
+  "held_out": {
+    "case_count": 120,
+    "difficulties": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "family_counts": {
+      "complex_multicriteria_decision": 15,
+      "conflicting_evidence_provenance": 15,
+      "constraint_heavy_planning": 15,
+      "deterministic_reasoning": 15,
+      "insufficient_evidence": 15,
+      "noise_distractor_robustness": 15,
+      "novel_generalization": 15,
+      "structural_knowledge_transfer": 15
+    },
+    "fingerprint": "f8c8d157d308c4423543c00cc17e028977df78d3b9c784808a1cba9e57fcc0c9"
+  },
+  "rubric_fingerprint": "70c337373864aba07dc2b6295fea6377bf6a70d66eea9ea0380b825b227b8340",
+  "schema_version": "hcpdq-v1-comparative-corpus-v1",
+  "status": "frozen"
+}

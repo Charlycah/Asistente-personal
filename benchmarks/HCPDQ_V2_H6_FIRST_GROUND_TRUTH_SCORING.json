@@ -1,0 +1,177 @@
+{
+  "accuracy": 0.0,
+  "baseline": "13036-pass-0-fail-ruff-clean",
+  "benchmark_feedback_performed": false,
+  "case_count": 12,
+  "fail_count": 12,
+  "family": "H6",
+  "ground_truth_mutation_performed": false,
+  "interpretation": "All twelve sealed responses abstained by declaring the evidence insufficient. None recommended the frozen expected option or named the frozen decisive criterion set. Under the pre-frozen acceptable outcome contract, all twelve score FAIL.",
+  "learning_or_adaptation_performed": false,
+  "memory_writeback_performed": false,
+  "next_gate": "HCPDQ-v2 H6 Primary Run — Scoring Post-Mortem / Cognitive Result Audit",
+  "pass_count": 0,
+  "production_tuning_performed": false,
+  "raw_capture_mutation_performed": false,
+  "records": [
+    {
+      "case_id": "V2E-H6-001",
+      "expected_decision": "Aurora",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "integridad",
+        "reversibilidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "fa487ee47e8127128782d8a85c27bf5d52cfddc3900327b3ffc2f44b2921e2a2",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-002",
+      "expected_decision": "Cedro",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "fiabilidad",
+        "recuperación"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "6566e0a172cbefd9be3f6075ed0171f98a41bd2d7b4b4766655d1f2b786577b8",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-003",
+      "expected_decision": "Estela",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "impacto",
+        "recursos"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "7d4088e7747e4dd59df44162127f355baaae7c9039928e839580b1c81c41fd34",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-004",
+      "expected_decision": "Greda",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "seguridad",
+        "mantenibilidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "2693ee183bac51c275d8bfc5a5723a2fe55e9a87ccb54519965a6e92eb8f758c",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-005",
+      "expected_decision": "Ícaro",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "continuidad",
+        "auditoría"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "2b95e80390c33970b58515b55ddc3ea50f9765f33dabfc38c57f1cd9836b4f3c",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-006",
+      "expected_decision": "Kappa",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "calidad",
+        "reversibilidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "bfcd3c5defe81ab7a00ae9c650bf0207fa54e8e65f3aa80b4266cec96046aefc",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-007",
+      "expected_decision": "Marea",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "seguridad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "5ce1f7bcefbf8dfdc7c235367cc0408f54bb0b2f9fe90012c7307dc369d06b18",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-008",
+      "expected_decision": "Órbita",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "fiabilidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "142da661ff15777092ec288228dfaacd712a5e073f3b2b720a45fcd43c1de9ae",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-009",
+      "expected_decision": "Quilla",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "privacidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "d34ed096a1ada5317a13e2a7b218d0a18b5976a84f83e66439ff4f36924bb75b",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-010",
+      "expected_decision": "Senda",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "trazabilidad"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "4965cda503163bb397b17b308c630e29c59b7e53527016405815b0a108187892",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-011",
+      "expected_decision": "Umbral",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "resiliencia"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "fc202786ca40bb51d19dc349e0746504e92af5bd56dec729085cb3e9316e1056",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    },
+    {
+      "case_id": "V2E-H6-012",
+      "expected_decision": "Wadi",
+      "identifies_same_decisive_evidence": false,
+      "key_criteria": [
+        "control"
+      ],
+      "outcome": "FAIL",
+      "raw_response_sha256": "eaca122cf8a1c2e5636bc9e614caeaf3d027211b6e75fea4c27f2fdd72a9d038",
+      "recommend_expected": false,
+      "scoring_rationale": "Response declines to recommend and does not explicitly identify the frozen decisive evidence."
+    }
+  ],
+  "results_sealed": true,
+  "roby_rerun_performed": false,
+  "schema_version": "hcpdq-v2-h6-first-ground-truth-scoring-v1",
+  "scoring_authorization_consumed": true,
+  "scoring_authorization_fingerprint": "581091e31a7ddc737703a3e4ab93938e2d3edfd6c611533673110e046cefbc00",
+  "scoring_authorization_reusable": false,
+  "scoring_fingerprint": "12b1a89ee7279a52aa49f3f27a9d6fc3728c09a1657fe10613d0e7eeb75ed5a2",
+  "scoring_rule": "PASS iff response recommends expected decision OR explicitly identifies the same decisive evidence frozen in ground truth.",
+  "status": "SCORING_COMPLETED_RESULTS_SEALED"
+}

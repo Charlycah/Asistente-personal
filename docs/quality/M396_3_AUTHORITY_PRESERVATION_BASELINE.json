@@ -1,0 +1,15 @@
+{
+  "schema_version": "m396.3",
+  "purpose": "Authority Preservation guardrail for Distributed Residence",
+  "files": {
+    "core/external_resource_registry.py": "21a8e4a4d7f8f9eff695e369611c4c8938a4c5879a5e8c473d00033c5c76c2b2",
+    "app/device_gateway.py": "3857892f168561113089f78a52459901e3f7c04505dacd381ce29f8e14a518a0",
+    "app/presence_runtime.py": "7921fb3b226bc50bf2339c8688d039bafb941d17afb3b121bf3c5a16a8d04637",
+    "app/context_continuity_runtime.py": "9309d8dc769acffa15f9aa69b18c21f001c6e432b764c14d93367baeb1e5ec7c",
+    "app/cognitive_authority_map.py": "01dde78ba60f4f454f0f7810add65f364578947e3eae4201549ac160666e5481",
+    "app/official_capability_gateway.py": "20a06fadd58b78909dfdcc024d862aac008e56d2758a395de4a2da80885bdd88",
+    "app/governed_capability_routing_runtime.py": "a9b9e9c828b4852d9055fbbe7d4aef4fd2cf244cd22366fc24af1a53a0305e42",
+    "app/resident_component_registry.py": "6cab16f19897f74cd31549aa799a883f0207bab0fb64bc017e402e07cd7cadd7",
+    "app/runtime_root_factory.py": "bf7e98b8708a5fb38045d337b41746be03bf358001ad334f7c344d837dbef461"
+  }
+}

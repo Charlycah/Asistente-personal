@@ -1,0 +1,32 @@
+{
+  "baseline": "13127-pass-0-fail-ruff-clean",
+  "expected_failures": 1,
+  "failing_contract": {
+    "expected": "minimal H7 isolation adapter module exists",
+    "meaning": "The frozen exposure/isolation protocol has no dedicated minimal H7 adapter yet. This is the only missing boundary component.",
+    "observed": "app.hcpdq_v2_h7_isolation_adapter is absent",
+    "test": "test_red_h7_minimal_isolation_adapter_exists"
+  },
+  "family": "H7",
+  "ground_truth_opened": false,
+  "implementation_scope": "add only app.hcpdq_v2_h7_isolation_adapter with corpus-only case opening, single-attempt accounting, raw capture sealing and delegation to the existing productive entry path; no ground-truth/scoring/routing authority",
+  "minimal_adapter_implementation_authorized": true,
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Minimal Isolation Adapter Implementation",
+  "planning_invoked": false,
+  "production_code_changed": false,
+  "protective_contracts_confirmed": [
+    "ground truth remains outside adapter boundary",
+    "existing productive entry path is mandatory",
+    "single attempt and zero retries remain required",
+    "raw capture is required while scoring remains forbidden",
+    "expected-answer routing and frozen-material mutation remain forbidden"
+  ],
+  "protective_passes": 5,
+  "red_fingerprint": "9288eec7ee232d3312987547d1fd685e73d1d966e542ed6261f31df817a4f5f5",
+  "red_test_count": 6,
+  "roby_executed": false,
+  "schema_version": "hcpdq-v2-h7-preexecution-red-isolation-v1",
+  "scoring_performed": false,
+  "status": "EXPECTED_RED_CONFIRMED_MINIMAL_ADAPTER_AUTHORIZED",
+  "unexpected_failures": 0
+}

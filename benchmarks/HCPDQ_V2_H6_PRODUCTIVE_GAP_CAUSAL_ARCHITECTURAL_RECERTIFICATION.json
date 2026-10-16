@@ -1,0 +1,33 @@
+{
+  "adapter_dependency_present": false,
+  "architectural_determination": "The behavioral change is causally localized to the existing governed complex-decision authority. It only permits recommendation of the sole survivor of explicit required constraints when every competitor is hard-blocked. It does not alter missing-evidence meaning, add benchmark knowledge, weaken required constraints, or change evaluation boundaries.",
+  "authority_class": "GovernedComplexDecisionReasoningFoundationV1",
+  "baseline": "13061-pass-0-fail-ruff-clean",
+  "benchmark_specific_imports_present": false,
+  "canonical_authority_preserved": "unified_cognitive_coordination",
+  "canonical_facade_preserved": "CanonicalDecisionFacade",
+  "causal_mechanism": {
+    "blocked_option_semantics": "BLOCKED options remain non-recommendable",
+    "generic_dominance_relaxation": false,
+    "missing_evidence_semantics": "non-required INSUFFICIENT assessments remain unchanged and visible",
+    "report_exception_scope": "REVIEW_REQUIRED may be recommended only with the explicit sole_required_constraint_survivor rationale",
+    "required_survivor_selector": "_sole_required_constraint_survivor requires at least one explicit required criterion, exactly one option favorable on all required criteria, and every competitor BLOCKED."
+  },
+  "entry_path_dependency_present": false,
+  "existing_authority_preserved": true,
+  "family": "H6",
+  "focused_reasoner_surface_pass": 28,
+  "formatting_correction_semantically_neutral": true,
+  "ground_truth_dependency_present": false,
+  "hcpdq_specific_literals_present": false,
+  "held_out_rerun_performed": false,
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Calibration / Generalization Certification",
+  "old_primary_rescoring_performed": false,
+  "production_file_sha256": "d96b2e42b03441092aff8f7531a3d849184ecc8baec8c7e32f2c5eef891164df",
+  "production_tuning_outside_contract_performed": false,
+  "recertification_fingerprint": "fc9c5562e35587ef2585116bab35e2ebb7d57cee8b069816b22af41ddcc75c3a",
+  "red_contracts_green": 6,
+  "relevant_gcdr_surface_pass": 118,
+  "schema_version": "hcpdq-v2-h6-productive-gap-causal-architectural-recertification-v1",
+  "status": "CAUSAL_ARCHITECTURAL_RECERTIFIED"
+}

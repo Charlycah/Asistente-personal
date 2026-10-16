@@ -1,0 +1,57 @@
+{
+  "schema_version": "m399.2",
+  "stage": "M399 — Governed Self-Diagnostics & Self-Maintenance",
+  "increment": "M399.2 — Governed Self-Diagnostics Foundation",
+  "baseline": "M399.1",
+  "baseline_certification": {
+    "tests_passed": 10829,
+    "ruff": "clean",
+    "m361": "synchronized",
+    "regressions": 0
+  },
+  "scope": "Observation → trend → anomaly only",
+  "authority": {
+    "self_diagnostics": "GovernedSelfDiagnostics",
+    "authority_id": "self_diagnostics",
+    "source_authorities": "preserved; observations are supplied explicitly",
+    "unified_brain_diagnostics": "preserved as M387.9 cognitive-turn diagnostic"
+  },
+  "excluded": [
+    "cause inference",
+    "hypotheses",
+    "confidence in causal hypotheses",
+    "proposals",
+    "sandbox",
+    "patches",
+    "diffs",
+    "repair",
+    "rollback",
+    "persistence",
+    "background polling",
+    "silent operational code modification"
+  ],
+  "validation_in_this_environment": {
+    "m399_2_tests_added": 17,
+    "focused_integration": "63 passed",
+    "architecture_and_historical_guardrails": "1588 passed",
+    "compileall": "passed",
+    "ruff": "not available in environment",
+    "full_pytest": "reached 55% without reported failures before environment timeout",
+    "expected_total_if_only_17_tests_are_added": 10846
+  },
+  "files": {
+    "core/self_diagnostics/__init__.py": "7d6c3a8e279e681e27ae8ca98cce9aafcc30496cc994a82f7b83ebc60418a6b2",
+    "core/self_diagnostics/models.py": "679f2ee155c712ec7d8ee95a5861c65a9c260af44f82b8f1198dc41383851eff",
+    "core/self_diagnostics/foundation.py": "ad01287e7ace5042bdb6b37e5c61f37b8f54dfc83b41b777cb91d90dfd17e38e",
+    "tests/test_m399_2_governed_self_diagnostics_foundation.py": "7b7dad22758aff196b7a5de7b6f071555facebf1290f3cba24dbb22d8f965936",
+    "docs/M399_2_GOVERNED_SELF_DIAGNOSTICS_FOUNDATION.md": "67c8916511ba5ec707f26f4fccaf00444d925c084df0bb78b5656616a203a770",
+    "architecture_rules.md": "8b1eb4ef0e08d824978f4086d83f34dfd16e41e7a4d15f16372e937d82183911",
+    "integration_decision.md": "2437128f414c21c0a00a5472528aadf1c07aedc56e3c91076bd461bcfadd2f03",
+    "README.md": "5ebcacd8a2c76485cff9399b61bd2b84b4e1bec2c1bd2253072089289772932f",
+    "CHANGELOG.md": "6c39d49f310ea52b145a2372552573ebccc169cf7e4afb98b2f73ed68fe2b6ea",
+    "CHANGELOG_ARCHITECTURE.md": "dee51d30e1816be439c6e1e6cdf0c1e281b132d1ad469230b3a2b2718f2ee63c",
+    "external_capabilities.md": "cb2a2f2c28287c54ca765163f66f34d498810a587bcf27d0eb15fc4a43918cb0",
+    "ROOT_DOCUMENTATION_INSTALLATION.md": "21eada155f38f9c57cf98dd0078b2fbb4bf23173d27dc8fa6c2478b85e487cfa",
+    "docs/quality/M361_QUALITY_BASELINE.json": "047b29c16fdb68a3005297c30f841eb0358cb61207427c090224a535fa11f5f7"
+  }
+}

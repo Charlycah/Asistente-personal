@@ -1,0 +1,11 @@
+Post-M409.1 — Governed Comparative Reasoning Method Awareness — ReasoningContextBundle Productive Consumption v1
+
+Integration boundary:
+- New app-level consumer only.
+- Reuses ReasoningContextBundle.derived_assessments and the existing structural assessment contract.
+- Does not modify core/governed_reasoning/context.py.
+- Does not modify the comparative awareness Foundation.
+- Input is a certified GovernedComparativeReasoningMethodAwareness, never raw associations.
+- Preserves compares_methods=True as descriptive awareness only.
+- No effectiveness, superiority, ranking, selection, recommendation, adaptation, learning, memory, persistence, execution, or background authority.
+- Idempotent insertion; semantic identity collisions fail closed.

@@ -1,0 +1,100 @@
+{
+  "adapter_contract": {
+    "may_create_planning_authority": false,
+    "may_directly_instantiate_internal_planner_for_benchmark": false,
+    "may_mutate_corpus": false,
+    "may_mutate_ground_truth": false,
+    "may_read_corpus": true,
+    "may_read_ground_truth": false,
+    "may_route_on_expected_class": false,
+    "must_use_existing_productive_entry_path": true,
+    "purpose": "transform one frozen corpus case into a ROBY-facing evaluation input and capture the resulting read-only evaluation evidence"
+  },
+  "baseline": "13119-pass-0-fail-ruff-clean",
+  "case_execution_contract": {
+    "action_execution_allowed": false,
+    "attempts_per_case": 1,
+    "case_order": [
+      "V2I-H7-001",
+      "V2I-H7-002",
+      "V2I-H7-003",
+      "V2I-H7-004",
+      "V2I-H7-005",
+      "V2I-H7-006",
+      "V2I-H7-007",
+      "V2I-H7-008",
+      "V2I-H7-009",
+      "V2I-H7-010",
+      "V2I-H7-011",
+      "V2I-H7-012"
+    ],
+    "fresh_isolated_context_per_case": true,
+    "planning_invocation_intervention_allowed": false,
+    "planning_invocation_observation_allowed": true,
+    "raw_capture_must_be_sealed_before_next_phase": true,
+    "raw_capture_required": true,
+    "retries": 0
+  },
+  "family": "H7",
+  "go_no_go": {
+    "ground_truth_opening": "NO_GO",
+    "minimal_isolation_adapter": "GO_AFTER_EXPECTED_RED",
+    "preimplementation_red_contracts": "GO",
+    "primary_execution": "NO_GO",
+    "production_change": "NO_GO",
+    "protocol_freeze": "GO",
+    "scoring": "NO_GO"
+  },
+  "input_binding": {
+    "authorized_corpus_file": "HCPDQ_V2_H7_INDEPENDENT_CORPUS.json",
+    "case_count": 12,
+    "case_ids": [
+      "V2I-H7-001",
+      "V2I-H7-002",
+      "V2I-H7-003",
+      "V2I-H7-004",
+      "V2I-H7-005",
+      "V2I-H7-006",
+      "V2I-H7-007",
+      "V2I-H7-008",
+      "V2I-H7-009",
+      "V2I-H7-010",
+      "V2I-H7-011",
+      "V2I-H7-012"
+    ],
+    "corpus_freeze_sha256": "77fc268f38828cb24ac438cf32f8946a2af5c4731bfbc515e98174ff8ec8fe81",
+    "ground_truth_file": "HCPDQ_V2_H7_INDEPENDENT_GROUND_TRUTH.json",
+    "ground_truth_freeze_sha256": "48c1fcb9fe9fa1a49b85bc03c3171a9f42e2434ba3efdb13fa2ae646cf321977"
+  },
+  "isolation_boundary": {
+    "benchmark_feedback": false,
+    "ground_truth_load_during_exposure": false,
+    "ground_truth_load_during_primary_execution": false,
+    "learning_or_adaptation": false,
+    "memory_writeback": false,
+    "roby_facing_payload_may_include": [
+      "case_id",
+      "difficulty",
+      "domain",
+      "scenario",
+      "requirement.requirement_id",
+      "requirement.source_reference",
+      "requirement.world_snapshot_reference"
+    ],
+    "roby_facing_payload_must_exclude": [
+      "expected_class",
+      "decisive_condition",
+      "expected_planning_invocation_count",
+      "required_authority",
+      "ground-truth hashes beyond protocol verification metadata"
+    ],
+    "scoring_during_exposure": false,
+    "scoring_during_primary_execution": false,
+    "world_model_writeback": false
+  },
+  "namespace": "V2I-H7",
+  "next_gate": "HCPDQ-v2 H7 ROBY Evaluation Run — Pre-Execution RED / Isolation Contract Tests",
+  "protocol_fingerprint": "fb4fa7a5be4e6343d159c232283377aa78b059bd4cdb7fc1aee4fff209b88980",
+  "schema_version": "hcpdq-v2-h7-exposure-isolation-protocol-v1",
+  "status": "EXPOSURE_ISOLATION_PROTOCOL_FROZEN"
+}

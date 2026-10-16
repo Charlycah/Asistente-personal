@@ -1,0 +1,149 @@
+{
+  "already_certified_family": "H6",
+  "architectural_determination": "Prioritize existing productive consumers and read-only shadow evidence; defer or exclude families whose only currently proven reachability is internal/test-level rather than create benchmark-specific authority.",
+  "audit_fingerprint": "e15c9f7cf95be7a696fa2537cdd3b7bcec4764b76f7350a5679ca46d971c9050",
+  "baseline": "12855-pass-0-fail-ruff-clean",
+  "defer_or_exclude_wave": [
+    "H4",
+    "H5"
+  ],
+  "families": {
+    "H1": {
+      "architectural_risk": "MEDIUM",
+      "causal_evidence_strength": "MEDIUM",
+      "disposition": "AUDIT_OBSERVABLE_SHADOW_PATH_FIRST",
+      "expected_effort": "MEDIUM_HIGH",
+      "exposure_candidate": "CognitivePlannerShadowRuntime/read-only observability",
+      "family": "H1",
+      "held_out_authorized": false,
+      "priority": 4,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "An existing shadow runtime explicitly observes without affecting output.",
+        "It already exposes decision-context/kernel observability by session.",
+        "Current cognitive composition remains too coarse for H1 certification."
+      ]
+    },
+    "H2": {
+      "architectural_risk": "LOW_MEDIUM",
+      "causal_evidence_strength": "MEDIUM_HIGH",
+      "disposition": "PROCEED_TO_EXPOSURE_CONTRACT",
+      "expected_effort": "MEDIUM",
+      "exposure_candidate": "epistemic sufficiency + existing conversation withholding evidence",
+      "family": "H2",
+      "held_out_authorized": false,
+      "priority": 2,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Epistemic sufficiency has a productive read-only context consumer.",
+        "The consumer explicitly does not invoke stopping or reasoning.",
+        "Certification must join existing epistemic lineage to an existing withhold/abstain decision without letting the observer decide."
+      ]
+    },
+    "H3": {
+      "architectural_risk": "MEDIUM_HIGH",
+      "causal_evidence_strength": "MEDIUM_LOW",
+      "disposition": "AUDIT_OBSERVABLE_SHADOW_PATH_FIRST",
+      "expected_effort": "HIGH",
+      "exposure_candidate": "existing cognitive shadow context/capability assessments",
+      "family": "H3",
+      "held_out_authorized": false,
+      "priority": 5,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Context-sensitive planning/inhibition evidence exists.",
+        "Benchmark direct CognitivePlanner instantiation remains forbidden.",
+        "Need proof that ordinary productive turns populate read-only shadow evidence for negation/quoted-span/distractor behavior."
+      ]
+    },
+    "H4": {
+      "architectural_risk": "HIGH",
+      "causal_evidence_strength": "HIGH_INTERNAL_LOW_EXPOSURE",
+      "disposition": "DEFER_OR_EXCLUDE_UNLESS_PRODUCTIVE_CONSUMER_FOUND",
+      "expected_effort": "HIGH",
+      "exposure_candidate": "none presently certified",
+      "family": "H4",
+      "held_out_authorized": false,
+      "priority": 6,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Structural-transfer authority and causal tests exist internally.",
+        "No official productive read-only consumer is currently certified.",
+        "Do not create an HCPDQ structural-transfer facade to force measurability."
+      ]
+    },
+    "H5": {
+      "architectural_risk": "HIGH",
+      "causal_evidence_strength": "HIGH_INTERNAL_LOW_EXPOSURE",
+      "disposition": "DEFER_OR_EXCLUDE_UNLESS_PRODUCTIVE_CONSUMER_FOUND",
+      "expected_effort": "HIGH",
+      "exposure_candidate": "none presently certified",
+      "family": "H5",
+      "held_out_authorized": false,
+      "priority": 7,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Target projection and contextual grounding authorities exist.",
+        "Their complete generalization composition lacks productive exposure.",
+        "Exclude from v2 rather than construct benchmark-only composition."
+      ]
+    },
+    "H7": {
+      "architectural_risk": "LOW_MEDIUM",
+      "causal_evidence_strength": "HIGH",
+      "disposition": "PROCEED_TO_EXPOSURE_CONTRACT",
+      "expected_effort": "MEDIUM",
+      "exposure_candidate": "GovernedMultiStepInvestigationPlanningReentryV1/existing evidence-acquisition planning",
+      "family": "H7",
+      "held_out_authorized": false,
+      "priority": 1,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Existing productive re-entry explicitly invokes existing planning once.",
+        "Lineage, invocation count, eligibility and failure states are observable.",
+        "Do not generalize investigation planning into all H7 semantics yet."
+      ]
+    },
+    "H8": {
+      "architectural_risk": "MEDIUM",
+      "causal_evidence_strength": "MEDIUM",
+      "disposition": "PROCEED_TO_EXPOSURE_CONTRACT",
+      "expected_effort": "MEDIUM",
+      "exposure_candidate": "reasoning provenance + governed source/evidence observability",
+      "family": "H8",
+      "held_out_authorized": false,
+      "priority": 3,
+      "production_semantic_change_authorized": false,
+      "rationale": [
+        "Productive provenance context already preserves canonical authority.",
+        "Its guard forbids method selection and reasoning modification.",
+        "A valid H8 exposure still needs existing conflict-resolution evidence."
+      ]
+    }
+  },
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "immediate_contract_wave": [
+    "H7",
+    "H2",
+    "H8"
+  ],
+  "new_authority_authorized": false,
+  "next_gate": "HCPDQ-v2 H7/H2/H8 Existing-Authority Exposure — Contract / Go-No-Go",
+  "priority_order": [
+    "H7",
+    "H2",
+    "H8",
+    "H1",
+    "H3",
+    "H4",
+    "H5"
+  ],
+  "production_semantic_change_authorized": false,
+  "schema_version": "hcpdq-v2-existing-authority-exposure-prioritization-v1",
+  "shadow_observability_wave": [
+    "H1",
+    "H3"
+  ],
+  "status": "AUDITED_PRIORITIZED_HELD_OUT_NO_GO"
+}

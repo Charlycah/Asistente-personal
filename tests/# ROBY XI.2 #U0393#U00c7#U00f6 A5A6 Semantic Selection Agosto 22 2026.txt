@@ -1,0 +1,193 @@
+# ROBY XI.2 — A5/A6 Semantic Selection & Composition
+
+## Architectural Closure / Recertification
+
+**Status:** CLOSED / PASS
+**Official validated baseline:** **12,760 PASS · 0 FAIL · Ruff clean**
+**Previous baseline:** 12,739 PASS · 21 expected RED
+**Authority:** existing `CognitivePlanner`
+
+### 1. Closure evidence
+
+The official validation completed successfully:
+
+* `ruff check .` → **All checks passed!**
+* Full `pytest -q` → **12,760 passed in 280.11s**
+* **0 unexpected failures**
+* **0 regressions detected**
+
+The numerical transition is exact:
+
+**12,739 previous PASS + 21 expected RED → 12,760 PASS**
+
+The 21 previously RED contracts therefore became GREEN while preserving the remainder of the suite.
+
+### 2. Architectural objective recertified
+
+A5/A6 was intended to extend bounded semantic selection and composition through the **existing planning authority**, without creating another cognitive authority.
+
+That objective is **RECERTIFIED**.
+
+Production remains governed by:
+
+**`CognitivePlanner` → single existing authority for this capability**
+
+No new brain, orchestrator, manager, classifier, capability, persistence layer, or autonomous execution path was introduced.
+
+### 3. Causal closure
+
+The closure is not merely numerical.
+
+The implementation resolves the new A5/A6 contracts and the previously known L3 adversarial cases through the **same architectural cause**: expansion of the semantic families already governed by `CognitivePlanner`.
+
+This includes bounded semantic recognition for the authorized families:
+
+* Reasoning
+* Planning
+* Reflection
+* Coordination
+* Decision
+* Weather
+
+The implementation does **not** depend on hard-coded complete sentinel phrases.
+
+Therefore:
+
+**A5/A6 GREEN is causally attributable to the existing authority becoming semantically broader, not to test-specific bypasses.**
+
+### 4. Weather > Current Affairs precedence
+
+The ambiguity identified during the RED phase is closed.
+
+Weather-related semantics, including the relevant *meteorological* family, are recognized by the Weather path before generic temporal markers such as *today/current* can incorrectly drive the request toward Current Affairs.
+
+Certified precedence:
+
+**Weather > Current Affairs when weather semantics are present.**
+
+This is a semantic precedence correction inside the existing governed selection mechanism, not a new routing authority.
+
+### 5. Preserved invariants
+
+The implementation preserves the frozen architectural constraints:
+
+* **one authority per capability**
+* no new brain
+* no parallel orchestrator
+* no new manager
+* no new classifier
+* no new capability
+* no new persistence
+* no new autonomy
+* existing execution routes preserved
+* negation preserved
+* quoted spans preserved
+* distractor resistance preserved
+* provenance preserved
+* owner/scope preserved
+
+`UnifiedCognitiveCoordinator` did not need to become a second semantic-selection authority.
+
+### 6. What A5/A6 now demonstrates
+
+ROBY can select among a broader set of **bounded semantic expressions** belonging to already governed cognitive families without requiring literal correspondence with the original narrow formulations.
+
+This represents an increase in **semantic selection flexibility**.
+
+It demonstrates that the existing cognitive architecture can recognize multiple expressions of an authorized semantic intention and compose the resulting selection through the established planning authority.
+
+### 7. What A5/A6 does NOT certify
+
+This closure must not be interpreted as evidence of unrestricted semantic understanding.
+
+A5/A6 does **not** certify:
+
+* arbitrary open-domain semantic generalization;
+* unrestricted synonym discovery;
+* autonomous creation of new semantic families;
+* autonomous creation of capabilities;
+* a general-purpose semantic classifier;
+* unconstrained cross-domain composition;
+* independent goal creation;
+* autonomous execution;
+* modification of authority boundaries;
+* self-modification of the cognitive architecture;
+* new persistence or learning mechanisms.
+
+The implemented semantic families remain **bounded and governed**.
+
+### 8. Relationship with L3
+
+The five known L3 adversarial RED cases becoming GREEN together with the sixteen new A5/A6 contracts is significant.
+
+They were not repaired through a separate L3 exception path.
+
+Instead, they became GREEN as a consequence of the same semantic-selection improvement introduced for A5/A6.
+
+Accordingly, the implementation provides evidence that the previous L3 limitation and the new A5/A6 limitation shared a common architectural cause within the existing selection authority.
+
+**L3 adversarial recovery is therefore recertified as a consequence of the A5/A6 architectural correction rather than as an independent patch.**
+
+### 9. Regression assessment
+
+Official full-suite validation:
+
+**12,760 PASS · 0 FAIL**
+
+Ruff:
+
+**clean**
+
+There is therefore no test evidence of regression in the currently governed ROBY XI.2 baseline.
+
+The previous 21 expected RED tests have been absorbed into the GREEN baseline.
+
+### 10. New official baseline
+
+The former transitional baseline:
+
+**12,739 PASS · 21 expected RED · Ruff clean**
+
+is superseded by:
+
+# **12,760 PASS · 0 FAIL · Ruff clean**
+
+This becomes the validated baseline following A5/A6 Semantic Selection & Composition.
+
+### 11. Architectural verdict
+
+**A5/A6 SEMANTIC SELECTION & COMPOSITION — CLOSED / RECERTIFIED**
+
+**GO** for closure.
+
+The implementation satisfies the authorized contract:
+
+> Extend bounded semantic selection/composition through the existing `CognitivePlanner` authority while preserving the governed architecture and its established invariants.
+
+No evidence from the validated suite requires a new authority or architectural layer.
+
+### 12. Freeze point
+
+A5/A6 should now enter **freeze**.
+
+No further production expansion should be folded into this increment unless a regression is discovered against its certified contracts.
+
+Any subsequent semantic capability should begin again with:
+
+**Audit → existing-authority determination → Contract / Go-No-Go → RED evidence → minimal production implementation → causal recertification.**
+
+---
+
+## FINAL CERTIFICATION
+
+**A5/A6 Semantic Selection & Composition**
+
+**CLOSED / PASS / ARCHITECTURALLY RECERTIFIED**
+
+**Authority:** `CognitivePlanner`
+**Baseline:** **12,760 PASS · 0 FAIL · Ruff clean**
+**Unexpected failures:** **0**
+**New parallel authorities:** **0**
+**Regression evidence:** **none in the validated suite**
+
+**ROBY XI.2 remains under governed unified architecture.**

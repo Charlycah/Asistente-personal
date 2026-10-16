@@ -1,0 +1,50 @@
+{
+  "architectural_determination": "The evaluation subject may receive only case identity, frozen family/difficulty metadata and prompt text. Ground truth and scoring remain outside the subject boundary. No memory, learning, adaptation, persistence, production mutation or cross-case state is authorized. This freezes the protocol only; primary held-out execution remains blocked pending RED isolation tests and a minimal adapter certification.",
+  "baseline": "12918-pass-0-fail-ruff-clean",
+  "case_count": 30,
+  "certification_precondition_pass": true,
+  "certified_scope": [
+    "H6",
+    "H7"
+  ],
+  "controlled_exposure_authorized": true,
+  "cross_case_result_visibility": false,
+  "fresh_case_context_required": true,
+  "ground_truth_available_to_subject": false,
+  "ground_truth_loaded_by_subject_adapter": false,
+  "ground_truth_path": "benchmarks/hcpdq_v2_h6_h7_ground_truth.json",
+  "human_comparison_authorized": false,
+  "next_gate": "HCPDQ-v2 H6/H7 ROBY Evaluation Run — Pre-Execution RED / Isolation Contract Tests",
+  "order": "case_id",
+  "policy": {
+    "allow_ground_truth_read": false,
+    "allow_human_comparison": false,
+    "allow_learning_writes": false,
+    "allow_memory_writes": false,
+    "allow_persistent_state_writes": false,
+    "allow_primary_execution": false,
+    "allow_production_changes": false,
+    "allow_self_improvement": false,
+    "allow_threshold_adaptation": false,
+    "allowed_families": [
+      "H6",
+      "H7"
+    ]
+  },
+  "policy_closed": true,
+  "preexecution_red_tests_authorized": true,
+  "primary_execution_authorized": false,
+  "production_change_authorized": false,
+  "protocol_fingerprint": "dd637e64be63c141ecb5b7a07ed0fdf0db19902ae924bd507ad7b0b516292667",
+  "retries": 0,
+  "schema_version": "hcpdq-v2-h6-h7-exposure-isolation-protocol-v1",
+  "scoring_occurs_after_raw_capture": true,
+  "status": "PROTOCOL_FROZEN_PREEXECUTION_RED_AUTHORIZED",
+  "subject_envelope_fields": [
+    "case_id",
+    "family",
+    "difficulty",
+    "prompt"
+  ],
+  "subject_envelope_isolated": true
+}

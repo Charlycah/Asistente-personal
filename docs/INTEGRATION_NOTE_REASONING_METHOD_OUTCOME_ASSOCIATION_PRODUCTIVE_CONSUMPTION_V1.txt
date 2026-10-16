@@ -1,0 +1,8 @@
+Post-M409.1 — Governed Reasoning Method ↔ Epistemic Outcome Association — ReasoningContextBundle Productive Consumption v1
+
+Add:
+- app/governed_reasoning_method_outcome_association_productive_consumption.py
+- tests/architecture/test_post_m409_1_governed_reasoning_method_outcome_association_productive_consumption_v1.py
+- docs/POST_M409_1_GOVERNED_REASONING_METHOD_OUTCOME_ASSOCIATION_PRODUCTIVE_CONSUMPTION_V1.md
+
+Preserve all existing core contracts. The consumer only adds a neutral derived context projection and does not modify ReasoningContextBundle, M203, Memory, Learning, or Adaptive Reasoning.

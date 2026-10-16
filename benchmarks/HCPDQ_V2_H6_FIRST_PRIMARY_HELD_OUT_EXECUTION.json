@@ -1,0 +1,162 @@
+{
+  "attempts_per_case": 1,
+  "authorization_consumed": true,
+  "authorization_fingerprint": "21c1bc3bd890b3a6b7c2d6f8ef23899f2d250392fc8f46ee59213dae23532b9e",
+  "authorization_reusable": false,
+  "baseline": "13018-pass-0-fail-ruff-clean",
+  "benchmark_feedback_performed": false,
+  "case_count": 12,
+  "case_order": [
+    "V2E-H6-001",
+    "V2E-H6-002",
+    "V2E-H6-003",
+    "V2E-H6-004",
+    "V2E-H6-005",
+    "V2E-H6-006",
+    "V2E-H6-007",
+    "V2E-H6-008",
+    "V2E-H6-009",
+    "V2E-H6-010",
+    "V2E-H6-011",
+    "V2E-H6-012"
+  ],
+  "cognitive_scoring_authorized_in_this_artifact": false,
+  "family": "H6",
+  "fresh_context_per_case": true,
+  "ground_truth_loaded_during_execution": false,
+  "infrastructure_error_count": 0,
+  "learning_or_adaptation_performed": false,
+  "memory_writeback_performed": false,
+  "next_gate": "HCPDQ-v2 H6 Primary Run — Post-Mortem / Evaluation-Boundary Audit",
+  "primary_execution_complete": true,
+  "raw_captures_sealed": true,
+  "records": [
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-001",
+      "ground_truth_loaded": false,
+      "latency_ms": 3.443,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Aurora» y «Bruma», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "fa487ee47e8127128782d8a85c27bf5d52cfddc3900327b3ffc2f44b2921e2a2",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-002",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.852,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Cedro» y «Duna», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "6566e0a172cbefd9be3f6075ed0171f98a41bd2d7b4b4766655d1f2b786577b8",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-003",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.584,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Estela» y «Faro», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "7d4088e7747e4dd59df44162127f355baaae7c9039928e839580b1c81c41fd34",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-004",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.687,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Greda» y «Helio», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "2693ee183bac51c275d8bfc5a5723a2fe55e9a87ccb54519965a6e92eb8f758c",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-005",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.694,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Ícaro» y «Junco», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "2b95e80390c33970b58515b55ddc3ea50f9765f33dabfc38c57f1cd9836b4f3c",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-006",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.624,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Kappa» y «Lirio», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "bfcd3c5defe81ab7a00ae9c650bf0207fa54e8e65f3aa80b4266cec96046aefc",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-007",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.693,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Marea» y «Nexo», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "5ce1f7bcefbf8dfdc7c235367cc0408f54bb0b2f9fe90012c7307dc369d06b18",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-008",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.738,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Órbita» y «Prado», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "142da661ff15777092ec288228dfaacd712a5e073f3b2b720a45fcd43c1de9ae",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-009",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.772,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Quilla» y «Risco», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "d34ed096a1ada5317a13e2a7b218d0a18b5976a84f83e66439ff4f36924bb75b",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-010",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.792,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Senda» y «Tilo», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "4965cda503163bb397b17b308c630e29c59b7e53527016405815b0a108187892",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-011",
+      "ground_truth_loaded": false,
+      "latency_ms": 1.923,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Umbral» y «Vela», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "fc202786ca40bb51d19dc349e0746504e92af5bd56dec729085cb3e9316e1056",
+      "scoring_performed": false
+    },
+    {
+      "attempt_count": 1,
+      "case_id": "V2E-H6-012",
+      "ground_truth_loaded": false,
+      "latency_ms": 2.4,
+      "measurement_validity": "raw_capture_sealed",
+      "raw_response": "Entre «Wadi» y «Xenia», la evidencia certificada es insuficiente para recomendar una opción por encima de las demás. La decisión queda abierta y sigue siendo tuya.",
+      "raw_response_sha256": "eaca122cf8a1c2e5636bc9e614caeaf3d027211b6e75fea4c27f2fdd72a9d038",
+      "scoring_performed": false
+    }
+  ],
+  "retries_per_case": 0,
+  "run_evidence_fingerprint": "829f682add56e580bee75241950395ad9cc87c61b5743e687515200adb63b013",
+  "run_manifest_fingerprint": "1078d7f9a90bef7135d8a6bcc2fbbc3fea15a95e49f5f957fc409e55d7842a9e",
+  "schema_version": "hcpdq-v2-h6-first-primary-held-out-execution-v1",
+  "scoring_performed_during_execution": false,
+  "sealed_raw_capture_count": 12,
+  "status": "PRIMARY_RUN_COMPLETED_RAW_CAPTURES_SEALED"
+}

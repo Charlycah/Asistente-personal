@@ -1,0 +1,17 @@
+RP.18.1 — Cognitive Architecture Consolidation
+Status: candidate certified build
+
+Validation completed in build environment:
+- RP.10–RP.18 focused suite: 98 passed
+- regression chunk 1: 1615 passed
+- regression chunk 2: 1625 passed
+- compileall: passed
+- generated Python caches: removed
+- ZIP integrity: verified after packaging
+
+The build environment does not provide Ruff. Run the final local certification:
+    ruff check .
+    pytest
+
+No historical cognitive subsystem with active imports or certified consumers was
+removed. Exact duplicate documentation and generated artifacts were removed.

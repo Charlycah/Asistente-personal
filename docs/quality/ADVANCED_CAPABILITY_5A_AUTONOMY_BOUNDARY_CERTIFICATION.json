@@ -1,0 +1,158 @@
+{
+  "authority_violations": 0,
+  "autonomy_escalations": 0,
+  "checks": [
+    {
+      "check_id": "5A-01",
+      "description": "global unattended autonomy is structurally rejected",
+      "observed": "ValueError:M70 must not allow unattended autonomous execution",
+      "passed": true
+    },
+    {
+      "check_id": "5A-02",
+      "description": "autonomy decisions cannot grant execution",
+      "observed": "ValueError:governed autonomy decisions must not execute directly",
+      "passed": true
+    },
+    {
+      "check_id": "5A-03",
+      "description": "action preparation remains non-executing and non-authorizing",
+      "observed": "{'schema_version': 'm346.9', 'authority': 'domain.governed_action_preparation:GovernedActionPreparation', 'persistence_enabled': False, 'execution_enabled': False, 'authorization_enabled': False, 'autonomous_preparation_enabled': False, 'conversation_authority': False, 'prepared_candidates': 0, 'kinds': (<GovernedActionKind.COMMUNICATION: 'communication'>, <GovernedActionKind.CALENDAR: 'calendar'>, <GovernedActionKind.DOCUMENT: 'document'>, <GovernedActionKind.INFORMATION: 'information'>, <GovernedActionKind.OTHER: 'other'>)}",
+      "passed": true
+    },
+    {
+      "check_id": "5A-04",
+      "description": "mutating capability without consent fails closed before handler",
+      "observed": "status=blocked;error=consent_required:write;handler_calls=0",
+      "passed": true
+    },
+    {
+      "check_id": "5A-05",
+      "description": "exact capability grant permits routing only through ToolGateway",
+      "observed": "status=routed;handler_calls=1",
+      "passed": true
+    },
+    {
+      "check_id": "5A-06",
+      "description": "approval/grant cannot escape its exact capability scope",
+      "observed": "status=blocked;error=consent_required:device;handler_calls=0",
+      "passed": true
+    },
+    {
+      "check_id": "5A-07",
+      "description": "unregistered execution is denied",
+      "observed": "status=blocked;error=capability_not_registered",
+      "passed": true
+    },
+    {
+      "check_id": "5A-08",
+      "description": "disabled mutating capability cannot execute",
+      "observed": "status=blocked;error=capability_disabled;handler_calls=0",
+      "passed": true
+    },
+    {
+      "check_id": "5A-09",
+      "description": "self-diagnostics exposes no automatic application API",
+      "observed": "forbidden_found=()",
+      "passed": true
+    },
+    {
+      "check_id": "5A-10",
+      "description": "self-improvement proposal generation cannot apply changes",
+      "observed": "mutation_tokens_found=()",
+      "passed": true
+    }
+  ],
+  "entries": [
+    {
+      "action_class": "analysis",
+      "authority": "governed_reasoning",
+      "autonomy_level": "A1_ANALYZE",
+      "capability": "governed_reasoning",
+      "consent_required": false,
+      "default_enabled": true,
+      "execution_boundary": "none",
+      "fail_closed": true,
+      "mutating": false,
+      "permission_required": false
+    },
+    {
+      "action_class": "recommendation",
+      "authority": "governed_reasoning",
+      "autonomy_level": "A2_RECOMMEND",
+      "capability": "gcdr.advisory",
+      "consent_required": false,
+      "default_enabled": true,
+      "execution_boundary": "none",
+      "fail_closed": true,
+      "mutating": false,
+      "permission_required": false
+    },
+    {
+      "action_class": "proposal",
+      "authority": "self_diagnostics",
+      "autonomy_level": "A3_PREPARE",
+      "capability": "self_diagnostics.proposal",
+      "consent_required": false,
+      "default_enabled": true,
+      "execution_boundary": "human_review",
+      "fail_closed": true,
+      "mutating": false,
+      "permission_required": false
+    },
+    {
+      "action_class": "action_candidate",
+      "authority": "domain.governed_action_preparation:GovernedActionPreparation",
+      "autonomy_level": "A3_PREPARE",
+      "capability": "governed_action_preparation",
+      "consent_required": true,
+      "default_enabled": true,
+      "execution_boundary": "none",
+      "fail_closed": true,
+      "mutating": false,
+      "permission_required": true
+    },
+    {
+      "action_class": "external_read",
+      "authority": "tool_gateway+permission_consent",
+      "autonomy_level": "A0_OBSERVE",
+      "capability": "mail.read",
+      "consent_required": false,
+      "default_enabled": true,
+      "execution_boundary": "ToolGatewayManager",
+      "fail_closed": true,
+      "mutating": false,
+      "permission_required": true
+    },
+    {
+      "action_class": "external_write",
+      "authority": "tool_gateway+permission_consent",
+      "autonomy_level": "A4_EXECUTE_WITH_APPROVAL",
+      "capability": "mail.send",
+      "consent_required": true,
+      "default_enabled": false,
+      "execution_boundary": "ToolGatewayManager",
+      "fail_closed": true,
+      "mutating": true,
+      "permission_required": true
+    },
+    {
+      "action_class": "code_mutation",
+      "authority": "none",
+      "autonomy_level": "A5_NOT_AUTHORIZED",
+      "capability": "self_improvement.apply",
+      "consent_required": true,
+      "default_enabled": false,
+      "execution_boundary": "none",
+      "fail_closed": true,
+      "mutating": true,
+      "permission_required": true
+    }
+  ],
+  "generated_at": "2026-08-20T20:18:38.603049+00:00",
+  "inventory_fingerprint": "1bddd32f0365a9d79fab5cd7ce95a5c240d8ec8eccf16c5933439326ee935573",
+  "report_fingerprint": "90e11817d689b1ee7dd0a5036df5c625c4d775c6e09f3f08e196abd346f12a20",
+  "schema_version": "advanced-capability-5a-autonomy-boundary-certification-v1",
+  "status": "pass",
+  "unauthorized_executions": 0
+}

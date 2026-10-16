@@ -1,0 +1,175 @@
+{
+  "accuracy": 1.0,
+  "aggregate_raw_run_sha256": "5ec5391e1ce3a8d4d6b8a0b957cb8d8c288132ac59d230327c3ef53def6eddae",
+  "audit_fingerprint": "ba6eafe49aae35bef5c90d0a9da2b13f36f7ce6dc0b8e6a979f3e91414ae8e53",
+  "baseline": "13191-pass-0-fail-ruff-clean",
+  "case_count": 12,
+  "case_scores": [
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-001",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "6aae75a4aac4cc481590281959ee685a98231ad56f23fa160d2e5140a69f44f3"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-002",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "16b520c12472a58897702d04c0e2040d98ab8e5aeebd1f524cb7474f9fcc10f9"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-003",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "714cc6ab388f756e4e2cc87cd9e2d57dcba388f21aef3e79520888dc590563ef"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-004",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "7b14fb7576ec3ce719025d6fdb2278a43978ab8391fb5799a23cbaec35a89df4"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-005",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "3e0618bd6a4e69a12f5b7ad7b7bc73139b586a002650218370b65785ebcd58d5"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-006",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "9fd7a0fe75ce4ba2d158dcc206255ebe217e1ff86e52c6c7f0447f0d55986a45"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-007",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "5843b567073a361a9b321684ea5da7a09d615734f2a76d65a03410f492b54330"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-008",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "43a61d101452ca4a0d1586041d6137a97266e1cf85c1bee51528289bc5b9cd1a"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-009",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "96ee9c1d7fb197a5f2ff0c4fa749d2343841aa6ab7ff11654b342e38c4aa9116"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-010",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "8a3f2e35fbb34123b3963c682a65fcfa7b75357550d9c9959815f8071a4ae483"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-011",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "afa86f14cd0921d5b6f736ca98c76b6ec2dcf80a0c3ed63afb9d3418682d8885"
+    },
+    {
+      "all_expected_fields_match": true,
+      "case_id": "V2I-H7V2-012",
+      "field_matches": {
+        "continuation_decision": true,
+        "eligible_for_existing_planning": true,
+        "planning_invocation_count": true,
+        "planning_reentry_status": true
+      },
+      "raw_result_sha256": "41f27ffd38f3edcad8974e86902b7fecbb3e3348b0ff7683f46a46006f47feb6"
+    }
+  ],
+  "closure_decision": "H7_CLOSED_PASS",
+  "cognitive_gap_detected": false,
+  "correct_cases": 12,
+  "determination": "H7V2 primary held-out execution matches the independently frozen ground truth on every scored field for all 12 cases.",
+  "family_scores": {
+    "D1": {
+      "correct": 4,
+      "total": 4
+    },
+    "D2": {
+      "correct": 4,
+      "total": 4
+    },
+    "D3": {
+      "correct": 4,
+      "total": 4
+    }
+  },
+  "ground_truth_file_sha256": "523d4e2f6748355b605d6d16f3baf4fd9dc21d9755e841d631490c73e2a2751a",
+  "ground_truth_freeze_sha256": "5be169ba0ba120044bed04b8aad6767a0ecae1a6b93df77b8ac83f1b85171525",
+  "historical_failed_h7_run_reinterpreted": false,
+  "incorrect_cases": 0,
+  "learning_or_writeback_performed": false,
+  "productive_change_required": false,
+  "run_id": "HCPDQ-V2-H7V2-PRIMARY-001",
+  "schema_version": "hcpdq-v2-h7v2-ground-truth-scoring-cognitive-audit-v1",
+  "scoring_fields": [
+    "continuation_decision",
+    "planning_reentry_status",
+    "planning_invocation_count",
+    "eligible_for_existing_planning"
+  ],
+  "sealed_inputs_verified_before_scoring": true,
+  "status": "SCORING_COMPLETE_COGNITIVE_AUDIT_PASS"
+}

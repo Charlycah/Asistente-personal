@@ -1,0 +1,113 @@
+{
+  "baseline": "12855-pass-0-fail-ruff-clean",
+  "benchmark_specific_routing_authorized": false,
+  "causal_join_rule": "A family may become exposure-certified only when read-only evidence shows the existing authority/productive path actually participated in the observed outcome; metadata presence alone is insufficient.",
+  "contract_fingerprint": "3a727d13d210fd4912beb339033823846deaada5d1054249ce6a4248de082a3c",
+  "cross_family_substitution_authorized": false,
+  "direct_internal_authority_instantiation_authorized": false,
+  "failure_rule": "Missing, ambiguous, unjoined or degraded evidence fails closed as NOT_VALIDLY_MEASURABLE_UNDER_HCPDQ_V2, never CAPABILITY_ABSENT.",
+  "families": {
+    "H2": {
+      "existing_authority": "governed_reasoning + governed operational response decision",
+      "exposure_may_observe": [
+        "sufficiency assessment lineage",
+        "derived-context availability",
+        "response decision",
+        "response confidence",
+        "verification state",
+        "reason code"
+      ],
+      "exposure_must_not_infer": [
+        "epistemic context consumption itself caused abstention",
+        "the evaluation layer may decide to stop or answer",
+        "absence of a joined lineage proves H2 capability absence"
+      ],
+      "family": "H2",
+      "go_no_go": "CONDITIONAL_GO_TO_PREIMPLEMENTATION_RED",
+      "held_out_authorized": false,
+      "observable_evidence": [
+        "epistemic assessment is available as derived read-only context",
+        "consumer does not invoke reasoning or stopping",
+        "response decision explicitly distinguishes ANSWERED/ABSTAINED",
+        "abstention requires WITHHELD confidence and unavailable verification"
+      ],
+      "production_change_authorized": false,
+      "productive_surface": "GovernedEpistemicSufficiencyProductiveConsumptionV1 + ResponseConfidenceRecord",
+      "red_gate_required": true
+    },
+    "H7": {
+      "existing_authority": "planning_foundation",
+      "exposure_may_observe": [
+        "status",
+        "requirement_id",
+        "plan_id",
+        "planning_status",
+        "planning_invocation_count",
+        "eligible_for_authorization",
+        "rationale_codes",
+        "source_fingerprint"
+      ],
+      "exposure_must_not_infer": [
+        "all H7 planning semantics are covered",
+        "plan execution is authorized",
+        "a new planning authority exists",
+        "unbound CanonicalPlanningFacade should be bound for HCPDQ"
+      ],
+      "family": "H7",
+      "go_no_go": "CONDITIONAL_GO_TO_PREIMPLEMENTATION_RED",
+      "held_out_authorized": false,
+      "observable_evidence": [
+        "planning invocation count is 0 or 1",
+        "planned result preserves requirement/plan/source/snapshot lineage",
+        "successful re-entry records new plan from existing planning",
+        "execution, authorization, reasoning and state mutation remain false"
+      ],
+      "production_change_authorized": false,
+      "productive_surface": "GovernedMultiStepInvestigationPlanningReentryV1",
+      "red_gate_required": true
+    },
+    "H8": {
+      "existing_authority": "governed_reasoning",
+      "exposure_may_observe": [
+        "provenance lineage",
+        "conflict identifiers",
+        "resolution status",
+        "selected claim identifier when already resolved",
+        "review requirement",
+        "confidence"
+      ],
+      "exposure_must_not_infer": [
+        "provenance availability itself resolved a conflict",
+        "the evaluation layer may rank sources or select claims",
+        "benchmark-specific conflict policy is authorized"
+      ],
+      "family": "H8",
+      "go_no_go": "CONDITIONAL_GO_TO_PREIMPLEMENTATION_RED",
+      "held_out_authorized": false,
+      "observable_evidence": [
+        "method provenance is exposed as derived read-only context",
+        "provenance consumer cannot rank/select/recommend methods",
+        "governed reasoning contains existing conflict-resolution decisions",
+        "official runtime exposes the existing governed reasoning pipeline"
+      ],
+      "production_change_authorized": false,
+      "productive_surface": "GovernedReasoningMethodProvenanceProductiveConsumptionV1 + OfficialGovernedReasoningRuntimeGateway conflict analysis",
+      "red_gate_required": true
+    }
+  },
+  "go_to_preimplementation_red": true,
+  "ground_truth_available_to_exposure": false,
+  "held_out_construction_authorized": false,
+  "human_comparison_authorized": false,
+  "minimal_production_implementation_authorized": false,
+  "new_authority_authorized": false,
+  "next_gate": "HCPDQ-v2 H7/H2/H8 Existing-Authority Exposure — Pre-Implementation RED Contract Tests",
+  "persistence_or_adaptation_authorized": false,
+  "schema_version": "hcpdq-v2-h7-h2-h8-exposure-contract-v1",
+  "status": "CONTRACT_FROZEN_CONDITIONAL_GO_HELD_OUT_NO_GO",
+  "wave": [
+    "H7",
+    "H2",
+    "H8"
+  ]
+}

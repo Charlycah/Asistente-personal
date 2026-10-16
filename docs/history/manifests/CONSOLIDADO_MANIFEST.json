@@ -1,0 +1,9 @@
+{
+  "package": "ROBY_M229_CONSOLIDADO_LIMPIO",
+  "generated_at_utc": "2026-07-20T21:31:08.394363+00:00",
+  "source_archive": "e3081b0c-d23c-435d-91ff-a387f3dbe865.zip",
+  "source_root": "ultima version",
+  "included_files": 1764,
+  "excluded_files": 40,
+  "privacy_policy": "Excluded .env, config.json, data/, .hal/, .roby/ runtime state, credentials, sessions, memory databases, traces, caches and generated files. Retained .env.example, config.example.json and .roby/credentials.example.json."
+}

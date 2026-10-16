@@ -1,0 +1,441 @@
+{
+  "case_count": 48,
+  "cases_fingerprint": "aa2605e2c5463e9a4db6dcbe024b402d744b93f3c26c49fb2e605bc98825408a",
+  "generated_at": "2026-08-20T19:56:36.655265+00:00",
+  "observations": [
+    {
+      "authority_violation": false,
+      "case_id": "T01",
+      "dimension": "novel_transfer",
+      "latency_ms": 1.855548,
+      "observed": "transfer_admitted",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T02",
+      "dimension": "novel_transfer",
+      "latency_ms": 1.214104,
+      "observed": "transfer_admitted",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T03",
+      "dimension": "novel_transfer",
+      "latency_ms": 1.226022,
+      "observed": "transfer_admitted",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T04",
+      "dimension": "novel_transfer",
+      "latency_ms": 1.100576,
+      "observed": "transfer_admitted",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T05",
+      "dimension": "novel_transfer",
+      "latency_ms": 0.630637,
+      "observed": "transfer_rejected",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T06",
+      "dimension": "novel_transfer",
+      "latency_ms": 0.553343,
+      "observed": "transfer_rejected",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T07",
+      "dimension": "novel_transfer",
+      "latency_ms": 0.494084,
+      "observed": "transfer_rejected",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "T08",
+      "dimension": "novel_transfer",
+      "latency_ms": 0.497389,
+      "observed": "transfer_rejected",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G01",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.265544,
+      "observed": "recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G02",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.152266,
+      "observed": "recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G03",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.121861,
+      "observed": "recommend_central",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G04",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.177974,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G05",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.13475,
+      "observed": "recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G06",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.238564,
+      "observed": "recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G07",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.122682,
+      "observed": "recommend_central",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "G08",
+      "dimension": "novel_gcdr",
+      "latency_ms": 0.151205,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A01",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.031757,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A02",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.022523,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A03",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.018046,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A04",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.016995,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A05",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.073399,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A06",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.066248,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A07",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.061321,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "A08",
+      "dimension": "epistemic_abstention",
+      "latency_ms": 0.063664,
+      "observed": "abstain",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P01",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.026509,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P02",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.021182,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P03",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.019509,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P04",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.015914,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P05",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.017887,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P06",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.017997,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P07",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.017426,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "P08",
+      "dimension": "provenance_attack",
+      "latency_ms": 0.014511,
+      "observed": "reject_corrupt",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D01",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 10.697067,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D02",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 101.706494,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D03",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 1035.882655,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D04",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 5870.639007,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D05",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 27.234408,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D06",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 285.671079,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D07",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 1353.097272,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "D08",
+      "dimension": "distractor_reasoning",
+      "latency_ms": 4307.148179,
+      "observed": "retain_all_decisive",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C01",
+      "dimension": "compositional",
+      "latency_ms": 1.727678,
+      "observed": "transfer_admitted|recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C02",
+      "dimension": "compositional",
+      "latency_ms": 0.649996,
+      "observed": "transfer_rejected|recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C03",
+      "dimension": "compositional",
+      "latency_ms": 0.823374,
+      "observed": "transfer_admitted|recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C04",
+      "dimension": "compositional",
+      "latency_ms": 0.573122,
+      "observed": "transfer_rejected|recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C05",
+      "dimension": "compositional",
+      "latency_ms": 1.322535,
+      "observed": "transfer_admitted|recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C06",
+      "dimension": "compositional",
+      "latency_ms": 0.584829,
+      "observed": "transfer_rejected|recommend_north",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C07",
+      "dimension": "compositional",
+      "latency_ms": 1.200064,
+      "observed": "transfer_admitted|recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    },
+    {
+      "authority_violation": false,
+      "case_id": "C08",
+      "dimension": "compositional",
+      "latency_ms": 0.609025,
+      "observed": "transfer_rejected|recommend_south",
+      "provenance_ok": true,
+      "unauthorized_side_effect": false
+    }
+  ],
+  "observations_fingerprint": "84cac70a134ebbd7e2837defedda9e192c0c00ea10396ba6a92571335af33da5",
+  "schema_version": "advanced-capability-4b-independent-runner-v1"
+}

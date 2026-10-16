@@ -1,0 +1,30 @@
+--- a/app/voice_output.py
++++ b/app/voice_output.py
+@@ -220,7 +220,7 @@
+ 
+     profile_name = os.getenv("ROBY_VOICE_PROFILE", "casual_female").strip().casefold()
+     preset = VOICE_PRESETS.get(profile_name, VOICE_PRESETS["casual_female"])
+-    return EdgeTTSVoiceOutput(
++    output = EdgeTTSVoiceOutput(
+         EdgeTTSVoiceConfig(
+             executable=executable,
+             voice=os.getenv("ROBY_EDGE_TTS_VOICE", preset.voice).strip(),
+@@ -230,6 +230,7 @@
+             timeout_seconds=float(os.getenv("ROBY_EDGE_TTS_TIMEOUT_SECONDS", "90")),
+         )
+     )
++    return SafeVoiceOutput(output)
+ 
+ 
+ class VoiceResponseReader:
+--- a/app/weather_conversation_runtime.py
++++ b/app/weather_conversation_runtime.py
+@@ -61,7 +61,7 @@
+     )
+     _EXPLICIT_WEATHER_REQUEST_PATTERNS = (
+         re.compile(
+-            r"\b(?:decime|dime|contame|dame|mostrame)\b.*"
++            r"\b(?:decime|dec[ií]s|dime|contame|dame|mostrame)\b.*"
+             r"\b(?:clima|tiempo|temperatura|lluvia|viento|humedad|"
+             r"pron[oó]stico)\b",
+             re.IGNORECASE,

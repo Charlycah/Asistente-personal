@@ -1,0 +1,45 @@
+﻿# ROBY XI.2 — Exclusiones locales de Git
+
+# Entornos virtuales
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Caches de herramientas
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.coverage
+htmlcov/
+
+# Estado operativo local de ROBY
+.roby/
+
+# Configuracion local y credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Archivos temporales y copias locales
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Archivos comprimidos de entrega
+*.zip
+*.7z
+*.rar
+
+# Entornos de desarrollo
+.idea/
+.vscode/

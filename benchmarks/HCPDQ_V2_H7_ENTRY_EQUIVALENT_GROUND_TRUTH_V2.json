@@ -1,0 +1,94 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "V2I-H7V2-001",
+      "expected_continuation_decision": "continue_allowed",
+      "expected_eligible_for_existing_planning": true,
+      "expected_planning_invocation_count": 1,
+      "expected_planning_reentry_status": "planned"
+    },
+    {
+      "case_id": "V2I-H7V2-002",
+      "expected_continuation_decision": "continue_allowed",
+      "expected_eligible_for_existing_planning": true,
+      "expected_planning_invocation_count": 1,
+      "expected_planning_reentry_status": "planned"
+    },
+    {
+      "case_id": "V2I-H7V2-003",
+      "expected_continuation_decision": "continue_allowed",
+      "expected_eligible_for_existing_planning": true,
+      "expected_planning_invocation_count": 1,
+      "expected_planning_reentry_status": "planned"
+    },
+    {
+      "case_id": "V2I-H7V2-004",
+      "expected_continuation_decision": "continue_allowed",
+      "expected_eligible_for_existing_planning": true,
+      "expected_planning_invocation_count": 1,
+      "expected_planning_reentry_status": "planned"
+    },
+    {
+      "case_id": "V2I-H7V2-005",
+      "expected_continuation_decision": "stop_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-006",
+      "expected_continuation_decision": "stop_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-007",
+      "expected_continuation_decision": "stop_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-008",
+      "expected_continuation_decision": "stop_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-009",
+      "expected_continuation_decision": "review_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-010",
+      "expected_continuation_decision": "review_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-011",
+      "expected_continuation_decision": "review_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    },
+    {
+      "case_id": "V2I-H7V2-012",
+      "expected_continuation_decision": "review_required",
+      "expected_eligible_for_existing_planning": false,
+      "expected_planning_invocation_count": 0,
+      "expected_planning_reentry_status": "not_eligible"
+    }
+  ],
+  "derivation_basis": "frozen causal case construction only; no primary outputs",
+  "freeze_sha256": "5be169ba0ba120044bed04b8aad6767a0ecae1a6b93df77b8ac83f1b85171525",
+  "namespace": "V2I-H7V2",
+  "schema_version": "hcpdq-v2-h7v2-ground-truth-v1",
+  "status": "FROZEN_SEALED_BEFORE_PRIMARY_EXECUTION"
+}

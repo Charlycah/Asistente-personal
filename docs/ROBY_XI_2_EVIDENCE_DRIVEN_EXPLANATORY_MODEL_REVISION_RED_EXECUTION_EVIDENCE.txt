@@ -1,0 +1,90 @@
+$ python -m pytest -q /mnt/data/test_evidence_driven_explanatory_model_revision_contract_red.py
+
+[31mF[0m[31mF[0m[31mF[0m[31mF[0m[32m.[0m[31m                                                                    [100%][0m
+=================================== FAILURES ===================================
+[31m[1m_ test_revision_composition_contract_exists_under_existing_reasoning_authority _[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_revision_composition_contract_exists_under_existing_reasoning_authority[39;49;00m():[90m[39;49;00m
+        spec = importlib.util.find_spec([33m"[39;49;00m[33mapp.governed_explanatory_model_revision[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+>       [94massert[39;49;00m spec [95mis[39;49;00m [95mnot[39;49;00m [94mNone[39;49;00m, ([90m[39;49;00m
+            [33m"[39;49;00m[33mRED: missing governed composition boundary for evidence-driven [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+            [33m"[39;49;00m[33mexplanatory-model revision[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+        )[90m[39;49;00m
+[1m[31mE       AssertionError: RED: missing governed composition boundary for evidence-driven explanatory-model revision[0m
+[1m[31mE       assert None is not None[0m
+
+[1m[31m../../test_evidence_driven_explanatory_model_revision_contract_red.py[0m:17: AssertionError
+[31m[1m_ test_gateway_has_productive_revision_binding_without_new_reasoning_authority _[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_gateway_has_productive_revision_binding_without_new_reasoning_authority[39;49;00m():[90m[39;49;00m
+        gateway = OfficialGovernedReasoningRuntimeGateway()[90m[39;49;00m
+>       [94massert[39;49;00m [96mcallable[39;49;00m([90m[39;49;00m
+            [96mgetattr[39;49;00m(gateway, [33m"[39;49;00m[33mbind_productive_explanatory_model_revision[39;49;00m[33m"[39;49;00m, [94mNone[39;49;00m)[90m[39;49;00m
+        ), ([90m[39;49;00m
+            [33m"[39;49;00m[33mRED: acquired-evidence re-entry cannot yet be composed back into the [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+            [33m"[39;49;00m[33msame governed explanatory-model lineage[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+        )[90m[39;49;00m
+[1m[31mE       AssertionError: RED: acquired-evidence re-entry cannot yet be composed back into the same governed explanatory-model lineage[0m
+[1m[31mE       assert False[0m
+[1m[31mE        +  where False = callable(None)[0m
+[1m[31mE        +    where None = getattr(<app.governed_reasoning_runtime.OfficialGovernedReasoningRuntimeGateway object at 0x7f80f405fe20>, 'bind_productive_explanatory_model_revision', None)[0m
+
+[1m[31m../../test_evidence_driven_explanatory_model_revision_contract_red.py[0m:28: AssertionError
+[31m[1m_____ test_gateway_exposes_same_turn_revision_and_exact_reference_lineage ______[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_gateway_exposes_same_turn_revision_and_exact_reference_lineage[39;49;00m():[90m[39;49;00m
+        gateway = OfficialGovernedReasoningRuntimeGateway()[90m[39;49;00m
+>       [94massert[39;49;00m [96mcallable[39;49;00m([90m[39;49;00m
+            [96mgetattr[39;49;00m(gateway, [33m"[39;49;00m[33mproductive_explanatory_model_revision[39;49;00m[33m"[39;49;00m, [94mNone[39;49;00m)[90m[39;49;00m
+        ), [33m"[39;49;00m[33mRED: no same-turn revised explanatory-model accessor exists[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+[1m[31mE       AssertionError: RED: no same-turn revised explanatory-model accessor exists[0m
+[1m[31mE       assert False[0m
+[1m[31mE        +  where False = callable(None)[0m
+[1m[31mE        +    where None = getattr(<app.governed_reasoning_runtime.OfficialGovernedReasoningRuntimeGateway object at 0x7f80f43521e0>, 'productive_explanatory_model_revision', None)[0m
+
+[1m[31m../../test_evidence_driven_explanatory_model_revision_contract_red.py[0m:38: AssertionError
+[31m[1m_______ test_reasoning_source_has_consultative_revision_context_surface ________[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_reasoning_source_has_consultative_revision_context_surface[39;49;00m():[90m[39;49;00m
+        source = CanonicalProductiveReasoningSource([90m[39;49;00m
+            OfficialGovernedReasoningRuntimeGateway()[90m[39;49;00m
+        )[90m[39;49;00m
+>       [94massert[39;49;00m [96mcallable[39;49;00m([90m[39;49;00m
+            [96mgetattr[39;49;00m(source, [33m"[39;49;00m[33mexplanatory_model_revision_context_lines[39;49;00m[33m"[39;49;00m, [94mNone[39;49;00m)[90m[39;49;00m
+        ), ([90m[39;49;00m
+            [33m"[39;49;00m[33mRED: revised explanatory model cannot yet reach ordinary Reasoning [39;49;00m[33m"[39;49;00m[90m[39;49;00m
+            [33m"[39;49;00m[33mas consultative context[39;49;00m[33m"[39;49;00m[90m[39;49;00m
+        )[90m[39;49;00m
+[1m[31mE       AssertionError: RED: revised explanatory model cannot yet reach ordinary Reasoning as consultative context[0m
+[1m[31mE       assert False[0m
+[1m[31mE        +  where False = callable(None)[0m
+[1m[31mE        +    where None = getattr(<app.governed_reasoning_runtime.CanonicalProductiveReasoningSource object at 0x7f80f4112fa0>, 'explanatory_model_revision_context_lines', None)[0m
+
+[1m[31m../../test_evidence_driven_explanatory_model_revision_contract_red.py[0m:50: AssertionError
+[36m[1m=========================== short test summary info ============================[0m
+[31mFAILED[0m ../../test_evidence_driven_explanatory_model_revision_contract_red.py::[1mtest_revision_composition_contract_exists_under_existing_reasoning_authority[0m - AssertionError: RED: missing governed composition boundary for evidence-driven explanatory-model revision
+assert None is not None
+[31mFAILED[0m ../../test_evidence_driven_explanatory_model_revision_contract_red.py::[1mtest_gateway_has_productive_revision_binding_without_new_reasoning_authority[0m - AssertionError: RED: acquired-evidence re-entry cannot yet be composed back into the same governed explanatory-model lineage
+assert False
+ +  where False = callable(None)
+ +    where None = getattr(<app.governed_reasoning_runtime.OfficialGovernedReasoningRuntimeGateway object at 0x7f80f405fe20>, 'bind_productive_explanatory_model_revision', None)
+[31mFAILED[0m ../../test_evidence_driven_explanatory_model_revision_contract_red.py::[1mtest_gateway_exposes_same_turn_revision_and_exact_reference_lineage[0m - AssertionError: RED: no same-turn revised explanatory-model accessor exists
+assert False
+ +  where False = callable(None)
+ +    where None = getattr(<app.governed_reasoning_runtime.OfficialGovernedReasoningRuntimeGateway object at 0x7f80f43521e0>, 'productive_explanatory_model_revision', None)
+[31mFAILED[0m ../../test_evidence_driven_explanatory_model_revision_contract_red.py::[1mtest_reasoning_source_has_consultative_revision_context_surface[0m - AssertionError: RED: revised explanatory model cannot yet reach ordinary Reasoning as consultative context
+assert False
+ +  where False = callable(None)
+ +    where None = getattr(<app.governed_reasoning_runtime.CanonicalProductiveReasoningSource object at 0x7f80f4112fa0>, 'explanatory_model_revision_context_lines', None)
+[31m[31m[1m4 failed[0m, [32m1 passed[0m[31m in 1.65s[0m[0m
+
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.

@@ -1,0 +1,37 @@
+{
+  "adapter_changed": false,
+  "benchmark_specific_behavior_added": false,
+  "entry_path_changed": false,
+  "family": "H6",
+  "focused_existing_reasoner_tests": {
+    "fail": 0,
+    "pass": 22
+  },
+  "ground_truth_changed": false,
+  "held_out_rerun": false,
+  "implementation": {
+    "authority": "GovernedComplexDecisionReasoningFoundationV1",
+    "blocked_competitors_preserved": true,
+    "generic_incomplete_evidence_dominance_added": false,
+    "report_invariant_extended_only_for_required_survivor": true,
+    "rule": "recommend exactly one option that explicitly satisfies every required criterion when every competitor is BLOCKED by a required criterion",
+    "unknown_nonrequired_evidence_preserved": true
+  },
+  "implementation_fingerprint": "3e901887117ab0c71a3b1b775c09caeb699dbf4029706f06f46622dde762aec1",
+  "input_state": "13060-pass-1-intentional-red-ruff-clean",
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Causal / Architectural Recertification",
+  "old_primary_rescored": false,
+  "preimplementation_contracts": {
+    "fail": 0,
+    "pass": 6
+  },
+  "production_files_changed": [
+    "core/governed_complex_decision_reasoning.py"
+  ],
+  "relevant_gcdr_complex_decision_surface": {
+    "fail": 0,
+    "pass": 118
+  },
+  "schema_version": "hcpdq-v2-h6-minimal-governed-implementation-v1",
+  "status": "MINIMAL_GOVERNED_IMPLEMENTATION_GREEN"
+}

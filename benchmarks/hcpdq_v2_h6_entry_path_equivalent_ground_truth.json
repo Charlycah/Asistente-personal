@@ -1,0 +1,116 @@
+[
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-001",
+    "expected_decision": "Aurora",
+    "key_criteria": [
+      "integridad",
+      "reversibilidad"
+    ],
+    "rationale": "Aurora dominates the required/safety-relevant evidence while Bruma fails integridad."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-002",
+    "expected_decision": "Cedro",
+    "key_criteria": [
+      "fiabilidad",
+      "recuperación"
+    ],
+    "rationale": "Cedro has favorable evidence on reliability and recovery; Duna lacks reliability."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-003",
+    "expected_decision": "Estela",
+    "key_criteria": [
+      "impacto",
+      "recursos"
+    ],
+    "rationale": "Estela satisfies impact and resources while Faro explicitly fails impact."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-004",
+    "expected_decision": "Greda",
+    "key_criteria": [
+      "seguridad",
+      "mantenibilidad"
+    ],
+    "rationale": "Greda carries the favorable safety and maintainability evidence."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-005",
+    "expected_decision": "Ícaro",
+    "key_criteria": [
+      "continuidad",
+      "auditoría"
+    ],
+    "rationale": "Ícaro satisfies continuity and auditability; Junco fails continuity."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-006",
+    "expected_decision": "Kappa",
+    "key_criteria": [
+      "calidad",
+      "reversibilidad"
+    ],
+    "rationale": "Kappa satisfies quality and reversibility while Lirio fails quality."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-007",
+    "expected_decision": "Marea",
+    "key_criteria": [
+      "seguridad"
+    ],
+    "rationale": "Safety is mandatory; Marea satisfies it and Nexo explicitly does not."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-008",
+    "expected_decision": "Órbita",
+    "key_criteria": [
+      "fiabilidad"
+    ],
+    "rationale": "Reliability is mandatory; only Órbita satisfies it."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-009",
+    "expected_decision": "Quilla",
+    "key_criteria": [
+      "privacidad"
+    ],
+    "rationale": "Privacy is mandatory; Quilla satisfies it and Risco fails it."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-010",
+    "expected_decision": "Senda",
+    "key_criteria": [
+      "trazabilidad"
+    ],
+    "rationale": "Traceability is mandatory; only Senda has favorable evidence for it."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-011",
+    "expected_decision": "Umbral",
+    "key_criteria": [
+      "resiliencia"
+    ],
+    "rationale": "Resilience is mandatory; Umbral satisfies it and Vela does not."
+  },
+  {
+    "acceptable_outcome": "recommend_expected_or_explicitly_identify_same_decisive_evidence",
+    "case_id": "V2E-H6-012",
+    "expected_decision": "Wadi",
+    "key_criteria": [
+      "control"
+    ],
+    "rationale": "Control is mandatory; Wadi satisfies it and Xenia fails it."
+  }
+]

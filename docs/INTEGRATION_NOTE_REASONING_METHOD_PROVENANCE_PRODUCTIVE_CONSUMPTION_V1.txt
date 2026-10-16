@@ -1,0 +1,17 @@
+Post-M409.1 — Governed Reasoning Method Provenance — ReasoningContextBundle Productive Consumption v1
+
+Integrate this delta over the certified 11,853-tests + Ruff-clean baseline.
+
+Adds:
+- app/governed_reasoning_method_provenance_productive_consumption.py
+- tests/architecture/test_post_m409_1_governed_reasoning_method_provenance_productive_consumption_v1.py
+- docs/POST_M409_1_GOVERNED_REASONING_METHOD_PROVENANCE_PRODUCTIVE_CONSUMPTION_V1.md
+
+Carries forward the already certified Method Provenance Foundation v1 files from the
+previous delta.
+
+No changes are required in ReasoningContextBundle, the derived-assessment Protocol,
+Method Provenance Foundation, M203, Memory, Learning, Reflection, Curiosity, Planning,
+or Adaptive Reasoning.
+
+Expected full-suite baseline if exactly 11 tests are added: 11,864 tests + Ruff clean.

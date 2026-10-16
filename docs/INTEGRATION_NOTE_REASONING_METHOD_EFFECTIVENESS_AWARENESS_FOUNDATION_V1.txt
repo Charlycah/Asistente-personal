@@ -1,0 +1,14 @@
+Post-M409.1 — Governed Reasoning Method Effectiveness Awareness Foundation v1
+
+Added:
+- core/governed_reasoning/reasoning_method_effectiveness_awareness.py
+- tests/architecture/test_post_m409_1_governed_reasoning_method_effectiveness_awareness_foundation_v1.py
+- docs/POST_M409_1_GOVERNED_REASONING_METHOD_EFFECTIVENESS_AWARENESS_FOUNDATION_V1.md
+
+Boundary:
+- consumes exactly one certified GovernedReasoningMethodOutcomeAssociation;
+- evaluation scope reuses source_reference;
+- interprets observed support only;
+- no global/causal effectiveness, comparison, scoring, ranking, selection,
+  recommendation, adaptation, Learning, Memory, persistence or execution;
+- no ReasoningContextBundle/productive wiring in this increment.

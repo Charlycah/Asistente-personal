@@ -1,0 +1,3 @@
+RP.14 — Cognitive Thought Stream
+Status: certified and documented by RP.18.1
+Authoritative implementation: app/cognitive_thought_stream.py

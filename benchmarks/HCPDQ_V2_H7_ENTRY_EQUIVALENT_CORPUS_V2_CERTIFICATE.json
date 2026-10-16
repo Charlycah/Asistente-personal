@@ -1,0 +1,43 @@
+{
+  "case_count": 12,
+  "case_level_outputs_persisted": false,
+  "certificate_fingerprint": "aa2daf271f78fff2b4184c41ceda713125baf1dcf6c30c8b1541899d09e9f93d",
+  "corpus_file": "HCPDQ_V2_H7_ENTRY_EQUIVALENT_CORPUS_V2.json",
+  "corpus_file_sha256": "3782460168309b9c9d931e2cd7d3b2c2ae513609de9fc51a87a123e0439b9b24",
+  "corpus_freeze_sha256": "a646363abc5bb3a3f312fa6827d541cbb78ecf4b4a2f572cb92d998da6a608b4",
+  "dry_probe_method": "reconstruct each frozen case through exact productive constructors, then invoke productive continuation and planning re-entry without ground truth",
+  "exact_types_materialized": [
+    "GovernedInvestigationEpisodeState",
+    "DiscriminatingEvidenceRequirement or None",
+    "GovernedMultiStepInvestigationProductiveContinuation",
+    "GovernedInvestigationPlanningReentryResult"
+  ],
+  "execution_authorized": false,
+  "ground_truth_created_or_opened": false,
+  "materialization_failures": 0,
+  "materialized_productive_type_count": 12,
+  "next_gate": "HCPDQ-v2 H7 — Preflight + Primary Execution",
+  "observed_topology_counts": [
+    {
+      "continuation_decision": "continue_allowed",
+      "count": 4,
+      "planning_reentry_status": "planned"
+    },
+    {
+      "continuation_decision": "review_required",
+      "count": 4,
+      "planning_reentry_status": "not_eligible"
+    },
+    {
+      "continuation_decision": "stop_required",
+      "count": 4,
+      "planning_reentry_status": "not_eligible"
+    }
+  ],
+  "old_h7_corpus_mutated": false,
+  "old_h7_run_mutated": false,
+  "roby_learning_or_writeback": false,
+  "schema_version": "hcpdq-v2-h7-entry-equivalent-corpus-v2-certificate-v1",
+  "scoring_performed": false,
+  "status": "REAL_DRY_PROBE_CERTIFIED_AND_FROZEN"
+}

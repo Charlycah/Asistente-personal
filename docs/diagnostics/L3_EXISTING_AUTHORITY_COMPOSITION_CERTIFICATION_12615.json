@@ -1,0 +1,67 @@
+{
+  "schema_version": "l3-existing-authority-composition-certification-v1",
+  "generated_at": "2026-08-21T17:56:38.786272+00:00",
+  "baseline": "12615_passed_ruff_clean_user_validated",
+  "diagnostic_only": true,
+  "production_roots_modified_by_certification": [],
+  "production_fingerprint_before": "c0308f43f22116d1e4f1fc65947467f177f2dcf6281f8c48aa1d6e8b3ed025f9",
+  "production_fingerprint_after": "c0308f43f22116d1e4f1fc65947467f177f2dcf6281f8c48aa1d6e8b3ed025f9",
+  "production_fingerprint_preserved": true,
+  "gates": [
+    {
+      "gate_id": "A5",
+      "title": "Problem-driven cognitive stage relevance",
+      "status": "PARTIAL",
+      "evidence": [
+        "generic_activated_stages=()",
+        "reasoning_prompt_activated_stages=('reasoning', 'planning', 'reflection', 'executive')",
+        "planning_prompt_activated_stages=('reasoning', 'planning', 'reflection', 'executive')",
+        "reflection_prompt_activated_stages=('reasoning', 'planning', 'reflection', 'executive')",
+        "coarse_bundle_confirmed=True"
+      ],
+      "conclusion": "The official source distinguishes cognitive versus non-cognitive turns, but its current trigger is shared by reasoning, planning, reflection, and executive coordination. Stage-by-stage relevance selection is therefore not causally demonstrated."
+    },
+    {
+      "gate_id": "A6",
+      "title": "Novel advisory composition through existing authorities",
+      "status": "PARTIAL",
+      "evidence": [
+        "shadow_required_tools=('memory', 'weather')",
+        "shadow_multitool_without_explicit_clause_split=True",
+        "planning_shadow_role=shadow",
+        "planning_shadow_operational=False",
+        "decision_primary_role=primary",
+        "decision_primary_operational=True",
+        "novel_primary_scenario=None",
+        "decision_shadow_nonoperational=True"
+      ],
+      "conclusion": "Existing shadow planning can represent a multi-need composition without explicit clause routing, but it is intentionally non-operational. The operational Decision primary does not recognize the novel problem outside its predeclared scenarios. A6 therefore cannot close by certification alone."
+    },
+    {
+      "gate_id": "G1",
+      "title": "Execution authority remains unchanged",
+      "status": "PASS_BY_DESIGN",
+      "evidence": [
+        "planning_shadow_remains_nonoperational",
+        "decision_shadow_remains_nonoperational",
+        "no_new_execution_route_created"
+      ],
+      "conclusion": "The diagnostic preserves the authority map and does not promote shadow components or bypass the official execution authority."
+    }
+  ],
+  "status_counts": {
+    "PASS": 0,
+    "PASS_BY_DESIGN": 1,
+    "PARTIAL": 2,
+    "FAIL": 0
+  },
+  "a5_certified": false,
+  "a6_certified": false,
+  "existing_authority_composition_certified": false,
+  "closure_status": "PARTIAL",
+  "architectural_result": "MINIMAL_PRODUCTION_CONTRACT_JUSTIFIED",
+  "production_authorized": false,
+  "next_gate": "minimal_production_contract_a5_a6",
+  "self_test_returncode": 0,
+  "self_test_summary": "6 passed in 0.86s"
+}

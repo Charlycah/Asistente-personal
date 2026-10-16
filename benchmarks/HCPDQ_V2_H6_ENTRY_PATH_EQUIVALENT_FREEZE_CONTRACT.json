@@ -1,0 +1,75 @@
+{
+  "architectural_determination": "H6 can support a new independent evaluation only through its existing structured productive intake. This contract freezes the construction constraints but intentionally does not yet authorize case creation. First, representative non-held-out dry probes must demonstrate that the exact frozen intake form reaches the same productive H6 authority without translation or routing.",
+  "baseline": "12964-pass-0-fail-ruff-clean",
+  "benchmark_router_authorized": false,
+  "benchmark_translation_authorized": false,
+  "case_content_created": false,
+  "case_count_frozen": false,
+  "construction_authorized": false,
+  "construction_contract_frozen": true,
+  "consumed_v2_case_paraphrase_authorized": false,
+  "consumed_v2_case_reuse_authorized": false,
+  "contract_fingerprint": "2bdb00b01598644c7a639e6ce78b25fabd62393d999743cc42a3cc2c5d95c66b",
+  "difficulty_distribution_frozen": false,
+  "dry_probe_cases_are_held_out": false,
+  "entry_path": "existing explicit Decisión/Criterios/Evidencia intake grammar",
+  "existing_authority": "official conversation gateway -> productive GCDR intake",
+  "family": "H6",
+  "ground_truth_created": false,
+  "ground_truth_frozen": false,
+  "human_comparison_authorized": false,
+  "next_gate": "HCPDQ-v2 H6 Entry-Path Equivalent Corpus — Dry-Probe Certification / Construction Authorization",
+  "next_required_decision": "freeze case-count/difficulty design and certify representative entry-path dry probes before constructing any held-out case",
+  "primary_execution_authorized": false,
+  "production_change_authorized": false,
+  "roby_exposure_authorized": false,
+  "rules": [
+    {
+      "mandatory": true,
+      "requirement": "Every case must use the existing Decisión/Criterios/Evidencia intake.",
+      "rule_id": "H6F-01"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Case identifiers and case content must be new and independently authored.",
+      "rule_id": "H6F-02"
+    },
+    {
+      "mandatory": true,
+      "requirement": "No consumed HCPDQ-v2 case may be reused, paraphrased or semantically rewritten.",
+      "rule_id": "H6F-03"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Ground truth must be authored and frozen before any ROBY exposure.",
+      "rule_id": "H6F-04"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Ground truth must not be visible to the evaluation subject or intake path.",
+      "rule_id": "H6F-05"
+    },
+    {
+      "mandatory": true,
+      "requirement": "The productive H6 entry path must be certified on representative dry probes.",
+      "rule_id": "H6F-06"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Dry probes may verify routing only and must not reveal future held-out cases.",
+      "rule_id": "H6F-07"
+    },
+    {
+      "mandatory": true,
+      "requirement": "No benchmark-specific translation, semantic router or production change is allowed.",
+      "rule_id": "H6F-08"
+    },
+    {
+      "mandatory": true,
+      "requirement": "Corpus construction and ground-truth freeze do not authorize ROBY execution.",
+      "rule_id": "H6F-09"
+    }
+  ],
+  "schema_version": "hcpdq-v2-h6-independent-freeze-contract-v1",
+  "status": "CONTRACT_FROZEN_CONSTRUCTION_NOT_YET_AUTHORIZED"
+}

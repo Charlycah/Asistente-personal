@@ -1,0 +1,33 @@
+ROBY XI.2 — RP.13 Cognitive Reflection Engine
+Certification baseline: RP.12 (6300 tests)
+
+Implemented:
+- CognitiveReflectionOutcome
+- CognitiveReflectionPolicy
+- CognitiveReflection
+- CognitiveReflectionEngine
+- Resident RP.10 integration through ContinuousCognitiveState.reflection
+
+Behavioral boundaries:
+- Reflection questions agenda deliberation but does not execute actions.
+- Reflection does not mutate the agenda or authoritative runtimes.
+- Reflection never requests user authorization.
+- The RP.10 rationale contract remains agenda:<key>.
+- Focus persistence is ephemeral and process-local.
+
+Focused certification:
+python -m pytest -q tests/test_rp_10_continuous_internal_cognitive_loop.py tests/test_rp_11_cognitive_agenda_manager.py tests/test_rp_12_cognitive_agenda_reasoning.py tests/test_rp_13_cognitive_reflection_engine.py
+39 passed
+
+Full local construction-suite result:
+python -m pytest -q
+6311 passed in 16.79s
+
+Static checks in construction environment:
+- python -m compileall -q app tests: passed
+- Ruff executable: unavailable in construction environment
+- modified Python files checked for lines over 88 characters: none
+
+Required user certification:
+ruff check .
+pytest

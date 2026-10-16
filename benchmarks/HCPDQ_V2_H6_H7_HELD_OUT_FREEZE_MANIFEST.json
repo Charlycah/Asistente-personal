@@ -1,0 +1,36 @@
+{
+  "baseline": "12908-pass-0-fail-ruff-clean",
+  "case_count": 30,
+  "case_file": "hcpdq_v2_h6_h7_held_out_cases.json",
+  "case_sha256": "8cc21e2c0d06470dd82be8e84db3597c37d81e32e82fdccd5a745ebcbb2f2051",
+  "counts_by_difficulty": {
+    "D1": 10,
+    "D2": 10,
+    "D3": 10
+  },
+  "counts_by_family": {
+    "H6": 15,
+    "H7": 15
+  },
+  "execution_authorized": false,
+  "freeze_fingerprint": "fdec4468314b6e17c1809a8ab0c16647400bba8886d5e9b94cd831940713f551",
+  "ground_truth_file": "hcpdq_v2_h6_h7_ground_truth.json",
+  "ground_truth_sha256": "3cbff6cbc491ddd76908a3ae9f18ef81343e8014ada07d506a64786b3189afc2",
+  "human_comparison_authorized": false,
+  "independence_rules": {
+    "calibration_prompt_reuse": false,
+    "new_corpus": true,
+    "production_adaptation_occurred": false,
+    "roby_execution_occurred": false,
+    "roby_exposure_occurred": false,
+    "v1_case_reuse": false
+  },
+  "next_gate": "HCPDQ-v2 H6/H7 Held-Out Corpus — Freeze Certification / Exposure Authorization",
+  "roby_exposure_authorized": false,
+  "schema_version": "hcpdq-v2-h6-h7-held-out-freeze-v1",
+  "scope": [
+    "H6",
+    "H7"
+  ],
+  "status": "FROZEN_PENDING_INDEPENDENT_FREEZE_CERTIFICATION"
+}

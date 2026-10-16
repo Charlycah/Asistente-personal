@@ -1,0 +1,20 @@
+ROBY XI.2 — RP.15 Cognitive Hypothesis Workspace
+
+Focused validation:
+61 passed
+
+Full suite:
+6333 passed
+
+Additional checks:
+- compileall: PASS
+- line length check: PASS
+- cache cleanup: PASS
+- Ruff unavailable in container; local validation required
+
+Governance:
+- no capability execution
+- no agenda mutation
+- no hidden chain-of-thought storage
+- no user authorization requested
+- rationale compatibility preserved

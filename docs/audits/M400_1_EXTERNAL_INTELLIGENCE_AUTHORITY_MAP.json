@@ -1,0 +1,55 @@
+{
+  "baseline": "M399.8",
+  "findings": {
+    "authority_conclusion": "No external provider or source is ROBY's brain or cognitive authority.",
+    "declared_sources": "GovernedInformationSource declarations remain network/automatic-fetch inactive at the registry layer.",
+    "knowledge_policy": "KnowledgeSourcePolicy declares whether external knowledge is required; it does not execute providers.",
+    "legacy_compatibility": [
+      "core.provider_router:ProviderRouter",
+      "core.llm_service:LLMService"
+    ],
+    "llm_contract": "core.llm_provider:LLMProvider is provider-neutral and has no cognitive authority.",
+    "m400_rule": "external capability/evidence != cognitive authority",
+    "nasa": "NasaGovernedSourceAdapter performs explicit on-demand HTTP under OfficialConversationGateway; automatic_fetch_enabled is false.",
+    "official_provider_path": [
+      "OfficialROBYRuntime",
+      "RuntimeCompositionRoot",
+      "ProviderHealthEvaluator",
+      "LocalFirstProviderPolicy",
+      "GovernedProviderRouter",
+      "GovernedProviderExecutionAdapter",
+      "OperationalResponseAssembler"
+    ],
+    "provider_preferences": {
+      "local": [
+        "ollama"
+      ],
+      "remote": [
+        "gemini",
+        "mistral"
+      ]
+    }
+  },
+  "inventory_sha256": {
+    "app/governed_information_sources.py": "fd16e2515c74d75e4f8acb6fb66d947da0da1e82df4da83436091a9b7b48b845",
+    "app/governed_source_query.py": "65b85011b2a904e3ce8a9af46bbe5dffaeb785904ed3de8d4fa3a279c5acb746",
+    "app/governed_source_query_executor.py": "3e3dcf992ea7973b26dde9f70b035ac53e1eccf54c359d1b99ab45ecf5deee4f",
+    "app/llm_provider_factory.py": "8933f73b6e87acca2364705b0207e031afd0cff1f93d0c475504d6c884503e69",
+    "app/nasa_governed_source.py": "c2be35e84af75ef5e29ee57d27e20162ba4ed605700b3487bc23598f54677fde",
+    "app/official_conversation_gateway.py": "c005eb30eb861b6e5ed8a950c86135fd94128dc3c5c3485c29f6bc393f6fb40c",
+    "core/governed_provider_execution_adapter": "b0f9a4c302376e68a82c5f4368f64f0436dabba05b1884200d74ca90746cebc7",
+    "core/governed_provider_routing": "2dd548192d3e059984d41be5dcbb9c7f7a65d0c4b1202302b685e4cbc1e4f12a",
+    "core/knowledge_source_policy": "ff92fb90ac4f1f5afa3b307603cc1f1411ede6cd5246d4cd0b522f3c3679d367",
+    "core/llm_model_providers.py": "90545601e1456091cc93229a9647ea990cd661649ab8dd5fcf96a1f38db31558",
+    "core/llm_provider.py": "db22425c702e79957638b5502568adb6dc5f0bb88a674d02b1499bff992bd597",
+    "core/llm_service.py": "52d74a18de22913de25affedaa63c119fea1b4359ced297cc25525f8cbc8fedf",
+    "core/local_first_provider_policy": "25a5067811044d4ef43657e7598585a2af897e9a38421bb3cd0d6422fad265cc",
+    "core/local_provider_runtime_adapter": "3339ba9bc9e380d106901b65c3c976c78e743bc53ba35994b79ba787f0dbe82c",
+    "core/provider_health_evaluation": "dbd13af452eb7530d74d5bbb3f6b164eb653cbbc75586c9f4bdd042026590be8",
+    "core/provider_router.py": "14fec8b540d31bf02b95db8858cd8f468e4344aeee831ff11e35ac5cb1852a80",
+    "core/runtime_composition_root": "768fd4d55189e8ccbe40955c1e7173c658adbe23621ba0596f9ad1fd519abdec"
+  },
+  "productive_code_modified": false,
+  "purpose": "read_only_external_intelligence_authority_audit",
+  "schema_version": "m400.1"
+}

@@ -1,0 +1,58 @@
+{
+  "architectural_determination": {
+    "entry_path_failure": false,
+    "gap_authority": "governed complex-decision evidence-completeness / recommendation-withholding policy",
+    "gap_summary": "The productive GCDR path treats missing evidence for any listed criterion as review-blocking incompleteness, even when explicit evidence already establishes a decisive dominance or mandatory-criterion winner.",
+    "ground_truth_mismatch": false,
+    "isolation_adapter_failure": false,
+    "productive_cognitive_gap": true,
+    "scoring_failure": false
+  },
+  "audit_fingerprint": "88d8696b485f7ad8655aef26b519497176d99c513e3f7e81a5dd172878515bd7",
+  "baseline": "13042-pass-0-fail-ruff-clean",
+  "causal_replay_without_roby_rerun": {
+    "case_count": 12,
+    "cases_001_006": {
+      "option_status_pattern": "review_required + review_required",
+      "required_criterion_present": false
+    },
+    "cases_007_012": {
+      "option_status_pattern": "one blocked + one review_required",
+      "required_criterion_present": true
+    },
+    "common_rationale_codes": [
+      "complex_decision:insufficient_evidence_preserved",
+      "complex_decision:no_eligible_option",
+      "complex_decision:recommendation_withheld_for_incomplete_evidence"
+    ],
+    "method": "read-only deterministic replay of frozen productive GCDR intake components",
+    "recommended_option_all": null,
+    "report_status_all": "insufficient_evidence"
+  },
+  "family": "H6",
+  "learning_or_tuning_performed": false,
+  "localized_mechanism": {
+    "assessment_adapter_behavior": "Every option×criterion pair without explicit certified evidence is adapted to ComplexDecisionCriterionOutcome.INSUFFICIENT.",
+    "realizer_behavior": "A report with no recommendation and non-REVIEW_REQUIRED status is rendered as the fixed 'evidencia certificada es insuficiente' abstention.",
+    "reasoner_behavior": "Any option containing an INSUFFICIENT criterion becomes REVIEW_REQUIRED; if any option is REVIEW_REQUIRED the recommendation is withheld and the report status becomes INSUFFICIENT_EVIDENCE."
+  },
+  "next_gate": "HCPDQ-v2 H6 Productive Gap — Contract / Go-No-Go",
+  "observed_failure_mode": {
+    "decisive_evidence_identification_count": 0,
+    "recommended_option_count": 0,
+    "response_template_authority": "core/gcdr_intake_conversational_realization.py",
+    "response_template_branch": "INSUFFICIENT_EVIDENCE",
+    "uniform_abstention_count": 12
+  },
+  "production_change_performed": false,
+  "rescoring_performed": false,
+  "roby_rerun_performed": false,
+  "schema_version": "hcpdq-v2-h6-scoring-postmortem-cognitive-result-audit-v1",
+  "sealed_scoring_result": {
+    "accuracy": 0.0,
+    "fail_count": 12,
+    "pass_count": 0,
+    "scoring_fingerprint": "12b1a89ee7279a52aa49f3f27a9d6fc3728c09a1657fe10613d0e7eeb75ed5a2"
+  },
+  "status": "COGNITIVE_RESULT_AUDIT_PASS_PRODUCTIVE_GAP_LOCALIZED"
+}

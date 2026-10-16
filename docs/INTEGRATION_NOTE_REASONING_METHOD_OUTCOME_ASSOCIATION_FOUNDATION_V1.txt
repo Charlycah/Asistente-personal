@@ -1,0 +1,17 @@
+Post-M409.1 — Governed Reasoning Method ↔ Epistemic Outcome Association Foundation v1
+
+Integrate this delta over the certified 11,864-tests + Ruff-clean baseline.
+
+New core module:
+- core/governed_reasoning/reasoning_method_outcome_association.py
+
+New architecture tests:
+- tests/architecture/test_post_m409_1_governed_reasoning_method_outcome_association_foundation_v1.py
+
+Documentation:
+- docs/POST_M409_1_GOVERNED_REASONING_METHOD_OUTCOME_ASSOCIATION_FOUNDATION_V1.md
+- CHANGELOG.md
+- CHANGELOG_ARCHITECTURE.md
+
+No producer, ReasoningContextBundle, Longitudinal, M203, Memory, Learning, Reflection,
+Curiosity, Adaptive Reasoning, runtime, or authority contract is modified.
