@@ -309,3 +309,57 @@ Owner-certified RED scope: exactly 26 historical root artifacts moved without re
 
 The 11 protected root authorities remain in place and byte-identical to the RED baseline.
 No historical artifact was deleted or semantically rewritten by this archival operation.
+
+## R-ROOT-02 ? Historical release preservation
+
+- Scope: documentary/structural root cleanup only.
+- Canonical historical package:
+  `docs/releases/R_MP_EVOL_S2_PAQUETE_INTEGRACION_DOCUMENTAL.zip`
+- Certified SHA-256:
+  `78629eb01abdb348a9938662f9bf438cedbad7697ee580229e70dc90b2aded3d`
+- Root duplicate:
+  `R_MP_EVOL_S2_PAQUETE_INTEGRACION_DOCUMENTAL.zip`
+- Baseline: both copies existed and were byte-identical.
+- Preservation rule: the canonical historical package must remain intact,
+  accessible, and hash-verifiable.
+- Root duplicate disposition: candidate only; not removed by this operation.
+- No productive Python, Composition Root, authority, store, or registry changes.
+- M377 HOLD, MODEL_ACQUISITION UNMAPPED / DENY / NO-GO,
+  and STOP_PRODUCTIVE ACTIVE remain unchanged.
+
+## R-ROOT-02-S4 ? Closure
+
+### Certified Python duplicate retirement
+
+- Stage: R-ROOT-02-S3-B ? surgical GREEN, locally certified.
+- Removed root duplicate:
+  `ROBY_R_CONV_VOICE_SALUTE_S1_GREEN_QUIRURGICO (1).py`
+- Preserved canonical:
+  `ROBY_R_CONV_VOICE_SALUTE_S1_GREEN_QUIRURGICO.py`
+- Removed root duplicate:
+  `test_conv_real_01a_s1_diagnostic_red.py`
+- Preserved canonical:
+  `tests/test_conv_real_01a_s1_diagnostic_red.py`
+- Both removals are staged in Git and recoverable from HEAD.
+- Canonical files remained present and hash-identical after removal.
+- Focused pytest collection confirmed one canonical test collected.
+- No productive Python or Composition Root modification was performed.
+
+### Historical package preservation
+
+- Canonical archive:
+  `docs/releases/R_MP_EVOL_S2_PAQUETE_INTEGRACION_DOCUMENTAL.zip`
+- SHA-256:
+  `78629eb01abdb348a9938662f9bf438cedbad7697ee580229e70dc90b2aded3d`
+- Canonical archive is staged in the local Git index.
+- Root archive duplicate remains intact and is not removed.
+- Durable historical recovery remains pending a preserved commit
+  or independently verified backup.
+- R-ROOT-02 global closure remains on HOLD until this gate is resolved.
+
+### Architectural invariants
+
+- M377 HOLD INTACT.
+- MODEL_ACQUISITION UNMAPPED / DENY / NO-GO.
+- STOP_PRODUCTIVE ACTIVE.
+- No new productive authority, store, registry, or capability.
