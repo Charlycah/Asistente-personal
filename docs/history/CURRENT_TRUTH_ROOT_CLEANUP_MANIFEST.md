@@ -363,3 +363,56 @@ No historical artifact was deleted or semantically rewritten by this archival op
 - MODEL_ACQUISITION UNMAPPED / DENY / NO-GO.
 - STOP_PRODUCTIVE ACTIVE.
 - No new productive authority, store, registry, or capability.
+
+## R-ROOT-02-S5 ? Final documentary reconciliation
+
+### Historical preservation and recovery
+
+- R-ROOT-02-S4-C3: historical commit locally certified.
+- Certified commit:
+  `175cb5073b230a148767cec5c7cdf97d2f06587e`
+- The canonical historical ZIP is committed at:
+  `docs/releases/R_MP_EVOL_S2_PAQUETE_INTEGRACION_DOCUMENTAL.zip`
+- Canonical ZIP SHA-256:
+  `78629eb01abdb348a9938662f9bf438cedbad7697ee580229e70dc90b2aded3d`
+- R-ROOT-02-S4-D2-B: complete Git bundle created and verified.
+- Preserved bundle:
+  `D:\Respaldos\ROBY\ROBY_XI2_R_ROOT_02_S4_D2_MASTER.bundle`
+- Bundle SHA-256:
+  `c80195452f0d6c12aa73e6ad5c9bc878ce04fb9dcf7aab9f30144b4dacf7c594`
+- R-ROOT-02-S4-D2-C: isolated commit and ZIP recovery certified.
+- Isolated Git integrity check passed.
+- R-ROOT-02-S4-D3: C: and D: verified on distinct physical disks.
+
+### Root duplicate retirement
+
+- R-ROOT-02-S4-E1: focused removal RED locally certified.
+- R-ROOT-02-S4-E2: surgical removal GREEN locally certified.
+- Removed ignored root duplicate:
+  `R_MP_EVOL_S2_PAQUETE_INTEGRACION_DOCUMENTAL.zip`
+- Canonical historical ZIP remained hash-identical.
+- Verified Git bundle remained hash-identical.
+- Certified HEAD remained unchanged.
+- No additional commit or push was performed during S4-E2.
+
+### Reconciliation of prior historical statements
+
+- Earlier S4 statements describe the state at their original
+  certification time and remain preserved without alteration.
+- The historical root ZIP removal HOLD was resolved exclusively
+  through the certified S4-E1 RED and S4-E2 GREEN.
+- The earlier historical durability gate was satisfied through
+  the certified commit, verified bundle, and isolated recovery.
+- This section records the later certified state; it does not
+  retroactively modify previous evidence.
+
+### Closure scope and architectural invariants
+
+- R-ROOT-02 surgical root-duplicate cleanup is completed.
+- R-ROOT-02-S5 documentary integration requires separate
+  Git review and durability certification before global closure.
+- No productive Python or Composition Root modification.
+- No new productive authority, store, registry, or capability.
+- M377 HOLD INTACT.
+- MODEL_ACQUISITION UNMAPPED / DENY / NO-GO.
+- STOP_PRODUCTIVE ACTIVE.
