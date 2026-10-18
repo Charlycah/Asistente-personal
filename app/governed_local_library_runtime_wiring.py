@@ -64,6 +64,7 @@ class GovernedLocalLibraryRuntimeWiring:
 @dataclass(frozen=True)
 class _PendingLocalLibraryFollowUp:
     requested_at: datetime
+    reading_requested: bool = False
 
 
 class GovernedLocalLibraryConversationInterceptionPort:
@@ -103,7 +104,60 @@ class GovernedLocalLibraryConversationInterceptionPort:
         self.conversation = conversation
         self._pending_follow_ups: dict[str, _PendingLocalLibraryFollowUp] = {}
 
+    @staticmethod
+    def _is_library_capability_question(text: str) -> bool:
+        normalized = " ".join(text.casefold().strip().split())
+        normalized = normalized.replace("¿", "").rstrip("?!. ")
+        # Match a bounded capability question, not a document-search request.
+        return re.fullmatch(
+            r"(?:roby[, ]+)?(?:"
+            r"(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
+            r"(?:tener\s+)?acceso\s+a\s+"
+            r"(?:la|mi)\s+biblioteca"
+            r"|(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
+            r"acceder\s+a\s+(?:la|mi)\s+biblioteca"
+            r"|(?:ten[eé]s|tienes|tiene)\s+acceso\s+a\s+"
+            r"(?:mis\s+libros|mi\s+biblioteca|la\s+biblioteca)"
+            r")",
+            normalized,
+        ) is not None
+
+    @staticmethod
+    def _is_library_recommendation_request(text: str) -> bool:
+        normalized = " ".join(text.casefold().strip().split())
+        # Explicit search remains the canonical route, including mixed requests.
+        if re.search(r"\b(?:busc[aá]|buscar|consult[aá]|encontr[aá])\b", normalized):
+            return False
+        return (
+            re.search(r"\brecomend\w*", normalized) is not None
+            and re.search(
+                r"\b(?:biblioteca|mis libros|mi biblioteca)\b",
+                normalized,
+            ) is not None
+        )
+
     def intercept(self, request: GovernedConversationPipelineRequest, *, now):
+        if self._is_library_capability_question(request.text):
+            return GovernedOperationalInterception(
+                response_text=(
+                    "La Biblioteca local está configurada para consultas "
+                    "gobernadas en esta sesión. Puedo intentar buscar un libro "
+                    "o documento si me indicás cuál; eso no confirma que "
+                    "cada archivo sea legible ni que una búsqueda sea completa."
+                ),
+                rationale="local_library_capability_status",
+            )
+        if self._is_library_recommendation_request(request.text):
+            return GovernedOperationalInterception(
+                response_text=(
+                    "Puedo ayudarte a elegir una lectura, pero todavía no "
+                    "tengo evidencia suficiente del catálogo para recomendarte "
+                    "un libro concreto de tu Biblioteca. Indicame un género, "
+                    "autor o tema y puedo intentar buscar coincidencias; "
+                    "una búsqueda parcial no garantiza cobertura completa."
+                ),
+                rationale="local_library_recommendation_evidence_required",
+            )
         pending = self._active_follow_up(request.session_id, now=now)
         if pending is not None and self._is_cancellation(request.text):
             self._pending_follow_ups.pop(request.session_id, None)
@@ -121,13 +175,99 @@ class GovernedLocalLibraryConversationInterceptionPort:
         else:
             query = self._search_query(request.text)
         if not query:
-            self._remember_follow_up(request.session_id, now=now)
+            reading_requested = (
+                pending.reading_requested
+                if pending is not None and not admitted
+                else not self._is_location_only(request.text)
+            )
+            self._remember_follow_up(
+                request.session_id,
+                now=now,
+                reading_requested=reading_requested,
+            )
             return GovernedOperationalInterception(
                 response_text=(
                     "Indicame qué libro o tema querés buscar en la Biblioteca."
                 ),
                 rationale="local_library_query_required",
             )
+        # LOCALIZAR is owned by the canonical conversation, not this adapter.
+        reading_requested = (
+            pending.reading_requested
+            if pending is not None and not admitted
+            else not self._is_location_only(request.text)
+        )
+        if not reading_requested:
+            locate = getattr(self.conversation, "locate_admitted_request", None)
+            if locate is None:
+                # Historical doubles cannot establish catalogue evidence.
+                # Fail closed; never fall back to document content retrieval.
+                return GovernedOperationalInterception(
+                    response_text=(
+                        "No puedo verificar la ubicación de ese documento "
+                        "con la interfaz de Biblioteca disponible."
+                    ),
+                    rationale="local_library_location_unavailable",
+                )
+            result = locate(
+                owner=request.owner,
+                search_query=query,
+                now=now,
+            )
+            self._pending_follow_ups.pop(request.session_id, None)
+            if result.status is GovernedLocalLibraryConversationStatus.NO_MATCH:
+                if result.bounded:
+                    return GovernedOperationalInterception(
+                        response_text=(
+                            f"La búsqueda de {query!r} en la Biblioteca autorizada "
+                            "fue incompleta por un límite del catálogo. "
+                            "No puedo confirmar que el documento no exista."
+                        ),
+                        rationale="local_library_incomplete_no_match",
+                    )
+                return GovernedOperationalInterception(
+                    response_text=(
+                        f"No encontré coincidencias para {query!r} "
+                        "en la Biblioteca autorizada."
+                    ),
+                    rationale="local_library_no_match",
+                )
+            if (
+                result.status
+                is GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION
+            ):
+                self._remember_follow_up(
+                    request.session_id,
+                    now=now,
+                    reading_requested=False,
+                )
+                names = "\n".join(
+                    f"- {safe_local_document_filename(item.filename)}"
+                    for item in result.candidates
+                )
+                return GovernedOperationalInterception(
+                    response_text=(
+                        "Encontré varias coincidencias en la Biblioteca. "
+                        "Indicame cuál querés consultar:\n" + names
+                    ),
+                    rationale="local_library_disambiguation_required",
+                )
+            if result.status is GovernedLocalLibraryConversationStatus.COMPLETED:
+                label = safe_local_document_filename(result.safe_source_label)
+                if label is None:
+                    return GovernedOperationalInterception(
+                        response_text="Encontré un documento en tu Biblioteca.",
+                        rationale="local_library_location_completed",
+                    )
+                return GovernedOperationalInterception(
+                    response_text=f"Encontré en tu Biblioteca: {label}.",
+                    rationale="local_library_location_completed",
+                )
+            return GovernedOperationalInterception(
+                response_text="No pude completar la búsqueda gobernada.",
+                rationale="local_library_location_failed",
+            )
+
         if admitted:
             result = self.conversation.handle_user_request(
                 owner=request.owner,
@@ -160,7 +300,11 @@ class GovernedLocalLibraryConversationInterceptionPort:
                 rationale="local_library_no_match",
             )
         if result.status is GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION:
-            self._remember_follow_up(request.session_id, now=now)
+            self._remember_follow_up(
+                request.session_id,
+                now=now,
+                reading_requested=True,
+            )
             names = "\n".join(f"- {item.filename}" for item in result.candidates)
             return GovernedOperationalInterception(
                 response_text=(
@@ -193,9 +337,16 @@ class GovernedLocalLibraryConversationInterceptionPort:
             rationale="local_library_read_failed",
         )
 
-    def _remember_follow_up(self, session_id: str, *, now) -> None:
+    def _remember_follow_up(
+        self,
+        session_id: str,
+        *,
+        now,
+        reading_requested: bool = False,
+    ) -> None:
         self._pending_follow_ups[session_id] = _PendingLocalLibraryFollowUp(
-            requested_at=now
+            requested_at=now,
+            reading_requested=reading_requested,
         )
 
     def _active_follow_up(self, session_id: str, *, now):
@@ -218,10 +369,44 @@ class GovernedLocalLibraryConversationInterceptionPort:
             return False
         return not normalized.startswith(cls._UNRELATED_QUESTION_PREFIXES)
 
+    @staticmethod
+    def _is_location_only(text: str) -> bool:
+        normalized = text.casefold()
+        # Explicit prohibition takes precedence over a reading verb.
+        if re.search(r"\b(?:pero\s+)?no\s+lo\s+leas\b", normalized):
+            return True
+        return not bool(
+            re.search(
+                r"\b(?:le[eé]|lee|leelo|léelo|narr[aá]melo|narramelo|"
+                r"leer|narrar|escucharlo|resum[ií]|analiz[aá]|"
+                r"revis[aá]\s+el\s+contenido)\b",
+                normalized,
+            )
+        )
+
     @classmethod
     def _search_query(cls, text: str) -> str:
         query = text.strip()
         normalized = query.casefold()
+        # Preserve titles in direct library searches.
+        direct_search = re.fullmatch(
+            r"busc(?:a|\u00e1|ame|\u00e1me)\s+(.+?)"
+            r"\s+en\s+(?:(?:mi|la)\s+)?biblioteca\s*[.?!]*",
+            query,
+            flags=re.IGNORECASE,
+        )
+        if direct_search is not None:
+            return direct_search.group(1).strip()
+        # A direct reading command can contain a trailing library locator.
+        # Extract the named book before scanning generic library prefixes.
+        direct_read = re.fullmatch(
+            r"(?:le[eé]|lee)\s+(?:el\s+)?libro\s+(.+?)"
+            r"\s+de\s+mi\s+biblioteca\s*[.?!]*",
+            query,
+            flags=re.IGNORECASE,
+        )
+        if direct_read is not None:
+            return direct_read.group(1).strip()
         for prefix in cls._PREFIXES:
             index = normalized.find(prefix)
             if index >= 0:
@@ -248,7 +433,41 @@ class GovernedLocalLibraryConversationInterceptionPort:
         )
         if compound_document_query is not None:
             return compound_document_query.group(1).strip()
-        return query
+        # Strip compound operation and negation clauses before title matching.
+        query = re.sub(
+            r"\s*,?\s*pero\s+no\s+lo\s+leas\s*[.?!]*$",
+            "",
+            query,
+            flags=re.IGNORECASE,
+        )
+        query = re.sub(
+            r"\s+y\s+(?:leelo|léelo|narr[aá]melo|narramelo)\s*[.?!]*$",
+            "",
+            query,
+            flags=re.IGNORECASE,
+        )
+        query = re.sub(
+            r"^(?:le[eé]|lee|léeme|leeme)\s+(?:el\s+)?libro\s+",
+            "",
+            query,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        query = re.sub(
+            r"\s+de\s+mi\s+biblioteca\s*[.?!]*$",
+            "",
+            query,
+            flags=re.IGNORECASE,
+        )
+        # Only the residual explicit-search path needs title cleanup.
+        query = re.sub(
+            r"^(?:el\s+)?(?:libro|documento)\s+",
+            "",
+            query,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        return query.strip().rstrip(".?! ").strip()
 
 
 def build_governed_local_library_runtime_from_environment(

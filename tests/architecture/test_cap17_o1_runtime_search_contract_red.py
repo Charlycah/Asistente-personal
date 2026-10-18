@@ -62,7 +62,7 @@ def test_cap17_o1_truncated_no_match_is_not_reported_as_exhaustive(
         knowledge_runtime = _StubKnowledge()
 
         @staticmethod
-        def handle_user_request(*, owner, text, search_query, now):
+        def locate_admitted_request(*, owner, search_query, now):
             assert search_query == "z.txt"
             return GovernedLocalLibraryConversationResult(
                 status=GovernedLocalLibraryConversationStatus.NO_MATCH,

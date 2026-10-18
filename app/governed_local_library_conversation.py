@@ -92,6 +92,68 @@ class GovernedLocalLibraryConversationV1:
         self.max_results = max_results
         self._selector = GovernedLibraryConversationalSelectionV1()
 
+    def locate_admitted_request(
+        self,
+        *,
+        owner: str,
+        search_query: str,
+        now: datetime,
+    ) -> GovernedLocalLibraryConversationResult:
+        """Locate via the existing catalogue/selector; never read content."""
+        if now.tzinfo is None:
+            raise ValueError("library conversation time must be timezone-aware")
+        query = search_query.strip()
+        if not query:
+            raise ValueError("library search query must not be blank")
+        if "/" in query or "\\" in query:
+            entry = self.library.lookup_explicit_relative_path(query)
+            decision = self._selector.decide_explicit(query=query, entry=entry)
+            candidates = (entry,) if entry is not None else ()
+        else:
+            search = self.library.search(query, max_results=self.max_results)
+            decision = self._selector.decide(search)
+            candidates = search.matches
+        if decision.disposition is GovernedLibrarySelectionDisposition.NO_MATCH:
+            return GovernedLocalLibraryConversationResult(
+                status=GovernedLocalLibraryConversationStatus.NO_MATCH,
+                query=query,
+                bounded=decision.bounded,
+                last_completed_stage="selection",
+            )
+        if (
+            decision.disposition
+            is GovernedLibrarySelectionDisposition.NEEDS_DISAMBIGUATION
+        ):
+            return GovernedLocalLibraryConversationResult(
+                status=GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION,
+                query=query,
+                candidates=decision.candidates,
+                bounded=decision.bounded,
+                last_completed_stage="selection",
+            )
+        selection = decision.selection
+        if selection is None:
+            raise RuntimeError("selected library disposition requires a selection")
+        entry = next(
+            (
+                item
+                for item in candidates
+                if item is not None
+                and item.entry_id == selection.entry_id
+                and item.source_reference == selection.source_reference
+            ),
+            None,
+        )
+        if entry is None:
+            raise RuntimeError("canonical library selection lost entry identity")
+        return GovernedLocalLibraryConversationResult(
+            status=GovernedLocalLibraryConversationStatus.COMPLETED,
+            query=query,
+            source_reference=selection.source_reference,
+            safe_source_label=safe_local_document_filename(entry.filename),
+            last_completed_stage="selection",
+        )
+
     def handle_user_request(
         self,
         *,
