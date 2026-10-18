@@ -52,6 +52,15 @@ class GovernedLibraryConversationalSelectionV1:
                 candidates=(),
                 bounded=search.bounded,
             )
+        if search.approximate:
+            return GovernedLibraryConversationalSelectionResult(
+                disposition=(
+                    GovernedLibrarySelectionDisposition.NEEDS_DISAMBIGUATION
+                ),
+                selection=None,
+                candidates=matches,
+                bounded=search.bounded,
+            )
         if len(matches) == 1:
             entry = matches[0]
             return GovernedLibraryConversationalSelectionResult(

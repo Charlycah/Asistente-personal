@@ -50,6 +50,21 @@ class GovernedLocalLibraryCatalogueV1:
             key=lambda item: (item[0], item[1].relative_path.casefold()),
         )
         candidates = tuple(entry for rank, entry in ranked if rank < 99)
+        approximate = False
+        if not candidates:
+            approximate_ranked = sorted(
+                (
+                    (self._typo_rank(entry, normalized_query), entry)
+                    for entry in catalogue.entries
+                ),
+                key=lambda item: (
+                    item[0], item[1].relative_path.casefold()
+                ),
+            )
+            candidates = tuple(
+                entry for rank, entry in approximate_ranked if rank < 99
+            )
+            approximate = bool(candidates)
         matches = candidates[:max_results]
         matching_elapsed_ms = max(0.0, (perf_counter() - matching_started) * 1000)
         return GovernedLibrarySearchResult(
@@ -59,6 +74,7 @@ class GovernedLocalLibraryCatalogueV1:
             catalogue_fingerprint=catalogue.catalogue_fingerprint,
             catalogue_scan_elapsed_ms=catalogue_scan_elapsed_ms,
             matching_elapsed_ms=matching_elapsed_ms,
+            approximate=approximate,
         )
 
     def lookup_explicit_relative_path(self, relative_path: str) -> GovernedLibraryEntry:
@@ -216,6 +232,38 @@ class GovernedLocalLibraryCatalogueV1:
             return 2
         if query in path:
             return 3
+        return 99
+
+    @staticmethod
+    def _typo_rank(entry: GovernedLibraryEntry, query: str) -> int:
+        stem = Path(entry.filename).stem.casefold()
+        if len(query) < 4 or len(stem) < 4:
+            return 99
+        if abs(len(query) - len(stem)) > 1:
+            return 99
+        if query == stem:
+            return 99
+        if len(query) == len(stem):
+            differences = [
+                index
+                for index, (left, right) in enumerate(zip(query, stem))
+                if left != right
+            ]
+            if len(differences) == 1:
+                return 4
+            if len(differences) == 2:
+                first, second = differences
+                if (
+                    second == first + 1
+                    and query[first] == stem[second]
+                    and query[second] == stem[first]
+                ):
+                    return 4
+            return 99
+        shorter, longer = sorted((query, stem), key=len)
+        for index in range(len(longer)):
+            if longer[:index] + longer[index + 1:] == shorter:
+                return 4
         return 99
 
     def _is_within_root(self, candidate: Path) -> bool:

@@ -62,3 +62,4 @@ class GovernedLibrarySearchResult:
     catalogue_fingerprint: str
     catalogue_scan_elapsed_ms: float = 0.0
     matching_elapsed_ms: float = 0.0
+    approximate: bool = False

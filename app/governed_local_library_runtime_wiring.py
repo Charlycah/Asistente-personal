@@ -14,7 +14,10 @@ from core.governed_local_library.initiative import (
 from core.governed_local_library.initiative import (
     governed_local_library_read_descriptor,
 )
-from core.governed_local_library.models import GovernedLocalLibraryConfig
+from core.governed_local_library.models import (
+    GovernedLibraryEntry,
+    GovernedLocalLibraryConfig,
+)
 from core.governed_operational_conversation_pipeline import (
     GovernedConversationPipelineRequest,
     GovernedOperationalInterception,
@@ -65,6 +68,7 @@ class GovernedLocalLibraryRuntimeWiring:
 class _PendingLocalLibraryFollowUp:
     requested_at: datetime
     reading_requested: bool = False
+    candidates: tuple[GovernedLibraryEntry, ...] = ()
 
 
 class GovernedLocalLibraryConversationInterceptionPort:
@@ -166,6 +170,48 @@ class GovernedLocalLibraryConversationInterceptionPort:
                 rationale="local_library_clarification_cancelled",
             )
 
+        if pending is not None and pending.candidates:
+            if self._is_candidate_confirmation(request.text):
+                if len(pending.candidates) != 1:
+                    return self._candidate_clarification(
+                        pending.candidates
+                    )
+                if pending.reading_requested:
+                    return self._candidate_clarification(
+                        pending.candidates
+                    )
+                candidate = pending.candidates[0]
+                try:
+                    validated = (
+                        self.conversation.library.validate_selected_entry(
+                            entry_id=candidate.entry_id,
+                            source_reference=candidate.source_reference,
+                        )
+                    )
+                    if validated.fingerprint != candidate.fingerprint:
+                        raise ValueError('stale library candidate')
+                except (OSError, ValueError, PermissionError):
+                    self._pending_follow_ups.pop(request.session_id, None)
+                    return GovernedOperationalInterception(
+                        response_text=(
+                            'El documento cambi? o ya no est? disponible. '
+                            'Volv? a buscarlo en la Biblioteca.'
+                        ),
+                        rationale='local_library_location_failed',
+                    )
+                self._pending_follow_ups.pop(request.session_id, None)
+                label = safe_local_document_filename(validated.filename)
+                if label is None:
+                    return GovernedOperationalInterception(
+                        response_text=(
+                            'Encontr? un documento en tu Biblioteca.'
+                        ),
+                        rationale='local_library_location_completed',
+                    )
+                return GovernedOperationalInterception(
+                    response_text=f'Encontr? en tu Biblioteca: {label}.',
+                    rationale='local_library_location_completed',
+                )
         assessment = self.conversation.knowledge_runtime.assess(request.text)
         admitted = assessment.need.local_documents_available
         if not admitted:
@@ -240,6 +286,7 @@ class GovernedLocalLibraryConversationInterceptionPort:
                     request.session_id,
                     now=now,
                     reading_requested=False,
+                    candidates=result.candidates,
                 )
                 names = "\n".join(
                     f"- {safe_local_document_filename(item.filename)}"
@@ -304,6 +351,7 @@ class GovernedLocalLibraryConversationInterceptionPort:
                 request.session_id,
                 now=now,
                 reading_requested=True,
+                candidates=result.candidates,
             )
             names = "\n".join(f"- {item.filename}" for item in result.candidates)
             return GovernedOperationalInterception(
@@ -337,16 +385,39 @@ class GovernedLocalLibraryConversationInterceptionPort:
             rationale="local_library_read_failed",
         )
 
+    @staticmethod
+    def _is_candidate_confirmation(text: str) -> bool:
+        normalized = ' '.join(text.casefold().strip().split())
+        return normalized.strip(' .!') in (
+            'sí, ese', 'si, ese', 'sí, esa', 'si, esa',
+        )
+
+    @staticmethod
+    def _candidate_clarification(candidates):
+        names = '\n'.join(
+            f'- {safe_local_document_filename(item.filename)}'
+            for item in candidates
+        )
+        return GovernedOperationalInterception(
+            response_text=(
+                'Necesito que identifiques el documento concreto:\n'
+                + names
+            ),
+            rationale='local_library_disambiguation_required',
+        )
+
     def _remember_follow_up(
         self,
         session_id: str,
         *,
         now,
         reading_requested: bool = False,
+        candidates: tuple[GovernedLibraryEntry, ...] = (),
     ) -> None:
         self._pending_follow_ups[session_id] = _PendingLocalLibraryFollowUp(
             requested_at=now,
             reading_requested=reading_requested,
+            candidates=candidates,
         )
 
     def _active_follow_up(self, session_id: str, *, now):
