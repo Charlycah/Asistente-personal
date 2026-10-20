@@ -8,7 +8,6 @@ from pathlib import Path
 
 from app.desktop_ui import DesktopUIConfig
 
-
 EXPECTED_GREETING = "¿Qué tal, cómo estás?"
 
 
@@ -42,7 +41,8 @@ def test_s1_existing_announcer_keeps_safe_voice_failure_behavior():
     Este test complementa, no reemplaza, los tests existentes de M24.
     """
     import subprocess
-    from app.desktop_ui import ROBYDesktopApp, DesktopMessage
+
+    from app.desktop_ui import DesktopMessage, ROBYDesktopApp
 
     class Adapter:
         def submit_text(self, text, session_id=None):
