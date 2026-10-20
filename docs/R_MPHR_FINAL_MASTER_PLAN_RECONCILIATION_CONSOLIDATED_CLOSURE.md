@@ -84,3 +84,30 @@ STOP_PRODUCTIVE: PRESERVED
 Incorporar **solo tras revisión del Owner** como `docs/R_MPHR_FINAL_MASTER_PLAN_RECONCILIATION_CONSOLIDATED_CLOSURE.md`. No modificar el ZIP original, CURRENT_TRUTH, el registro maestro, código, tests ni dependencias. No crear un segundo documento con autoridad superior al MASTER PLAN. Una vez incorporado, verificar `Test-Path` y SHA-256; la certificación final requiere aprobación expresa del Owner.
 
 **STOP: DOCUMENTAL HASTA APROBACIÓN; PRODUCTIVO PERMANECE BLOQUEADO.**
+
+## 9. Certificacion posterior del Owner
+
+Fecha de autorizacion: 2026-10-16.
+
+El Owner autorizo expresamente la certificacion documental
+de R-MPHR-FINAL como cierre definitivo de la reseleccion,
+preservando todos los HOLD y sin autorizar nuevos RED/GREEN.
+
+Esta aprobacion es posterior a la emision del acta candidata.
+Los estados PENDING de las secciones historicas se conservan
+como evidencia de su momento de emision.
+
+OWNER_CERTIFICATION_R_MPHR_FINAL: APPROVED
+R_MPHR_FINAL: DOCUMENTARY_CLOSURE_CERTIFIED
+CURRENT_EVOLUTION_STATE: GOVERNED_PLATEAU / EVIDENCE_WAITING
+NEXT_PRODUCTIVE_HORIZON: NOT SELECTED
+NEXT_INVENTORY_CANDIDATE: NOT SELECTED
+CONTRACT_RED_AUTHORIZATION: NONE
+PRODUCTIVE_GREEN_AUTHORIZATION: NONE
+M377: HOLD
+MODEL_ACQUISITION: UNMAPPED / DENY / NO-GO
+STOP_PRODUCTIVE: ACTIVE
+
+No se certifican nuevamente codigo, pruebas, runtime ni
+despliegue Windows. Toda reentrada requiere evidencia nueva
+y autorizacion expresa segun los criterios del acta.
