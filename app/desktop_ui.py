@@ -22,17 +22,17 @@ from app.conversational_health_guidance import (
     ConversationalHealthGuidanceService,
 )
 from app.conversational_translation import ConversationalTranslation
-from app.desktop_governed_image_preview_coordinator import (
-    GovernedImagePreviewCoordinator,
-)
-from app.desktop_governed_image_preview_fetch_adapter import (
-    fetch_desktop_governed_preview,
-)
 from app.desktop_governed_floating_image_viewer import (
     DesktopGovernedFloatingImageViewer,
 )
 from app.desktop_governed_floating_viewer_integration import (
     connect_governed_floating_viewer,
+)
+from app.desktop_governed_image_preview_coordinator import (
+    GovernedImagePreviewCoordinator,
+)
+from app.desktop_governed_image_preview_fetch_adapter import (
+    fetch_desktop_governed_preview,
 )
 from app.desktop_visual_companion_runtime_binding import (
     bind_applied_result_to_desktop,
@@ -60,7 +60,12 @@ from app.structured_symptom_registry import StructuredSymptomService
 from app.ui_adapter import UIResponse
 from app.vital_sign_history import VitalSignHistoryService
 from app.voice_input import NullVoiceInput, VoiceInput, VoiceRequestTranscriber
-from app.voice_output import NullVoiceOutput, VoiceOutput, VoiceResponseReader
+from app.voice_output import (
+    NullVoiceOutput,
+    SafeVoiceOutput,
+    VoiceOutput,
+    VoiceResponseReader,
+)
 from app.voice_session_gate import VoiceSessionGate
 from core.application_lifecycle import (
     ApplicationLifecycleManager,
@@ -196,7 +201,9 @@ class DesktopConversationController:
     ) -> None:
         self.adapter = adapter
         self.presenter = presenter or DesktopMessagePresenter()
-        self.voice_reader = VoiceResponseReader(voice_output or NullVoiceOutput())
+        self.voice_reader = VoiceResponseReader(
+            SafeVoiceOutput(voice_output or NullVoiceOutput())
+        )
         self.voice_transcriber = VoiceRequestTranscriber(
             voice_input or NullVoiceInput()
         )

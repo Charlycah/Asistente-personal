@@ -197,3 +197,38 @@ def test_continuous_listener_acknowledges_wake_only():
     assert 'decision.reason == "wake_only"' in worker
     assert 'reply = "Sí, te escucho."' in worker
     assert "ui_dispatcher.post(acknowledge_wake)" in worker
+
+
+
+def test_specialized_response_survives_voice_output_failure():
+    from types import SimpleNamespace
+
+    class FailingVoiceOutput:
+        def speak(self, text: str) -> None:
+            raise RuntimeError("TTS_DIAGNOSTIC_FAILURE")
+
+    class SpecializedSafetyService:
+        def prepare(self, text: str, **kwargs):
+            return SimpleNamespace(
+                handled=True,
+                response="Respuesta especializada preservada.",
+            )
+
+    controller = DesktopConversationController(
+        adapter=FakeAdapter(),
+        voice_output=FailingVoiceOutput(),
+    )
+    controller.clinical_safety = SpecializedSafetyService()
+
+    messages = controller.submit(
+        "consulta diagnostica",
+        session_id="red-contract-session",
+    )
+
+    assert messages == [
+        DesktopMessage("Vos", "consulta diagnostica"),
+        DesktopMessage(
+            "Roby",
+            "Respuesta especializada preservada.",
+        ),
+    ]
