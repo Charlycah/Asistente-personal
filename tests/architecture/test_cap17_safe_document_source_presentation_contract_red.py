@@ -25,7 +25,7 @@ NOW = datetime(2026, 10, 10, tzinfo=timezone.utc)
 NEUTRAL = "Fuente: documento de la biblioteca autorizada"
 
 
-def _request(text="Buscá en la biblioteca atlas"):
+def _request(text="Leé el libro atlas de mi biblioteca"):
     # Contract tests use the real request shape; constructor compatibility is
     # intentionally checked by importing the existing official type.
     return GovernedConversationPipelineRequest(
@@ -87,7 +87,7 @@ def _result(
     return result
 
 
-def _intercept(result, text="Buscá en la biblioteca atlas"):
+def _intercept(result, text="Leé el libro atlas de mi biblioteca"):
     conversation = _Conversation(result)
     response = GovernedLocalLibraryConversationInterceptionPort(conversation).intercept(
         _request(text), now=NOW

@@ -64,7 +64,7 @@ def test_newest_first_preserves_existing_bounded_search_parameters():
         _query(order=GovernedSourceQueryOrder.NEWEST_FIRST)
     )
     assert parameters["generator"] == ["search"]
-    assert parameters["gsrsearch"] == ["Patagonian glaciers"]
+    assert parameters["gsrsearch"] == ["Patagonian glaciers filetype:bitmap"]
     assert parameters["gsrnamespace"] == ["6"]
     assert parameters["gsrlimit"] == ["20"]
     assert parameters["iiurlwidth"] == ["640"]

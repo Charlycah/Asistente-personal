@@ -78,7 +78,7 @@ def test_t2d_query_required_follow_up_reenters_existing_cap17(
     (root / "Isaac Asimov.txt").write_text("Grounded Asimov", encoding="utf-8")
 
     initial = interceptor.intercept(
-        _request("session-a", "Buscá literatura en mi Biblioteca"),
+        _request("session-a", "Buscá en mi Biblioteca"),
         now=NOW,
     )
     assert initial is not None
@@ -90,8 +90,11 @@ def test_t2d_query_required_follow_up_reenters_existing_cap17(
     )
 
     assert result is not None
-    assert result.rationale == "local_library_read_completed"
-    assert result.response_text == "Grounded Asimov\n\n---\nFuente: Isaac Asimov.txt"
+    assert result.rationale == "local_library_location_completed"
+    assert result.response_text == (
+        "Encontr\u00e9 en tu Biblioteca: Isaac Asimov.txt."
+    )
+    assert "Grounded Asimov" not in result.response_text
 
 
 def test_t2d_triggerless_follow_up_reenters_existing_cap17(tmp_path: Path) -> None:
@@ -106,8 +109,9 @@ def test_t2d_triggerless_follow_up_reenters_existing_cap17(tmp_path: Path) -> No
     )
 
     assert result is not None
-    assert result.rationale == "local_library_read_completed"
-    assert result.response_text == "Grounded Asimov\n\n---\nFuente: Isaac Asimov.txt"
+    assert result.rationale == "local_library_location_completed"
+    assert result.response_text == "Encontr\u00e9 en tu Biblioteca: Isaac Asimov.txt."
+    assert "Grounded Asimov" not in result.response_text
 
 
 def test_t2d_natural_books_follow_up_remains_under_cap17(tmp_path: Path) -> None:
