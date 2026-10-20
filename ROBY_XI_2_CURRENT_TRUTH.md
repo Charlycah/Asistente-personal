@@ -472,6 +472,93 @@ Autoridades existentes preservadas: EnvironmentInferenceRequestPort, HouseholdCo
 
 Detalle contractual: `docs/ROBY_XI2_R_CONV_EXP_02A_GREEN02_CONTRACTUAL_GAP_REGISTER.md`. Esta integracion es exclusivamente documental y no autoriza RED/GREEN productivo, nueva capacidad ni autoridad.
 
+## R-UI-CONV-01 - Desktop Specialized Voice Failure Isolation
+
+Classification: bounded Desktop response-delivery reliability correction.
+
+Existing implementation:
+- `app/desktop_ui.py`: `DesktopConversationController`.
+- `app/voice_output.py`: existing `SafeVoiceOutput`.
+- `tests/test_m24_desktop_ui.py`: contractual regression test.
+
+R-UI-CONV-01-S8 RED demonstrated that an injected failing TTS
+provider could interrupt specialized response delivery before the
+written Desktop messages were returned.
+
+R-UI-CONV-01-S9 reused the existing `SafeVoiceOutput` at the
+Desktop controller boundary. No new voice authority, manager,
+conversation gateway, or parallel response path was introduced.
+
+R-UI-CONV-01-S9 local certification:
+- Desktop and voice tests: 27 PASS.
+- Ruff: PASS.
+- `git diff --check`: PASS.
+
+R-UI-CONV-01-S10 directed integration certification:
+- Desktop, voice, runtime integration, and unified personal runtime:
+  61 PASS.
+- Ruff: PASS.
+- `git diff --check`: PASS.
+
+Scope limitation:
+- Certifies written specialized-response preservation against
+  exceptions from the injected voice-output provider.
+- Does not certify general language continuity, TTS quality,
+  acoustic identity, M377 personality evolution, or full
+  end-to-end production runtime behavior.
+- Global test suite was not executed for this closure.
+- Previously documented M377 contractual RED failures are not
+  reclassified.
+
+Canonical architecture preserved:
+- `UnifiedBrain` and `OfficialConversationGateway` remain unchanged.
+- Desktop text and voice retain their governed conversation route.
+- `app/runtime_ui_adapter.py` remains untouched.
+- No new capability or authority is declared.
+
+R-UI-CONV-01: DIRECTED INTEGRATION CERTIFIED.
+M377 HOLD: INTACT / NOT REOPENED.
+STOP_PRODUCTIVE: ACTIVE.
+
+## R-CAP17-S4-D7 — Governed Local Library Conversational Operations
+
+Classification: bounded documentary reconciliation of the existing CAP-17
+conversational contract; no new capability or productive authorization.
+
+Existing capability: `knowledge.local_library.read`. Canonical authority
+and ownership remain as recorded in
+`docs/ROBY_XI_2_MASTER_CAPABILITY_REGISTRY.md` (CAP-17).
+
+- LOCALIZAR: `GovernedLocalLibraryConversationV1.locate_admitted_request()`
+  reuses the existing governed catalogue and conversational selector. A
+  location-only request does not authorize document reading, content
+  retrieval, or an additional unified retrieval evaluation.
+- Explicit LEER: admitted reading requests use the existing governed
+  document-reading and unified retrieval path. Combined location-and-reading
+  requests are not treated as location-only requests.
+- Selection and coverage: multiple matches require disambiguation. A bounded
+  or incomplete catalogue search must not be presented as proof that a
+  document does not exist.
+- Compatibility: `GovernedLocalLibraryConversationInterceptionPort.intercept()`
+  delegates location to the canonical conversation operation, without
+  accessing its private catalogue or selector internals. If that operation
+  is unavailable, location-only handling fails closed instead of reading.
+
+Contractual evidence: `tests/architecture/test_r_cap17_s4_d7_c2_compatibility_red.py`
+and `tests/architecture/test_r_cap17_catalogue_coverage_s4_document_operations_red.py`,
+within the eleven-file focal CAP-17 regression.
+
+Local certification: 123 PASS (focal CAP-17 regression); global Ruff PASS;
+`git diff --check` without whitespace errors (LF/CRLF warnings only).
+These results do not certify the full suite, all intent classes, or complete
+Windows end-to-end production behavior. Historical certifications remain
+historical and are not superseded.
+
+No new catalogue, conversation gateway, retrieval, Reasoning, Planning,
+Episode, or execution authority. No Memory/Learning side effects authorized.
+M377 HOLD; MODEL_ACQUISITION UNMAPPED / DENY / NO-GO;
+STOP_PRODUCTIVE ACTIVE. No new RED/GREEN productive horizon is authorized.
+
 ## GIT-06-T - Governed Desktop Visual Checkpoint
 
 Classification: certified Git checkpoint / documentary reconciliation.
