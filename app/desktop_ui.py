@@ -6,6 +6,7 @@ import re
 import subprocess
 import time
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
@@ -21,10 +22,21 @@ from app.conversational_health_guidance import (
     ConversationalHealthGuidanceService,
 )
 from app.conversational_translation import ConversationalTranslation
+from app.desktop_governed_image_preview_coordinator import (
+    GovernedImagePreviewCoordinator,
+)
+from app.desktop_governed_image_preview_fetch_adapter import (
+    fetch_desktop_governed_preview,
+)
+from app.desktop_governed_floating_image_viewer import (
+    DesktopGovernedFloatingImageViewer,
+)
+from app.desktop_governed_floating_viewer_integration import (
+    connect_governed_floating_viewer,
+)
 from app.desktop_visual_companion_runtime_binding import (
     bind_applied_result_to_desktop,
     dispatch_desktop_runtime_visual_render,
-    present_desktop_runtime_visuals,
 )
 from app.device_architecture import DeviceArchitectureService
 from app.document_reading import DocumentReadingService
@@ -839,6 +851,14 @@ class ROBYDesktopApp:
         root = tk.Tk()
         root.title(self.config.title)
         root.geometry(self.config.geometry)
+        def cancel_manual_preview() -> None:
+            preview_coordinator.cancel()
+
+        floating_image_viewer = DesktopGovernedFloatingImageViewer(
+            root=root,
+            toolkit=tk,
+            on_close=cancel_manual_preview,
+        )
 
         frame = ttk.Frame(root)
         frame.pack(expand=True, fill="both", padx=12, pady=12)
@@ -1069,9 +1089,10 @@ class ROBYDesktopApp:
                         visual_turn = bind_applied_result_to_desktop(applied_result)
                         dispatch_desktop_runtime_visual_render(
                             ui_dispatcher,
-                            lambda: present_desktop_runtime_visuals(
-                                visual_turn,
-                                self.external_image_presenter,
+                            lambda: connect_governed_floating_viewer(
+                                presenter=self.external_image_presenter,
+                                viewer=preview_bridge,
+                                artifacts=visual_turn.visual_companion.artifacts,
                             ),
                         )
                 except Exception:
@@ -1214,6 +1235,19 @@ class ROBYDesktopApp:
 
         stopped = False
         ui_dispatcher = UIThreadDispatcher()
+        preview_executor = ThreadPoolExecutor(max_workers=3)
+        preview_coordinator = GovernedImagePreviewCoordinator(
+            viewer=floating_image_viewer,
+            dispatcher=ui_dispatcher,
+            fetcher=fetch_desktop_governed_preview,
+            executor=preview_executor,
+        )
+
+        class PreviewBridge:
+            def open(self, artifacts: tuple[object, ...]) -> None:
+                preview_coordinator.present(artifacts)
+
+        preview_bridge = PreviewBridge()
 
         def poll_ui_dispatcher() -> None:
             if stopped:
@@ -1340,6 +1374,7 @@ class ROBYDesktopApp:
             if stopped:
                 return
             stopped = True
+            preview_coordinator.shutdown()
             stop_listening.set()
             stop_audio = getattr(self.voice_input, "stop", None)
             if callable(stop_audio):

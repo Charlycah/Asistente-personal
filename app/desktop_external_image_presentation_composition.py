@@ -14,6 +14,12 @@ from .external_image_presentation_wiring import (
     present_external_image_turn_safely,
     project_governed_external_images,
 )
+from .governed_conversational_request_mode import (
+    GovernedConversationalRequestMode,
+)
+from .governed_visual_image_admission import (
+    admit_governed_visual_images,
+)
 
 
 class GovernedItem(Protocol):
@@ -32,6 +38,9 @@ class AppliedResult(Protocol):
 
     @property
     def conversational_result(self) -> GovernedResult | None: ...
+
+    @property
+    def selection(self) -> object: ...
 
 
 @dataclass(frozen=True)
@@ -54,9 +63,21 @@ def compose_external_image_turn(
         answer_text=result.natural_answer_text or "",
         raw_items=raw_items,
     )
+    artifacts = presentation.artifacts
+    selection = getattr(result, "selection", None)
+    if selection is not None and governed_result is not None:
+        admitted = admit_governed_visual_images(
+            selection=selection,
+            result=governed_result,
+        )
+        if (
+            selection.request.mode
+            is GovernedConversationalRequestMode.OPEN_VISUAL_SUBJECT
+        ):
+            artifacts = admitted
     return DesktopVisualTurnCompanion(
         text=presentation.text,
-        artifacts=presentation.artifacts,
+        artifacts=artifacts,
     )
 
 

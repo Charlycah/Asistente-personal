@@ -10,6 +10,9 @@ from .governed_conversational_source_selection import (
     GovernedConversationalSourceSelection,
     GovernedConversationalSourceSelectionStatus,
 )
+from .governed_visual_image_admission import (
+    admit_governed_visual_images,
+)
 from .relevance_evaluator import RelevanceRecipient
 
 
@@ -62,6 +65,14 @@ class NaturalGovernedConversationalResponse:
                 "momento."
             )
         if result.status is GovernedConversationalQueryStatus.EMPTY:
+            admitted = admit_governed_visual_images(
+                selection=selection,
+                result=result,
+            )
+            if admitted:
+                count = len(admitted)
+                noun = "imagen" if count == 1 else "im?genes"
+                return f"Encontr? {count} {noun} sobre {subject}."
             return (
                 f"Consulté la fuente disponible, pero no encontré novedades válidas "
                 f"sobre {subject}."

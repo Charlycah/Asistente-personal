@@ -115,7 +115,10 @@ def present_external_image_turn_safely(
             text_fallback_required=True,
             presentation_results=tuple(results),
         )
-    presented = bool(presentation.artifacts)
+    presented = any(
+        getattr(result, "presented", False) is True
+        for result in results
+    )
     return ExternalImageTurnPresentationOutcome(
         text=presentation.text,
         visual_presented=presented,

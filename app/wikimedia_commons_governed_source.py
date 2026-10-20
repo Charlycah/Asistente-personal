@@ -91,11 +91,17 @@ class WikimediaCommonsGovernedSourceAdapter:
     def _build_url(query: GovernedSourceQuery) -> str:
         if not query.query_text:
             raise ValueError("Wikimedia Commons query text cannot be empty")
+        search_text = query.query_text
+        if (
+            query.mode.value == "open_visual_subject"
+            and query.order is GovernedSourceQueryOrder.NEWEST_FIRST
+        ):
+            search_text = f"{search_text} filetype:bitmap"
         parameters = {
             "action": "query",
             "format": "json",
             "generator": "search",
-            "gsrsearch": query.query_text,
+            "gsrsearch": search_text,
             "gsrnamespace": "6",
             "gsrlimit": str(min(query.limit, _MAX_RESULTS)),
             "prop": "imageinfo",

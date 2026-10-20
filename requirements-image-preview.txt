@@ -1,0 +1,3 @@
+# R-VISUAL-01-F04: governed JPEG preview decoding.
+# Install with: python -m pip install -r requirements-image-preview.txt
+Pillow==12.3.0
