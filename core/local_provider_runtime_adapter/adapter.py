@@ -142,16 +142,67 @@ class LocalProviderRuntimeAdapter:
 
     def _messages(self, request: LLMRequest) -> list[dict[str, str]]:
         effective_system = self._effective_system_prompt(request)
+
         if request.messages:
             messages = [
                 {"role": item.role, "content": item.content}
                 for item in request.messages
             ]
-            if effective_system:
-                messages.insert(
-                    0,
-                    {"role": "system", "content": effective_system},
+
+            existing_system_contents = {
+                item["content"] for item in messages if item["role"] == "system"
+            }
+
+            requested_system = (request.system_prompt or "").strip()
+            configured_system = self.settings.system_prompt.strip()
+
+            composed_system = (
+                f"{configured_system}\n\n{requested_system}"
+            )
+
+            if (
+                configured_system
+                and requested_system
+                and configured_system != requested_system
+                and effective_system == composed_system
+                and (
+                    configured_system in existing_system_contents
+                    or requested_system in existing_system_contents
                 )
+            ):
+                required_systems = (
+                    configured_system,
+                    requested_system,
+                )
+            elif effective_system:
+                required_systems = (effective_system,)
+            else:
+                required_systems = ()
+
+            missing_systems = [
+                system
+                for system in required_systems
+                if system not in existing_system_contents
+            ]
+
+            insertion_index = 0
+
+            if (
+                configured_system in existing_system_contents
+                and requested_system in missing_systems
+            ):
+                insertion_index = next(
+                    index + 1
+                    for index, item in enumerate(messages)
+                    if item["role"] == "system"
+                    and item["content"] == configured_system
+                )
+
+            messages[insertion_index:insertion_index] = [
+                {"role": "system", "content": system}
+                for system in missing_systems
+            ]
+
             return messages
 
         messages: list[dict[str, str]] = []
@@ -171,12 +222,9 @@ class LocalProviderRuntimeAdapter:
         style = DEFAULT_HOUSEHOLD_CONVERSATION_STYLE
         english_style = style.system_prompt_for_language("en")
 
-        if (
-            configured_prompt.strip() == style.system_prompt.strip()
-            and (
-                requested_prompt.strip() == english_style
-                or requested_prompt.startswith(english_style + "\n\n")
-            )
+        if configured_prompt.strip() == style.system_prompt.strip() and (
+            requested_prompt.strip() == english_style
+            or requested_prompt.startswith(english_style + "\n\n")
         ):
             configured_prompt = ""
 

@@ -16,7 +16,7 @@ Preserve conversational roles from ROBY's governed runtime through provider exec
 ## Acceptance
 
 - Existing callers may continue to provide only `prompt`.
-- A first turn carries one structured `user` message without changing its fallback prompt.
+- A first turn carries exactly one conversational `user` message without changing its fallback prompt. Governed `system` guidance may precede that message under the later Post-M409.1 contract.
 - Historical user and assistant turns retain their roles and order.
 - Provider routing copies structured messages without mutation.
 - Text-only providers receive deterministic serialization.

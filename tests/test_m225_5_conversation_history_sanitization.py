@@ -78,7 +78,9 @@ def test_all_reserved_history_yields_current_message_only():
     )
 
     assert built.prompt == "Hola ROBY"
+    assert built.system_prompt
     assert tuple((item.role, item.content) for item in built.messages) == (
+        ("system", built.system_prompt),
         ("user", "Hola ROBY"),
     )
     assert built.metadata["conversation_context_reserved_removed_turns"] == "1"

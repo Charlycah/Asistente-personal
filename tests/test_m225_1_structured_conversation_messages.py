@@ -76,7 +76,9 @@ def test_continuity_builds_role_preserving_messages():
         inference_request=EnvironmentInferenceRequestPort().build(conversation),
     )
 
+    assert built.system_prompt
     assert [(item.role, item.content) for item in built.messages] == [
+        ("system", built.system_prompt),
         ("user", "Mi nombre es Carlos."),
         ("assistant", "Entendido, Carlos."),
         ("user", "¿Cómo me llamo?"),
@@ -97,7 +99,11 @@ def test_first_turn_is_structured_without_changing_legacy_prompt():
     )
 
     assert built.prompt == "Hola ROBY"
-    assert built.messages == (ConversationMessage("user", "Hola ROBY"),)
+    assert built.system_prompt
+    assert built.messages == (
+        ConversationMessage("system", built.system_prompt),
+        ConversationMessage("user", "Hola ROBY"),
+    )
 
 
 def test_openai_compatible_adapter_sends_structured_roles_directly():
