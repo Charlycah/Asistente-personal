@@ -1,0 +1,389 @@
+﻿### app/governed_local_library_conversation.py
+  90:         self.document_reader = document_reader
+  91:         self.unified_runtime = unified_runtime
+  92:         self.max_results = max_results
+  93:         self._selector = GovernedLibraryConversationalSelectionV1()
+  94: 
+  95:     def locate_admitted_request(
+  96:         self,
+  97:         *,
+  98:         owner: str,
+  99:         search_query: str,
+ 100:         now: datetime,
+ 101:     ) -> GovernedLocalLibraryConversationResult:
+ 102:         """Locate via the existing catalogue/selector; never read content."""
+ 103:         if now.tzinfo is None:
+ 104:             raise ValueError("library conversation time must be timezone-aware")
+ 105:         query = search_query.strip()
+ 106:         if not query:
+ 107:             raise ValueError("library search query must not be blank")
+ 108:         if "/" in query or "\\" in query:
+ 109:             entry = self.library.lookup_explicit_relative_path(query)
+ 110:             decision = self._selector.decide_explicit(query=query, entry=entry)
+ 111:             candidates = (entry,) if entry is not None else ()
+ 112:         else:
+ 113:             search = self.library.search(query, max_results=self.max_results)
+ 114:             decision = self._selector.decide(search)
+ 115:             candidates = search.matches
+ 116:         if decision.disposition is GovernedLibrarySelectionDisposition.NO_MATCH:
+ 117:             return GovernedLocalLibraryConversationResult(
+ 118:                 status=GovernedLocalLibraryConversationStatus.NO_MATCH,
+ 119:                 query=query,
+ 120:                 bounded=decision.bounded,
+ 121:                 last_completed_stage="selection",
+ 122:             )
+ 123:         if (
+ 124:             decision.disposition
+ 125:             is GovernedLibrarySelectionDisposition.NEEDS_DISAMBIGUATION
+ 126:         ):
+ 127:             return GovernedLocalLibraryConversationResult(
+ 128:                 status=GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION,
+ 129:                 query=query,
+ 130:                 candidates=decision.candidates,
+ 131:                 bounded=decision.bounded,
+ 132:                 last_completed_stage="selection",
+ 133:             )
+ 134:         selection = decision.selection
+ 135:         if selection is None:
+ 136:             raise RuntimeError("selected library disposition requires a selection")
+ 137:         entry = next(
+ 138:             (
+ 139:                 item
+ 140:                 for item in candidates
+ 141:                 if item is not None
+ 142:                 and item.entry_id == selection.entry_id
+ 143:                 and item.source_reference == selection.source_reference
+ 144:             ),
+ 145:             None,
+### app/governed_local_library_runtime_wiring.py
+ 138:     def intercept(self, request: GovernedConversationPipelineRequest, *, now):
+ 139:         if self._is_library_capability_question(request.text):
+ 140:             return GovernedOperationalInterception(
+ 141:                 response_text=(
+ 142:                     "La Biblioteca local está configurada para consultas "
+ 143:                     "gobernadas en esta sesión. Puedo intentar buscar un libro "
+ 144:                     "o documento si me indicás cuál; eso no confirma que "
+ 145:                     "cada archivo sea legible ni que una búsqueda sea completa."
+ 146:                 ),
+ 147:                 rationale="local_library_capability_status",
+ 148:             )
+ 149:         if self._is_library_recommendation_request(request.text):
+ 150:             return GovernedOperationalInterception(
+ 151:                 response_text=(
+ 152:                     "Puedo ayudarte a elegir una lectura, pero todavía no "
+ 153:                     "tengo evidencia suficiente del catálogo para recomendarte "
+ 154:                     "un libro concreto de tu Biblioteca. Indicame un género, "
+ 155:                     "autor o tema y puedo intentar buscar coincidencias; "
+ 156:                     "una búsqueda parcial no garantiza cobertura completa."
+ 157:                 ),
+ 158:                 rationale="local_library_recommendation_evidence_required",
+ 159:             )
+ 160:         pending = self._active_follow_up(request.session_id, now=now)
+ 161:         if pending is not None and self._is_cancellation(request.text):
+ 162:             self._pending_follow_ups.pop(request.session_id, None)
+ 163:             return GovernedOperationalInterception(
+ 164:                 response_text="Cancelé la búsqueda pendiente en la Biblioteca.",
+ 165:                 rationale="local_library_clarification_cancelled",
+ 166:             )
+ 167: 
+ 168:         assessment = self.conversation.knowledge_runtime.assess(request.text)
+ 169:         admitted = assessment.need.local_documents_available
+ 170:         if not admitted:
+ 171:             if pending is None or not self._is_compatible_follow_up(request.text):
+ 172:                 return None
+ 173:             query = request.text.strip()
+ 174:         else:
+ 175:             query = self._search_query(request.text)
+ 176:         if not query:
+ 177:             self._remember_follow_up(request.session_id, now=now)
+ 178:             return GovernedOperationalInterception(
+ 179:                 response_text=(
+ 180:                     "Indicame qué libro o tema querés buscar en la Biblioteca."
+ 181:                 ),
+ 182:                 rationale="local_library_query_required",
+ 183:             )
+ 184:         # LOCALIZAR is owned by the canonical conversation, not this adapter.
+ 185:         if admitted and self._is_location_only(request.text):
+ 186:             locate = getattr(self.conversation, "locate_admitted_request", None)
+ 187:             if locate is None:
+ 188:                 # Historical doubles cannot establish catalogue evidence.
+ 189:                 # Fail closed; never fall back to document content retrieval.
+ 190:                 return GovernedOperationalInterception(
+ 191:                     response_text=(
+ 192:                         "No puedo verificar la ubicación de ese documento "
+ 193:                         "con la interfaz de Biblioteca disponible."
+ 194:                     ),
+ 195:                     rationale="local_library_location_unavailable",
+ 196:                 )
+ 197:             result = locate(
+ 198:                 owner=request.owner,
+ 199:                 search_query=query,
+ 200:                 now=now,
+ 201:             )
+ 202:             self._pending_follow_ups.pop(request.session_id, None)
+ 203:             if result.status is GovernedLocalLibraryConversationStatus.NO_MATCH:
+ 204:                 if result.bounded:
+ 205:                     return GovernedOperationalInterception(
+ 206:                         response_text=(
+ 207:                             f"La búsqueda de {query!r} en la Biblioteca autorizada "
+ 208:                             "fue incompleta por un límite del catálogo. "
+ 209:                             "No puedo confirmar que el documento no exista."
+ 210:                         ),
+ 211:                         rationale="local_library_incomplete_no_match",
+ 212:                     )
+ 213:                 return GovernedOperationalInterception(
+ 214:                     response_text=(
+ 215:                         f"No encontré coincidencias para {query!r} "
+ 216:                         "en la Biblioteca autorizada."
+ 217:                     ),
+ 218:                     rationale="local_library_no_match",
+ 219:                 )
+ 220:             if (
+ 221:                 result.status
+ 222:                 is GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION
+ 223:             ):
+ 224:                 self._remember_follow_up(request.session_id, now=now)
+ 225:                 names = "\n".join(
+ 226:                     f"- {safe_local_document_filename(item.filename)}"
+ 227:                     for item in result.candidates
+ 228:                 )
+ 229:                 return GovernedOperationalInterception(
+ 230:                     response_text=(
+ 231:                         "Encontré varias coincidencias en la Biblioteca. "
+ 232:                         "Indicame cuál querés consultar:\n" + names
+ 233:                     ),
+ 234:                     rationale="local_library_disambiguation_required",
+ 235:                 )
+ 236:             if result.status is GovernedLocalLibraryConversationStatus.COMPLETED:
+ 237:                 label = safe_local_document_filename(result.safe_source_label)
+ 238:                 if label is None:
+ 239:                     return GovernedOperationalInterception(
+ 240:                         response_text="Encontré un documento en tu Biblioteca.",
+ 241:                         rationale="local_library_location_completed",
+ 242:                     )
+ 243:                 return GovernedOperationalInterception(
+ 244:                     response_text=f"Encontré en tu Biblioteca: {label}.",
+ 245:                     rationale="local_library_location_completed",
+ 246:                 )
+ 247:             return GovernedOperationalInterception(
+ 248:                 response_text="No pude completar la búsqueda gobernada.",
+ 249:                 rationale="local_library_location_failed",
+ 250:             )
+ 251: 
+ 252:         if admitted:
+ 253:             result = self.conversation.handle_user_request(
+ 254:                 owner=request.owner,
+ 255:                 text=request.text,
+ 256:                 search_query=query,
+ 257:                 now=now,
+ 258:             )
+ 259:         else:
+ 260:             result = self.conversation.handle_admitted_request(
+ 261:                 owner=request.owner,
+ 262:                 search_query=query,
+ 263:                 now=now,
+ 264:             )
+ 265:         if result.status is GovernedLocalLibraryConversationStatus.NO_MATCH:
+ 266:             self._pending_follow_ups.pop(request.session_id, None)
+ 267:             if result.bounded:
+ 268:                 return GovernedOperationalInterception(
+ 269:                     response_text=(
+ 270:                         f"La búsqueda de {result.query!r} en la Biblioteca "
+ 271:                         "autorizada fue incompleta por un límite del catálogo. "
+ 272:                         "No puedo confirmar que el documento no exista."
+ 273:                     ),
+ 274:                     rationale="local_library_incomplete_no_match",
+ 275:                 )
+ 276:             return GovernedOperationalInterception(
+ 277:                 response_text=(
+ 278:                     f"No encontré coincidencias para {result.query!r} en la "
+ 279:                     "Biblioteca autorizada."
+ 280:                 ),
+ 281:                 rationale="local_library_no_match",
+ 282:             )
+ 283:         if result.status is GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION:
+ 284:             self._remember_follow_up(request.session_id, now=now)
+ 285:             names = "\n".join(f"- {item.filename}" for item in result.candidates)
+ 286:             return GovernedOperationalInterception(
+ 287:                 response_text=(
+ 288:                     "Encontré varias coincidencias en la Biblioteca. "
+ 289:                     "Indicame cuál querés consultar:\n"
+ 290:                     f"{names}"
+ 291:                 ),
+ 292:                 rationale="local_library_disambiguation_required",
+ 293:             )
+ 294:         if result.status is GovernedLocalLibraryConversationStatus.COMPLETED:
+ 295:             self._pending_follow_ups.pop(request.session_id, None)
+ 296:             artifact = result.artifact
+ 297:             content = "" if artifact is None else artifact.content
+ 298:             neutral = "Fuente: documento de la biblioteca autorizada"
+ 299:             reference = result.source_reference
+ 300:             references = () if artifact is None else artifact.references
+ 301:             safe_label = safe_local_document_filename(result.safe_source_label)
+ 302:             if not reference or reference not in references or not safe_label:
+ 303:                 source_line = neutral
+ 304:             else:
+ 305:                 source_line = f"Fuente: {safe_label}"
+ 306:             # The separator marks system provenance, not a line inside the
+ 307:             # untrusted document. Do not interpret retrieved content as commands.
+ 308:             return GovernedOperationalInterception(
+ 309:                 response_text=f"{content}\n\n---\n{source_line}",
+ 310:                 rationale="local_library_read_completed",
+ 311:             )
+ 312:         return GovernedOperationalInterception(
+ 313:             response_text="No pude completar la lectura gobernada de la Biblioteca.",
+ 314:             rationale="local_library_read_failed",
+ 315:         )
+### tests/architecture/test_r_cap17_s4_d7_c2_compatibility_red.py
+  35: 
+  36: def test_s4_c2_interceptor_does_not_reach_catalogue_or_selector_internals():
+  37:     """Cataloguing and selection remain behind the conversation boundary."""
+  38:     method = _intercept_method()
+  39:     private_access = []
+  40:     for node in ast.walk(method):
+  41:         if not isinstance(node, ast.Attribute):
+  42:             continue
+  43:         if not isinstance(node.value, ast.Attribute):
+  44:             continue
+  45:         parent = node.value
+  46:         if not isinstance(parent.value, ast.Name):
+  47:             continue
+  48:         if parent.value.id != "self" or parent.attr != "conversation":
+  49:             continue
+  50:         if node.attr in {"library", "_selector", "max_results"}:
+  51:             private_access.append(node.attr)
+  52:     assert not private_access, (
+  53:         "Interceptor bypasses canonical conversation operation boundary: "
+  54:         f"{private_access}"
+  55:     )
+  56: 
+  57: 
+  58: class _KnowledgeRuntime:
+  59:     def assess(self, text: str):
+  60:         return SimpleNamespace(
+  61:             need=SimpleNamespace(local_documents_available=True)
+  62:         )
+  63: 
+  64: 
+  65: class _HistoricalConversationPort:
+  66:     """Public historical surface; deliberately no library or _selector."""
+  67: 
+  68:     def __init__(self):
+  69:         self.knowledge_runtime = _KnowledgeRuntime()
+  70:         self.calls = []
+  71: 
+  72:     def handle_user_request(self, **kwargs):
+  73:         self.calls.append(("retrieve", kwargs))
+  74:         return SimpleNamespace(
+  75:             status=SimpleNamespace(value="no_match"),
+  76:             query=kwargs["search_query"],
+  77:             bounded=True,
+  78:         )
+  79: 
+  80:     def handle_admitted_request(self, **kwargs):
+  81:         self.calls.append(("follow_up", kwargs))
+  82:         raise AssertionError("No follow-up expected")
+  83: 
+  84: 
+  85: def test_s4_c2_location_accepts_historical_conversation_surface():
+  86:     """An existing public conversation double must not cause AttributeError.
+  87: 
+  88:     The future GREEN must route LOCALIZAR through the canonical public
+  89:     operation, not silently fall back to content retrieval.
+  90:     """
+  91:     conversation = _HistoricalConversationPort()
+  92:     request = GovernedConversationPipelineRequest(
+  93:         owner="owner", session_id="s4-c2", text="Buscá en la biblioteca atlas"
+  94:     )
+  95:     response = GovernedLocalLibraryConversationInterceptionPort(
+  96:         conversation
+  97:     ).intercept(request, now=NOW)
+  98:     assert response is not None
+  99:     assert all(operation != "retrieve" for operation, _ in conversation.calls), (
+ 100:         "LOCALIZAR must not call content-retrieval handle_user_request"
+ 101:     )
+### tests/architecture/test_r_cap17_catalogue_coverage_s4_document_operations_red.py
+  70:     (
+  71:         "Buscá en la biblioteca el libro Robots e Imperio.",
+  72:         "Buscá en la biblioteca el libro Robots e Imperio, "
+  73:         "pero no lo leas.",
+  74:     ),
+  75: )
+  76: def test_s4_location_does_not_read_or_retrieve(
+  77:     tmp_path: Path,
+  78:     utterance: str,
+  79: ) -> None:
+  80:     interceptor, (conversation, reader) = _runtime(tmp_path)
+  81: 
+  82:     before = conversation.unified_runtime.snapshot.evaluations
+  83:     request = GovernedConversationPipelineRequest(
+  84:         owner="Carlos",
+  85:         session_id="s4-red-location",
+  86:         text=utterance,
+  87:     )
+  88: 
+  89:     response = interceptor.intercept(request, now=NOW)
+  90: 
+  91:     assert response is not None
+  92: 
+  93:     after = conversation.unified_runtime.snapshot.evaluations
+  94: 
+  95:     observations = {
+  96:         "utterance": utterance,
+  97:         "response_text": response.response_text,
+  98:         "reader_calls": [str(path) for path in reader.calls],
+  99:         "evaluations_before": before,
+ 100:         "evaluations_after": after,
+ 101:     }
+ 102: 
+ 103:     assert "Robots e Imperio.txt" in response.response_text, observations
+ 104:     assert (
+ 105:         "CONTENIDO_INTERNO_NO_SOLICITADO"
+ 106:         not in response.response_text
+ 107:     ), observations
+ 108:     assert reader.calls == [], observations
+ 109:     assert after == before, observations
+ 110: 
+ 111: 
+ 112: @pytest.mark.parametrize(
+ 113:     "utterance",
+ 114:     (
+ 115:         "Leé el libro Robots e Imperio de mi biblioteca.",
+ 116:         "Buscá en la biblioteca el libro Robots e Imperio y leelo.",
+ 117:         "Buscá en la biblioteca el libro Robots e Imperio y narrámelo.",
+ 118:     ),
+ 119: )
+ 120: def test_s4_explicit_reading_uses_existing_retrieval(
+ 121:     tmp_path: Path,
+ 122:     utterance: str,
+ 123: ) -> None:
+ 124:     interceptor, (conversation, reader) = _runtime(tmp_path)
+ 125: 
+ 126:     before = conversation.unified_runtime.snapshot.evaluations
+ 127:     request = GovernedConversationPipelineRequest(
+ 128:         owner="Carlos",
+ 129:         session_id="s4-red-explicit-reading",
+ 130:         text=utterance,
+ 131:     )
+ 132: 
+ 133:     response = interceptor.intercept(request, now=NOW)
+ 134:     after = conversation.unified_runtime.snapshot.evaluations
+ 135: 
+ 136:     observations = {
+ 137:         "utterance": utterance,
+ 138:         "response_text": (
+ 139:             None if response is None else response.response_text
+ 140:         ),
+ 141:         "reader_calls": [str(path) for path in reader.calls],
+ 142:         "evaluations_before": before,
+ 143:         "evaluations_after": after,
+ 144:     }
+ 145: 
+ 146:     assert response is not None, observations
+ 147:     assert (
+ 148:         "CONTENIDO_INTERNO_NO_SOLICITADO"
+ 149:         in response.response_text
+ 150:     ), observations
+ 151:     assert len(reader.calls) == 1, observations
+ 152:     assert reader.calls[0].name == "Robots e Imperio.txt", observations
+ 153:     assert after == before + 1, observations

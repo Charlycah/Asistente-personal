@@ -1,0 +1,729 @@
+
+========================================================================
+FILE: ROBY_CONV_REAL_01A_S1_GREEN_QUIRURGICO.py
+========================================================================
+0001: """CONV-REAL-01A-S1: minimal diagnostic propagation via official observability.
+0002: 
+0003: Run from the HAL project root. Only two canonical files are modified.
+0004: The operation checks exact source anchors and is idempotent.
+0005: """
+0006: 
+0007: from pathlib import Path
+0008: 
+0009: ROOT = Path.cwd()
+0010: PIPELINE = ROOT / "core/governed_operational_conversation_pipeline/pipeline.py"
+0011: OBSERVABILITY = ROOT / "app/conversation_reliability_observability.py"
+0012: 
+0013: 
+0014: def replace_once(path: Path, old: str, new: str) -> bool:
+0015:     source = path.read_text(encoding="utf-8")
+0016:     if new in source:
+0017:         return False
+0018:     if source.count(old) != 1:
+0019:         raise RuntimeError(f"Expected exactly one canonical anchor in {path}")
+0020:     path.write_text(source.replace(old, new, 1), encoding="utf-8")
+0021:     return True
+0022: 
+0023: 
+0024: def main() -> None:
+0025:     if not PIPELINE.is_file() or not OBSERVABILITY.is_file():
+0026:         raise RuntimeError("Run from HAL root; canonical files not found")
+0027:     old_observability = """    def complete_turn(
+0028:         self,
+0029:         result: GovernedConversationPipelineResult,
+0030: """
+0031:     new_observability = '''    def record_failure(
+0032:         self, request: GovernedConversationPipelineRequest, exc: Exception
+0033:     ) -> None:
+0034:         """Retain only the exception class in the existing pending official trace."""
+0035:         from dataclasses import replace
+0036: 
+0037:         key = (request.owner.casefold(), request.session_id)
+0038:         with self._lock:
+0039:             pending = self._pending.get(key)
+0040:             if pending is not None:
+0041:                 self._pending[key] = replace(pending, error=type(exc).__name__)
+0042: 
+0043:     def complete_turn(
+0044:         self,
+0045:         result: GovernedConversationPipelineResult,
+0046: '''
+0047:     old_pipeline = """        except Exception:
+0048:             preparation = None
+0049:             provider_execution = None
+0050:             retrieval_execution = None
+0051: """
+0052:     new_pipeline = """        except Exception as exc:
+0053:             record_failure = getattr(self.conversation_execution, "record_failure", None)
+0054:             if callable(record_failure):
+0055:                 try:
+0056:                     record_failure(request, exc)
+0057:                 except Exception:
+0058:                     pass  # Diagnostics must not defeat safe failure containment.
+0059:             preparation = None
+0060:             provider_execution = None
+0061:             retrieval_execution = None
+0062: """
+0063:     # Preflight both anchors before any write.
+0064:     for path, old, new in (
+0065:         (OBSERVABILITY, old_observability, new_observability),
+0066:         (PIPELINE, old_pipeline, new_pipeline),
+0067:     ):
+0068:         content = path.read_text(encoding="utf-8")
+0069:         if new not in content and content.count(old) != 1:
+0070:             raise RuntimeError(f"Preflight failed: {path}")
+0071:     for path, old, new in (
+0072:         (OBSERVABILITY, old_observability, new_observability),
+0073:         (PIPELINE, old_pipeline, new_pipeline),
+0074:     ):
+0075:         changed = replace_once(path, old, new)
+0076:         print(f"{'PATCHED' if changed else 'UNCHANGED'}: {path.relative_to(ROOT)}")
+0077: 
+0078: 
+0079: if __name__ == "__main__":
+0080:     main()
+
+========================================================================
+FILE: ROBY_CONV_REAL_01C_S2_GREEN_QUIRURGICO.py
+========================================================================
+0001: """CONV-REAL-01C-S2: guarded, single-file GREEN; preview by default.
+0002: 
+0003: Run from HAL root. --apply requires exact reference baseline match.
+0004: No new module, authority, or provider changes.
+0005: """
+0006: 
+0007: from __future__ import annotations
+0008: 
+0009: import argparse
+0010: import difflib
+0011: import hashlib
+0012: from pathlib import Path
+0013: 
+0014: TARGET = Path("core/conversational_context_continuity.py")
+0015: BASELINE_SHA256 = "75b2b6794f36f5de18494be0046756902067047ae840381b764e7252f25994c2"
+0016: 
+0017: 
+0018: def transform(source: str) -> str:
+0019:     before_import = (
+0020:         "from core.conversation_context_curation import (\n"
+0021:         "    curate_recent_conversation_context,\n"
+0022:         ")\n"
+0023:     )
+0024:     after_import = (
+0025:         "from core.conversation_context_curation import (\n"
+0026:         "    curate_recent_conversation_context,\n"
+0027:         "    normalize_conversational_text,\n"
+0028:         ")\n"
+0029:     )
+0030:     before_sanitized = (
+0031:         "    sanitized = sanitize_conversation_history(conversation.recent_context)\n"
+0032:         "    curated_context = curate_recent_conversation_context(\n"
+0033:     )
+0034:     after_sanitized = (
+0035:         "    sanitized = sanitize_conversation_history(conversation.recent_context)\n"
+0036:         "    normalized_current = normalize_conversational_text(conversation.text)\n"
+0037:         "    repeat_count = sum(\n"
+0038:         "        1\n"
+0039:         "        for turn in sanitized.context\n"
+0040:         "        if normalized_current\n"
+0041:         "        and normalize_conversational_text(turn.user_text)\n"
+0042:         "        == normalized_current\n"
+0043:         "    )\n"
+0044:         "    curated_context = curate_recent_conversation_context(\n"
+0045:     )
+0046:     before_messages = (
+0047:         "    messages: list[ConversationMessage] = []\n"
+0048:         "    if inference_request.system_prompt:\n"
+0049:         '        messages.append(ConversationMessage("system", inference_request.system_prompt))\n'
+0050:     )
+0051:     after_messages = (
+0052:         "    messages: list[ConversationMessage] = []\n"
+0053:         "    if inference_request.system_prompt:\n"
+0054:         '        messages.append(ConversationMessage("system", inference_request.system_prompt))\n'
+0055:         "    if repeat_count:\n"
+0056:         "        messages.append(\n"
+0057:         "            ConversationMessage(\n"
+0058:         '                "system",\n'
+0059:         '                "Contexto de esta sesión: el usuario ya formuló una "\n'
+0060:         '                "pregunta equivalente. La respuesta anterior se excluyó "\n'
+0061:         '                "por curación. No presupongas que fue correcta, que "\n'
+0062:         '                "hubo insatisfacción ni que se completó una respuesta.",\n'
+0063:         "            )\n"
+0064:         "        )\n"
+0065:     )
+0066:     before_metadata = (
+0067:         "    metadata = dict(inference_request.metadata)\n"
+0068:         "    if conversation.recent_context:\n"
+0069:     )
+0070:     after_metadata = (
+0071:         "    metadata = dict(inference_request.metadata)\n"
+0072:         "    if repeat_count:\n"
+0073:         '        metadata["conversation_current_question_repeated"] = "true"\n'
+0074:         '        metadata["conversation_current_question_repeat_count"] = str(\n'
+0075:         "            repeat_count\n"
+0076:         "        )\n"
+0077:         "    if conversation.recent_context:\n"
+0078:     )
+0079:     output = source
+0080:     for old, new in (
+0081:         (before_import, after_import),
+0082:         (before_sanitized, after_sanitized),
+0083:         (before_messages, after_messages),
+0084:         (before_metadata, after_metadata),
+0085:     ):
+0086:         if output.count(old) != 1:
+0087:             raise SystemExit("STOP: expected integration anchor missing or duplicated")
+0088:         output = output.replace(old, new, 1)
+0089:     return output
+0090: 
+0091: 
+0092: def main() -> None:
+0093:     parser = argparse.ArgumentParser()
+0094:     parser.add_argument("--apply", action="store_true")
+0095:     args = parser.parse_args()
+0096:     if not TARGET.is_file():
+0097:         raise SystemExit(f"STOP: missing {TARGET}; run from HAL root")
+0098:     raw = TARGET.read_bytes()
+0099:     digest = hashlib.sha256(raw).hexdigest()
+0100:     if digest != BASELINE_SHA256:
+0101:         raise SystemExit(
+0102:             "STOP: local source differs from inspected ZIP baseline; "
+0103:             f"no changes applied. SHA256={digest}"
+0104:         )
+0105:     source = raw.decode("utf-8")
+0106:     output = transform(source)
+0107:     compile(output, str(TARGET), "exec")
+0108:     diff = "".join(
+0109:         difflib.unified_diff(
+0110:             source.splitlines(keepends=True),
+0111:             output.splitlines(keepends=True),
+0112:             fromfile=str(TARGET),
+0113:             tofile=str(TARGET) + " (candidate)",
+0114:         )
+0115:     )
+0116:     print(diff)
+0117:     if not args.apply:
+0118:         print("PREVIEW ONLY: no files changed. Run --apply after reviewing diff.")
+0119:         return
+0120:     TARGET.write_bytes(output.encode("utf-8"))
+0121:     print("APPLIED: one production file. Run focal tests and Ruff.")
+0122: 
+0123: 
+0124: if __name__ == "__main__":
+0125:     main()
+
+========================================================================
+FILE: ROBY_S4_D7_B_GREEN_QUIRURGICO.py
+========================================================================
+0001: """S4-D7-B: guarded surgical patch for the existing CAP-17 interceptor.
+0002: 
+0003: Run from the ROBY repository root. Never silently overwrite unexpected code.
+0004: """
+0005: 
+0006: from __future__ import annotations
+0007: 
+0008: import ast
+0009: from pathlib import Path
+0010: 
+0011: TARGET = Path("app/governed_local_library_runtime_wiring.py")
+0012: source = TARGET.read_text(encoding="utf-8")
+0013: 
+0014: anchor = """        if admitted:
+0015:             result = self.conversation.handle_user_request(
+0016: """
+0017: if source.count(anchor) != 1:
+0018:     raise SystemExit("STOP: productive interception anchor changed; no files written")
+0019: 
+0020: addition = """        # S4-D7-B: a location request must not invoke document retrieval.
+0021:         # Use the already-authoritative catalogue and conversational selector.
+0022:         if admitted and self._is_location_only(request.text):
+0023:             from core.governed_local_library.conversation_selection import (
+0024:                 GovernedLibrarySelectionDisposition,
+0025:             )
+0026: 
+0027:             if "/" in query or "\\\\" in query:
+0028:                 entry = self.conversation.library.lookup_explicit_relative_path(query)
+0029:                 decision = self.conversation._selector.decide_explicit(
+0030:                     query=query, entry=entry
+0031:                 )
+0032:                 matches = (entry,)
+0033:             else:
+0034:                 search = self.conversation.library.search(
+0035:                     query, max_results=self.conversation.max_results
+0036:                 )
+0037:                 decision = self.conversation._selector.decide(search)
+0038:                 matches = search.matches
+0039:             self._pending_follow_ups.pop(request.session_id, None)
+0040:             if decision.disposition is GovernedLibrarySelectionDisposition.NO_MATCH:
+0041:                 if decision.bounded:
+0042:                     return GovernedOperationalInterception(
+0043:                         response_text=(
+0044:                             f"La búsqueda de {query!r} en la Biblioteca autorizada "
+0045:                             "fue incompleta por un límite del catálogo. "
+0046:                             "No puedo confirmar que el documento no exista."
+0047:                         ),
+0048:                         rationale="local_library_incomplete_no_match",
+0049:                     )
+0050:                 return GovernedOperationalInterception(
+0051:                     response_text=(
+0052:                         f"No encontré coincidencias para {query!r} "
+0053:                         "en la Biblioteca autorizada."
+0054:                     ),
+0055:                     rationale="local_library_no_match",
+0056:                 )
+0057:             if (
+0058:                 decision.disposition
+0059:                 is GovernedLibrarySelectionDisposition.NEEDS_DISAMBIGUATION
+0060:             ):
+0061:                 self._remember_follow_up(request.session_id, now=now)
+0062:                 names = "\\n".join(
+0063:                     f"- {safe_local_document_filename(item.filename)}"
+0064:                     for item in decision.candidates
+0065:                 )
+0066:                 return GovernedOperationalInterception(
+0067:                     response_text=(
+0068:                         "Encontré varias coincidencias en la Biblioteca. "
+0069:                         "Indicame cuál querés consultar:\\n" + names
+0070:                     ),
+0071:                     rationale="local_library_disambiguation_required",
+0072:                 )
+0073:             selected = decision.selection
+0074:             entry = next(
+0075:                 (
+0076:                     item for item in matches
+0077:                     if selected is not None and item.entry_id == selected.entry_id
+0078:                 ),
+0079:                 None,
+0080:             )
+0081:             if entry is None:
+0082:                 raise RuntimeError("canonical library selection lost entry identity")
+0083:             label = safe_local_document_filename(entry.filename)
+0084:             return GovernedOperationalInterception(
+0085:                 response_text=f"Encontré en tu Biblioteca: {label}.",
+0086:                 rationale="local_library_location_completed",
+0087:             )
+0088: 
+0089: """
+0090: source = source.replace(anchor, addition + anchor, 1)
+0091: 
+0092: anchor2 = """    @classmethod
+0093:     def _search_query(cls, text: str) -> str:
+0094: """
+0095: if source.count(anchor2) != 1:
+0096:     raise SystemExit("STOP: search query anchor changed; no files written")
+0097: 
+0098: helper = """    @staticmethod
+0099:     def _is_location_only(text: str) -> bool:
+0100:         normalized = text.casefold()
+0101:         # Explicit prohibition takes precedence over a reading verb.
+0102:         if re.search(r"\\b(?:pero\\s+)?no\\s+lo\\s+leas\\b", normalized):
+0103:             return True
+0104:         return not bool(
+0105:             re.search(
+0106:                 r"\\b(?:le[eé]|lee|leelo|léelo|narr[aá]melo|narramelo|"
+0107:                 r"leer|narrar|escucharlo|resum[ií]|analiz[aá]|"
+0108:                 r"revis[aá]\\s+el\\s+contenido)\\b",
+0109:                 normalized,
+0110:             )
+0111:         )
+0112: 
+0113: """
+0114: source = source.replace(anchor2, helper + anchor2, 1)
+0115: 
+0116: anchor3 = """        # Only the residual explicit-search path needs title cleanup.
+0117: """
+0118: if source.count(anchor3) != 1:
+0119:     raise SystemExit("STOP: title-cleanup anchor changed; no files written")
+0120: 
+0121: cleanup = """        # Strip compound operation and negation clauses before title matching.
+0122:         query = re.sub(
+0123:             r"\\s*,?\\s*pero\\s+no\\s+lo\\s+leas\\s*[.?!]*$",
+0124:             "",
+0125:             query,
+0126:             flags=re.IGNORECASE,
+0127:         )
+0128:         query = re.sub(
+0129:             r"\\s+y\\s+(?:leelo|léelo|narr[aá]melo|narramelo)\\s*[.?!]*$",
+0130:             "",
+0131:             query,
+0132:             flags=re.IGNORECASE,
+0133:         )
+0134:         query = re.sub(
+0135:             r"^(?:le[eé]|lee|léeme|leeme)\\s+(?:el\\s+)?libro\\s+",
+0136:             "",
+0137:             query,
+0138:             count=1,
+0139:             flags=re.IGNORECASE,
+0140:         )
+0141:         query = re.sub(
+0142:             r"\\s+de\\s+mi\\s+biblioteca\\s*[.?!]*$",
+0143:             "",
+0144:             query,
+0145:             flags=re.IGNORECASE,
+0146:         )
+0147: """
+0148: source = source.replace(anchor3, cleanup + anchor3, 1)
+0149: 
+0150: ast.parse(source, filename=str(TARGET))
+0151: # Avoid accidental second application.
+0152: if source.count("S4-D7-B: a location request") != 1:
+0153:     raise SystemExit("STOP: duplicate S4-D7-B marker; no files written")
+0154: TARGET.write_text(source, encoding="utf-8")
+0155: print("S4_D7_B_PATCH_APPLIED:", TARGET)
+0156: print("NEXT: pytest contract + historical tests, ruff, git diff --check")
+
+========================================================================
+FILE: ROBY_S4_D7_C3_GREEN_QUIRURGICO.py
+========================================================================
+0001: """S4-D7-C.3: surgical CAP-17 location boundary repair.
+0002: 
+0003: Run from HAL root. Validate all anchors before writing either file.
+0004: No historical tests, other production files, or governance docs are changed.
+0005: """
+0006: 
+0007: from __future__ import annotations
+0008: 
+0009: import ast
+0010: from pathlib import Path
+0011: 
+0012: CONVERSATION = Path("app/governed_local_library_conversation.py")
+0013: WIRING = Path("app/governed_local_library_runtime_wiring.py")
+0014: original_conversation = CONVERSATION.read_text(encoding="utf-8")
+0015: original_wiring = WIRING.read_text(encoding="utf-8")
+0016: 
+0017: conversation_anchor = """    def handle_user_request(
+0018: """
+0019: if original_conversation.count(conversation_anchor) != 1:
+0020:     raise SystemExit("STOP: canonical conversation anchor absent or duplicated")
+0021: if "def locate_admitted_request(" in original_conversation:
+0022:     raise SystemExit("STOP: location operation already exists; inspect manually")
+0023: 
+0024: method = '''    def locate_admitted_request(
+0025:         self,
+0026:         *,
+0027:         owner: str,
+0028:         search_query: str,
+0029:         now: datetime,
+0030:     ) -> GovernedLocalLibraryConversationResult:
+0031:         """Locate via the existing catalogue/selector; never read content."""
+0032:         if now.tzinfo is None:
+0033:             raise ValueError("library conversation time must be timezone-aware")
+0034:         query = search_query.strip()
+0035:         if not query:
+0036:             raise ValueError("library search query must not be blank")
+0037:         if "/" in query or "\\\\" in query:
+0038:             entry = self.library.lookup_explicit_relative_path(query)
+0039:             decision = self._selector.decide_explicit(query=query, entry=entry)
+0040:             candidates = (entry,) if entry is not None else ()
+0041:         else:
+0042:             search = self.library.search(query, max_results=self.max_results)
+0043:             decision = self._selector.decide(search)
+0044:             candidates = search.matches
+0045:         if decision.disposition is GovernedLibrarySelectionDisposition.NO_MATCH:
+0046:             return GovernedLocalLibraryConversationResult(
+0047:                 status=GovernedLocalLibraryConversationStatus.NO_MATCH,
+0048:                 query=query,
+0049:                 bounded=decision.bounded,
+0050:                 last_completed_stage="selection",
+0051:             )
+0052:         if (
+0053:             decision.disposition
+0054:             is GovernedLibrarySelectionDisposition.NEEDS_DISAMBIGUATION
+0055:         ):
+0056:             return GovernedLocalLibraryConversationResult(
+0057:                 status=GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION,
+0058:                 query=query,
+0059:                 candidates=decision.candidates,
+0060:                 bounded=decision.bounded,
+0061:                 last_completed_stage="selection",
+0062:             )
+0063:         selection = decision.selection
+0064:         if selection is None:
+0065:             raise RuntimeError("selected library disposition requires a selection")
+0066:         entry = next(
+0067:             (
+0068:                 item
+0069:                 for item in candidates
+0070:                 if item is not None
+0071:                 and item.entry_id == selection.entry_id
+0072:                 and item.source_reference == selection.source_reference
+0073:             ),
+0074:             None,
+0075:         )
+0076:         if entry is None:
+0077:             raise RuntimeError("canonical library selection lost entry identity")
+0078:         return GovernedLocalLibraryConversationResult(
+0079:             status=GovernedLocalLibraryConversationStatus.COMPLETED,
+0080:             query=query,
+0081:             source_reference=selection.source_reference,
+0082:             safe_source_label=safe_local_document_filename(entry.filename),
+0083:             last_completed_stage="selection",
+0084:         )
+0085: 
+0086: '''
+0087: 
+0088: start = (
+0089:     """        # S4-D7-B: a location request must not invoke document retrieval.\n"""
+0090: )
+0091: end = """        if admitted:\n            result = self.conversation.handle_user_request(\n"""
+0092: if original_wiring.count(start) != 1 or original_wiring.count(end) != 1:
+0093:     raise SystemExit("STOP: S4-D7-B location anchors absent or duplicated")
+0094: i = original_wiring.index(start)
+0095: j = original_wiring.index(end, i)
+0096: if j <= i:
+0097:     raise SystemExit("STOP: unexpected interceptor ordering")
+0098: replacement = """        # LOCALIZAR is owned by the canonical conversation, not this adapter.
+0099:         if admitted and self._is_location_only(request.text):
+0100:             locate = getattr(self.conversation, "locate_admitted_request", None)
+0101:             if locate is None:
+0102:                 # Historical doubles cannot establish catalogue evidence.
+0103:                 # Fail closed; never fall back to document content retrieval.
+0104:                 return GovernedOperationalInterception(
+0105:                     response_text=(
+0106:                         "No puedo verificar la ubicación de ese documento "
+0107:                         "con la interfaz de Biblioteca disponible."
+0108:                     ),
+0109:                     rationale="local_library_location_unavailable",
+0110:                 )
+0111:             result = locate(
+0112:                 owner=request.owner,
+0113:                 search_query=query,
+0114:                 now=now,
+0115:             )
+0116:             self._pending_follow_ups.pop(request.session_id, None)
+0117:             if result.status is GovernedLocalLibraryConversationStatus.NO_MATCH:
+0118:                 if result.bounded:
+0119:                     return GovernedOperationalInterception(
+0120:                         response_text=(
+0121:                             f"La búsqueda de {query!r} en la Biblioteca autorizada "
+0122:                             "fue incompleta por un límite del catálogo. "
+0123:                             "No puedo confirmar que el documento no exista."
+0124:                         ),
+0125:                         rationale="local_library_incomplete_no_match",
+0126:                     )
+0127:                 return GovernedOperationalInterception(
+0128:                     response_text=(
+0129:                         f"No encontré coincidencias para {query!r} "
+0130:                         "en la Biblioteca autorizada."
+0131:                     ),
+0132:                     rationale="local_library_no_match",
+0133:                 )
+0134:             if (
+0135:                 result.status
+0136:                 is GovernedLocalLibraryConversationStatus.NEEDS_DISAMBIGUATION
+0137:             ):
+0138:                 self._remember_follow_up(request.session_id, now=now)
+0139:                 names = "\\n".join(
+0140:                     f"- {safe_local_document_filename(item.filename)}"
+0141:                     for item in result.candidates
+0142:                 )
+0143:                 return GovernedOperationalInterception(
+0144:                     response_text=(
+0145:                         "Encontré varias coincidencias en la Biblioteca. "
+0146:                         "Indicame cuál querés consultar:\\n" + names
+0147:                     ),
+0148:                     rationale="local_library_disambiguation_required",
+0149:                 )
+0150:             if result.status is GovernedLocalLibraryConversationStatus.COMPLETED:
+0151:                 label = safe_local_document_filename(result.safe_source_label)
+0152:                 if label is None:
+0153:                     return GovernedOperationalInterception(
+0154:                         response_text="Encontré un documento en tu Biblioteca.",
+0155:                         rationale="local_library_location_completed",
+0156:                     )
+0157:                 return GovernedOperationalInterception(
+0158:                     response_text=f"Encontré en tu Biblioteca: {label}.",
+0159:                     rationale="local_library_location_completed",
+0160:                 )
+0161:             return GovernedOperationalInterception(
+0162:                 response_text="No pude completar la búsqueda gobernada.",
+0163:                 rationale="local_library_location_failed",
+0164:             )
+0165: 
+0166: """
+0167: 
+0168: new_conversation = original_conversation.replace(
+0169:     conversation_anchor, method + conversation_anchor, 1
+0170: )
+0171: new_wiring = original_wiring[:i] + replacement + original_wiring[j:]
+0172: for path, source in ((CONVERSATION, new_conversation), (WIRING, new_wiring)):
+0173:     ast.parse(source, filename=str(path))
+0174: 
+0175: CONVERSATION.write_text(new_conversation, encoding="utf-8")
+0176: WIRING.write_text(new_wiring, encoding="utf-8")
+0177: print("S4_D7_C3_GREEN_APPLIED:", CONVERSATION, WIRING)
+
+========================================================================
+FILE: ROBY_S4_D7_C5_CONTRACT_RECONCILIATION.py
+========================================================================
+0001: """S4-D7-C.5: guarded, test-only reconciliation of historical CAP-17 contracts.
+0002: 
+0003: Run from HAL root. All three test files are validated before any write.
+0004: No production code, docs, or other test files are modified.
+0005: """
+0006: 
+0007: from __future__ import annotations
+0008: 
+0009: import ast
+0010: import re
+0011: from pathlib import Path
+0012: 
+0013: SAFE = Path(
+0014:     "tests/architecture/test_cap17_safe_document_source_presentation_contract_red.py"
+0015: )
+0016: S2 = Path("tests/architecture/test_r_cap17_conv_access_s2_contract_red.py")
+0017: S5 = Path("tests/architecture/test_r_cap17_conv_access_s5_contract_red.py")
+0018: files = {path: path.read_text(encoding="utf-8-sig") for path in (SAFE, S2, S5)}
+0019: 
+0020: 
+0021: def replace_once(source: str, old: str, new: str, label: str) -> str:
+0022:     count = source.count(old)
+0023:     if count != 1:
+0024:         raise SystemExit(f"STOP: {label}: expected one anchor, found {count}")
+0025:     return source.replace(old, new, 1)
+0026: 
+0027: 
+0028: # Keep the original presentation/security assertions intact. Only the default
+0029: # request operation changes from locating to explicitly reading content.
+0030: safe = files[SAFE]
+0031: safe, count = re.subn(
+0032:     r'(def _request\(text=)["\'].*?["\'](\):)',
+0033:     r'\1"Leé el libro atlas de mi biblioteca"\2',
+0034:     safe,
+0035:     count=1,
+0036: )
+0037: if count != 1:
+0038:     raise SystemExit("STOP: safe presentation request default not found")
+0039: safe, count = re.subn(
+0040:     r'(def _intercept\(result, text=)["\'].*?["\'](\):)',
+0041:     r'\1"Leé el libro atlas de mi biblioteca"\2',
+0042:     safe,
+0043:     count=1,
+0044: )
+0045: if count != 1:
+0046:     raise SystemExit("STOP: safe presentation interceptor default not found")
+0047: files[SAFE] = safe
+0048: 
+0049: # S2 and S5: retain historical retrieval stubs, add the new public location
+0050: # operation to the doubles, and assert that only this operation is invoked.
+0051: for path, test_name, search_text in (
+0052:     (S2, "test_explicit_search_still_enters_existing_governed_path", "Fundación"),
+0053:     (
+0054:         S5,
+0055:         "test_explicit_book_search_preserves_governed_search_path",
+0056:         "robots e imperio",
+0057:     ),
+0058: ):
+0059:     source = files[path]
+0060:     anchor = "    def handle_admitted_request(self, **kwargs):"
+0061:     addition = (
+0062:         "    def locate_admitted_request(self, **kwargs):\n"
+0063:         '        self.calls.append(("locate", kwargs))\n'
+0064:         "        return SimpleNamespace(\n"
+0065:         '            status=SimpleNamespace(value="no_match"),\n'
+0066:         "            bounded=True,\n"
+0067:         '            query=kwargs["search_query"],\n'
+0068:         "        )\n\n"
+0069:     )
+0070:     source = replace_once(source, anchor, addition + anchor, f"{path} double")
+0071:     tree = ast.parse(source)
+0072:     node = next(
+0073:         (
+0074:             n
+0075:             for n in tree.body
+0076:             if isinstance(n, ast.FunctionDef) and n.name == test_name
+0077:         ),
+0078:         None,
+0079:     )
+0080:     if node is None or node.end_lineno is None:
+0081:         raise SystemExit(f"STOP: {path}: test function not found")
+0082:     lines = source.splitlines(keepends=True)
+0083:     segment = "".join(lines[node.lineno - 1 : node.end_lineno])
+0084:     if path == S2:
+0085:         old = (
+0086:             "    assert len(conversation.calls) == 1\n"
+0087:             '    assert conversation.calls[0]["search_query"] == "Fundación"'
+0088:         )
+0089:         new = (
+0090:             "    assert len(conversation.calls) == 1\n"
+0091:             "    operation, kwargs = conversation.calls[0]\n"
+0092:             '    assert operation == "locate"\n'
+0093:             '    assert kwargs["search_query"] == "Fundación"'
+0094:         )
+0095:     else:
+0096:         old = (
+0097:             "    assert len(conversation.calls) == 1\n"
+0098:             '    assert "robots e imperio" in conversation.calls[0]["search_query"].casefold()'
+0099:         )
+0100:         new = (
+0101:             "    assert len(conversation.calls) == 1\n"
+0102:             "    operation, kwargs = conversation.calls[0]\n"
+0103:             '    assert operation == "locate"\n'
+0104:             '    assert "robots e imperio" in kwargs["search_query"].casefold()'
+0105:         )
+0106:     segment = replace_once(segment, old, new, f"{path} expectations")
+0107:     lines[node.lineno - 1 : node.end_lineno] = [segment]
+0108:     files[path] = "".join(lines)
+0109: 
+0110: for path, source in files.items():
+0111:     ast.parse(source, filename=str(path))
+0112: 
+0113: # Validate all edits before writing; keep the pre-existing files recoverable
+0114: # via git diff, without touching unrelated local modifications.
+0115: for path, source in files.items():
+0116:     path.write_text(source, encoding="utf-8")
+0117:     print("S4_D7_C5_TEST_CONTRACT_UPDATED:", path)
+
+========================================================================
+FILE: R_CAP17_CONV_ACCESS_S3_GREEN.py
+========================================================================
+0001: from pathlib import Path
+0002: 
+0003: path = Path("app/governed_local_library_runtime_wiring.py")
+0004: if not path.is_file():
+0005:     raise SystemExit("STOP: canonical interceptor missing")
+0006: source = path.read_text(encoding="utf-8")
+0007: needle = """    def intercept(self, request: GovernedConversationPipelineRequest, *, now):
+0008:         pending = self._active_follow_up(request.session_id, now=now)
+0009: """
+0010: replacement = """    @staticmethod
+0011:     def _is_library_capability_question(text: str) -> bool:
+0012:         normalized = " ".join(text.casefold().strip().split())
+0013:         normalized = normalized.lstrip("¿").rstrip("?!. ")
+0014:         # Match a bounded capability question, not a document-search request.
+0015:         return re.fullmatch(
+0016:             r"(?:roby[, ]+)?(?:"
+0017:             r"(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\\s+"
+0018:             r"(?:tener\\s+)?acceso\\s+a\\s+"
+0019:             r"(?:la|mi)\\s+biblioteca"
+0020:             r"|(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\\s+"
+0021:             r"acceder\\s+a\\s+(?:la|mi)\\s+biblioteca"
+0022:             r"|(?:ten[eé]s|tienes|tiene)\\s+acceso\\s+a\\s+"
+0023:             r"(?:mis\\s+libros|mi\\s+biblioteca|la\\s+biblioteca)"
+0024:             r")",
+0025:             normalized,
+0026:         ) is not None
+0027: 
+0028:     def intercept(self, request: GovernedConversationPipelineRequest, *, now):
+0029:         if self._is_library_capability_question(request.text):
+0030:             return GovernedOperationalInterception(
+0031:                 response_text=(
+0032:                     "La Biblioteca local está configurada para consultas "
+0033:                     "gobernadas en esta sesión. Puedo intentar buscar un libro "
+0034:                     "o documento si me indicás cuál; eso no confirma que "
+0035:                     "cada archivo sea legible ni que una búsqueda sea completa."
+0036:                 ),
+0037:                 rationale="local_library_capability_status",
+0038:             )
+0039:         pending = self._active_follow_up(request.session_id, now=now)
+0040: """
+0041: # Replacement uses raw regex backslashes in source; adjust escaped literals.
+0042: replacement = replacement.replace("\\\\s", "\\s")
+0043: if source.count(needle) != 1:
+0044:     raise SystemExit("STOP: expected interception anchor absent or ambiguous")
+0045: if "_is_library_capability_question" in source:
+0046:     raise SystemExit("STOP: capability guard already exists")
+0047: updated = source.replace(needle, replacement, 1)
+0048: compile(updated, str(path), "exec")
+0049: path.write_text(updated, encoding="utf-8")
+0050: print("S3 GREEN applied:", path)

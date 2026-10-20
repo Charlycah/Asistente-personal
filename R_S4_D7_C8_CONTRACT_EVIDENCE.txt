@@ -1,0 +1,59 @@
+﻿
+app\governed_local_library_conversation.py:65:    bounded: bool = False
+app\governed_local_library_conversation.py:95:    def locate_admitted_request(
+app\governed_local_library_conversation.py:120:                bounded=decision.bounded,
+app\governed_local_library_conversation.py:131:                bounded=decision.bounded,
+app\governed_local_library_conversation.py:233:                bounded=selection_result.bounded,
+app\governed_local_library_conversation.py:245:                bounded=selection_result.bounded,
+app\governed_local_library_runtime_wiring.py:20:    GovernedOperationalInterception,
+app\governed_local_library_runtime_wiring.py:60:    interceptor: "GovernedLocalLibraryConversationInterceptionPort | None" = None
+app\governed_local_library_runtime_wiring.py:69:class GovernedLocalLibraryConversationInterceptionPort:
+app\governed_local_library_runtime_wiring.py:110:        # Match a bounded capability question, not a document-search request.
+app\governed_local_library_runtime_wiring.py:138:    def intercept(self, request: GovernedConversationPipelineRequest, *, now):
+app\governed_local_library_runtime_wiring.py:140:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:150:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:163:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:178:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:184:        # LOCALIZAR is owned by the canonical conversation, not this adapter.
+app\governed_local_library_runtime_wiring.py:186:            locate = getattr(self.conversation, "locate_admitted_request", None)
+app\governed_local_library_runtime_wiring.py:190:                return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:204:                if result.bounded:
+app\governed_local_library_runtime_wiring.py:205:                    return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:213:                return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:229:                return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:239:                    return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:243:                return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:247:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:267:            if result.bounded:
+app\governed_local_library_runtime_wiring.py:268:                return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:276:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:286:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:308:            return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:312:        return GovernedOperationalInterception(
+app\governed_local_library_runtime_wiring.py:351:                r"leer|narrar|escucharlo|resum[ií]|analiz[aá]|"
+app\governed_local_library_runtime_wiring.py:480:    interceptor = GovernedLocalLibraryConversationInterceptionPort(conversation)
+app\governed_local_library_runtime_wiring.py:483:        interceptor=interceptor,
+app\governed_local_library_runtime_wiring.py:493:        interceptor=interceptor,
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:14:    GovernedLocalLibraryConversationInterceptionPort,
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:24:def _intercept_method() -> ast.FunctionDef:
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:28:            "GovernedLocalLibraryConversationInterceptionPort"
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:31:                if isinstance(child, ast.FunctionDef) and child.name == 
+"intercept":
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:33:    raise AssertionError("Missing canonical interceptor")
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:36:def test_s4_c2_interceptor_does_not_reach_catalogue_or_selector_internals():
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:38:    method = _intercept_method()
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:53:        "Interceptor bypasses canonical conversation operation boundary: "
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:77:            bounded=True,
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:88:    The future GREEN must route LOCALIZAR through the canonical public
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:95:    response = GovernedLocalLibraryConversationInterceptionPort(
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:97:    ).intercept(request, now=NOW)
+tests\architecture\test_r_cap17_s4_d7_c2_compatibility_red.py:100:        "LOCALIZAR must not call content-retrieval handle_user_request"
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:13:    GovernedLocalLibraryConversationInterceptionPort,
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:62:    return 
+GovernedLocalLibraryConversationInterceptionPort(conversation), (
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:80:    interceptor, (conversation, reader) = _runtime(tmp_path)
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:89:    response = interceptor.intercept(request, now=NOW)
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:124:    interceptor, (conversation, reader) = _runtime(tmp_path)
+tests\architecture\test_r_cap17_catalogue_coverage_s4_document_operations_red.py:133:    response = interceptor.intercept(request, now=NOW)
+
+
