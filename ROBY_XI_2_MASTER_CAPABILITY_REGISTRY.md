@@ -1634,6 +1634,94 @@ scope.
 
 **Residual:** ordinary title search still uses bounded catalogue; no general discovery outside its limit. Conversational model interpretation latency is unmeasured. **State:** O3/S16 OWNER-CERTIFIED / CONTROLLED BASELINE PROMOTED WITH M377 EXCEPTION; Windows focal 76 PASS, G2 focal 16 PASS, integral 13,724 PASS / 47 M377 intentional RED / 0 unexpected failures. Not a global zero-failure GREEN. M377 HOLD remains; see S16-CLOSE quality gate record. Historical card certification figures remain historical and are not overwritten by focal counts.
 
+---
+
+### R-SEARCH-REUSE-01 ? Biblioteca conversational search-intent separation
+
+**Scope:** Biblioteca only. Surgical reuse of the existing CAP-17
+governed local-library catalogue, conversation selection, document
+reading and Knowledge admission. No new cognitive authority,
+catalogue, retrieval engine, persistence or ingestion path.
+
+**State:** GREEN ? FUNCTIONAL AND FOCAL CONTRACTUAL CERTIFICATION.
+This is an incremental Biblioteca certification, not a global
+certification of ROBY XI.2.
+
+**Contractual separation:**
+BUSCAR != SELECCIONAR != RECUPERAR != LEER/REPRODUCIR != INGESTAR.
+
+- Direct user search locates matching Biblioteca entries without
+  implicitly reading or exposing their document content.
+- Search follow-ups preserve location-only intent.
+- Search disambiguation and subsequent candidate selection do not
+  authorize content access.
+- Explicit reading requests preserve authorized document-reading
+  behavior, including follow-up clarification and disambiguation.
+- The conversational path reuses existing CAP-17 authorities and
+  bounded selection mechanisms.
+
+**Implementation surface:**
+`app/governed_local_library_runtime_wiring.py`.
+
+**Permanent focal contractual evidence:**
+- `tests/architecture/test_r_search_reuse_01_library_search_intent_contract_red.py`
+  (4 PASS).
+- `tests/architecture/test_r_cog_lab_g0_t2d_cap17_bounded_follow_up_reentry_contract_red.py`
+  (7 PASS).
+
+**Windows focal result:** 11 PASS / 0 FAIL, pytest 2.45 seconds.
+The S37 test-literal correction passed Python syntax validation
+and the 88-character line-length check; S37 did not change runtime.
+No new Ruff certification is claimed for this increment.
+
+**Preserved boundaries:** CAP-17 historical certification figures
+remain historical. M377 HOLD INTACT (47 intentional RED).
+STOP_PRODUCTIVE ACTIVE, with only the specifically authorized
+R-SEARCH-REUSE-01 Biblioteca exception.
+MODEL_ACQUISITION remains UNMAPPED / DENY / NO-GO.
+Pinacoteca and Documentos are outside this increment.
+
+**Future horizon ? R-SEARCH-FLEX:** NOT IMPLEMENTED / NOT CERTIFIED.
+Separate future admission is required for flexible, partial,
+misspelled, synonym-based and natural-language discovery across
+Biblioteca, Pinacoteca and Documentos. This horizon does not
+expand the scope of R-SEARCH-REUSE-01.
+
+### R-SEARCH-FLEX-01A ? Bounded Biblioteca typo fallback
+
+**Status:** BOUNDED IMPLEMENTATION / TARGETED CONTRACTUAL GREEN /
+INTEGRATED IN MASTER THROUGH S55-Y4.
+
+**Scope:** Biblioteca only. Reuses canonical CAP-17 catalogue,
+conversation selection and existing runtime wiring. No new cognitive
+authority, catalogue, retrieval engine, persistence or ingestion path.
+
+**Implemented behavior:**
+- One-edit typo fallback for Biblioteca filename/stem matching.
+- Original exact, prefix, token and substring search precedence preserved.
+- Approximate fallback applies only when original matching finds no result.
+- Approximate results require governed disambiguation, including a
+  single-candidate result.
+- Explicit same-session confirmation revalidates the selected candidate
+  and preserves location-only semantics.
+- No implicit document reading, content retrieval or Knowledge admission.
+
+**Targeted evidence:** R-SEARCH-FLEX-01A and CAP-17/O1 directed tests
+passed in the authorized focal scope. S55-Y4 integrated the isolated
+CAP17/S4-D7 and R-SEARCH-FLEX-01A commits into master.
+
+**Certification limit:** This is not a global ROBY XI.2 GREEN.
+M377 retains 47 intentional RED tests. No full-suite certification
+is asserted by this section.
+
+**Broader horizon remains unimplemented / uncertified:** flexible
+semantic discovery, synonym-based matching, and generalized
+cross-source search involving Biblioteca, Pinacoteca and Documentos
+are not certified by R-SEARCH-FLEX-01A.
+
+**Preserved boundaries:** M377 HOLD INTACT; STOP_PRODUCTIVE ACTIVE;
+MODEL_ACQUISITION UNMAPPED / DENY / NO-GO.
+
 ### GIT-06-T - External Image Desktop Presentation Checkpoint
 
 Classification: existing governed external-image presentation
