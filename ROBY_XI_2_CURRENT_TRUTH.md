@@ -471,3 +471,39 @@ GREEN-01: certificacion local reportada de 39 PASS, sin extrapolacion al idioma 
 Autoridades existentes preservadas: EnvironmentInferenceRequestPort, HouseholdConversationStyle, LocalProviderRuntimeAdapter, UnifiedExperienceLayer y ConversationalTranslation (solo traduccion explicita). EXP-02B/EXP-02C: GREEN preservados; M377: HOLD INTACT; STOP_PRODUCTIVE: ACTIVE.
 
 Detalle contractual: `docs/ROBY_XI2_R_CONV_EXP_02A_GREEN02_CONTRACTUAL_GAP_REGISTER.md`. Esta integracion es exclusivamente documental y no autoriza RED/GREEN productivo, nueva capacidad ni autoridad.
+
+## GIT-06-T - Governed Desktop Visual Checkpoint
+
+Classification: certified Git checkpoint / documentary reconciliation.
+No new capability, authority, or productive authorization.
+
+Certified commit:
+`54730ec2be3f36f88557fe636687812031abf351`
+
+Certified tree:
+`afa120f66d63467449b2c5f61ef35ff7efce7b74`
+
+Commit scope: 39 files in the governed external-image Desktop
+presentation, bounded image-preview transport and decoding,
+floating image viewer, integration wiring, and contractual tests.
+
+GIT-06-P: 128 PASS / 1 deselected.
+GIT-06-Q4: audit PASS.
+GIT-06-R: surgical transfer PASS.
+GIT-06-S: staging certified.
+GIT-06-T: commit and tree verified.
+
+These are historical checkpoint results, not a new global
+test-suite certification or an assertion that the present
+working tree is clean.
+
+The existing external-image source, conversational selection,
+presentation and Desktop composition authorities are reused.
+CAP-18 stored personal-image access remains a separate
+governed boundary. No second Vision Core, gateway, repository,
+source-query engine, or cognitive authority is declared.
+
+M377 HOLD: INTACT.
+STOP_PRODUCTIVE: ACTIVE.
+MODEL_ACQUISITION: UNMAPPED / DENY / NO-GO.
+NEXT_PRODUCTIVE_HORIZON: NOT AUTHORIZED.

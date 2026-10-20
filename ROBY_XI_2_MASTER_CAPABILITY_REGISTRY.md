@@ -1633,3 +1633,31 @@ scope.
 **Contract tests:** `tests/architecture/test_cap17_o3_explicit_relative_path_contract_red.py` (8), `tests/architecture/test_cap17_o3_s13_conversational_explicit_path_contract_red.py` (7), original CAP-17 catalogue (12), EPUB/selection/handoff regressions (49). Windows focal result 76 PASS and Ruff focal PASS. S15 one-run read-only real-library diagnosis PASS with no catalogue scan.
 
 **Residual:** ordinary title search still uses bounded catalogue; no general discovery outside its limit. Conversational model interpretation latency is unmeasured. **State:** O3/S16 OWNER-CERTIFIED / CONTROLLED BASELINE PROMOTED WITH M377 EXCEPTION; Windows focal 76 PASS, G2 focal 16 PASS, integral 13,724 PASS / 47 M377 intentional RED / 0 unexpected failures. Not a global zero-failure GREEN. M377 HOLD remains; see S16-CLOSE quality gate record. Historical card certification figures remain historical and are not overwritten by focal counts.
+
+### GIT-06-T - External Image Desktop Presentation Checkpoint
+
+Classification: existing governed external-image presentation
+integration / certified Git checkpoint; not a new CAP entry.
+
+Commit: `54730ec2be3f36f88557fe636687812031abf351`.
+Tree: `afa120f66d63467449b2c5f61ef35ff7efce7b74`.
+
+The certified 39-file checkpoint includes Desktop image-preview
+coordination, bounded transport and decoding, floating viewer
+integration, and contractual tests.
+
+This presentation surface reuses existing governed external-image
+source and Desktop composition boundaries. It does not redefine
+CAP-18 Pinacoteca, whose stored-image repository and Vision
+authorities remain separate.
+
+Checkpoint evidence: GIT-06-P 128 PASS / 1 deselected;
+GIT-06-Q4 audit PASS; GIT-06-R transfer PASS;
+GIT-06-S staging certified; GIT-06-T commit/tree verified.
+
+Certification is bounded to the checkpoint. No global GREEN,
+new cognitive authority, new productive horizon, or permission
+to bypass owner consent is implied.
+
+M377 HOLD INTACT; STOP_PRODUCTIVE ACTIVE;
+MODEL_ACQUISITION UNMAPPED / DENY / NO-GO.
