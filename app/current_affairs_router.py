@@ -162,8 +162,9 @@ class CurrentAffairsRouter:
         r"qué\s+está\s+pasando|que\s+esta\s+pasando|noticias?)\b",
         re.IGNORECASE,
     )
+    _ESA_ACRONYM = re.compile(r"\bESA\b")
     _DYNAMIC = re.compile(
-        r"\b(nasa|esa|spacex|openai|apple|microsoft|windows|linux|android|ios|"
+        r"\b(nasa|spacex|openai|apple|microsoft|windows|linux|android|ios|"
         r"dólar|dolar|euro|economía|economia|inflación|inflacion|elecciones?|"
         r"gobierno|presidente|congreso|ucrania|rusia|israel|gaza|bolsa|"
         r"acciones?|mercados?|criptomonedas?|bitcoin|boca|river|fútbol|futbol|"
@@ -626,7 +627,10 @@ class CurrentAffairsRouter:
             return True
         if self._PREDICTION.search(text) and self._DYNAMIC.search(text):
             return True
-        return bool(self._RECENCY.search(text) and self._DYNAMIC.search(text))
+        return bool(
+            self._RECENCY.search(text)
+            and (self._DYNAMIC.search(text) or self._ESA_ACRONYM.search(text))
+        )
 
     def _retrieve(self, query: str, *, now: datetime) -> tuple[CurrentAffairsItem, ...]:
         key = query.casefold()
