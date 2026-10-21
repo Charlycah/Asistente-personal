@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import mimetypes
 import os
 import re
@@ -189,6 +190,16 @@ class DesktopMessagePresenter:
 
     def roby_message(self, text: str) -> DesktopMessage:
         return DesktopMessage("Roby", text)
+
+
+def _desktop_presentable_response(response: UIResponse) -> UIResponse:
+    """Normalize only the failed placeholder at the desktop presentation edge."""
+    if response.status == "failed" and response.text == "[failed]":
+        return replace(
+            response,
+            text="Ocurrió un error al procesar tu mensaje.",
+        )
+    return response
 
 
 class DesktopConversationController:
@@ -479,6 +490,7 @@ class DesktopConversationController:
                 submitted_text,
                 session_id=session_id,
             )
+        response = _desktop_presentable_response(response)
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         return [
@@ -512,6 +524,7 @@ class DesktopConversationController:
             explicit_evidence_references=explicit_evidence_references,
             integrated_visual_context=integrated_visual_context,
         )
+        response = _desktop_presentable_response(response)
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         messages = [
@@ -714,6 +727,7 @@ class DesktopConversationController:
             else text
         )
         response = submit_voice(submitted_text, session_id=session_id)
+        response = _desktop_presentable_response(response)
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         return [
