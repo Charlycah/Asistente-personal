@@ -46,7 +46,7 @@ class FakePhotoImage:
         self.options = kwargs
 
 
-def test_jpeg_preview_creates_image_widget():
+def test_direct_jpeg_is_rejected_by_png_only_viewer():
     windows = []
 
     def make_window(root):
@@ -77,5 +77,5 @@ def test_jpeg_preview_creates_image_widget():
         "image/jpeg",
     )
 
-    assert rendered is True
-    assert len(windows[0].children) == 1
+    assert rendered is False
+    assert len(windows[0].children) == 0

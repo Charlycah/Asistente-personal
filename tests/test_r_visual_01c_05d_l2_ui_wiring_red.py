@@ -126,8 +126,8 @@ def test_coordinator_passes_transport_limits_by_keyword():
         if isinstance(node, ast.ClassDef)
         and node.name == "GovernedImagePreviewCoordinator"
     )
-    present = _named_function(coordinator, "present")
-    submits = _method_calls(present, "submit")
+    submit_method = _named_function(coordinator, "_submit")
+    submits = _method_calls(submit_method, "submit")
 
     assert submits
     assert any(
