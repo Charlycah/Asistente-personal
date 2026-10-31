@@ -172,6 +172,61 @@ class DesktopGovernedFloatingImageViewer:
         self._update_scroll_region()
         return True
 
+    def render_preview_vic(
+        self,
+        artifact: object,
+        payload: bytes,
+        content_type: str,
+        *,
+        visible_ordinal: int,
+    ) -> bool:
+        """Commit an admitted PNG and its canonical ordinal as one UI unit."""
+        self._require_ui_thread()
+
+        if self._window is None:
+            return False
+        if not any(item is artifact for item in self.artifacts):
+            return False
+        if type(visible_ordinal) is not int or visible_ordinal < 1:
+            return False
+        if not isinstance(content_type, str):
+            return False
+        if content_type.casefold() != "image/png":
+            return False
+        if not isinstance(payload, bytes):
+            return False
+        if not payload.startswith(b"\x89PNG\r\n\x1a\n"):
+            return False
+
+        widget = None
+        try:
+            image = self._toolkit.PhotoImage(
+                data=self._bounded_png(payload),
+                format="png",
+            )
+            parent = self._content if self._content is not None else self._window
+            widget = self._toolkit.Label(
+                parent,
+                image=image,
+                text=str(visible_ordinal),
+                compound="top",
+            )
+            if self._canvas is not None:
+                widget.bind("<MouseWheel>", self._scroll_wheel)
+            widget.pack()
+            self._update_scroll_region()
+        except Exception:
+            if widget is not None:
+                try:
+                    widget.destroy()
+                except Exception:
+                    pass
+            return False
+
+        self._preview_images.append(image)
+        self._preview_widgets.append(widget)
+        return True
+
     def close(self) -> None:
         self._require_ui_thread()
         if self._window is not None:

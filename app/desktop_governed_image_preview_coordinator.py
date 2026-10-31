@@ -23,6 +23,17 @@ class PreviewViewer(Protocol):
     ) -> bool: ...
 
 
+class VICPreviewViewer(PreviewViewer, Protocol):
+    def render_preview_vic(
+        self,
+        artifact: object,
+        payload: bytes,
+        content_type: str,
+        *,
+        visible_ordinal: int,
+    ) -> bool: ...
+
+
 class PreviewDispatcher(Protocol):
     def post(self, callback: Callable[[], None]) -> None: ...
 
@@ -49,6 +60,18 @@ class PreviewSlotResult:
     reason: str | None = None
 
 
+@dataclass(frozen=True)
+class VisualCommitReceipt:
+    """Evidence of a complete individual image-and-ordinal UI unit."""
+
+    presentation_id: int
+    slot_id: int
+    artifact_id: int
+    visible_ordinal: int
+    generation_token: int
+    attempt_id: int
+
+
 class GovernedImagePreviewCoordinator:
     """Reserve per-occurrence previews and deliver only current UI callbacks."""
 
@@ -65,7 +88,9 @@ class GovernedImagePreviewCoordinator:
         executor: Executor,
         timeout: float = 5.0,
         max_bytes: int = 1_000_000,
+        vic_enabled: bool = False,
     ) -> None:
+        self._vic_enabled = vic_enabled
         self._viewer = viewer
         self._dispatcher = dispatcher
         self._fetcher = fetcher
@@ -77,6 +102,7 @@ class GovernedImagePreviewCoordinator:
         self._lock = RLock()
         self._slots: dict[int, PreviewSlotResult] = {}
         self._history: list[PreviewSlotResult] = []
+        self._vic_receipts: list[VisualCommitReceipt] = []
         self._duplicate_events: list[tuple[int, int, str]] = []
         self._delivery_signatures: dict[tuple[int, int, int], tuple[str, str]] = {}
         self._artifacts: dict[int, PreviewArtifact] = {}
@@ -87,6 +113,22 @@ class GovernedImagePreviewCoordinator:
         """Immutable snapshots in original presentation/ordinal order."""
         with self._lock:
             return tuple(self._history) + tuple(self._slots.values())
+
+    @property
+    def vic_receipts(self) -> tuple[VisualCommitReceipt, ...]:
+        """Historical individual VIC evidence, including superseded presentations."""
+        with self._lock:
+            return tuple(self._vic_receipts)
+
+    @property
+    def active_vic_receipts(self) -> tuple[VisualCommitReceipt, ...]:
+        """VIC evidence belonging to the currently active generation."""
+        with self._lock:
+            return tuple(
+                receipt for receipt in self._vic_receipts
+                if receipt.generation_token == self._generation
+                and not self._shutdown
+            )
 
     @property
     def duplicate_events(self) -> tuple[tuple[int, int, str], ...]:
@@ -318,16 +360,49 @@ class GovernedImagePreviewCoordinator:
             )
             return
         try:
-            accepted = self._viewer.render_preview(artifact, payload, content_type)
+            if self._vic_enabled:
+                render_vic = getattr(self._viewer, "render_preview_vic", None)
+                if not callable(render_vic):
+                    raise RuntimeError("VIC viewer operation unavailable")
+                accepted = render_vic(
+                    artifact, payload, content_type,
+                    visible_ordinal=record.visible_ordinal,
+                )
+            else:
+                accepted = self._viewer.render_preview(
+                    artifact, payload, content_type,
+                )
         except Exception:
             self._update(
                 slot_id, generation, attempt_id,
                 frozenset({"DELIVERY_PENDING"}), "FAILED", "render_failed",
             )
             return
-        self._update(
+
+        transitioned = self._update(
             slot_id, generation, attempt_id,
             frozenset({"DELIVERY_PENDING"}),
             "DELIVERED" if accepted else "REJECTED",
             None if accepted else "render_rejected",
         )
+        if self._vic_enabled and accepted and transitioned:
+            with self._lock:
+                current = self._slots.get(slot_id)
+                if (
+                    not self._shutdown
+                    and generation == self._generation
+                    and current is not None
+                    and current.generation_token == generation
+                    and current.attempt_id == attempt_id
+                    and current.state == "DELIVERED"
+                ):
+                    self._vic_receipts.append(
+                        VisualCommitReceipt(
+                            presentation_id=current.presentation_id,
+                            slot_id=current.slot_id,
+                            artifact_id=current.artifact_id,
+                            visible_ordinal=current.visible_ordinal,
+                            generation_token=current.generation_token,
+                            attempt_id=current.attempt_id,
+                        )
+                    )
