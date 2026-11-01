@@ -103,6 +103,8 @@ class GovernedImagePreviewCoordinator:
         self._slots: dict[int, PreviewSlotResult] = {}
         self._history: list[PreviewSlotResult] = []
         self._vic_receipts: list[VisualCommitReceipt] = []
+        self._compensation_events: list[tuple[tuple[int, ...], str, int, str]] = []
+        self._compensation_recovering: set[tuple[int, ...]] = set()
         self._duplicate_events: list[tuple[int, int, str]] = []
         self._delivery_signatures: dict[tuple[int, int, int], tuple[str, str]] = {}
         self._artifacts: dict[int, PreviewArtifact] = {}
@@ -119,6 +121,101 @@ class GovernedImagePreviewCoordinator:
         """Historical individual VIC evidence, including superseded presentations."""
         with self._lock:
             return tuple(self._vic_receipts)
+
+    def recover_compensation(
+        self,
+        unit_key: tuple[int, ...],
+    ) -> bool:
+        """Reintentar una compensacion VIC individual no confirmada.
+
+        Debe invocarse en el hilo UI. No modifica slots ni recibos VIC.
+        """
+        if (
+            not isinstance(unit_key, tuple)
+            or len(unit_key) != 6
+            or any(
+                type(value) is not int
+                for value in unit_key
+            )
+        ):
+            return False
+
+        with self._lock:
+            if unit_key in self._compensation_recovering:
+                return False
+
+            events = [
+                event
+                for event in self._compensation_events
+                if event[0] == unit_key
+            ]
+
+            if not events:
+                return False
+
+            _, previous_status, previous_attempt, _ = events[-1]
+
+            if previous_status not in (
+                "COMPENSATION_PENDING",
+                "COMPENSATION_ERROR",
+            ):
+                return False
+
+            self._compensation_recovering.add(unit_key)
+
+        try:
+            discard = getattr(
+                self._viewer,
+                "discard_preview_vic",
+                None,
+            )
+
+            if not callable(discard):
+                status = "COMPENSATION_ERROR"
+                outcome = "DiscardUnavailable"
+                recovered = False
+            else:
+                try:
+                    recovered = discard(unit_key) is True
+                except Exception as exc:
+                    status = "COMPENSATION_ERROR"
+                    outcome = type(exc).__name__
+                    recovered = False
+                else:
+                    status = (
+                        "RECOVERED"
+                        if recovered
+                        else "COMPENSATION_PENDING"
+                    )
+                    outcome = (
+                        "TRUE"
+                        if recovered
+                        else "FALSE"
+                    )
+
+            with self._lock:
+                self._compensation_events.append(
+                    (
+                        unit_key,
+                        status,
+                        previous_attempt + 1,
+                        outcome,
+                    )
+                )
+
+            return recovered
+
+        finally:
+            with self._lock:
+                self._compensation_recovering.discard(unit_key)
+
+    @property
+    def compensation_events(
+        self,
+    ) -> tuple[tuple[tuple[int, ...], str, int, str], ...]:
+        """Historial inmutable de resultados de compensacion VIC."""
+        with self._lock:
+            return tuple(self._compensation_events)
 
     @property
     def active_vic_receipts(self) -> tuple[VisualCommitReceipt, ...]:
@@ -343,66 +440,159 @@ class GovernedImagePreviewCoordinator:
         generation: int,
         attempt_id: int,
     ) -> None:
-        # This method is dispatched onto the UI thread by the existing dispatcher.
+        # Ejecucion despachada al hilo UI.
         with self._lock:
             record = self._slots.get(slot_id)
             if (
-                self._shutdown or generation != self._generation
-                or record is None or record.attempt_id != attempt_id
+                self._shutdown
+                or generation != self._generation
+                or record is None
+                or record.attempt_id != attempt_id
                 or record.state != "DELIVERY_PENDING"
             ):
                 return
+
             artifact = self._artifacts[slot_id]
-        if not any(item is artifact for item in self._viewer.artifacts):
+            unit_key = (
+                record.presentation_id,
+                record.slot_id,
+                record.artifact_id,
+                record.visible_ordinal,
+                record.generation_token,
+                record.attempt_id,
+            )
+
+        if not any(
+            item is artifact for item in self._viewer.artifacts
+        ):
             self._update(
                 slot_id, generation, attempt_id,
-                frozenset({"DELIVERY_PENDING"}), "CANCELLED", "viewer_closed",
+                frozenset({"DELIVERY_PENDING"}),
+                "CANCELLED", "viewer_closed",
             )
             return
+
+        identified = False
+        discard = None
+
         try:
             if self._vic_enabled:
-                render_vic = getattr(self._viewer, "render_preview_vic", None)
-                if not callable(render_vic):
-                    raise RuntimeError("VIC viewer operation unavailable")
-                accepted = render_vic(
-                    artifact, payload, content_type,
-                    visible_ordinal=record.visible_ordinal,
+                render_identified = getattr(
+                    self._viewer,
+                    "render_preview_vic_identified",
+                    None,
                 )
+                discard_candidate = getattr(
+                    self._viewer,
+                    "discard_preview_vic",
+                    None,
+                )
+
+                identified = (
+                    callable(render_identified)
+                    and callable(discard_candidate)
+                )
+
+                if identified:
+                    discard = discard_candidate
+                    accepted = render_identified(
+                        artifact,
+                        payload,
+                        content_type,
+                        visible_ordinal=record.visible_ordinal,
+                        unit_key=unit_key,
+                    )
+                else:
+                    render_vic = getattr(
+                        self._viewer,
+                        "render_preview_vic",
+                        None,
+                    )
+                    if not callable(render_vic):
+                        raise RuntimeError(
+                            "VIC viewer operation unavailable"
+                        )
+                    accepted = render_vic(
+                        artifact,
+                        payload,
+                        content_type,
+                        visible_ordinal=record.visible_ordinal,
+                    )
             else:
                 accepted = self._viewer.render_preview(
                     artifact, payload, content_type,
                 )
+
         except Exception:
             self._update(
                 slot_id, generation, attempt_id,
-                frozenset({"DELIVERY_PENDING"}), "FAILED", "render_failed",
+                frozenset({"DELIVERY_PENDING"}),
+                "FAILED", "render_failed",
             )
             return
 
-        transitioned = self._update(
+        if self._vic_enabled and accepted:
+            with self._lock:
+                current = self._slots.get(slot_id)
+                invalidated = (
+                    self._shutdown
+                    or generation != self._generation
+                    or current is None
+                    or current.generation_token != generation
+                    or current.attempt_id != attempt_id
+                    or current.state != "DELIVERY_PENDING"
+                )
+
+                if not invalidated:
+                    receipt = VisualCommitReceipt(
+                        presentation_id=current.presentation_id,
+                        slot_id=current.slot_id,
+                        artifact_id=current.artifact_id,
+                        visible_ordinal=current.visible_ordinal,
+                        generation_token=current.generation_token,
+                        attempt_id=current.attempt_id,
+                    )
+                    self._vic_receipts.append(receipt)
+                    self._slots[slot_id] = replace(
+                        current, state="DELIVERED", reason=None,
+                    )
+
+            if invalidated:
+                # Compensacion fuera del bloqueo del coordinador.
+                if identified and discard is not None:
+                    try:
+                        discarded = discard(unit_key)
+                    except Exception as exc:
+                        status = "COMPENSATION_ERROR"
+                        outcome = type(exc).__name__
+                    else:
+                        status = (
+                            "COMPENSATED"
+                            if discarded is True
+                            else "COMPENSATION_PENDING"
+                        )
+                        outcome = (
+                            "TRUE"
+                            if discarded is True
+                            else "FALSE"
+                        )
+
+                    with self._lock:
+                        attempt = 1 + sum(
+                            1
+                            for key, _, _, _ in self._compensation_events
+                            if key == unit_key
+                        )
+                        self._compensation_events.append(
+                            (unit_key, status, attempt, outcome)
+                        )
+                return
+
+            return
+
+        self._update(
             slot_id, generation, attempt_id,
             frozenset({"DELIVERY_PENDING"}),
             "DELIVERED" if accepted else "REJECTED",
             None if accepted else "render_rejected",
         )
-        if self._vic_enabled and accepted and transitioned:
-            with self._lock:
-                current = self._slots.get(slot_id)
-                if (
-                    not self._shutdown
-                    and generation == self._generation
-                    and current is not None
-                    and current.generation_token == generation
-                    and current.attempt_id == attempt_id
-                    and current.state == "DELIVERED"
-                ):
-                    self._vic_receipts.append(
-                        VisualCommitReceipt(
-                            presentation_id=current.presentation_id,
-                            slot_id=current.slot_id,
-                            artifact_id=current.artifact_id,
-                            visible_ordinal=current.visible_ordinal,
-                            generation_token=current.generation_token,
-                            attempt_id=current.attempt_id,
-                        )
-                    )

@@ -28,6 +28,7 @@ class DesktopGovernedFloatingImageViewer:
         self.artifacts: tuple[object, ...] = ()
         self._preview_images: list[Any] = []
         self._preview_widgets: list[Any] = []
+        self._vic_units: dict[tuple[int, ...], tuple[Any, Any]] = {}
         self._canvas: Any | None = None
         self._scrollbar: Any | None = None
         self._content: Any | None = None
@@ -104,10 +105,32 @@ class DesktopGovernedFloatingImageViewer:
             if self._supports_scrolling():
                 self._create_scrollable_content(window)
 
-        for widget in self._preview_widgets:
-            widget.destroy()
-        self._preview_widgets.clear()
-        self._preview_images.clear()
+        # Destruir unidades anteriores sin perder referencias
+        # cuando una destruccion falle.
+        survivors = []
+        survivor_images = []
+        cleanup_error = None
+
+        for widget, image in zip(
+            self._preview_widgets,
+            self._preview_images,
+        ):
+            try:
+                widget.destroy()
+            except Exception as exc:
+                survivors.append(widget)
+                survivor_images.append(image)
+                if cleanup_error is None:
+                    cleanup_error = exc
+
+        self._preview_widgets = survivors
+        self._preview_images = survivor_images
+        self._reconcile_vic_units()
+
+        # No admitir una presentacion nueva con residuos visibles.
+        if cleanup_error is not None:
+            raise cleanup_error
+
         self.artifacts = admitted
         self._update_scroll_region()
         if self._canvas is not None:
@@ -180,6 +203,53 @@ class DesktopGovernedFloatingImageViewer:
         *,
         visible_ordinal: int,
     ) -> bool:
+        return self._render_preview_vic_core(
+            artifact, payload, content_type,
+            visible_ordinal=visible_ordinal,
+            unit_key=None,
+        )
+
+    def render_preview_vic_identified(
+        self,
+        artifact: object,
+        payload: bytes,
+        content_type: str,
+        *,
+        visible_ordinal: int,
+        unit_key: tuple[int, ...],
+    ) -> bool:
+        self._require_ui_thread()
+
+        if (
+            type(unit_key) is not tuple
+            or len(unit_key) != 6
+            or any(type(value) is not int for value in unit_key)
+        ):
+            return False
+
+        if unit_key in self._vic_units:
+            return False
+
+        # artifact_id es una identidad contractual del coordinador,
+        # no la direccion de memoria del objeto Python.
+        if unit_key[3] != visible_ordinal:
+            return False
+
+        return self._render_preview_vic_core(
+            artifact, payload, content_type,
+            visible_ordinal=visible_ordinal,
+            unit_key=unit_key,
+        )
+
+    def _render_preview_vic_core(
+        self,
+        artifact: object,
+        payload: bytes,
+        content_type: str,
+        *,
+        visible_ordinal: int,
+        unit_key: tuple[int, ...] | None,
+    ) -> bool:
         """Commit an admitted PNG and its canonical ordinal as one UI unit."""
         self._require_ui_thread()
 
@@ -220,27 +290,74 @@ class DesktopGovernedFloatingImageViewer:
                 try:
                     widget.destroy()
                 except Exception:
-                    pass
+                    # Preserve ownership of an incompletely cleaned UI unit.
+                    self._preview_widgets.append(widget)
+                    self._preview_images.append(image)
             return False
 
         self._preview_images.append(image)
         self._preview_widgets.append(widget)
+        if unit_key is not None:
+            self._vic_units[unit_key] = (widget, image)
         return True
+
+    def discard_preview_vic(
+        self,
+        unit_key: tuple[int, ...],
+    ) -> bool:
+        self._require_ui_thread()
+
+        unit = self._vic_units.get(unit_key)
+        if unit is None:
+            return False
+
+        widget, image = unit
+
+        try:
+            widget.destroy()
+        except Exception:
+            return False
+
+        self._vic_units.pop(unit_key, None)
+
+        for index, current in enumerate(self._preview_widgets):
+            if current is widget:
+                del self._preview_widgets[index]
+                del self._preview_images[index]
+                break
+
+        self._update_scroll_region()
+        return True
+
+    def _reconcile_vic_units(self) -> None:
+        self._require_ui_thread()
+        active_ids = {id(widget) for widget in self._preview_widgets}
+
+        for key, (widget, image) in tuple(self._vic_units.items()):
+            if id(widget) not in active_ids:
+                self._vic_units.pop(key, None)
+
 
     def close(self) -> None:
         self._require_ui_thread()
+
         if self._window is not None:
             window = self._window
-            self._window = None
+
             try:
                 if self._on_close is not None:
                     self._on_close()
             finally:
+                # No perder la referencia antes de confirmar destroy.
                 window.destroy()
+
+            self._window = None
+
         self._canvas = None
         self._scrollbar = None
         self._content = None
         self._canvas_item = None
         self._preview_widgets.clear()
         self._preview_images.clear()
+        self._vic_units.clear()
         self.artifacts = ()
