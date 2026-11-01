@@ -29,6 +29,7 @@ class DesktopGovernedFloatingImageViewer:
         self._preview_images: list[Any] = []
         self._preview_widgets: list[Any] = []
         self._vic_units: dict[tuple[int, ...], tuple[Any, Any]] = {}
+        self._vic_secondary_errors: list[tuple[tuple[int, ...], str]] = []
         self._canvas: Any | None = None
         self._scrollbar: Any | None = None
         self._content: Any | None = None
@@ -326,7 +327,15 @@ class DesktopGovernedFloatingImageViewer:
                 del self._preview_images[index]
                 break
 
-        self._update_scroll_region()
+        try:
+            self._update_scroll_region()
+        except Exception as exc:
+            # Fallo secundario: el descarte VIC ya concluy?.
+            self._vic_secondary_errors.append(
+                (unit_key, type(exc).__name__)
+            )
+            if len(self._vic_secondary_errors) > 32:
+                del self._vic_secondary_errors[:-32]
         return True
 
     def _reconcile_vic_units(self) -> None:

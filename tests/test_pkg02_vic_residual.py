@@ -841,3 +841,98 @@ class TestC3R02PersistentRecovery:
         assert c.recover_compensation(key) is True
         assert c.results == previous_results
         assert c.vic_receipts == previous_receipts
+
+class TestC3R03VICConfirmation:
+    @staticmethod
+    def _viewer(fail_destroy=False, fail_scroll=False):
+        from threading import get_ident
+        from app.desktop_governed_floating_image_viewer import (
+            DesktopGovernedFloatingImageViewer,
+        )
+
+        class Widget:
+            def __init__(self):
+                self.destroyed = False
+                self.calls = 0
+
+            def destroy(self):
+                self.calls += 1
+                if fail_destroy:
+                    raise RuntimeError("destroy_failure")
+                self.destroyed = True
+
+        viewer = object.__new__(
+            DesktopGovernedFloatingImageViewer
+        )
+        viewer._owner_thread = get_ident()
+        viewer._vic_secondary_errors = []
+
+        widget = Widget()
+        image = object()
+        key = (101, 1, 201, 1, 301, 401)
+
+        viewer._vic_units = {key: (widget, image)}
+        viewer._preview_widgets = [widget]
+        viewer._preview_images = [image]
+
+        def scroll():
+            if fail_scroll:
+                raise RuntimeError("scroll_failure")
+
+        viewer._update_scroll_region = scroll
+
+        return viewer, widget, image, key
+
+    def test_c3_r03_scroll_failure_preserves_vic_confirmation(self):
+        viewer, widget, image, key = self._viewer(
+            fail_scroll=True
+        )
+
+        assert viewer.discard_preview_vic(key) is True
+        assert widget.destroyed is True
+        assert widget.calls == 1
+        assert key not in viewer._vic_units
+        assert viewer._preview_widgets == []
+        assert viewer._preview_images == []
+        assert viewer._vic_secondary_errors == [
+            (key, "RuntimeError")
+        ]
+
+        # El historial secundario no puede crecer indefinidamente.
+        for ordinal in range(40):
+            another_widget = type(widget)()
+            another_image = object()
+            another_key = (
+                102, ordinal + 1, 202,
+                ordinal + 1, 302, 402,
+            )
+
+            viewer._vic_units[another_key] = (
+                another_widget, another_image
+            )
+            viewer._preview_widgets.append(another_widget)
+            viewer._preview_images.append(another_image)
+
+            assert viewer.discard_preview_vic(
+                another_key
+            ) is True
+
+        assert len(viewer._vic_secondary_errors) == 32
+        assert viewer._vic_secondary_errors[-1][0] == (
+            102, 40, 202, 40, 302, 402
+        )
+
+    def test_c3_r03_destroy_failure_preserves_vic_ownership(self):
+        viewer, widget, image, key = self._viewer(
+            fail_destroy=True
+        )
+
+        assert viewer.discard_preview_vic(key) is False
+        assert widget.destroyed is False
+        assert widget.calls == 1
+        assert viewer._vic_units[key] == (
+            widget, image
+        )
+        assert viewer._preview_widgets == [widget]
+        assert viewer._preview_images == [image]
+        assert viewer._vic_secondary_errors == []
