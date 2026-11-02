@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import replace
+import logging
 import mimetypes
 import os
 import re
@@ -8,7 +8,7 @@ import subprocess
 import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from enum import Enum
 from pathlib import Path
 from queue import Empty, SimpleQueue
@@ -151,7 +151,15 @@ class UIThreadDispatcher:
                 callback = self._callbacks.get_nowait()
             except Empty:
                 return processed
-            callback()
+
+            try:
+                callback()
+            except Exception:
+                logging.getLogger(__name__).exception(
+                    "UIThreadDispatcher callback failed"
+                )
+                continue
+
             processed += 1
 
 
@@ -872,6 +880,7 @@ class ROBYDesktopApp:
         root = tk.Tk()
         root.title(self.config.title)
         root.geometry(self.config.geometry)
+
         def cancel_manual_preview() -> None:
             preview_coordinator.cancel()
 

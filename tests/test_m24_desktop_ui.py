@@ -199,7 +199,6 @@ def test_continuous_listener_acknowledges_wake_only():
     assert "ui_dispatcher.post(acknowledge_wake)" in worker
 
 
-
 def test_specialized_response_survives_voice_output_failure():
     from types import SimpleNamespace
 
@@ -232,3 +231,123 @@ def test_specialized_response_survives_voice_output_failure():
             "Respuesta especializada preservada.",
         ),
     ]
+
+
+def test_ui_dispatcher_isolates_callback_failure(caplog):
+    from app.desktop_ui import UIThreadDispatcher
+
+    dispatcher = UIThreadDispatcher()
+    completed = []
+
+    def failing_callback():
+        raise RuntimeError("controlled dispatcher failure")
+
+    dispatcher.post(failing_callback)
+    dispatcher.post(lambda: completed.append("after_failure"))
+
+    assert dispatcher.drain() == 1
+    assert completed == ["after_failure"]
+    assert dispatcher.drain() == 0
+
+    assert any(
+        "UIThreadDispatcher callback failed" in record.message
+        for record in caplog.records
+    )
+
+
+def test_ui_dispatcher_counts_only_successful_callbacks():
+    from app.desktop_ui import UIThreadDispatcher
+
+    dispatcher = UIThreadDispatcher()
+    completed = []
+
+    dispatcher.post(lambda: completed.append("first"))
+
+    def failing_callback():
+        raise ValueError("controlled callback failure")
+
+    dispatcher.post(failing_callback)
+    dispatcher.post(lambda: completed.append("third"))
+
+    assert dispatcher.drain() == 2
+    assert completed == ["first", "third"]
+    assert dispatcher.drain() == 0
+
+
+def test_pkg03_poll_continues_after_callback_failure():
+    import inspect
+    import textwrap
+    from types import SimpleNamespace
+
+    from app.desktop_ui import ROBYDesktopApp, UIThreadDispatcher
+
+    source = inspect.getsource(ROBYDesktopApp.run)
+    start = source.index("        def poll_ui_dispatcher() -> None:")
+    end = source.index("\n        def ", start + 1)
+    poll_source = source[start:end]
+
+    dispatcher = UIThreadDispatcher()
+    completed = []
+    scheduled = []
+
+    def failing_callback():
+        raise RuntimeError("controlled polling failure")
+
+    dispatcher.post(failing_callback)
+    dispatcher.post(lambda: completed.append("continued"))
+
+    root = SimpleNamespace(
+        after=lambda delay, callback: scheduled.append((delay, callback))
+    )
+
+    namespace = {
+        "stopped": False,
+        "ui_dispatcher": dispatcher,
+        "root": root,
+    }
+
+    exec(textwrap.dedent(poll_source), namespace)
+    namespace["poll_ui_dispatcher"]()
+
+    assert completed == ["continued"]
+    assert dispatcher.drain() == 0
+    assert len(scheduled) == 1
+    assert scheduled[0][0] == 50
+    assert scheduled[0][1] is namespace["poll_ui_dispatcher"]
+
+
+def test_pkg03_poll_stopped_does_not_drain_or_reschedule():
+    import inspect
+    import textwrap
+    from types import SimpleNamespace
+
+    from app.desktop_ui import ROBYDesktopApp, UIThreadDispatcher
+
+    source = inspect.getsource(ROBYDesktopApp.run)
+    start = source.index("        def poll_ui_dispatcher() -> None:")
+    end = source.index("\n        def ", start + 1)
+    poll_source = source[start:end]
+
+    dispatcher = UIThreadDispatcher()
+    completed = []
+    scheduled = []
+
+    dispatcher.post(lambda: completed.append("unexpected"))
+
+    root = SimpleNamespace(
+        after=lambda delay, callback: scheduled.append((delay, callback))
+    )
+
+    namespace = {
+        "stopped": True,
+        "ui_dispatcher": dispatcher,
+        "root": root,
+    }
+
+    exec(textwrap.dedent(poll_source), namespace)
+    namespace["poll_ui_dispatcher"]()
+
+    assert completed == []
+    assert scheduled == []
+    assert dispatcher.drain() == 1
+    assert completed == ["unexpected"]
