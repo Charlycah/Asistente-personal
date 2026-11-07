@@ -162,6 +162,60 @@ class EndToEndLocalConversation:
                 )
         return turn
 
+    def authorized_latest_turn_matches(
+        self, candidate: LocalConversationTurn
+    ) -> bool:
+        """Check continuity without exposing unrestricted history."""
+        if not IdentityContextAccessGate.current().shared_conversation_context_allowed:
+            return False
+
+        history = self.history
+        if not history:
+            return False
+
+        latest = history[-1]
+        return (
+            latest.owner == candidate.owner
+            and latest.session_id == candidate.session_id
+            and latest.turn_id == candidate.turn_id
+        )
+
+    def authorized_recent_turns(self) -> tuple[LocalConversationTurn, ...]:
+        """Return bounded, session-scoped turns only when context is allowed."""
+        if not IdentityContextAccessGate.current().shared_conversation_context_allowed:
+            return ()
+
+        max_turns = self.config.maximum_recent_context_turns
+        max_characters = self.config.maximum_recent_context_characters
+
+        if max_turns == 0 or max_characters == 0:
+            return ()
+
+        selected: list[LocalConversationTurn] = []
+        used_characters = 0
+
+        for turn in reversed(self.history):
+            if not turn.response_text:
+                continue
+
+            character_count = (
+                len(turn.user_text) + len(turn.response_text)
+            )
+
+            if selected and used_characters + character_count > max_characters:
+                break
+
+            if not selected and character_count > max_characters:
+                continue
+
+            selected.append(turn)
+            used_characters += character_count
+
+            if len(selected) >= max_turns:
+                break
+
+        return tuple(reversed(selected))
+
     def _recent_context(self) -> tuple[ConversationalContextTurn, ...]:
         if not (
             IdentityContextAccessGate.current().shared_conversation_context_allowed

@@ -217,12 +217,17 @@ class AppliedConversationalIntelligence:
             if any(term in folded for term in terms)
         )
         is_explicit = any(term in folded for term in self._EXPLICIT_QUERY_TERMS)
+        visual_nouns = (
+            "foto", "fotograf\u00eda", "fotografia",
+            "imagen", "im\u00e1genes", "imagenes",
+        )
+        visual_verbs = (
+            "mostrame", "mostrar", "mu\u00e9strame", "muestrame",
+            "ver ", "verme ", "ens\u00e9\u00f1ame", "ens\u00e9\u00f1ame",
+        )
         is_visual_request = (
-            "mostrame" in folded
-            and any(
-                term in folded
-                for term in ("foto", "fotos", "imagen", "imágenes", "imagenes")
-            )
+            any(term in folded for term in visual_nouns)
+            and any(term in folded for term in visual_verbs)
         )
         visual_order = (
             GovernedSourceQueryOrder.NEWEST_FIRST
@@ -390,6 +395,12 @@ class AppliedConversationalIntelligence:
         ):
             return "agenda cultural"
         if "james webb" in folded or "telescopio webb" in folded:
+            visual_terms = (
+                "foto", "fotograf\u00eda", "fotografia",
+                "imagen", "im\u00e1genes", "imagenes",
+            )
+            if any(term in folded for term in visual_terms):
+                return text
             return "James Webb"
         if "artemis" in folded:
             return "Artemis"

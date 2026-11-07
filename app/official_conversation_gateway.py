@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime
 from enum import StrEnum
 
@@ -1064,6 +1064,154 @@ class OfficialConversationGateway:
             return None
         return projection.as_dict()
 
+
+    def _resolve_applied_contextual_follow_up(self, text, session_id):
+        """Resolve an explicit follow-up within the authorized runtime session."""
+        from core.cognitive_maturity import IdentityContextAccessGate
+
+        from .applied_conversational_intelligence import (
+            AppliedConversationalIntelligenceInterpretation,
+            AppliedConversationalIntelligenceResult,
+            AppliedConversationalIntelligenceStatus,
+        )
+        from .contextual_follow_up_interpreter import (
+            FollowUpIntent,
+            interpret_contextual_follow_up,
+        )
+        from .governed_source_query import GovernedSourceQueryOrder
+
+        if not IdentityContextAccessGate.current().shared_conversation_context_allowed:
+            return None
+
+        bootstrap = getattr(self._runtime, "bootstrap", None)
+        config = getattr(bootstrap, "config", None)
+        owner = getattr(config, "owner", None)
+        configured_session = getattr(config, "session_id", None)
+
+        if (
+            not isinstance(owner, str)
+            or not isinstance(configured_session, str)
+            or configured_session != session_id
+        ):
+            return None
+
+        follow_up = interpret_contextual_follow_up(text)
+        if follow_up.intent not in (
+            FollowUpIntent.CONTINUE,
+            FollowUpIntent.REORDER,
+        ):
+            return None
+
+        reader = getattr(
+            self._runtime, "authorized_recent_turns", None
+        )
+        if not callable(reader):
+            return None
+
+        history = reader()
+        if not history:
+            return None
+
+        previous = history[-1]
+
+        latest_matches = getattr(
+            self._runtime, "authorized_latest_turn_matches", None
+        )
+        if not callable(latest_matches) or not latest_matches(previous):
+            return None
+
+        if (
+            previous.owner.casefold() != owner.casefold()
+            or previous.session_id != session_id
+            or str(previous.response_path) not in (
+                "interceptor",
+                "ConversationResponsePath.INTERCEPTOR",
+            )
+        ):
+            return None
+
+        expected_sequence = getattr(previous, "sequence", None)
+
+        if not isinstance(expected_sequence, int):
+            return None
+
+        for candidate in reversed(history):
+            if (
+                candidate.owner.casefold() != owner.casefold()
+                or candidate.session_id != session_id
+                or str(candidate.response_path)
+                not in (
+                    "interceptor",
+                    "ConversationResponsePath.INTERCEPTOR",
+                )
+                or getattr(candidate, "sequence", None)
+                != expected_sequence
+                or "applied_conversational_intelligence"
+                not in getattr(candidate, "rationale", ())
+            ):
+                return None
+
+            earlier = self.interpret_applied_conversational_intelligence(
+                candidate.user_text
+            )
+
+            if earlier.request is not None:
+                break
+
+            intermediate = interpret_contextual_follow_up(
+                candidate.user_text
+            )
+
+            if intermediate.intent not in (
+                FollowUpIntent.CONTINUE,
+                FollowUpIntent.REORDER,
+            ):
+                return None
+
+            expected_sequence -= 1
+        else:
+            return None
+
+        request = earlier.request
+        if request is None:
+            return None
+
+        updated_query = request.query_text or previous.user_text
+        order = (
+            GovernedSourceQueryOrder.NEWEST_FIRST
+            if follow_up.newest_first
+            else request.order
+        )
+
+        updated_request = replace(
+            request,
+            text=text,
+            query_text=updated_query,
+            order=order,
+        )
+
+        interpretation = AppliedConversationalIntelligenceInterpretation(
+            text=text,
+            status=AppliedConversationalIntelligenceStatus.RECOGNIZED,
+            request=updated_request,
+            matched_topics=earlier.matched_topics,
+        )
+
+        selection, result = self.execute_selected_governed_conversational_query(
+            updated_request
+        )
+        natural_answer = self._natural_governed_conversational_response.compose(
+            query_text=updated_request.query_text,
+            selection=selection,
+            result=result,
+        )
+        return AppliedConversationalIntelligenceResult(
+            interpretation=interpretation,
+            selection=selection,
+            conversational_result=result,
+            natural_answer_text=natural_answer,
+        )
+
     def submit(
         self,
         text: str,
@@ -1112,7 +1260,11 @@ class OfficialConversationGateway:
             )
         )
 
+        runtime_converse_called = False
+
         def converse_runtime(text_value: str, **kwargs):
+            nonlocal runtime_converse_called
+            runtime_converse_called = True
             if (
                 explicit_document_ids
                 or explicit_sources
@@ -1145,6 +1297,13 @@ class OfficialConversationGateway:
         def applied_or_runtime(external_evidence_value=()):
             if not external_evidence_value and not has_explicit_context:
                 applied_result = self.execute_applied_conversational_intelligence(text)
+                if getattr(applied_result.interpretation, "request", None) is None:
+                    contextual = self._resolve_applied_contextual_follow_up(
+                        text,
+                        effective_session_id,
+                    )
+                    if contextual is not None:
+                        applied_result = contextual
                 interpretation = getattr(applied_result, "interpretation", None)
                 if getattr(interpretation, "request", None) is not None:
                     self._last_applied_owner_turn_result = applied_result
@@ -1520,6 +1679,13 @@ class OfficialConversationGateway:
             self._cognitive_observer.fail_turn(observation_id, exc)
             self._conversation_entry_evidence.seal(observation_id)
             raise
+        if not runtime_converse_called:
+            try:
+                turn = self._persist_non_runtime_turn(turn)
+            except BaseException as exc:
+                self._cognitive_observer.fail_turn(observation_id, exc)
+                self._conversation_entry_evidence.seal(observation_id)
+                raise
         self._submitted_turns += 1
         self._last_origin = origin
         self._last_session_id = session_id or turn.session_id
@@ -1537,6 +1703,45 @@ class OfficialConversationGateway:
             _post_turn_observer=post_turn_observer,
             **kwargs,
         )
+
+    def _persist_non_runtime_turn(
+        self, turn: LocalConversationTurn
+    ) -> LocalConversationTurn:
+        """Share successful gateway-only turns with the runtime's recent context.
+
+        Runtime-produced turns already persist inside converse(); do not duplicate them.
+        Never persist into a different session or when persistence is disabled.
+        """
+        runtime = self._runtime
+        journal = getattr(runtime, "journal", None)
+        config = getattr(runtime, "config", None)
+        bootstrap = getattr(runtime, "bootstrap", None)
+        runtime_config = getattr(bootstrap, "config", None)
+        if (
+            journal is None
+            or config is None
+            or not getattr(config, "persist_turns", False)
+            or runtime_config is None
+        ):
+            return turn
+        owner = getattr(runtime_config, "owner", None)
+        session_id = getattr(runtime_config, "session_id", None)
+        if (
+            not isinstance(owner, str)
+            or not isinstance(session_id, str)
+            or owner.strip().casefold() != turn.owner.casefold()
+            or session_id.strip() != turn.session_id
+        ):
+            return turn
+        history = journal.list_for_session(owner, session_id)
+        if any(previous.turn_id == turn.turn_id for previous in history):
+            return turn
+        # Use the journal sequence, not the gateway's global turn counter.
+        next_sequence = max((item.sequence for item in history), default=0) + 1
+        if turn.sequence != next_sequence:
+            turn = replace(turn, sequence=next_sequence, turn_id="")
+        journal.append(turn)
+        return turn
 
     def _effective_session_id(self, requested: str | None) -> str:
         if requested and requested.strip():
