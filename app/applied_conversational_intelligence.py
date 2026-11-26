@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from enum import StrEnum
 
@@ -60,6 +61,16 @@ class AppliedConversationalIntelligence:
 
     SCHEMA_VERSION = "m345.0"
     AUTHORITY = "app.official_conversation_gateway:OfficialConversationGateway"
+
+    _VISUAL_SEARCH_SUBJECT = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:pod[eé]s\s+|puedes\s+)?"
+        r"(?:busc[aá](?:me|r|rme)?|mostr[aá](?:me|r|rme)?|mu[eé]strame|"
+        r"ense[ñn][aá]me|quiero\s+ver|me\s+mostr[aá]s)\s+"
+        r"(?:(?:las|los|una|un|unas|unos|algunas)\s+)?"
+        r"(?:fotos?|fotograf[ií]as?|im[aá]gen(?:es)?)\s+de\s+"
+        r"(?P<subject>.+)$",
+        re.IGNORECASE,
+    )
 
     _TOPIC_TERMS = (
         (
@@ -217,6 +228,17 @@ class AppliedConversationalIntelligence:
             if any(term in folded for term in terms)
         )
         is_explicit = any(term in folded for term in self._EXPLICIT_QUERY_TERMS)
+        visual_search = self._VISUAL_SEARCH_SUBJECT.match(normalized)
+        visual_query = (
+            visual_search["subject"].rstrip(".,;:!?¡¿").strip()
+            if visual_search
+            else ""
+        )
+        if visual_query.casefold() in {"hubble", "telescopio hubble"}:
+            topics = topics | {InterestTopic.SPACE_EXPLORATION}
+            visual_query = "Hubble"
+        elif visual_query.casefold() == "las nuevas misiones de la nasa":
+            visual_query = "new NASA missions"
         visual_nouns = (
             "foto", "fotograf\u00eda", "fotografia",
             "imagen", "im\u00e1genes", "imagenes",
@@ -236,7 +258,8 @@ class AppliedConversationalIntelligence:
         )
         if not topics:
             visual_subject = (
-                self._open_visual_subject(normalized) if is_visual_request else None
+                visual_query
+                or (self._open_visual_subject(normalized) if is_visual_request else None)
             )
             if visual_subject is None:
                 return AppliedConversationalIntelligenceInterpretation(
@@ -272,7 +295,7 @@ class AppliedConversationalIntelligence:
             request=GovernedConversationalSourceSelectionRequest(
                 text=normalized,
                 topics=topics,
-                query_text=self._query_text(normalized),
+                query_text=visual_query or self._query_text(normalized),
                 limit=5,
                 region=self._region_for(topics),
                 order=visual_order,

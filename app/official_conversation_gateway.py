@@ -17,6 +17,7 @@ from .canonical_reflection_facade import CanonicalReflectionFacade
 from .cognitive_authority_map import CognitiveAuthorityMap
 from .cognitive_integration_adapters import CognitiveIntegrationAdapters
 from .cognitive_operational_inventory import CognitiveOperationalObserver
+from .current_affairs_router import CurrentAffairsRouter
 
 
 class ConversationOrigin(StrEnum):
@@ -1295,7 +1296,13 @@ class OfficialConversationGateway:
         )
 
         def applied_or_runtime(external_evidence_value=()):
-            if not external_evidence_value and not has_explicit_context:
+            if (
+                not external_evidence_value
+                and not has_explicit_context
+                and not CurrentAffairsRouter.is_recent_nasa_mission_information_request(
+                    text
+                )
+            ):
                 applied_result = self.execute_applied_conversational_intelligence(text)
                 if getattr(applied_result.interpretation, "request", None) is None:
                     contextual = self._resolve_applied_contextual_follow_up(

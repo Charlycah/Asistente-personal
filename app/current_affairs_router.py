@@ -206,6 +206,21 @@ class CurrentAffairsRouter:
         r"\b(internet|web|noticias?|fuentes?)\b",
         re.IGNORECASE,
     )
+    _NASA_MISSION_INFORMATION = re.compile(
+        r"^\s*(?:roby[\s,:]+)?"
+        r"(?:busc[aá](?:me)?|buscar|consult[aá]|revis[aá])\s+"
+        r"(?:en\s+(?:internet|(?:la\s+)?web)\s+)?"
+        r"(?:informaci[oó]n|noticias)\s+(?:sobre|de)\s+"
+        r"(?=.*\bnasa\b).*\bmisi[oó]n(?:es)?\b",
+        re.IGNORECASE,
+    )
+
+    @classmethod
+    def is_recent_nasa_mission_information_request(cls, text: str) -> bool:
+        return bool(
+            cls._NASA_MISSION_INFORMATION.search(text) and cls._RECENCY.search(text)
+        )
+
     _ROBY_PERSONAL_STATUS = re.compile(
         r"^\s*(?:hola\s+)?(?:roby|robi|robby|robbie|ruby|rubi)[,;:!?\s-]*"
         r"(?:c[oó]mo\s+(?:est[aá]s?|and[aá]s?|vas)|todo\s+bien|"
@@ -410,8 +425,11 @@ class CurrentAffairsRouter:
                     reason_code="current_affairs_sources_conflict_disclosed",
                 ),
             )
+        summary = self._render_summary(items, now=now, policy=policy)
+        if self.is_recent_nasa_mission_information_request(original_text):
+            summary = f"{summary}\n\n{self._render_links(items)}"
         return GovernedOperationalInterception(
-            response_text=self._render_summary(items, now=now, policy=policy),
+            response_text=summary,
             rationale="current_affairs_web_retrieval_completed_high_confidence",
             origin=ResponseOriginMetadata.web_recent(
                 evidence_count=len(items),
