@@ -63,6 +63,31 @@ class LocalCommandMusicPlaybackExecutor:
             started=True,
         )
 
+    def adjust_volume(self, delta: float) -> float | None:
+        """Adjust only the audio session belonging to the active player."""
+        if self.active_path is None:
+            return None
+        pid = getattr(self._owned_process, "pid", None)
+        if pid is None:
+            return None
+
+        from comtypes import COMError, CoInitialize, CoUninitialize
+        from pycaw.pycaw import AudioUtilities
+
+        CoInitialize()
+        try:
+            for session in AudioUtilities.GetAllSessions():
+                if session.ProcessId == pid:
+                    volume = session.SimpleAudioVolume
+                    level = min(1.0, max(0.0, volume.GetMasterVolume() + delta))
+                    volume.SetMasterVolume(level, None)
+                    return level
+        except COMError as exc:
+            raise OSError("No pude ajustar la sesión de audio del reproductor") from exc
+        finally:
+            CoUninitialize()
+        return None
+
     def stop(self) -> LocalMusicPlaybackStopExecution:
         process = self._owned_process
         if process is None:
