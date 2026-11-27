@@ -188,6 +188,13 @@ class CurrentAffairsRouter:
         re.IGNORECASE,
     )
     _GENERAL_NEWS_REQUEST = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|contame|mostrame|busc[aá](?:me)?)"
+        r"\s+(?:las?\s+)?[uú]ltimas?\s+noticias?"
+        r"(?:[\s,]+roby)?[\s.!?]*$|"
+        r"^[\s¿¡]*(?:roby[\s,:]+)?ten[eé]s\s+alguna\s+noticia"
+        r"(?:\s+(?:importante|relevante|destacada|reciente))?"
+        r"(?:[\s,]+roby)?[\s.!?]*$|"
+
         r"\b(?:noticias?|novedades?|resumen|panorama|actualidad)\b.*"
         r"\b(?:relevantes?|importantes?|destacadas?|principales?|del\s+d[ií]a|"
         r"de\s+hoy|argentina|mundo|internacional(?:es)?)\b|"
@@ -326,7 +333,10 @@ class CurrentAffairsRouter:
         *,
         now: datetime,
     ) -> GovernedOperationalInterception | None:
-        original_text = request.text.strip()
+        original_text = re.sub(
+            r"\bmoticia(s?)\b", r"noticia\1", request.text.strip(), flags=re.IGNORECASE
+        )
+
         context = self._context_by_session.get(request.session_id)
         if self._LINK_FOLLOWUP.search(original_text):
             prior = self._last_by_session.get(request.session_id)
