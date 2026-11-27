@@ -3,6 +3,7 @@ from __future__ import annotations
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Callable
 
 
@@ -19,6 +20,12 @@ class LocalMusicPlaybackStopExecution:
     stopped: bool
 
 
+@dataclass(frozen=True)
+class LocalMusicVolumeAdjustment:
+    level: float
+    changed: bool
+
+
 class LocalCommandMusicPlaybackExecutor:
     """Execute one already-authorized local track through a configured command."""
 
@@ -33,6 +40,7 @@ class LocalCommandMusicPlaybackExecutor:
         self.runner = runner
         self._owned_process: object | None = None
         self._owned_path: Path | None = None
+        self._playlist: Path | None = None
 
     @property
     def active_path(self) -> Path | None:
@@ -48,22 +56,66 @@ class LocalCommandMusicPlaybackExecutor:
         resolved = Path(path).resolve(strict=True)
         if not resolved.is_file():
             raise ValueError("music playback path must be a file")
+        return self._start(self.command, resolved, resolved)
+
+    def play_loop(self, paths: tuple[Path, ...]) -> LocalMusicPlaybackExecution:
+        if Path(self.command[0]).stem.casefold() != "vlc":
+            raise ValueError("La reproducción continua requiere VLC")
+        if not paths or not all(path.is_absolute() and path.is_file() for path in paths):
+            raise ValueError("La lista debe contener pistas locales disponibles")
+        with NamedTemporaryFile(
+            mode="w", encoding="utf-8", suffix=".m3u8", prefix="roby-", delete=False
+        ) as playlist:
+            playlist_path = Path(playlist.name)
+            try:
+                playlist.write("#EXTM3U\n")
+                playlist.writelines(f"{path.as_uri()}\n" for path in paths)
+            except OSError:
+                # Windows releases the file handle when the context exits.
+                playlist.close()
+                playlist_path.unlink(missing_ok=True)
+                raise
+
+        command = (
+            *(arg for arg in self.command if arg != "--play-and-exit"),
+            "--no-one-instance",
+            "--no-play-and-exit",
+            "--no-repeat",
+            "--loop",
+        )
+        try:
+            execution = self._start(command, playlist_path, paths[0])
+        except (OSError, RuntimeError):
+            playlist_path.unlink(missing_ok=True)
+            raise
+        self._playlist = playlist_path
+        return execution
+
+    def _start(
+        self, command: tuple[str, ...], media: Path, first_track: Path
+    ) -> LocalMusicPlaybackExecution:
         if self.active_path is not None and not self.stop().stopped:
             raise RuntimeError("No se pudo detener la pista anterior")
+        self._remove_playlist()
         self._owned_process = self.runner(
-            [*self.command, str(resolved)],
+            [*command, str(media)],
             stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
-        self._owned_path = resolved
+        self._owned_path = first_track
         return LocalMusicPlaybackExecution(
-            path=resolved,
-            command=self.command,
+            path=first_track,
+            command=command,
             started=True,
         )
 
-    def adjust_volume(self, delta: float) -> float | None:
+    def _remove_playlist(self) -> None:
+        if self._playlist is not None:
+            self._playlist.unlink(missing_ok=True)
+            self._playlist = None
+
+    def adjust_volume(self, delta: float) -> LocalMusicVolumeAdjustment | None:
         """Adjust only the audio session belonging to the active player."""
         if self.active_path is None:
             return None
@@ -79,9 +131,14 @@ class LocalCommandMusicPlaybackExecutor:
             for session in AudioUtilities.GetAllSessions():
                 if session.ProcessId == pid:
                     volume = session.SimpleAudioVolume
-                    level = min(1.0, max(0.0, volume.GetMasterVolume() + delta))
-                    volume.SetMasterVolume(level, None)
-                    return level
+                    previous = volume.GetMasterVolume()
+                    requested = min(1.0, max(0.0, previous + delta))
+                    if abs(requested - previous) > 0.0001:
+                        volume.SetMasterVolume(requested, None)
+                    actual = volume.GetMasterVolume()
+                    return LocalMusicVolumeAdjustment(
+                        level=actual, changed=abs(actual - previous) > 0.0001
+                    )
         except COMError as exc:
             raise OSError("No pude ajustar la sesión de audio del reproductor") from exc
         finally:
@@ -110,6 +167,8 @@ class LocalCommandMusicPlaybackExecutor:
         except (OSError, subprocess.TimeoutExpired):
             return LocalMusicPlaybackStopExecution(had_owned_process=True, stopped=False)
         self._owned_process = None
+        self._owned_path = None
+        self._remove_playlist()
         return LocalMusicPlaybackStopExecution(
             had_owned_process=True,
             stopped=True,
