@@ -353,9 +353,7 @@ class WeatherConversationInterceptionPort:
             return "Te recomiendo salir con abrigo."
         if "paraguas" in lowered or "lluvia" in lowered:
             return "Yo llevaría un paraguas por las dudas."
-        if lowered.startswith("conviene "):
-            return f"Te recomiendo que {cleaned[8:]}."
-        return f"Te recomiendo {cleaned}."
+        return f"{cleaned[:1].upper()}{cleaned[1:]}." if cleaned else ""
 
     @staticmethod
     def _friendly_date(value: str) -> str:

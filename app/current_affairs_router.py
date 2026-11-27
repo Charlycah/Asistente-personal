@@ -405,6 +405,21 @@ class CurrentAffairsRouter:
             return self._abstain(explanation)
 
         assessment = self._assess_freshness(items, now=now, policy=policy)
+        used_recent_fallback = False
+        if (
+            not assessment.accepted
+            and policy.calendar_day_only
+            and self._GENERAL_NEWS_REQUEST.search(text)
+            and not self._TODAY_WINDOW.search(text)
+        ):
+            recent_policy = CurrentAffairsFreshnessPolicy(
+                "últimas 48 horas", timedelta(hours=48)
+            )
+            recent = self._assess_freshness(items, now=now, policy=recent_policy)
+            if recent.accepted:
+                assessment = recent
+                policy = recent_policy
+                used_recent_fallback = True
         if not assessment.accepted:
             explanation = self._explain_freshness_abstention(assessment, policy=policy)
             self._remember_context(
@@ -426,6 +441,11 @@ class CurrentAffairsRouter:
                 ),
             )
         summary = self._render_summary(items, now=now, policy=policy)
+        if used_recent_fallback:
+            summary = (
+                "No encontré publicaciones de hoy. Estas son de las últimas 48 horas.\n"
+                + summary
+            )
         return GovernedOperationalInterception(
             response_text=summary,
             rationale="current_affairs_web_retrieval_completed_high_confidence",

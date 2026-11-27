@@ -71,8 +71,8 @@ class NaturalGovernedConversationalResponse:
             )
             if admitted:
                 count = len(admitted)
-                noun = "imagen" if count == 1 else "im?genes"
-                return f"Encontr? {count} {noun} sobre {subject}."
+                noun = "imagen" if count == 1 else "imágenes"
+                return f"Encontré {count} {noun} sobre {subject}."
             return (
                 f"Consulté la fuente disponible, pero no encontré novedades válidas "
                 f"sobre {subject}."
