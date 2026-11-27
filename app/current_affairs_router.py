@@ -188,6 +188,10 @@ class CurrentAffairsRouter:
         re.IGNORECASE,
     )
     _GENERAL_NEWS_REQUEST = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|mostrame|pasame)\s+"
+        r"(?:los\s+)?titulares(?:\s+de\s+los\s+diarios)?"
+        r"(?:[\s,]+roby)?[\s.!?]*$|"
+
         r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|contame|mostrame|busc[aá](?:me)?)"
         r"\s+(?:las?\s+)?[uú]ltimas?\s+noticias?"
         r"(?:[\s,]+roby)?[\s.!?]*$|"
@@ -202,6 +206,12 @@ class CurrentAffairsRouter:
         r"\s+(?:hoy\s+)?(?:en\s+)?(?:argentina|el\s+mundo|el\s+planeta)\b",
         re.IGNORECASE,
     )
+    _EXPAND_HEADLINE = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:ampli[aá](?:me)?|desarroll[aá](?:me)?|"
+        r"contame\s+m[aá]s\s+(?:sobre|de))\s+(.+?)[.!?]*$",
+        re.IGNORECASE,
+    )
+
     _STABLE_RECENCY_FALSE_POSITIVE = re.compile(
         r"\b(última\s+cena|ultima\s+cena|último\s+teorema|ultimo\s+teorema|"
         r"último\s+mohicano|ultimo\s+mohicano|última\s+pregunta|"
@@ -325,6 +335,7 @@ class CurrentAffairsRouter:
         self._cache: dict[str, CurrentAffairsCacheEntry] = {}
         self._last_by_session: dict[str, tuple[CurrentAffairsItem, ...]] = {}
         self._context_by_session: dict[str, CurrentAffairsConversationContext] = {}
+        self._shown_headlines: dict[str, tuple[CurrentAffairsItem, ...]] = {}
         self._lock = threading.Lock()
 
     def intercept(
@@ -336,6 +347,10 @@ class CurrentAffairsRouter:
         original_text = re.sub(
             r"\bmoticia(s?)\b", r"noticia\1", request.text.strip(), flags=re.IGNORECASE
         )
+
+        expansion = self._EXPAND_HEADLINE.match(original_text)
+        if expansion and request.session_id in self._shown_headlines:
+            return self._expand_headline(request.session_id, expansion[1], now=now)
 
         context = self._context_by_session.get(request.session_id)
         if self._LINK_FOLLOWUP.search(original_text):
@@ -372,6 +387,7 @@ class CurrentAffairsRouter:
             return None
         query = self._clean_query(text)
         policy = self._freshness_policy(text)
+        self._shown_headlines.pop(request.session_id, None)
         topic = self._topic_from_query(query)
         if not self.enabled:
             explanation = CurrentAffairsAbstentionExplanation(
@@ -450,6 +466,7 @@ class CurrentAffairsRouter:
                     reason_code="current_affairs_sources_conflict_disclosed",
                 ),
             )
+        self._shown_headlines[request.session_id] = items[:4]
         summary = self._render_summary(items, now=now, policy=policy)
         if used_recent_fallback:
             summary = (
@@ -464,6 +481,76 @@ class CurrentAffairsRouter:
                 reason_code="current_affairs_web_retrieval_completed",
             ),
         )
+
+    def _expand_headline(
+        self, session_id: str, reference: str, *, now: datetime
+    ) -> GovernedOperationalInterception:
+        shown = self._shown_headlines[session_id]
+        reference = reference.strip(" ¿?¡!.,«»\"").casefold()
+        number = re.fullmatch(
+            r"(?:(?:la|el)\s+)?(?:(?:noticia|titular|n[uú]mero)\s+)?(\d{1,2})",
+            reference,
+        )
+        if number:
+            index = int(number[1]) - 1
+            matches = shown[index:index + 1] if index >= 0 else ()
+        else:
+            reference = re.sub(r"^(?:(?:lo|la noticia)\s+de|sobre)\s+", "", reference)
+            matches = tuple(
+                item for item in shown if reference and reference in item.title.casefold()
+            )
+        if len(matches) != 1:
+            return GovernedOperationalInterception(
+                response_text="Indicame el número o una parte del titular que querés ampliar.",
+                rationale="current_affairs_headline_choice_required",
+            )
+
+        selected = matches[0]
+        topic = selected.title.removesuffix(f" - {selected.source}")
+        terms = self._headline_terms(topic)
+        try:
+            related = self._retrieve(topic, now=now)
+        except (OSError, ValueError, ET.ParseError):
+            related = ()
+        policy = CurrentAffairsFreshnessPolicy("últimas 48 horas", timedelta(hours=48))
+        fresh = self._assess_freshness(related, now=now, policy=policy).accepted
+        details = tuple(
+            item
+            for item in fresh
+            if item.title.casefold() != selected.title.casefold()
+            and item.url != selected.url
+            and len(terms & self._headline_terms(item.title))
+            >= max(2, (len(terms) + 1) // 2)
+        )[:3]
+        self._last_by_session[session_id] = (selected, *details)
+        if details:
+            lines = "\n".join(f"- {item.title} — {item.source}" for item in details)
+            response = (
+                f"Sobre «{topic}»: encontré estos titulares relacionados:\n{lines}\n"
+                "La búsqueda permite contrastar titulares. Podés pedirme las fuentes."
+            )
+        else:
+            response = (
+                f"Sobre «{topic}», de {selected.source}, no encontré información "
+                "adicional pertinente para ampliarlo con confianza."
+            )
+        return GovernedOperationalInterception(
+            response_text=response,
+            rationale="current_affairs_headline_expanded",
+            origin=ResponseOriginMetadata.web_recent(
+                evidence_count=1 + len(details),
+                reason_code="current_affairs_headline_expanded",
+            ),
+        )
+
+    @staticmethod
+    def _headline_terms(title: str) -> set[str]:
+        return {
+            word
+            for word in re.findall(r"\w+", title.casefold())
+            if len(word) >= 4
+            and word not in {"para", "sobre", "como", "cómo", "desde", "tras"}
+        }
 
     def _resolve_contextual_followup(
         self,
@@ -845,7 +932,7 @@ class CurrentAffairsRouter:
         else:
             opening = "Revisé las publicaciones más recientes. Esto es lo principal:"
         lines = [opening]
-        for item in items[:4]:
+        for number, item in enumerate(items[:4], start=1):
             age = CurrentAffairsRouter._publication_label(
                 item.published_at,
                 now,
@@ -854,7 +941,7 @@ class CurrentAffairsRouter:
             suffix = f" — {item.source}"
             if age:
                 suffix += f", {age}"
-            lines.append(f"- {item.title}{suffix}.")
+            lines.append(f"{number}. {item.title}{suffix}.")
         lines.append(
             "La información proviene de una búsqueda web reciente. "
             "Podés pedirme las fuentes y te las muestro."
