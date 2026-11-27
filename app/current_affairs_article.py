@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 from html.parser import HTMLParser
 from urllib.error import URLError
 from urllib.parse import urlencode, urljoin, urlsplit
@@ -94,7 +95,8 @@ def _title_key(title: str) -> tuple[str, ...]:
 
 
 def read_public_article(
-    title: str, source: str, url: str, *, timeout: float, focus: str = ""
+    title: str, source: str, url: str, *, timeout: float, focus: str = "",
+    excluded: frozenset[str] = frozenset(),
 ) -> tuple[str, tuple[str, ...]] | None:
     """Read identifiable public article text from a supported publisher."""
     try:
@@ -134,36 +136,48 @@ def read_public_article(
     remaining_words = 25
     target = _focus_terms(focus or title)
     ranked = sorted(
-        dict.fromkeys(sentences),
+        (sentence for sentence in dict.fromkeys(sentences) if sentence not in excluded),
         key=lambda sentence: sum(
-            2 if term in _DETAIL_TERMS else 1
+            5 if term in _DETAIL_TERMS else 1
             for term in target.intersection(_focus_terms(sentence))
         ),
         reverse=True,
     )
     for sentence in ranked:
+        if not target.intersection(_focus_terms(sentence)):
+            continue
         words = sentence.split()
         if len(words) <= remaining_words:
             excerpts.append(sentence)
             remaining_words -= len(words)
         elif not excerpts and target.intersection(_focus_terms(sentence)):
-            excerpts.append(" ".join(words[:remaining_words]) + "…")
-            break
+            excerpt = " ".join(words[:remaining_words]) + "…"
+            if excerpt not in excluded:
+                excerpts.append(excerpt)
+                break
         if len(excerpts) == 2 or remaining_words < 8:
             break
     if not excerpts and article.description:
         words = article.description.split()
-        if len(words) >= 8 and not re.search(r"https?://", article.description):
-            excerpts.append(" ".join(words[:25]) + ("…" if len(words) > 25 else ""))
+        excerpt = " ".join(words[:25]) + ("…" if len(words) > 25 else "")
+        if (
+            len(words) >= 8 and not re.search(r"https?://", article.description)
+            and excerpt not in excluded and target.intersection(_focus_terms(excerpt))
+        ):
+            excerpts.append(excerpt)
     return (url, tuple(excerpts)) if excerpts else None
 
 
-_DETAIL_TERMS = frozenset({"prohib", "sancio", "regula", "descub", "hallaz", "efecto"})
+_DETAIL_TERMS = frozenset({"prohib",  "regula", "descub", "hallaz", "efecto"})
 
 
 def _focus_terms(text: str) -> set[str]:
+    plain = "".join(
+        char for char in unicodedata.normalize("NFD", text)
+        if not unicodedata.combining(char)
+    )
     return {
         word[:6]
-        for word in _title_key(text)
-        if len(word) >= 5 and word not in {"nuevas", "nuevos", "sobre", "regirán", "desde"}
+        for word in _title_key(plain)
+        if len(word) >= 5 and word not in {"nuevas", "nuevos", "sobre", "regiran", "desde"}
     }
