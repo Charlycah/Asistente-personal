@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
+from app.runtime_ui_adapter import TurnBoundUIResult
 from app.ui_adapter import UIResponse
 
 
@@ -57,3 +58,27 @@ class EpisodicSourceConstraintDesktopComposition:
         session_id: str | None = None,
     ) -> UIResponse:
         return self.submit_text(text, session_id=session_id)
+
+    def submit_text_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        self._observe_user_turn(text, session_id=session_id)
+        result = self._conversation_adapter.submit_text_with_turn_evidence(
+            text, session_id=session_id
+        )
+        return TurnBoundUIResult(
+            response=result.response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
+        )
+
+    def submit_voice_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        return self.submit_text_with_turn_evidence(
+            text, session_id=session_id
+        )

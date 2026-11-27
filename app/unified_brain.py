@@ -263,6 +263,7 @@ class UnifiedBrain:
         explicit_sources: tuple[object, ...] = (),
         explicit_evidence_references: tuple[object, ...] = (),
         integrated_visual_context: object | None = None,
+        _causal_result_receiver=None,
     ) -> LocalConversationTurn:
         def observe_turn(turn: LocalConversationTurn) -> TurnReflection:
             return self._reflection_observer.observe(
@@ -271,6 +272,11 @@ class UnifiedBrain:
                 session_id=session_id,
             )
 
+        causal_kwargs = (
+            {"_causal_result_receiver": _causal_result_receiver}
+            if _causal_result_receiver is not None
+            else {}
+        )
         with self._coordination_evidence.activate():
             submit_observed = getattr(self._conversation, "submit_observed", None)
             has_explicit_selection = bool(
@@ -291,6 +297,7 @@ class UnifiedBrain:
                         explicit_sources=explicit_sources,
                         explicit_evidence_references=explicit_evidence_references,
                         integrated_visual_context=integrated_visual_context,
+                        **causal_kwargs,
                     )
                 else:
                     turn = submit_observed(
@@ -299,6 +306,7 @@ class UnifiedBrain:
                         origin=origin,
                         session_id=session_id,
                         now=now,
+                        **causal_kwargs,
                     )
             else:
                 if has_explicit_selection:
@@ -311,6 +319,7 @@ class UnifiedBrain:
                         explicit_sources=explicit_sources,
                         explicit_evidence_references=explicit_evidence_references,
                         integrated_visual_context=integrated_visual_context,
+                        **causal_kwargs,
                     )
                 else:
                     turn = self._conversation.submit(
@@ -318,6 +327,7 @@ class UnifiedBrain:
                         origin=origin,
                         session_id=session_id,
                         now=now,
+                        **causal_kwargs,
                     )
                 observe_turn(turn)
         self._analyze_completed_turn()

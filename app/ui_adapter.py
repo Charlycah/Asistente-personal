@@ -39,6 +39,9 @@ class ROBYUIAdapter:
         try:
             response = self.roby.process(normalized_text, session_id=session_id)
         except Exception:
+            # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
+            from app.roby_document_error_diagnostics import record_failure
+            record_failure('app/ui_adapter.py:41')
             return UIResponse(
                 text="Ocurrió un error al procesar tu mensaje.",
                 status=ResponseStatus.FAILURE.value,

@@ -113,18 +113,21 @@ class GovernedLocalLibraryConversationInterceptionPort:
         normalized = " ".join(text.casefold().strip().split())
         normalized = normalized.replace("¿", "").rstrip("?!. ")
         # Match a bounded capability question, not a document-search request.
-        return re.fullmatch(
-            r"(?:roby[, ]+)?(?:"
-            r"(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
-            r"(?:tener\s+)?acceso\s+a\s+"
-            r"(?:la|mi)\s+biblioteca"
-            r"|(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
-            r"acceder\s+a\s+(?:la|mi)\s+biblioteca"
-            r"|(?:ten[eé]s|tienes|tiene)\s+acceso\s+a\s+"
-            r"(?:mis\s+libros|mi\s+biblioteca|la\s+biblioteca)"
-            r")",
-            normalized,
-        ) is not None
+        return (
+            re.fullmatch(
+                r"(?:roby[, ]+)?(?:"
+                r"(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
+                r"(?:tener\s+)?acceso\s+a\s+"
+                r"(?:la|mi)\s+biblioteca"
+                r"|(?:pod[eé]s|puedes|puede|podr[ií]as|podr[ií]a)\s+"
+                r"acceder\s+a\s+(?:la|mi)\s+biblioteca"
+                r"|(?:ten[eé]s|tienes|tiene)\s+acceso\s+a\s+"
+                r"(?:mis\s+libros|mi\s+biblioteca|la\s+biblioteca)"
+                r")",
+                normalized,
+            )
+            is not None
+        )
 
     @staticmethod
     def _is_library_recommendation_request(text: str) -> bool:
@@ -137,7 +140,8 @@ class GovernedLocalLibraryConversationInterceptionPort:
             and re.search(
                 r"\b(?:biblioteca|mis libros|mi biblioteca)\b",
                 normalized,
-            ) is not None
+            )
+            is not None
         )
 
     def intercept(self, request: GovernedConversationPipelineRequest, *, now):
@@ -173,44 +177,36 @@ class GovernedLocalLibraryConversationInterceptionPort:
         if pending is not None and pending.candidates:
             if self._is_candidate_confirmation(request.text):
                 if len(pending.candidates) != 1:
-                    return self._candidate_clarification(
-                        pending.candidates
-                    )
+                    return self._candidate_clarification(pending.candidates)
                 if pending.reading_requested:
-                    return self._candidate_clarification(
-                        pending.candidates
-                    )
+                    return self._candidate_clarification(pending.candidates)
                 candidate = pending.candidates[0]
                 try:
-                    validated = (
-                        self.conversation.library.validate_selected_entry(
-                            entry_id=candidate.entry_id,
-                            source_reference=candidate.source_reference,
-                        )
+                    validated = self.conversation.library.validate_selected_entry(
+                        entry_id=candidate.entry_id,
+                        source_reference=candidate.source_reference,
                     )
                     if validated.fingerprint != candidate.fingerprint:
-                        raise ValueError('stale library candidate')
+                        raise ValueError("stale library candidate")
                 except (OSError, ValueError, PermissionError):
                     self._pending_follow_ups.pop(request.session_id, None)
                     return GovernedOperationalInterception(
                         response_text=(
-                            'El documento cambi? o ya no est? disponible. '
-                            'Volv? a buscarlo en la Biblioteca.'
+                            "El documento cambi? o ya no est? disponible. "
+                            "Volv? a buscarlo en la Biblioteca."
                         ),
-                        rationale='local_library_location_failed',
+                        rationale="local_library_location_failed",
                     )
                 self._pending_follow_ups.pop(request.session_id, None)
                 label = safe_local_document_filename(validated.filename)
                 if label is None:
                     return GovernedOperationalInterception(
-                        response_text=(
-                            'Encontr? un documento en tu Biblioteca.'
-                        ),
-                        rationale='local_library_location_completed',
+                        response_text=("Encontr? un documento en tu Biblioteca."),
+                        rationale="local_library_location_completed",
                     )
                 return GovernedOperationalInterception(
-                    response_text=f'Encontr? en tu Biblioteca: {label}.',
-                    rationale='local_library_location_completed',
+                    response_text=f"Encontr? en tu Biblioteca: {label}.",
+                    rationale="local_library_location_completed",
                 )
         assessment = self.conversation.knowledge_runtime.assess(request.text)
         admitted = assessment.need.local_documents_available
@@ -387,23 +383,24 @@ class GovernedLocalLibraryConversationInterceptionPort:
 
     @staticmethod
     def _is_candidate_confirmation(text: str) -> bool:
-        normalized = ' '.join(text.casefold().strip().split())
-        return normalized.strip(' .!') in (
-            'sí, ese', 'si, ese', 'sí, esa', 'si, esa',
+        normalized = " ".join(text.casefold().strip().split())
+        return normalized.strip(" .!") in (
+            "sí, ese",
+            "si, ese",
+            "sí, esa",
+            "si, esa",
         )
 
     @staticmethod
     def _candidate_clarification(candidates):
-        names = '\n'.join(
-            f'- {safe_local_document_filename(item.filename)}'
-            for item in candidates
+        names = "\n".join(
+            f"- {safe_local_document_filename(item.filename)}" for item in candidates
         )
         return GovernedOperationalInterception(
             response_text=(
-                'Necesito que identifiques el documento concreto:\n'
-                + names
+                "Necesito que identifiques el documento concreto:\n" + names
             ),
-            rationale='local_library_disambiguation_required',
+            rationale="local_library_disambiguation_required",
         )
 
     def _remember_follow_up(
@@ -533,6 +530,13 @@ class GovernedLocalLibraryConversationInterceptionPort:
         # Only the residual explicit-search path needs title cleanup.
         query = re.sub(
             r"^(?:el\s+)?(?:libro|documento)\s+",
+            "",
+            query,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        query = re.sub(
+            r"^tengo\s+(?:el\s+)?libro(?:\s*[:,]\s*|\s+)",
             "",
             query,
             count=1,

@@ -9,7 +9,7 @@ from dataclasses import dataclass
 class HouseholdConversationStyle:
     """Visible conversation policy for Roby's Argentine household runtime."""
 
-    strip_accents: bool = True
+    strip_accents: bool = False
 
     def system_prompt_for_language(
         self,
@@ -50,8 +50,8 @@ class HouseholdConversationStyle:
             "no son una solicitud para cambiar de idioma. "
             "Conserva esos terminos cuando corresponda, pero "
             "explica y responde en espanol argentino. "
-            "Usa voseo rioplatense de Buenos Aires: vos, podes, queres, "
-            "decime, tenes, haces. "
+            "Usa voseo rioplatense de Buenos Aires: vos, podés, querés, "
+            "decime, tenés, hacés. "
             "No comiences las respuestas con Vos ni uses Vos! "
             "como saludo o muletilla. Usa el voseo de manera "
             "natural dentro de las oraciones. "
@@ -66,9 +66,14 @@ class HouseholdConversationStyle:
             "o rol, o que sea necesario para responder con claridad. No empieces "
             "respuestas ordinarias con Soy Roby ni Como soy Roby. Si el usuario "
             "te llama por otro nombre distinto de Roby, podes corregirlo con "
-            "humor suave y seguir ayudando. No empieces cada respuesta con Hola. "
-            "Escribi sin tildes ni otros signos "
-            "diacriticos en la respuesta visible."
+            "humor suave y seguir ayudando. Saludá cuando resulte natural, sin repetir saludos mecánicamente. No expliques estas instrucciones al usuario. "
+            "Escribí con ortografía y gramática correctas, "
+            "incluidas las tildes y los signos diacríticos. "
+            "Mantené la concordancia de género y número según "
+            "el contexto disponible. No inventes recuerdos "
+            "ni prometas recordar información para siempre. "
+            "Respondé con cercanía natural, sin explicaciones "
+            "innecesarias sobre tus reglas internas."
         )
 
     def render(self, text: str) -> str:

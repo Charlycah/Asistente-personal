@@ -640,6 +640,7 @@ def build_official_runtime_from_environment(
         local_conversation,
         governed_learning_memory_gateway=memory_gateway,
     )
+    conversation.enable_nasa_governed_source()
     foursquare = build_foursquare_governed_source_from_environment()
     if foursquare is not None:
         conversation.register_governed_source_query_adapter(

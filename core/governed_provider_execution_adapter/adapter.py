@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
+from core.gui06_diagnostic_probe import capture_diagnostic_request
 from core.governed_provider_routing import ProviderRouteStatus
 from core.llm_provider import LLMProvider, LLMRequest, LLMResponse
 from core.provider_health_evaluation import ProviderKind
@@ -171,6 +172,7 @@ class GovernedProviderExecutionAdapter:
             messages=tuple(request.inference_request.messages),
         )
         try:
+            capture_diagnostic_request("P1", governed_request)
             response = provider.generate(governed_request)
         except Exception as exc:  # provider boundary containment
             failed = LLMResponse(

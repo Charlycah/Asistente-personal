@@ -22,7 +22,7 @@ from core.cognitive_memory_store import (
     CognitiveMemoryStoreConfig,
 )
 from core.conversation_strategy import ConversationStrategyPlanner
-from core.llm_provider import LLMRequest
+from core.llm_provider import ConversationMessage, LLMRequest
 from core.memory_planning_evidence import (
     METADATA_KEY as MEMORY_PLANNING_METADATA_KEY,
 )
@@ -118,6 +118,19 @@ class MemoryRuntimeIntegration:
             metadata[MEMORY_PLANNING_METADATA_KEY] = encode_memory_planning_evidence(
                 planning_evidence
             )
+        messages = request.messages
+        if messages and messages[-1].role == "user":
+            messages = (
+                *messages[:-1],
+                ConversationMessage(
+                    role="user",
+                    content=self.context_builder.wrap_prompt(
+                        messages[-1].content,
+                        prompt_context,
+                    ),
+                ),
+            )
+
         enriched = LLMRequest(
             prompt=self.context_builder.wrap_prompt(request.prompt, prompt_context),
             system_prompt=request.system_prompt,
@@ -125,6 +138,7 @@ class MemoryRuntimeIntegration:
             max_tokens=request.max_tokens,
             temperature=request.temperature,
             metadata=metadata,
+            messages=messages,
         )
         return MemoryRuntimeContext(
             owner=normalized_owner,

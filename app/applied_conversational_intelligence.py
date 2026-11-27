@@ -247,10 +247,7 @@ class AppliedConversationalIntelligence:
             "mostrame", "mostrar", "mu\u00e9strame", "muestrame",
             "ver ", "verme ", "ens\u00e9\u00f1ame", "ens\u00e9\u00f1ame",
         )
-        is_visual_request = (
-            any(term in folded for term in visual_nouns)
-            and any(term in folded for term in visual_verbs)
-        )
+        is_visual_request = self._is_visual_intent(folded)
         visual_order = (
             GovernedSourceQueryOrder.NEWEST_FIRST
             if self._has_explicit_visual_freshness(folded)
@@ -289,19 +286,86 @@ class AppliedConversationalIntelligence:
                 request=None,
                 matched_topics=topics,
             )
+        query_text = visual_query or self._query_text(normalized)
+        if is_visual_request:
+            visual_subject = self._open_visual_subject(normalized)
+            if visual_subject is not None:
+                subject_folded = visual_subject.casefold()
+                query_folded = query_text.casefold()
+                import re
+                if re.search(
+                    r'\b' + re.escape(query_folded)
+                    + r'\s+(?:de|del|sobre)\s+\S',
+                    subject_folded,
+                ):
+                    query_text = visual_subject
         return AppliedConversationalIntelligenceInterpretation(
             text=normalized,
             status=AppliedConversationalIntelligenceStatus.RECOGNIZED,
             request=GovernedConversationalSourceSelectionRequest(
                 text=normalized,
                 topics=topics,
-                query_text=visual_query or self._query_text(normalized),
+                query_text=query_text,
                 limit=5,
                 region=self._region_for(topics),
                 order=visual_order,
             ),
             matched_topics=topics,
         )
+
+    @staticmethod
+    def _is_visual_intent(text: str) -> bool:
+        import re
+        import unicodedata
+
+        def normalize(value):
+            value = unicodedata.normalize("NFKD", value.casefold())
+            return "".join(
+                c for c in value
+                if not unicodedata.combining(c)
+            )
+
+        normalized = normalize(text)
+        words = set(re.findall(r"\b\w+\b", normalized))
+
+        visual = {
+            "foto", "fotos", "fotografia", "fotografias",
+            "imagen", "imagenes", "ilustracion", "ilustraciones",
+        }
+        actions = {
+            "mostrame", "mostrar", "mostra", "muestrame", "ver",
+            "quiero", "tenes", "tienes", "busca", "buscar",
+            "buscame", "ensenarme", "conseguir",
+        }
+        explanatory = {
+            "explicame", "explicar", "analiza", "analizar",
+            "procesa", "procesar", "significa",
+        }
+
+        if not words.intersection(visual):
+            return False
+
+        if re.search(
+            r"\b(?:no|nunca)\s+(?:(?:\w+)\s+){0,3}"
+            r"(?:ver|mostrar|mostrame|buscar|fotos|imagenes)\b",
+            normalized,
+        ):
+            return False
+
+        if words.intersection(explanatory):
+            return False
+
+        if re.search(r"\bque\s+es\b", normalized):
+            return False
+
+        if "noticias" in words:
+            return False
+
+        if words.intersection(actions):
+            return True
+
+        return len(words) <= 5
+
 
     @staticmethod
     def _has_explicit_visual_freshness(folded: str) -> bool:
@@ -316,31 +380,44 @@ class AppliedConversationalIntelligence:
 
     @staticmethod
     def _open_visual_subject(text: str) -> str | None:
-        folded = text.casefold()
-        visual_terms = ("fotos", "foto", "imágenes", "imagenes", "imagen")
-        markers = tuple(
-            marker
-            for visual_term in visual_terms
-            for marker in (
-                f"mostrame {visual_term} de ",
-                f"mostrame las últimas {visual_term} de ",
-                f"mostrame las ultimas {visual_term} de ",
-                f"mostrame las {visual_term} más recientes de ",
-                f"mostrame las {visual_term} mas recientes de ",
+        import re
+        import unicodedata
+
+        def fold(value: str) -> str:
+            normalized = unicodedata.normalize(
+                "NFKD", value.casefold()
             )
+            return "".join(
+                character
+                for character in normalized
+                if not unicodedata.combining(character)
+            )
+
+        # Preserve character positions by applying the same
+        # normalization to each original character.
+        folded = "".join(fold(c) for c in text)
+
+        pattern = re.compile(
+            r"\b(?:fotos?|fotografias?|imagenes|imagen|"
+            r"ilustraciones|ilustracion)\s+"
+            r"(?:de|del)\s+"
+            r"(?P<subject>[^.!?;,]+)",
+            re.IGNORECASE,
         )
-        marker_end = None
-        for marker in markers:
-            marker_start = folded.find(marker)
-            if marker_start >= 0:
-                marker_end = marker_start + len(marker)
-                break
-        if marker_end is None:
+
+        match = pattern.search(folded)
+        if match is None:
             return None
-        subject = text[marker_end:].strip().rstrip(".,;:!?¡¿").strip()
-        if not subject or not any(character.isalnum() for character in subject):
+
+        start, end = match.span("subject")
+        subject = text[start:end].strip()
+
+        if not subject or not any(c.isalnum() for c in subject):
             return None
+
         return subject
+
+
 
     @staticmethod
     def _region_for(topics: frozenset[InterestTopic]) -> InformationRegion:
@@ -417,13 +494,11 @@ class AppliedConversationalIntelligence:
             )
         ):
             return "agenda cultural"
-        if "james webb" in folded or "telescopio webb" in folded:
-            visual_terms = (
-                "foto", "fotograf\u00eda", "fotografia",
-                "imagen", "im\u00e1genes", "imagenes",
-            )
-            if any(term in folded for term in visual_terms):
-                return text
+        if (
+            "james webb" in folded
+            or "telescopio webb" in folded
+            or "webb" in folded
+        ):
             return "James Webb"
         if "artemis" in folded:
             return "Artemis"
