@@ -160,6 +160,8 @@ class UnifiedExperienceLayer:
         if result is None:
             return self._observe_gui06_p4b(None)
         self._presentations += 1
+        if result.rationale.startswith("current_affairs_"):
+            return self._observe_gui06_p4b(result)
         request_text = getattr(request, "text", "") or ""
         self.last_conversational_markers = (
             self.conversational_marker_analyzer.evaluate(request_text)
