@@ -345,10 +345,11 @@ class LocalConversationUIAdapter:
                 status=status,
                 session_id=session_id or turn.session_id,
                 needs_input=needs_input,
-                silent=(
-                    "local_music_playback_started_after_explicit_authorization"
-                    in getattr(turn, "rationale", ())
-                ),
+                silent=not {
+                    "local_music_playback_started_after_explicit_authorization",
+                    "local_music_playback_stopped_after_explicit_request",
+                    "local_music_volume_adjusted",
+                }.isdisjoint(getattr(turn, "rationale", ())),
             ),
             turn=turn,
             applied_result=causal_applied_result,
