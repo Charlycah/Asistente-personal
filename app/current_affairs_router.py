@@ -194,7 +194,7 @@ class CurrentAffairsRouter:
     )
     _GENERAL_NEWS_REQUEST = re.compile(
         r"(?P<headlines>^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|mostrame|pasame)\s+"
-        r"(?:los\s+)?titulares(?:\s+de\s+los\s+diarios)?"
+        r"(?:los\s+)?titulares(?:\s+(?:de\s+los\s+diarios|de\s+hoy))?"
         r"(?:[\s,]+roby)?[\s.!?]*$)|"
 
         r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|contame|mostrame|busc[aá](?:me)?)"
@@ -213,7 +213,8 @@ class CurrentAffairsRouter:
     )
     _EXPAND_HEADLINE = re.compile(
         r"^[\s¿¡]*(?:roby[\s,:]+)?(?:ampli[aá](?:me)?|desarroll[aá](?:me)?|"
-        r"contame\s+m[aá]s\s+(?:sobre|de))\s+(.+?)[.!?]*$",
+        r"contame\s+m[aá]s\s+(?:sobre|de)|te\s+repito\s+el\s+titular)"
+        r"[\s,:]+(.+?)[.!?]*$",
         re.IGNORECASE,
     )
 
@@ -224,6 +225,11 @@ class CurrentAffairsRouter:
     @classmethod
     def is_headline_followup_phrase(cls, text: str) -> bool:
         return cls._EXPAND_HEADLINE.match(text.strip()) is not None
+
+    @classmethod
+    def is_headline_feed_request(cls, text: str) -> bool:
+        match = cls._GENERAL_NEWS_REQUEST.search(text.strip())
+        return match is not None and match["headlines"] is not None
 
     def handles_headline_followup(self, request: GovernedConversationPipelineRequest) -> bool:
         expansion = self._EXPAND_HEADLINE.match(request.text.strip())
@@ -416,10 +422,9 @@ class CurrentAffairsRouter:
         text = self._resolve_contextual_followup(original_text, context)
         if text is None or not self._should_search(text):
             return None
-        general_news = self._GENERAL_NEWS_REQUEST.search(text)
         query = (
             _GENERAL_HEADLINES_FEED
-            if general_news and general_news["headlines"]
+            if self.is_headline_feed_request(text)
             else self._clean_query(text)
         )
         policy = self._freshness_policy(text)

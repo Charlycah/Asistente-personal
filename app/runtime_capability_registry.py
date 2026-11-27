@@ -370,7 +370,11 @@ class OfficialRuntimeCapabilityRegistry:
         news = self.registration_for("knowledge.current_affairs")
         if news is not None:
             handles_followup = getattr(news.interceptor, "handles_headline_followup", None)
-            if callable(handles_followup) and handles_followup(request):
+            handles_feed = getattr(news.interceptor, "is_headline_feed_request", None)
+            if (
+                (callable(handles_feed) and handles_feed(request.text))
+                or (callable(handles_followup) and handles_followup(request))
+            ):
                 result = self.execute_registration(news, request, now=now, origin="registry")
                 if result is None:
                     result = GovernedOperationalInterception(
