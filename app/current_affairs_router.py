@@ -363,6 +363,7 @@ class CurrentAffairsRouter:
         self._context_by_session: dict[str, CurrentAffairsConversationContext] = {}
         self._shown_headlines: dict[str, tuple[CurrentAffairsItem, ...]] = {}
         self._focused_headline: dict[str, CurrentAffairsItem] = {}
+        self._shown_excerpts: dict[str, set[str]] = {}
         self._lock = threading.Lock()
 
     def intercept(
@@ -430,6 +431,7 @@ class CurrentAffairsRouter:
         policy = self._freshness_policy(text)
         self._shown_headlines.pop(request.session_id, None)
         self._focused_headline.pop(request.session_id, None)
+        self._shown_excerpts.pop(request.session_id, None)
         topic = self._topic_from_query(query)
         if not self.enabled:
             explanation = CurrentAffairsAbstentionExplanation(
@@ -546,7 +548,11 @@ class CurrentAffairsRouter:
             )
 
         selected = matches[0]
+        if self._focused_headline.get(session_id) != selected:
+            self._shown_excerpts.pop(session_id, None)
         self._focused_headline[session_id] = selected
+        shown_excerpts = self._shown_excerpts.setdefault(session_id, set())
+        continuing = bool(shown_excerpts)
         topic = selected.title.removesuffix(f" - {selected.source}")
         terms = self._headline_terms(topic)
         details = self._related_headlines(topic, selected, set(terms), now=now)
@@ -559,22 +565,27 @@ class CurrentAffairsRouter:
         evidence = []
         for item in (selected, *details)[:3]:
             content = read_public_article(
-                self._display_headline(item), item.source, item.url, timeout=8.0, focus=topic
+                self._display_headline(item), item.source, item.url,
+                timeout=8.0, focus=topic, excluded=frozenset(shown_excerpts),
             )
             if content:
                 article_url, excerpts = content
+                shown_excerpts.update(excerpts)
                 consulted.append(f"{item.source}: " + " ".join(
                     f"«{excerpt}»" for excerpt in excerpts
                 ))
                 evidence.append(CurrentAffairsItem(
                     item.title, item.source, article_url, item.published_at
                 ))
-        self._last_by_session[session_id] = tuple(evidence) or (selected, *details)
+        if evidence or not continuing:
+            self._last_by_session[session_id] = tuple(evidence) or (selected, *details)
         if consulted:
             response = (
                 f"Sobre «{topic}», estos son puntos de las publicaciones consultadas:\n"
                 + "\n".join(f"- {line}" for line in consulted)
             )
+        elif continuing:
+            response = f"Sobre «{topic}», no encontré extractos nuevos para ampliar lo anterior."
         elif details:
             lines = "\n".join(
                 f"- {self._display_headline(item)} — {item.source}" for item in details
