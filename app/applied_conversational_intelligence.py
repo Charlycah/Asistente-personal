@@ -63,14 +63,23 @@ class AppliedConversationalIntelligence:
     AUTHORITY = "app.official_conversation_gateway:OfficialConversationGateway"
 
     _VISUAL_SEARCH_SUBJECT = re.compile(
-        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:pod[eé]s\s+|puedes\s+)?"
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:por favor[,\s]+)?"
+        r"(?:(?:pod[eé]s|puedes|podr[ií]as)\s+)?"
         r"(?:busc[aá](?:me|r|rme)?|mostr[aá](?:me|r|rme)?|mu[eé]strame|"
-        r"ense[ñn][aá]me|quiero\s+ver|me\s+mostr[aá]s)\s+"
-        r"(?:(?:las|los|una|un|unas|unos|algunas)\s+)?"
-        r"(?:fotos?|fotograf[ií]as?|im[aá]gen(?:es)?)\s+de\s+"
-        r"(?P<subject>.+)$",
+        r"ense[ñn][aá](?:me|r|rme)|quiero\s+ver|me\s+(?:mostr[aá]s|busc[aá]s)|"
+        r"traeme|dame|pasame|ten[eé]s|hay)\s+"
+        r"(?:(?:las|los|una|un|unas|unos|alguna|algunas)\s+)?"
+        r"(?:fotos?|fotograf[ií]as?|im[aá]gen(?:es)?)\s+(?:de|del|sobre)\s+"
+        r"(?P<subject>.+?)(?:[,\s]+(?:por favor|roby))?[.?!]*$",
         re.IGNORECASE,
     )
+
+    _SPACE_VISUAL_TOPICS = frozenset({
+        InterestTopic.NASA_MISSIONS,
+        InterestTopic.SPACE_EXPLORATION,
+        InterestTopic.JAMES_WEBB_SPACE_TELESCOPE,
+        InterestTopic.INTERNATIONAL_SPACE_STATION,
+    })
 
     _TOPIC_TERMS = (
         (
@@ -247,13 +256,13 @@ class AppliedConversationalIntelligence:
             "mostrame", "mostrar", "mu\u00e9strame", "muestrame",
             "ver ", "verme ", "ens\u00e9\u00f1ame", "ens\u00e9\u00f1ame",
         )
-        is_visual_request = self._is_visual_intent(folded)
+        is_visual_request = bool(visual_query) or self._is_visual_intent(folded)
         visual_order = (
             GovernedSourceQueryOrder.NEWEST_FIRST
             if self._has_explicit_visual_freshness(folded)
             else None
         )
-        if not topics:
+        if not topics or (visual_query and not topics.intersection(self._SPACE_VISUAL_TOPICS)):
             visual_subject = (
                 visual_query
                 or (self._open_visual_subject(normalized) if is_visual_request else None)
@@ -270,7 +279,7 @@ class AppliedConversationalIntelligence:
                 status=AppliedConversationalIntelligenceStatus.RECOGNIZED,
                 request=GovernedConversationalSourceSelectionRequest(
                     text=normalized,
-                    topics=topics,
+                    topics=frozenset(),
                     query_text=visual_subject,
                     limit=5,
                     region=InformationRegion.GLOBAL,

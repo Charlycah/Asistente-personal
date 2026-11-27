@@ -426,8 +426,6 @@ class CurrentAffairsRouter:
                 ),
             )
         summary = self._render_summary(items, now=now, policy=policy)
-        if self.is_recent_nasa_mission_information_request(original_text):
-            summary = f"{summary}\n\n{self._render_links(items)}"
         return GovernedOperationalInterception(
             response_text=summary,
             rationale="current_affairs_web_retrieval_completed_high_confidence",

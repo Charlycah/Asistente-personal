@@ -34,6 +34,7 @@ class DesktopGovernedFloatingImageViewer:
         self._scrollbar: Any | None = None
         self._content: Any | None = None
         self._canvas_item: Any | None = None
+        self._gallery_subject = ""
         self._gallery_columns = 3
         self._gallery_background = "#14243A"
         self._gallery_card = "#243B58"
@@ -100,12 +101,15 @@ class DesktopGovernedFloatingImageViewer:
         scrollbar.pack(side="right", fill="y")
         canvas.pack(side="left", fill="both", expand=True)
 
+    def label_request(self, subject: str) -> None:
+        self._require_ui_thread()
+        self._gallery_subject = " ".join(subject.split())
+
     def open(self, artifacts: tuple[object, ...]) -> None:
         self._require_ui_thread()
         admitted = tuple(artifacts)
         if self._window is None:
             window = self._toolkit.Toplevel(self._root)
-            window.title("ROBY XI.2 - Galería visual")
             if callable(getattr(window, "configure", None)):
                 window.configure(bg=self._gallery_background)
             window.resizable(True, True)
@@ -123,6 +127,12 @@ class DesktopGovernedFloatingImageViewer:
             self._window = window
             if self._supports_scrolling():
                 self._create_scrollable_content(window)
+
+        title = "ROBY XI.2 - Galería visual"
+        if self._gallery_subject:
+            title = f"{title} - {self._gallery_subject}"
+        self._window.title(title)
+        self._gallery_subject = ""
 
         # Destruir unidades anteriores sin perder referencias
         # cuando una destruccion falle.
