@@ -99,6 +99,9 @@ class CurrentAffairsConversationContext:
     abstention: CurrentAffairsAbstentionExplanation | None = None
 
 
+_GENERAL_HEADLINES_FEED = "titulares de los diarios"
+
+
 class GoogleNewsRSSClient:
     """Small, dependency-free web search client backed by Google News RSS."""
 
@@ -106,11 +109,12 @@ class GoogleNewsRSSClient:
         self.timeout_seconds = timeout_seconds
 
     def search(self, query: str, *, limit: int = 5) -> tuple[CurrentAffairsItem, ...]:
-        encoded = urllib.parse.quote_plus(query)
-        url = (
-            "https://news.google.com/rss/search?"
-            f"q={encoded}&hl=es-419&gl=AR&ceid=AR:es-419"
-        )
+        endpoint = "https://news.google.com/rss"
+        if query == _GENERAL_HEADLINES_FEED:
+            url = f"{endpoint}?hl=es-419&gl=AR&ceid=AR:es-419"
+        else:
+            encoded = urllib.parse.quote_plus(query)
+            url = f"{endpoint}/search?q={encoded}&hl=es-419&gl=AR&ceid=AR:es-419"
         request = urllib.request.Request(
             url,
             headers={"User-Agent": "RobyXI2/20.47 (+local personal assistant)"},
@@ -188,9 +192,9 @@ class CurrentAffairsRouter:
         re.IGNORECASE,
     )
     _GENERAL_NEWS_REQUEST = re.compile(
-        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|mostrame|pasame)\s+"
+        r"(?P<headlines>^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|mostrame|pasame)\s+"
         r"(?:los\s+)?titulares(?:\s+de\s+los\s+diarios)?"
-        r"(?:[\s,]+roby)?[\s.!?]*$|"
+        r"(?:[\s,]+roby)?[\s.!?]*$)|"
 
         r"^[\s¿¡]*(?:roby[\s,:]+)?(?:dame|decime|contame|mostrame|busc[aá](?:me)?)"
         r"\s+(?:las?\s+)?[uú]ltimas?\s+noticias?"
@@ -385,7 +389,12 @@ class CurrentAffairsRouter:
         text = self._resolve_contextual_followup(original_text, context)
         if text is None or not self._should_search(text):
             return None
-        query = self._clean_query(text)
+        general_news = self._GENERAL_NEWS_REQUEST.search(text)
+        query = (
+            _GENERAL_HEADLINES_FEED
+            if general_news and general_news["headlines"]
+            else self._clean_query(text)
+        )
         policy = self._freshness_policy(text)
         self._shown_headlines.pop(request.session_id, None)
         topic = self._topic_from_query(query)
@@ -441,11 +450,9 @@ class CurrentAffairsRouter:
             recent_policy = CurrentAffairsFreshnessPolicy(
                 "últimas 48 horas", timedelta(hours=48)
             )
-            recent = self._assess_freshness(items, now=now, policy=recent_policy)
-            if recent.accepted:
-                assessment = recent
-                policy = recent_policy
-                used_recent_fallback = True
+            assessment = self._assess_freshness(items, now=now, policy=recent_policy)
+            policy = recent_policy
+            used_recent_fallback = bool(assessment.accepted)
         if not assessment.accepted:
             explanation = self._explain_freshness_abstention(assessment, policy=policy)
             self._remember_context(
@@ -771,9 +778,14 @@ class CurrentAffairsRouter:
             cached = self._cache.get(key)
             if cached and now - cached.created_at <= self.cache_ttl:
                 return cached.items
-        topics = self._split_topics(query)
-        with ThreadPoolExecutor(max_workers=min(3, len(topics))) as executor:
-            batches = tuple(executor.map(self.client.search, topics))
+        if query == _GENERAL_HEADLINES_FEED:
+            batches = (self.client.search(query, limit=20),)
+            max_items = 20
+        else:
+            topics = self._split_topics(query)
+            with ThreadPoolExecutor(max_workers=min(3, len(topics))) as executor:
+                batches = tuple(executor.map(self.client.search, topics))
+            max_items = 5
         unique: list[CurrentAffairsItem] = []
         seen: set[str] = set()
         for batch in batches:
@@ -782,7 +794,7 @@ class CurrentAffairsRouter:
                 if identity not in seen:
                     unique.append(item)
                     seen.add(identity)
-                if len(unique) >= 5:
+                if len(unique) >= max_items:
                     break
         result = tuple(unique)
         with self._lock:
