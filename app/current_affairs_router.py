@@ -13,6 +13,7 @@ from email.utils import parsedate_to_datetime
 from functools import lru_cache
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from app.current_affairs_article import read_public_article
 from app.response_presenter import (
     PresentationMode,
     ResponsePresentation,
@@ -521,12 +522,33 @@ class CurrentAffairsRouter:
             details = self._related_headlines(
                 " ".join(keywords), selected, set(keywords), now=now
             )
-        self._last_by_session[session_id] = (selected, *details)
-        if details:
-            lines = "\n".join(f"- {item.title} — {item.source}" for item in details)
+        consulted = []
+        evidence = []
+        for item in (selected, *details)[:3]:
+            content = read_public_article(
+                self._display_headline(item), item.source, item.url, timeout=4.0
+            )
+            if content:
+                article_url, excerpts = content
+                consulted.append(f"{item.source}: " + " ".join(
+                    f"«{excerpt}»" for excerpt in excerpts
+                ))
+                evidence.append(CurrentAffairsItem(
+                    item.title, item.source, article_url, item.published_at
+                ))
+        self._last_by_session[session_id] = tuple(evidence) or (selected, *details)
+        if consulted:
             response = (
-                f"Sobre «{topic}»: encontré estos titulares relacionados:\n{lines}\n"
-                "La búsqueda permite contrastar titulares. Podés pedirme las fuentes."
+                f"Sobre «{topic}», estos son puntos de las publicaciones consultadas:\n"
+                + "\n".join(f"- {line}" for line in consulted)
+            )
+        elif details:
+            lines = "\n".join(
+                f"- {self._display_headline(item)} — {item.source}" for item in details
+            )
+            response = (
+                f"Sobre «{topic}», solo pude recuperar estos titulares relacionados:\n"
+                f"{lines}\nPodés pedirme las fuentes."
             )
         else:
             response = (
@@ -537,10 +559,14 @@ class CurrentAffairsRouter:
             response_text=response,
             rationale="current_affairs_headline_expanded",
             origin=ResponseOriginMetadata.web_recent(
-                evidence_count=1 + len(details),
+                evidence_count=len(self._last_by_session[session_id]),
                 reason_code="current_affairs_headline_expanded",
             ),
         )
+
+    @staticmethod
+    def _display_headline(item: CurrentAffairsItem) -> str:
+        return item.title.removesuffix(f" - {item.source}")
 
     def _related_headlines(
         self,
@@ -971,7 +997,7 @@ class CurrentAffairsRouter:
             suffix = f" — {item.source}"
             if age:
                 suffix += f", {age}"
-            lines.append(f"{number}. {item.title}{suffix}.")
+            lines.append(f"{number}. {CurrentAffairsRouter._display_headline(item)}{suffix}.")
         lines.append(
             "La información proviene de una búsqueda web reciente. "
             "Podés pedirme las fuentes y te las muestro."
