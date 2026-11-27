@@ -367,6 +367,17 @@ class OfficialRuntimeCapabilityRegistry:
     def intercept(self, request: GovernedConversationPipelineRequest, *, now):
         if self.cognitive_planner_shadow is not None:
             self.cognitive_planner_shadow.observe(request, now=now)
+        news = self.registration_for("knowledge.current_affairs")
+        if news is not None:
+            handles_followup = getattr(news.interceptor, "handles_headline_followup", None)
+            if callable(handles_followup) and handles_followup(request):
+                result = self.execute_registration(news, request, now=now, origin="registry")
+                if result is None:
+                    result = GovernedOperationalInterception(
+                        response_text="No pude verificar esa ampliación con las fuentes disponibles.",
+                        rationale="current_affairs_headline_unavailable",
+                    )
+                return self._finalize(request, result, now=now)
         normalized = request.text.strip().casefold()
         semantic_candidates = self._semantic_candidates(normalized)
         if (

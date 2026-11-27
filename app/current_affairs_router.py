@@ -217,6 +217,21 @@ class CurrentAffairsRouter:
         re.IGNORECASE,
     )
 
+    _HEADLINE_NUMBER = re.compile(
+        r"(?:(?:la|el)\s+)?(?:(?:noticia|titular|n[uú]mero)\s+)?(\d{1,2})",
+    )
+
+    @classmethod
+    def is_headline_followup_phrase(cls, text: str) -> bool:
+        return cls._EXPAND_HEADLINE.match(text.strip()) is not None
+
+    def handles_headline_followup(self, request: GovernedConversationPipelineRequest) -> bool:
+        expansion = self._EXPAND_HEADLINE.match(request.text.strip())
+        return expansion is not None and (
+            request.session_id in self._shown_headlines
+            or self._HEADLINE_NUMBER.fullmatch(expansion[1].casefold()) is not None
+        )
+
     _STABLE_RECENCY_FALSE_POSITIVE = re.compile(
         r"\b(última\s+cena|ultima\s+cena|último\s+teorema|ultimo\s+teorema|"
         r"último\s+mohicano|ultimo\s+mohicano|última\s+pregunta|"
@@ -355,7 +370,17 @@ class CurrentAffairsRouter:
         )
 
         expansion = self._EXPAND_HEADLINE.match(original_text)
-        if expansion and request.session_id in self._shown_headlines:
+        if expansion and self.handles_headline_followup(request):
+            if request.session_id not in self._shown_headlines:
+                return GovernedOperationalInterception(
+                    response_text="Primero pedime los titulares y después indicame el número.",
+                    rationale="current_affairs_headline_choice_required",
+                )
+            if not self.enabled:
+                return GovernedOperationalInterception(
+                    response_text="La búsqueda web de actualidad está desactivada.",
+                    rationale="current_affairs_headline_unavailable",
+                )
             return self._expand_headline(request.session_id, expansion[1], now=now)
 
         context = self._context_by_session.get(request.session_id)
@@ -497,10 +522,7 @@ class CurrentAffairsRouter:
     ) -> GovernedOperationalInterception:
         shown = self._shown_headlines[session_id]
         reference = reference.strip(" ¿?¡!.,«»\"").casefold()
-        number = re.fullmatch(
-            r"(?:(?:la|el)\s+)?(?:(?:noticia|titular|n[uú]mero)\s+)?(\d{1,2})",
-            reference,
-        )
+        number = self._HEADLINE_NUMBER.fullmatch(reference)
         if re.fullmatch(r"(?:eso|esto|esa noticia)(?:[, ]+me interesa)?", reference):
             focused = self._focused_headline.get(session_id)
             matches = (focused,) if focused is not None else shown

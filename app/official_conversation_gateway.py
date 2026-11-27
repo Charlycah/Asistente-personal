@@ -1330,6 +1330,7 @@ class OfficialConversationGateway:
                 not external_evidence_value
                 and not has_explicit_context
                 and local_music_command(text) is None
+                and not CurrentAffairsRouter.is_headline_followup_phrase(text)
                 and not CurrentAffairsRouter.is_recent_nasa_mission_information_request(
                     text
                 )

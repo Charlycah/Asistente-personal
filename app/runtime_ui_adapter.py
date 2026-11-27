@@ -345,6 +345,10 @@ class LocalConversationUIAdapter:
                 status=status,
                 session_id=session_id or turn.session_id,
                 needs_input=needs_input,
+                preserve_text=any(
+                    reason.startswith("current_affairs_")
+                    for reason in getattr(turn, "rationale", ())
+                ),
                 silent=not {
                     "local_music_playback_started_after_explicit_authorization",
                     "local_music_playback_stopped_after_explicit_request",
@@ -526,7 +530,7 @@ class ConversationalPersonalityUIAdapter:
     def _decorate(
         self, response: UIResponse, *, request_text: str, key: str
     ) -> UIResponse:
-        if response.silent:
+        if response.silent or response.preserve_text:
             return response
         text = self._expression_policy.apply(response.text.strip())
         text = self._quality_policy.apply(
