@@ -14,6 +14,7 @@ class UIResponse:
     status: str
     session_id: str | None = None
     needs_input: bool = False
+    silent: bool = False
 
 
 class ROBYUIAdapter:

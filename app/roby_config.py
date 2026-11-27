@@ -76,6 +76,12 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "services": {
         "weather": {"enabled": False, "provider": "openweather", "units": "metric"},
         "gmail": {"enabled": False, "allow_interactive_oauth": True},
+        "wikimedia_commons": {
+            "enabled": True,
+            "user_agent": (
+                "ROBY-XI.2/1.0 (https://github.com/Charlycah/Asistente-personal)"
+            ),
+        },
         "voice": {
             "enabled": True,
             "provider": "edge-tts",
@@ -217,12 +223,22 @@ def environment_values(data: Mapping[str, Any]) -> dict[str, str]:
     services = _mapping(data, "services")
     weather = _mapping(services, "weather")
     gmail = _mapping(services, "gmail")
+    wikimedia_commons = _mapping(services, "wikimedia_commons")
     voice = _mapping(services, "voice")
     camera = _mapping(services, "camera")
     privacy = _mapping(data, "privacy")
     continuous_listening = _mapping(voice, "continuous_listening")
 
     values = {
+        "ROBY_WIKIMEDIA_COMMONS_ENABLED": _bool_text(
+            wikimedia_commons.get("enabled", True)
+        ),
+        "ROBY_WIKIMEDIA_COMMONS_USER_AGENT": str(
+            wikimedia_commons.get(
+                "user_agent",
+                DEFAULT_CONFIG["services"]["wikimedia_commons"]["user_agent"],
+            )
+        ),
         "ROBY_RUNTIME_ROOT_FACTORY": str(
             runtime.get("factory", OFFICIAL_RUNTIME_FACTORY)
         ),
