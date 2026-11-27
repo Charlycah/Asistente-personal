@@ -331,17 +331,17 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             level = None if executor is None else executor.adjust_volume(delta)
         except (OSError, ImportError):
             level = None
-        return GovernedOperationalInterception(
-            response_text=(
-                "No pude controlar el volumen de la pista activa."
-                if level is None
-                else f"Volumen de la música al {round(level * 100)} %."
-            ),
-            rationale=(
-                "local_music_volume_unavailable" if level is None
-                else "local_music_volume_adjusted"
-            ),
-        )
+        if level is None:
+            message = "No pude controlar el volumen de la pista activa."
+            rationale = "local_music_volume_unavailable"
+        elif level.changed:
+            message = f"Volumen de la música al {round(level.level * 100)} %."
+            rationale = "local_music_volume_adjusted"
+        else:
+            percent = round(level.level * 100)
+            message = f"El volumen de la música ya está al {percent} %."
+            rationale = "local_music_volume_unchanged"
+        return GovernedOperationalInterception(response_text=message, rationale=rationale)
 
     @staticmethod
     def _music_choice_key(text):
@@ -397,12 +397,12 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             message = "La reproducción local no está configurada."
         elif command == "next" and active is None:
             message = "No hay una pista activa. Podés pedirme que ponga música."
+        elif command == "shuffle" and entries:
+            return self._shuffle_collection(entries, active)
         else:
             paths = tuple(self.catalogue.resolve_entry(entry.relative_path) for entry in entries)
             start = paths.index(active) + 1 if active in paths else 0
             candidates = entries[start:] + entries[:start]
-            if command == "shuffle":
-                candidates = random.sample(candidates, k=len(candidates))
             for entry in candidates:
                 if self.catalogue.resolve_entry(entry.relative_path) != active:
                     selection = GovernedMusicSelection(
@@ -418,6 +418,36 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             )
         return GovernedOperationalInterception(
             response_text=message, rationale="local_music_collection_unavailable"
+        )
+
+    def _shuffle_collection(self, entries, active):
+        paths = []
+        try:
+            for entry in random.sample(entries, k=len(entries)):
+                selection = GovernedMusicSelection(
+                    query=entry.relative_path,
+                    status=GovernedMusicSelectionStatus.SELECTED,
+                    selected=entry,
+                    candidates=(entry,),
+                    rationale="explicit_local_collection_choice",
+                )
+                if self.playback_authorization.authorize(
+                    selection, explicit_human_request=True
+                ).authorized:
+                    path = self.catalogue.resolve_entry(entry.relative_path)
+                    if path.is_file():
+                        paths.append(path)
+            if len(paths) > 1 and paths[0] == active:
+                paths.append(paths.pop(0))
+            self.playback_executor.play_loop(tuple(paths))
+        except (OSError, ValueError, RuntimeError):
+            return GovernedOperationalInterception(
+                response_text="No pude iniciar la reproducción continua en VLC.",
+                rationale="local_music_playback_failed",
+            )
+        return GovernedOperationalInterception(
+            response_text="Reproducción continua al azar iniciada.",
+            rationale="local_music_playback_started_after_explicit_authorization",
         )
 
     def _stop_playback_interception(self) -> GovernedOperationalInterception:
