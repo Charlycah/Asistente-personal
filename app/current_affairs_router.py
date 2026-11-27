@@ -364,6 +364,7 @@ class CurrentAffairsRouter:
         self._shown_headlines: dict[str, tuple[CurrentAffairsItem, ...]] = {}
         self._focused_headline: dict[str, CurrentAffairsItem] = {}
         self._shown_excerpts: dict[str, set[str]] = {}
+        self._shown_related: dict[str, set[tuple[str, str]]] = {}
         self._lock = threading.Lock()
 
     def intercept(
@@ -432,6 +433,7 @@ class CurrentAffairsRouter:
         self._shown_headlines.pop(request.session_id, None)
         self._focused_headline.pop(request.session_id, None)
         self._shown_excerpts.pop(request.session_id, None)
+        self._shown_related.pop(request.session_id, None)
         topic = self._topic_from_query(query)
         if not self.enabled:
             explanation = CurrentAffairsAbstentionExplanation(
@@ -550,17 +552,22 @@ class CurrentAffairsRouter:
         selected = matches[0]
         if self._focused_headline.get(session_id) != selected:
             self._shown_excerpts.pop(session_id, None)
+            self._shown_related.pop(session_id, None)
         self._focused_headline[session_id] = selected
         shown_excerpts = self._shown_excerpts.setdefault(session_id, set())
-        continuing = bool(shown_excerpts)
+        shown_related = self._shown_related.setdefault(session_id, set())
+        continuing = bool(shown_excerpts or shown_related)
         topic = selected.title.removesuffix(f" - {selected.source}")
         terms = self._headline_terms(topic)
         details = self._related_headlines(topic, selected, set(terms), now=now)
-        if not details and len(terms) > 4:
+        if len(terms) > 4 and all(
+            self._related_key(item) in shown_related for item in details
+        ):
             keywords = terms[-4:]
-            details = self._related_headlines(
+            more = self._related_headlines(
                 " ".join(keywords), selected, set(keywords), now=now
             )
+            details = tuple(dict.fromkeys((*more, *details)))
         consulted = []
         evidence = []
         for item in (selected, *details)[:3]:
@@ -577,22 +584,30 @@ class CurrentAffairsRouter:
                 evidence.append(CurrentAffairsItem(
                     item.title, item.source, article_url, item.published_at
                 ))
-        if evidence or not continuing:
-            self._last_by_session[session_id] = tuple(evidence) or (selected, *details)
+        new_details = tuple(
+            item for item in details if self._related_key(item) not in shown_related
+        )[:3]
+        references = tuple(evidence) if consulted else new_details
+        previous = self._last_by_session.get(session_id, ()) if continuing else (selected,)
+        if references or not continuing:
+            self._last_by_session[session_id] = tuple(dict.fromkeys((*previous, *references)))
         if consulted:
             response = (
                 f"Sobre «{topic}», estos son puntos de las publicaciones consultadas:\n"
                 + "\n".join(f"- {line}" for line in consulted)
             )
-        elif continuing:
-            response = f"Sobre «{topic}», no encontré extractos nuevos para ampliar lo anterior."
-        elif details:
+        elif new_details:
+            shown_related.update(self._related_key(item) for item in new_details)
             lines = "\n".join(
-                f"- {self._display_headline(item)} — {item.source}" for item in details
+                f"- {self._display_headline(item)} — {item.source}" for item in new_details
             )
             response = (
                 f"Sobre «{topic}», solo pude recuperar estos titulares relacionados:\n"
                 f"{lines}\nPodés pedirme las fuentes."
+            )
+        elif continuing:
+            response = (
+                f"Sobre «{topic}», no encontré información nueva para ampliar lo anterior."
             )
         else:
             response = (
@@ -611,6 +626,11 @@ class CurrentAffairsRouter:
     @staticmethod
     def _display_headline(item: CurrentAffairsItem) -> str:
         return item.title.removesuffix(f" - {item.source}")
+
+    @classmethod
+    def _related_key(cls, item: CurrentAffairsItem) -> tuple[str, str]:
+        title = " ".join(cls._display_headline(item).casefold().split())
+        return item.source.casefold(), title
 
     def _related_headlines(
         self,
