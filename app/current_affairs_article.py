@@ -94,7 +94,7 @@ def _title_key(title: str) -> tuple[str, ...]:
 
 
 def read_public_article(
-    title: str, source: str, url: str, *, timeout: float
+    title: str, source: str, url: str, *, timeout: float, focus: str = ""
 ) -> tuple[str, tuple[str, ...]] | None:
     """Read identifiable public article text from a supported publisher."""
     try:
@@ -132,11 +132,23 @@ def read_public_article(
     )
     excerpts = []
     remaining_words = 25
-    for sentence in dict.fromkeys(sentences):
+    target = _focus_terms(focus or title)
+    ranked = sorted(
+        dict.fromkeys(sentences),
+        key=lambda sentence: sum(
+            2 if term in _DETAIL_TERMS else 1
+            for term in target.intersection(_focus_terms(sentence))
+        ),
+        reverse=True,
+    )
+    for sentence in ranked:
         words = sentence.split()
         if len(words) <= remaining_words:
             excerpts.append(sentence)
             remaining_words -= len(words)
+        elif not excerpts and target.intersection(_focus_terms(sentence)):
+            excerpts.append(" ".join(words[:remaining_words]) + "…")
+            break
         if len(excerpts) == 2 or remaining_words < 8:
             break
     if not excerpts and article.description:
@@ -144,3 +156,14 @@ def read_public_article(
         if len(words) >= 8 and not re.search(r"https?://", article.description):
             excerpts.append(" ".join(words[:25]) + ("…" if len(words) > 25 else ""))
     return (url, tuple(excerpts)) if excerpts else None
+
+
+_DETAIL_TERMS = frozenset({"prohib", "sancio", "regula", "descub", "hallaz", "efecto"})
+
+
+def _focus_terms(text: str) -> set[str]:
+    return {
+        word[:6]
+        for word in _title_key(text)
+        if len(word) >= 5 and word not in {"nuevas", "nuevos", "sobre", "regirán", "desde"}
+    }

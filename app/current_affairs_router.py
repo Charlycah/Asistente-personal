@@ -341,6 +341,7 @@ class CurrentAffairsRouter:
         self._last_by_session: dict[str, tuple[CurrentAffairsItem, ...]] = {}
         self._context_by_session: dict[str, CurrentAffairsConversationContext] = {}
         self._shown_headlines: dict[str, tuple[CurrentAffairsItem, ...]] = {}
+        self._focused_headline: dict[str, CurrentAffairsItem] = {}
         self._lock = threading.Lock()
 
     def intercept(
@@ -398,6 +399,7 @@ class CurrentAffairsRouter:
         )
         policy = self._freshness_policy(text)
         self._shown_headlines.pop(request.session_id, None)
+        self._focused_headline.pop(request.session_id, None)
         topic = self._topic_from_query(query)
         if not self.enabled:
             explanation = CurrentAffairsAbstentionExplanation(
@@ -499,7 +501,10 @@ class CurrentAffairsRouter:
             r"(?:(?:la|el)\s+)?(?:(?:noticia|titular|n[uú]mero)\s+)?(\d{1,2})",
             reference,
         )
-        if number:
+        if re.fullmatch(r"(?:eso|esto|esa noticia)(?:[, ]+me interesa)?", reference):
+            focused = self._focused_headline.get(session_id)
+            matches = (focused,) if focused is not None else shown
+        elif number:
             index = int(number[1]) - 1
             matches = shown[index:index + 1] if index >= 0 else ()
         else:
@@ -514,6 +519,7 @@ class CurrentAffairsRouter:
             )
 
         selected = matches[0]
+        self._focused_headline[session_id] = selected
         topic = selected.title.removesuffix(f" - {selected.source}")
         terms = self._headline_terms(topic)
         details = self._related_headlines(topic, selected, set(terms), now=now)
@@ -526,7 +532,7 @@ class CurrentAffairsRouter:
         evidence = []
         for item in (selected, *details)[:3]:
             content = read_public_article(
-                self._display_headline(item), item.source, item.url, timeout=8.0
+                self._display_headline(item), item.source, item.url, timeout=8.0, focus=topic
             )
             if content:
                 article_url, excerpts = content
