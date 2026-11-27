@@ -1309,13 +1309,16 @@ class ROBYDesktopApp:
                         and self.external_image_presenter is not None
                     ):
                         visual_turn = bind_applied_result_to_desktop(applied_result)
-                        dispatch_desktop_runtime_visual_render(
-                            ui_dispatcher,
-                            lambda: connect_governed_floating_viewer(
+                        def show_requested_images() -> None:
+                            floating_image_viewer.label_request(text)
+                            connect_governed_floating_viewer(
                                 presenter=self.external_image_presenter,
                                 viewer=preview_bridge,
                                 artifacts=visual_turn.visual_companion.artifacts,
-                            ),
+                            )
+
+                        dispatch_desktop_runtime_visual_render(
+                            ui_dispatcher, show_requested_images
                         )
                 except Exception:
                     # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
