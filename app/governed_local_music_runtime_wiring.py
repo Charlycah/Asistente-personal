@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import random
 import re
 import shlex
 import time
@@ -14,6 +15,7 @@ from core.governed_local_music import (
     GovernedLocalMusicConfig,
     GovernedLocalMusicPlaybackAuthorizationV1,
     GovernedLocalMusicSelectionV1,
+    GovernedMusicEntry,
     GovernedMusicSelection,
     GovernedMusicSelectionStatus,
     governed_local_music_catalogue_read_descriptor,
@@ -45,7 +47,23 @@ def local_music_command(text: str) -> str | None:
         r"(?:esto no me gusta[,.; ]+)?(?:busc[aá]|pon[eé]) otra pista", text
     ):
         return "next"
-    if text == "esto no me gusta":
+    if re.fullmatch(
+        r"(?:(?:dame|mostrame|busc[aá]) )?(?:otras (?:cinco|5)(?: opciones| pistas)?|"
+        r"(?:cinco|5) (?:opciones|pistas) m[aá]s)|(?:dame|mostrame) otras opciones",
+        text,
+    ):
+        return "more"
+    if re.fullmatch(
+        r"(?:pon[eé](?:me)?|reproduc[ií](?:me)?|escuchemos) "
+        r"(?:(?:m[uú]sica|una pista|algo) )?al azar",
+        text,
+    ):
+        return "shuffle"
+    if re.fullmatch(r"(?:sub[ií](?:me)?|aument[aá]) (?:el )?volumen", text):
+        return "volume_up"
+    if re.fullmatch(r"(?:baj[aá](?:me)?|reduc[ií]) (?:el )?volumen", text):
+        return "volume_down"
+    if text in {"esto no me gusta", "no me gustan esas", "no me gustan esas opciones"}:
         return "dislike"
     return None
 
@@ -66,6 +84,13 @@ class GovernedLocalMusicRuntimeWiring:
     selection: GovernedLocalMusicSelectionV1 | None = None
     playback_authorization: GovernedLocalMusicPlaybackAuthorizationV1 | None = None
     playback_executor: LocalCommandMusicPlaybackExecutor | None = None
+
+
+@dataclass(frozen=True)
+class _MusicOptions:
+    expires_at: float
+    visible: tuple[GovernedMusicEntry, ...]
+    remaining: tuple[GovernedMusicEntry, ...]
 
 
 class GovernedLocalMusicCatalogueInterceptionPort:
@@ -130,7 +155,7 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         self.selection = selection
         self.playback_authorization = playback_authorization
         self.playback_executor = playback_executor
-        self._music_options = {}
+        self._music_options: dict[tuple[str, str], _MusicOptions] = {}
 
     @staticmethod
     def _natural_music_query(text: str, verbs: str) -> str | None:
@@ -154,7 +179,25 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         normalized = request.text.strip().casefold()
         key = (request.owner, request.session_id)
         pending = self._music_options.pop(key, None)
+        if pending is not None and pending.expires_at < time.monotonic():
+            pending = None
         command = local_music_command(request.text)
+        if command == "more" or (command == "dislike" and pending is not None):
+            remaining = pending.remaining if pending is not None else ()
+            if remaining:
+                rows = self._offer_music_options(key, remaining)
+                return GovernedOperationalInterception(
+                    response_text=f"Estas son otras opciones:\n{rows}",
+                    rationale="local_music_catalogue_search_completed",
+                )
+            return GovernedOperationalInterception(
+                response_text="No tengo más opciones de esa lista.",
+                rationale="local_music_catalogue_no_more_options",
+            )
+        if command in {"volume_up", "volume_down"}:
+            if pending is not None:
+                self._music_options[key] = pending
+            return self._adjust_volume(0.10 if command == "volume_up" else -0.10)
         if command is not None:
             return self._collection_interception(command, key)
         stop_text = normalized.strip(" ¡!¿?.,")
@@ -181,7 +224,10 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             request.text, r"busc[aá](?:me)?\s+algo\s+de"
         ) if query is None else None
         if query or implicit_query:
-            result = self.catalogue.search(query or implicit_query, max_results=10)
+            result = self.catalogue.search(
+                query or implicit_query,
+                max_results=self.catalogue.config.max_catalogue_entries,
+            )
         if query or (implicit_query and result.matches):
             if not result.matches:
                 return GovernedOperationalInterception(
@@ -205,8 +251,8 @@ class GovernedLocalMusicCatalogueInterceptionPort:
                 rationale="local_music_catalogue_search_completed",
             )
 
-        if pending is not None and pending[0] >= time.monotonic():
-            entry = self._pending_music_choice(request.text, pending[1])
+        if pending is not None:
+            entry = self._pending_music_choice(request.text, pending.visible)
             if entry is not None:
                 if self.playback_executor is None:
                     return self._playback_interception(entry.relative_path)
@@ -250,10 +296,51 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         now = time.monotonic()
         if len(self._music_options) >= 128:
             self._music_options.pop(next(iter(self._music_options)))
-        self._music_options[key] = (now + 300, entries)
+        visible, remaining = entries[:5], entries[5:]
+        self._music_options[key] = _MusicOptions(now + 300, visible, remaining)
         return "\n".join(
-            f"{index}. {entry.relative_path}"
-            for index, entry in enumerate(entries, start=1)
+            f"{index}. {self._music_label(entry)}"
+            for index, entry in enumerate(visible, start=1)
+        )
+
+    def _music_label(self, entry: GovernedMusicEntry) -> str:
+        title = re.sub(
+            r"\s*\(\d+kbit_[^)]+\)\s*$", "", entry.title_hint
+        ).strip()
+        artist = ""
+        try:
+            from mutagen import File, MutagenError
+        except ImportError:
+            return title
+        try:
+            metadata = File(self.catalogue.resolve_entry(entry.relative_path), easy=True)
+        except (OSError, ValueError, MutagenError):
+            return title
+        if metadata is not None and metadata.tags:
+            titles = metadata.tags.get("title", [])
+            artists = metadata.tags.get("artist", [])
+            if titles and titles[0].strip():
+                title = titles[0].strip()
+            if artists:
+                artist = ", ".join(value.strip() for value in artists if value.strip())
+        return f"{artist} — {title}" if artist else title
+
+    def _adjust_volume(self, delta: float) -> GovernedOperationalInterception:
+        executor = self.playback_executor
+        try:
+            level = None if executor is None else executor.adjust_volume(delta)
+        except (OSError, ImportError):
+            level = None
+        return GovernedOperationalInterception(
+            response_text=(
+                "No pude controlar el volumen de la pista activa."
+                if level is None
+                else f"Volumen de la música al {round(level * 100)} %."
+            ),
+            rationale=(
+                "local_music_volume_unavailable" if level is None
+                else "local_music_volume_adjusted"
+            ),
         )
 
     @staticmethod
@@ -274,13 +361,16 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             return entries[int(key) - 1]
         if not key:
             return None
-        matches = tuple(
-            item for item in entries
+        matches = []
+        for item in entries:
+            label = self._music_label(item)
             if key in {
                 self._music_choice_key(item.filename),
                 self._music_choice_key(item.title_hint),
-            }
-        )
+                self._music_choice_key(label),
+                self._music_choice_key(label.rsplit(" — ", 1)[-1]),
+            }:
+                matches.append(item)
         if not matches and len(key.split()) >= 2:
             matches = tuple(
                 item for item in entries
@@ -297,7 +387,7 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         entries = self.catalogue.catalogue().entries
         if command == "browse":
             if entries:
-                rows = self._offer_music_options(key, entries[:5])
+                rows = self._offer_music_options(key, entries)
                 return GovernedOperationalInterception(
                     response_text=f"Encontré estas pistas en la Pinacoteca:\n{rows}",
                     rationale="local_music_catalogue_search_completed",
@@ -311,6 +401,8 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             paths = tuple(self.catalogue.resolve_entry(entry.relative_path) for entry in entries)
             start = paths.index(active) + 1 if active in paths else 0
             candidates = entries[start:] + entries[:start]
+            if command == "shuffle":
+                candidates = random.sample(candidates, k=len(candidates))
             for entry in candidates:
                 if self.catalogue.resolve_entry(entry.relative_path) != active:
                     selection = GovernedMusicSelection(
@@ -369,7 +461,7 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             if selection.status is GovernedMusicSelectionStatus.AMBIGUOUS:
                 rows = (
                     self._offer_music_options(key, selection.candidates) if key else
-                    "\n".join(f"- {item.relative_path}" for item in selection.candidates)
+                    "\n".join(f"- {self._music_label(item)}" for item in selection.candidates)
                 )
                 return GovernedOperationalInterception(
                     response_text=(
@@ -414,7 +506,7 @@ class GovernedLocalMusicCatalogueInterceptionPort:
                 rationale="local_music_selection_not_found",
             )
         if result.status is GovernedMusicSelectionStatus.AMBIGUOUS:
-            rows = "\n".join(f"- {item.relative_path}" for item in result.candidates)
+            rows = "\n".join(f"- {self._music_label(item)}" for item in result.candidates)
             return GovernedOperationalInterception(
                 response_text=(
                     f"Encontré varias opciones. Decime cuál querés seleccionar:\n{rows}"
@@ -424,7 +516,7 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         assert result.selected is not None
         return GovernedOperationalInterception(
             response_text=(
-                f"Seleccioné {result.selected.relative_path}. "
+                f"Seleccioné {self._music_label(result.selected)}. "
                 "La selección no autoriza ni inicia reproducción."
             ),
             rationale="local_music_selection_completed_without_playback",
