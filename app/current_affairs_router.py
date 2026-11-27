@@ -515,20 +515,12 @@ class CurrentAffairsRouter:
         selected = matches[0]
         topic = selected.title.removesuffix(f" - {selected.source}")
         terms = self._headline_terms(topic)
-        try:
-            related = self._retrieve(topic, now=now)
-        except (OSError, ValueError, ET.ParseError):
-            related = ()
-        policy = CurrentAffairsFreshnessPolicy("últimas 48 horas", timedelta(hours=48))
-        fresh = self._assess_freshness(related, now=now, policy=policy).accepted
-        details = tuple(
-            item
-            for item in fresh
-            if item.title.casefold() != selected.title.casefold()
-            and item.url != selected.url
-            and len(terms & self._headline_terms(item.title))
-            >= max(2, (len(terms) + 1) // 2)
-        )[:3]
+        details = self._related_headlines(topic, selected, set(terms), now=now)
+        if not details and len(terms) > 4:
+            keywords = terms[-4:]
+            details = self._related_headlines(
+                " ".join(keywords), selected, set(keywords), now=now
+            )
         self._last_by_session[session_id] = (selected, *details)
         if details:
             lines = "\n".join(f"- {item.title} — {item.source}" for item in details)
@@ -550,14 +542,40 @@ class CurrentAffairsRouter:
             ),
         )
 
+    def _related_headlines(
+        self,
+        query: str,
+        selected: CurrentAffairsItem,
+        terms: set[str],
+        *,
+        now: datetime,
+    ) -> tuple[CurrentAffairsItem, ...]:
+        try:
+            related = self._retrieve(query, now=now)
+        except (OSError, ValueError, ET.ParseError):
+            return ()
+        policy = CurrentAffairsFreshnessPolicy("últimas 48 horas", timedelta(hours=48))
+        fresh = self._assess_freshness(related, now=now, policy=policy).accepted
+        original = selected.title.removesuffix(f" - {selected.source}").casefold()
+        minimum = max(2, len(terms) // 2 + 1)
+        return tuple(
+            item
+            for item in fresh
+            if item.title.removesuffix(f" - {item.source}").casefold() != original
+            and item.url != selected.url
+            and len(terms.intersection(self._headline_terms(item.title))) >= minimum
+        )[:3]
+
     @staticmethod
-    def _headline_terms(title: str) -> set[str]:
-        return {
-            word
-            for word in re.findall(r"\w+", title.casefold())
-            if len(word) >= 4
-            and word not in {"para", "sobre", "como", "cómo", "desde", "tras"}
+    def _headline_terms(title: str) -> tuple[str, ...]:
+        generic_words = {
+            "para", "sobre", "como", "cómo", "desde", "tras", "según",
+            "nuevas", "nuevos", "nueva", "nuevo", "después", "antes",
         }
+        return tuple(dict.fromkeys(
+            word for word in re.findall(r"\w+", title.casefold())
+            if len(word) >= 4 and word not in generic_words
+        ))
 
     def _resolve_contextual_followup(
         self,
