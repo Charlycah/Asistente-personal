@@ -18,6 +18,10 @@ from app.credentials import activate_credentials
 from app.daily_household_briefing import (
     build_daily_household_briefing_from_environment,
 )
+from app.gui06_diagnostic_desktop_adapter import (
+    GUI06DiagnosticDesktopAdapter,
+    GUI06DiagnosticLocalAdapter,
+)
 from app.desktop_external_image_presenter import DesktopExternalImagePresenter
 from app.desktop_ui import ROBYDesktopApp
 from app.episodic_source_constraint import (
@@ -411,9 +415,13 @@ def build_unified_desktop_app(*, local_conversation=None) -> ROBYDesktopApp:
         ),
     )
 
+    gui06_local_diagnostic_adapter = GUI06DiagnosticLocalAdapter(
+        local_conversation_adapter
+    )
+
     governed_proposal_desktop_review = GovernedProposalDesktopReviewComposition(
         proposal_review_transport=governed_proposal_review_transport,
-        conversation_adapter=local_conversation_adapter,
+        conversation_adapter=gui06_local_diagnostic_adapter,
     )
     episodic_source_constraint_composition = (
         EpisodicSourceConstraintDesktopComposition(
@@ -431,12 +439,12 @@ def build_unified_desktop_app(*, local_conversation=None) -> ROBYDesktopApp:
     same_turn_visual_adapter = SameTurnVisualUIAdapterComposition(
         protected_desktop_adapter,
         gateway=local_conversation_adapter.runtime,
-        explicit_context_adapter=local_conversation_adapter,
+        explicit_context_adapter=gui06_local_diagnostic_adapter,
     )
     desktop_external_image_presenter = DesktopExternalImagePresenter()
 
     return ROBYDesktopApp(
-        adapter=same_turn_visual_adapter,
+        adapter=GUI06DiagnosticDesktopAdapter(same_turn_visual_adapter),
         startup_announcer=(
             (lambda: briefing.generate()) if briefing is not None else None
         ),

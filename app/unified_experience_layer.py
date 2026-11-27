@@ -65,6 +65,7 @@ from application.brain.response_style_guide import ResponseStyleGuide
 from core.governed_operational_conversation_pipeline import (
     GovernedOperationalInterception,
 )
+from core.gui06_diagnostic_probe import capture_diagnostic_stage
 from core.operational_response_assembly import OperationalResponse
 
 
@@ -157,7 +158,7 @@ class UnifiedExperienceLayer:
         request=None,
     ) -> GovernedOperationalInterception | None:
         if result is None:
-            return None
+            return self._observe_gui06_p4b(None)
         self._presentations += 1
         request_text = getattr(request, "text", "") or ""
         self.last_conversational_markers = (
@@ -202,10 +203,10 @@ class UnifiedExperienceLayer:
             elliptical=self.last_elliptical_response,
         )
         if self.last_dialogue_clarification.required:
-            return GovernedOperationalInterception(
+            return self._observe_gui06_p4b(GovernedOperationalInterception(
                 response_text=self.last_dialogue_clarification.response_text or "",
                 rationale="guided_dialogue_clarification",
-            )
+            ))
         if (
             request_text.strip()
             and self.last_dialogue_continuation.kind
@@ -213,10 +214,10 @@ class UnifiedExperienceLayer:
         ):
             self._last_substantive_turn = request_text
         if decision.closure_response is not None:
-            return GovernedOperationalInterception(
+            return self._observe_gui06_p4b(GovernedOperationalInterception(
                 response_text=decision.closure_response,
                 rationale="polite_conversation_closure",
-            )
+            ))
         refined = self.behavioral_refinement.refine(request, result)
         text = self._normalize(refined.response_text)
         text = self._remove_redundant_greeting(
@@ -246,9 +247,18 @@ class UnifiedExperienceLayer:
         request_text = getattr(request, "text", None)
         self.self_analysis.observe(request_text, text)
         if text == result.response_text and refined is result:
-            return result
+            return self._observe_gui06_p4b(result)
         self._normalized_responses += 1
-        return replace(result, response_text=text)
+        return self._observe_gui06_p4b(replace(result, response_text=text))
+
+    @staticmethod
+    def _observe_gui06_p4b(result):
+        capture_diagnostic_stage(
+            "P4b",
+            text=getattr(result, "response_text", "") if result is not None else "",
+        )
+        return result
+
 
     def present_operational_response(
         self,

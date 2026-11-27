@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
+from core.gui06_diagnostic_probe import capture_diagnostic_stage
 from core.governed_provider_execution_adapter import LocalProviderExecutionStatus
 from core.knowledge_retrieval_execution import KnowledgeStepExecutionStatus
 
@@ -192,5 +193,6 @@ class OperationalResponseAssembler:
         return tuple(items), tuple(dict.fromkeys(limitations))
 
     def _save(self, response: OperationalResponse) -> OperationalResponse:
+        capture_diagnostic_stage("P4a", text=response.response_text)
         self.repository.add(response)
         return response

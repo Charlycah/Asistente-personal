@@ -148,6 +148,35 @@ class GovernedOperationalConversationPipeline:
                 ),
             )
         except Exception as exc:
+            # ROBY_TEMP_PIPELINE_DIAGNOSTIC
+            try:
+                import traceback as _diag_traceback
+                from pathlib import Path as _DiagPath
+
+                _diag_root = _DiagPath(__file__).resolve().parents[2]
+                _diag_log = _diag_root / ".roby/diagnostico_pipeline_documentos.log"
+
+                _diag_lines = [
+                    "",
+                    "[" + datetime.now(timezone.utc).isoformat() + "]",
+                    "origin=governed_operational_conversation_pipeline",
+                    "exception_type=" + type(exc).__name__,
+                ]
+
+                for _diag_frame in _diag_traceback.extract_tb(exc.__traceback__):
+                    _diag_lines.append(
+                        f"{_diag_frame.filename}:{_diag_frame.lineno}"
+                        f" in {_diag_frame.name}"
+                    )
+
+                _diag_log.parent.mkdir(parents=True, exist_ok=True)
+
+                with _diag_log.open("a", encoding="utf-8") as _diag_stream:
+                    _diag_stream.write("\n".join(_diag_lines) + "\n")
+
+            except Exception:
+                pass
+            # END_ROBY_TEMP_PIPELINE_DIAGNOSTIC
             record_failure = getattr(
                 self.conversation_execution,
                 "record_failure",

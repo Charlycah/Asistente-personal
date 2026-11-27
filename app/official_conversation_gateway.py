@@ -1067,6 +1067,29 @@ class OfficialConversationGateway:
         return projection.as_dict()
 
 
+    @staticmethod
+    def _is_anaphoric_visual_request(interpretation):
+        """Identify visual requests with an unresolved subject reference."""
+        import re
+
+        request = getattr(interpretation, 'request', None)
+        if request is None:
+            return False
+
+        mode = getattr(request, 'mode', None)
+        if getattr(mode, 'value', mode) != 'open_visual_subject':
+            return False
+
+        query = getattr(request, 'query_text', None)
+        if not isinstance(query, str):
+            return False
+
+        return bool(re.match(
+            r'^\s*(?:(?:el|la|los|las)\s+)?'
+            r'(?:mismo|misma|mismos|mismas|ese|esa|esos|esas)\b',
+            query.casefold(),
+        ))
+
     def _resolve_applied_contextual_follow_up(self, text, session_id):
         """Resolve an explicit follow-up within the authorized runtime session."""
         from core.cognitive_maturity import IdentityContextAccessGate
@@ -1157,7 +1180,10 @@ class OfficialConversationGateway:
                 candidate.user_text
             )
 
-            if earlier.request is not None:
+            if (
+                earlier.request is not None
+                and not self._is_anaphoric_visual_request(earlier)
+            ):
                 break
 
             intermediate = interpret_contextual_follow_up(
@@ -1236,9 +1262,11 @@ class OfficialConversationGateway:
         governed_memory_write_request=None,
         governed_knowledge_revision_request=None,
         knowledge_revision_execution_authorization=None,
+        _causal_result_receiver=None,
         _post_turn_observer=None,
     ) -> LocalConversationTurn:
         self._last_applied_owner_turn_result = None
+        causal_applied_result = None
         observation_id = self._cognitive_observer.begin_turn(
             origin=origin.value,
             session_id=session_id,
@@ -1297,6 +1325,7 @@ class OfficialConversationGateway:
         )
 
         def applied_or_runtime(external_evidence_value=()):
+            nonlocal causal_applied_result
             if (
                 not external_evidence_value
                 and not has_explicit_context
@@ -1305,16 +1334,25 @@ class OfficialConversationGateway:
                     text
                 )
             ):
-                applied_result = self.execute_applied_conversational_intelligence(text)
-                if getattr(applied_result.interpretation, "request", None) is None:
-                    contextual = self._resolve_applied_contextual_follow_up(
+                preliminary = self.interpret_applied_conversational_intelligence(text)
+                anaphoric_visual = self._is_anaphoric_visual_request(preliminary)
+                if anaphoric_visual:
+                    applied_result = self._resolve_applied_contextual_follow_up(
                         text,
                         effective_session_id,
                     )
-                    if contextual is not None:
-                        applied_result = contextual
+                else:
+                    applied_result = self.execute_applied_conversational_intelligence(text)
+                    if getattr(applied_result.interpretation, "request", None) is None:
+                        contextual = self._resolve_applied_contextual_follow_up(
+                            text,
+                            effective_session_id,
+                        )
+                        if contextual is not None:
+                            applied_result = contextual
                 interpretation = getattr(applied_result, "interpretation", None)
                 if getattr(interpretation, "request", None) is not None:
+                    causal_applied_result = applied_result
                     self._last_applied_owner_turn_result = applied_result
                     return self._applied_owner_turn(
                         text,
@@ -1702,6 +1740,8 @@ class OfficialConversationGateway:
             observation_id, session_id=self._last_session_id
         )
         self._conversation_entry_evidence.seal(observation_id)
+        if _causal_result_receiver is not None:
+            _causal_result_receiver(turn, causal_applied_result)
         return turn
 
     def submit_observed(self, text: str, *, post_turn_observer, **kwargs):

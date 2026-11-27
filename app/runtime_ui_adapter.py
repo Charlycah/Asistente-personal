@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from dataclasses import dataclass
 from typing import Callable, Protocol
 
 from app.companion_expression_policy import CompanionExpressionPolicy
@@ -10,10 +11,19 @@ from app.official_conversation_gateway import (
     OfficialConversationGateway,
 )
 from app.ui_adapter import UIResponse
+from core.end_to_end_local_conversation import LocalConversationTurn
 from app.unified_brain import UnifiedBrain, UnifiedBrainDiagnosticSnapshot
 from app.weather_conversation_runtime import WeatherConversationInterceptionPort
 from domain.response import ResponseStatus
 
+
+@dataclass(frozen=True)
+class TurnBoundUIResult:
+    """UI response correlated with one conversation turn."""
+
+    response: UIResponse
+    turn: LocalConversationTurn | None
+    applied_result: object | None = None
 
 class InputRuntime(Protocol):
     def handle_input(self, user_input: str) -> object: ...
@@ -49,6 +59,9 @@ class RuntimeUIAdapter:
         try:
             result = self.runtime.handle_input(normalized_text)
         except Exception:
+            # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
+            from app.roby_document_error_diagnostics import record_failure
+            record_failure('app/runtime_ui_adapter.py:62')
             return UIResponse(
                 text="Ocurrió un error al procesar tu mensaje.",
                 status=ResponseStatus.FAILURE.value,
@@ -166,7 +179,7 @@ class LocalConversationUIAdapter:
         explicit_evidence_references: tuple[object, ...] = (),
         integrated_visual_context: object | None = None,
     ) -> UIResponse:
-        return self._submit(
+        return self._submit_response(
             text,
             session_id=session_id,
             origin=ConversationOrigin.DESKTOP_TEXT,
@@ -181,11 +194,47 @@ class LocalConversationUIAdapter:
         text: str,
         session_id: str | None = None,
     ) -> UIResponse:
-        return self._submit(
+        return self._submit_response(
             text,
             session_id=session_id,
             origin=ConversationOrigin.DESKTOP_VOICE,
         )
+
+    def submit_text_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+        *,
+        explicit_document_ids: tuple[str, ...] = (),
+        explicit_sources: tuple[object, ...] = (),
+        explicit_evidence_references: tuple[object, ...] = (),
+        integrated_visual_context: object | None = None,
+    ) -> TurnBoundUIResult:
+        return self._submit(
+            text,
+            session_id=session_id,
+            origin=ConversationOrigin.DESKTOP_TEXT,
+            explicit_document_ids=explicit_document_ids,
+            explicit_sources=explicit_sources,
+            explicit_evidence_references=explicit_evidence_references,
+            integrated_visual_context=integrated_visual_context,
+            _capture_causal=True,
+        )
+
+    def submit_voice_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        return self._submit(
+            text,
+            session_id=session_id,
+            origin=ConversationOrigin.DESKTOP_VOICE,
+            _capture_causal=True,
+        )
+
+    def _submit_response(self, *args, **kwargs) -> UIResponse:
+        return self._submit(*args, **kwargs).response
 
     def _submit(
         self,
@@ -197,14 +246,13 @@ class LocalConversationUIAdapter:
         explicit_sources: tuple[object, ...] = (),
         explicit_evidence_references: tuple[object, ...] = (),
         integrated_visual_context: object | None = None,
-    ) -> UIResponse:
+        _capture_causal: bool = False,
+    ) -> TurnBoundUIResult:
         normalized_text = text.strip()
         if not normalized_text:
-            return UIResponse(
-                text="Necesito que escribas un mensaje para continuar.",
-                status=ResponseStatus.NEEDS_INFORMATION.value,
-                session_id=session_id,
-                needs_input=True,
+            return TurnBoundUIResult(
+                response=UIResponse(text='Necesito que escribas un mensaje para continuar.', status=ResponseStatus.NEEDS_INFORMATION.value, session_id=session_id, needs_input=True),
+                turn=None,
             )
         self._last_memory_write_execution_authorization = None
         self._last_memory_write_execution_result = None
@@ -233,10 +281,21 @@ class LocalConversationUIAdapter:
                 )
                 self._last_memory_write_execution_result = result
                 if result is not None:
-                    return self._memory_write_result_response(
-                        result,
-                        session_id=session_id,
+                    return TurnBoundUIResult(
+                        response=self._memory_write_result_response(result, session_id=session_id),
+                        turn=None,
                     )
+        causal_observations = []
+
+        def receive_causal_result(observed_turn, applied_result):
+            causal_observations.append((observed_turn, applied_result))
+
+        causal_kwargs = (
+            {"_causal_result_receiver": receive_causal_result}
+            if _capture_causal
+            else {}
+        )
+
         try:
             if (
                 explicit_document_ids
@@ -252,33 +311,49 @@ class LocalConversationUIAdapter:
                     explicit_sources=explicit_sources,
                     explicit_evidence_references=explicit_evidence_references,
                     integrated_visual_context=integrated_visual_context,
+                    **causal_kwargs,
                 )
             else:
                 turn = self._brain.process(
                     normalized_text,
                     origin=origin,
                     session_id=session_id,
+                    **causal_kwargs,
                 )
         except Exception:
-            return UIResponse(
-                text="Ocurrió un error al procesar tu mensaje.",
-                status=ResponseStatus.FAILURE.value,
-                session_id=session_id,
-                needs_input=False,
+            # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
+            from app.roby_document_error_diagnostics import record_failure
+            record_failure('app/runtime_ui_adapter.py:321')
+            return TurnBoundUIResult(
+                response=UIResponse(text='Ocurrió un error al procesar tu mensaje.', status=ResponseStatus.FAILURE.value, session_id=session_id, needs_input=False),
+                turn=None,
             )
         status = getattr(turn.status, "value", str(turn.status))
         needs_input = status in {"partial", "withheld"}
         response_text = turn.response_text or f"[{status}]"
-        return UIResponse(
-            text=response_text,
-            status=status,
-            session_id=session_id or turn.session_id,
-            needs_input=needs_input,
-            silent=(
-                "local_music_playback_started_after_explicit_authorization"
-                in getattr(turn, "rationale", ())
+        causal_applied_result = None
+        if (
+            _capture_causal
+            and len(causal_observations) == 1
+            and causal_observations[0][0] is turn
+        ):
+            causal_applied_result = causal_observations[0][1]
+
+        result = TurnBoundUIResult(
+            response=UIResponse(
+                text=response_text,
+                status=status,
+                session_id=session_id or turn.session_id,
+                needs_input=needs_input,
+                silent=(
+                    "local_music_playback_started_after_explicit_authorization"
+                    in getattr(turn, "rationale", ())
+                ),
             ),
+            turn=turn,
+            applied_result=causal_applied_result,
         )
+        return result
 
 
 class OptionalServiceGuardUIAdapter:
@@ -330,6 +405,43 @@ class OptionalServiceGuardUIAdapter:
         session_id: str | None = None,
     ) -> UIResponse:
         return self.submit_text(text, session_id=session_id)
+
+    def submit_text_with_turn_evidence(
+        self, text: str, session_id: str | None = None
+    ) -> TurnBoundUIResult:
+        normalized = text.strip().casefold()
+        if (
+            not self.weather_enabled
+            and WeatherConversationInterceptionPort.is_weather_request(normalized)
+        ):
+            return TurnBoundUIResult(
+                response=UIResponse(
+                    text=(
+                        "El servicio de clima todavía no está conectado. "
+                        "Para darte condiciones actuales verificadas, activá OpenWeather "
+                        "en .roby/config.json y vinculá su API key."
+                    ),
+                    status=ResponseStatus.NEEDS_INFORMATION.value,
+                    session_id=session_id,
+                    needs_input=True,
+                ),
+                turn=None,
+            )
+        result = self.adapter.submit_text_with_turn_evidence(
+            text, session_id=session_id
+        )
+        return TurnBoundUIResult(
+            response=result.response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
+        )
+
+    def submit_voice_with_turn_evidence(
+        self, text: str, session_id: str | None = None
+    ) -> TurnBoundUIResult:
+        return self.submit_text_with_turn_evidence(
+            text, session_id=session_id
+        )
 
 
 class ConversationalPersonalityUIAdapter:
@@ -446,4 +558,65 @@ class ConversationalPersonalityUIAdapter:
             status=response.status,
             session_id=response.session_id,
             needs_input=response.needs_input,
+        )
+
+    def submit_text_with_turn_evidence(
+        self, text: str, session_id: str | None = None
+    ) -> TurnBoundUIResult:
+        key = self._key(session_id)
+        normalized = text.strip()
+
+        if self._THANKS_RE.match(normalized):
+            self._pending_by_session.pop(key, None)
+            return TurnBoundUIResult(
+                response=UIResponse(
+                    text="De nada.",
+                    status=ResponseStatus.SUCCESS.value,
+                    session_id=session_id,
+                    needs_input=False,
+                ),
+                turn=None,
+            )
+
+        if self._GREETING_RE.match(normalized):
+            self._pending_by_session.pop(key, None)
+            return TurnBoundUIResult(
+                response=UIResponse(
+                    text="Hola. Todo tranquilo por acá. ¿Cómo andás vos?",
+                    status=ResponseStatus.SUCCESS.value,
+                    session_id=session_id,
+                    needs_input=False,
+                ),
+                turn=None,
+            )
+
+        pending = self._pending_by_session.get(key)
+        if self._AFFIRMATIVE_RE.match(normalized):
+            pending = self._pending_by_session.pop(key, None)
+            if pending == "weather_forecast":
+                normalized = "decime el pronóstico extendido"
+        elif (
+            pending == "weather_forecast"
+            and self._WEATHER_FOLLOWUP_RE.match(normalized)
+        ):
+            self._pending_by_session.pop(key, None)
+            normalized = "decime el pronóstico extendido"
+
+        result = self.adapter.submit_text_with_turn_evidence(
+            normalized, session_id=session_id
+        )
+        response = self._decorate(
+            result.response, request_text=normalized, key=key
+        )
+        return TurnBoundUIResult(
+            response=response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
+        )
+
+    def submit_voice_with_turn_evidence(
+        self, text: str, session_id: str | None = None
+    ) -> TurnBoundUIResult:
+        return self.submit_text_with_turn_evidence(
+            text, session_id=session_id
         )

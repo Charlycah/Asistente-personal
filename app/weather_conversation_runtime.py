@@ -67,7 +67,7 @@ class WeatherConversationInterceptionPort:
             re.IGNORECASE,
         ),
         re.compile(
-            r"\b(?:c[oó]mo\s+(?:est[aá]|viene)\s+(?:el\s+)?"
+            r"\b(?:c[oó]mo\s+(?:est[aá](?:r[aá])?|viene)\s+(?:el\s+)?"
             r"(?:clima|tiempo|pron[oó]stico)|qu[eé]\s+tiempo\s+hace)\b",
             re.IGNORECASE,
         ),

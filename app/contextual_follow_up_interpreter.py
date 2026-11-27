@@ -98,7 +98,17 @@ def interpret_contextual_follow_up(text: str) -> FollowUpInterpretation:
         normalized,
     )
 
-    if continuation or standalone_reference:
+    visual_anaphora = re.search(
+        r'\b(?:otras|otros)\s+'
+        r'(?:imagenes|fotos|fotografias|ilustraciones)\s+'
+        r'(?:de|del)\s+'
+        r'(?:(?:el|la|los|las)\s+)?'
+        r'(?:mismo|misma|mismos|mismas|ese|esa|esos|esas)\s+'
+        r'[a-z0-9]+\b',
+        normalized,
+    )
+
+    if continuation or standalone_reference or visual_anaphora:
         return FollowUpInterpretation(FollowUpIntent.CONTINUE)
 
     return FollowUpInterpretation(FollowUpIntent.UNDETERMINED)

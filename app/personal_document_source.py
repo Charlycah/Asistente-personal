@@ -61,19 +61,18 @@ class PersonalDocumentRootDiscoveryAdapter:
         self.document_inbox = document_inbox
         self._last_discovery: dict[str, PersonalDocumentSourceCandidate] = {}
 
-    def discover(self) -> PersonalDocumentDiscovery:
+    def discover(self, query: str = "") -> PersonalDocumentDiscovery:
+        normalized_query = query.strip().casefold()
         candidates = [
             candidate
             for path in self.root.rglob("*")
             if (candidate := self._candidate_for(path)) is not None
+            and normalized_query in candidate.relative_path.casefold()
         ]
         candidates.sort(key=lambda item: item.relative_path)
         truncated = len(candidates) > self.max_candidates
         visible = tuple(candidates[: self.max_candidates])
-        self._last_discovery = {
-            item.candidate_id: item
-            for item in visible
-        }
+        self._last_discovery = {item.candidate_id: item for item in visible}
         return PersonalDocumentDiscovery(
             candidates=visible,
             truncated=truncated,
@@ -129,9 +128,7 @@ class PersonalDocumentRootDiscoveryAdapter:
     def _validated_source(self, relative_path: str) -> Path:
         candidate = self.root / Path(relative_path)
         if candidate.is_symlink():
-            raise ValueError(
-                "personal document source symlinks are not allowed"
-            )
+            raise ValueError("personal document source symlinks are not allowed")
         resolved = candidate.resolve(strict=True)
         try:
             resolved.relative_to(self.root)
@@ -152,8 +149,7 @@ class PersonalDocumentRootDiscoveryAdapter:
         modified_ns: int,
     ) -> str:
         payload = (
-            f"{self.root.as_posix()}\0{relative_path}\0"
-            f"{size_bytes}\0{modified_ns}"
+            f"{self.root.as_posix()}\0{relative_path}\0{size_bytes}\0{modified_ns}"
         )
         return sha256(payload.encode("utf-8")).hexdigest()
 

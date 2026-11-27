@@ -34,6 +34,10 @@ class DesktopGovernedFloatingImageViewer:
         self._scrollbar: Any | None = None
         self._content: Any | None = None
         self._canvas_item: Any | None = None
+        self._gallery_columns = 3
+        self._gallery_background = "#14243A"
+        self._gallery_card = "#243B58"
+        self._gallery_foreground = "#E7EFFB"
 
     def _require_ui_thread(self) -> None:
         if get_ident() != self._owner_thread:
@@ -69,13 +73,15 @@ class DesktopGovernedFloatingImageViewer:
             self._canvas.yview_scroll(steps, "units")
 
     def _create_scrollable_content(self, window: Any) -> None:
-        canvas = self._toolkit.Canvas(window, highlightthickness=0)
+        canvas = self._toolkit.Canvas(
+            window, highlightthickness=0, bg=self._gallery_background,
+        )
         scrollbar = self._toolkit.Scrollbar(
             window,
             orient="vertical",
             command=canvas.yview,
         )
-        content = self._toolkit.Frame(canvas)
+        content = self._toolkit.Frame(canvas, bg=self._gallery_background)
         canvas.configure(yscrollcommand=scrollbar.set)
         scrollbar.configure(command=canvas.yview)
         canvas_item = canvas.create_window(
@@ -99,8 +105,20 @@ class DesktopGovernedFloatingImageViewer:
         admitted = tuple(artifacts)
         if self._window is None:
             window = self._toolkit.Toplevel(self._root)
-            window.title("ROBY - Galeria visual")
+            window.title("ROBY XI.2 - Galería visual")
+            if callable(getattr(window, "configure", None)):
+                window.configure(bg=self._gallery_background)
             window.resizable(True, True)
+            # Respetar pantallas más pequeñas y no exceder su área útil.
+            if callable(getattr(window, "geometry", None)):
+                screen_w = getattr(window, "winfo_screenwidth", lambda: 1200)()
+                screen_h = getattr(window, "winfo_screenheight", lambda: 850)()
+                if type(screen_w) is not int or screen_w <= 0:
+                    screen_w = 1200
+                if type(screen_h) is not int or screen_h <= 0:
+                    screen_h = 850
+                window.geometry(f"{min(1100, max(480, screen_w - 100))}x"
+                                f"{min(750, max(360, screen_h - 130))}")
             window.protocol("WM_DELETE_WINDOW", self.close)
             self._window = window
             if self._supports_scrolling():
@@ -159,6 +177,140 @@ class DesktopGovernedFloatingImageViewer:
         ):
             return payload
 
+    def _place_gallery_widget(self, widget: Any, ordinal: int) -> None:
+        """Distribuir miniaturas sin alterar el contrato de identidad VIC."""
+        parent = self._content if self._content is not None else self._window
+        if callable(getattr(widget, "grid", None)) and callable(
+            getattr(parent, "grid_columnconfigure", None)
+        ):
+            for column in range(self._gallery_columns):
+                parent.grid_columnconfigure(column, weight=1)
+            index = max(0, ordinal - 1)
+            widget.grid(
+                row=index // self._gallery_columns,
+                column=index % self._gallery_columns,
+                padx=12, pady=12, sticky="n",
+            )
+        else:
+            # Compatibilidad con dobles de prueba y toolkits limitados.
+            widget.pack()
+
+    def _save_received_png(self, payload: bytes, ordinal: int) -> None:
+        """Guardar por elección explícita los bytes PNG recibidos, no la miniatura."""
+        self._require_ui_thread()
+        if self._window is None or not payload.startswith(b"\x89PNG\r\n\x1a\n"):
+            return
+        from tkinter import filedialog, messagebox
+
+        filename = filedialog.asksaveasfilename(
+            parent=self._window,
+            title="Guardar imagen recibida como…",
+            initialfile=f"roby_imagen_{ordinal:02d}.png",
+            defaultextension=".png",
+            filetypes=[("Imagen PNG", "*.png")],
+        )
+        if not filename:
+            return
+        try:
+            with open(filename, "wb") as output:
+                output.write(payload)
+        except OSError as exc:
+            messagebox.showerror(
+                "ROBY - No se pudo guardar",
+                f"No fue posible guardar la imagen: {exc}",
+                parent=self._window,
+            )
+
+    def _show_image_info(self, artifact: object, payload: bytes, ordinal: int) -> None:
+        """Mostrar solo información efectivamente disponible en el artefacto."""
+        self._require_ui_thread()
+        from tkinter import messagebox
+
+        title = getattr(artifact, "title", None)
+        source_id = getattr(artifact, "source_id", None)
+        try:
+            with Image.open(BytesIO(payload)) as image:
+                dimensions = f"{image.width} × {image.height} píxeles"
+        except (OSError, ValueError, UnidentifiedImageError):
+            dimensions = "No disponibles"
+        lines = [f"Imagen {ordinal}", f"Dimensiones: {dimensions}"]
+        if isinstance(title, str) and title.strip():
+            lines.append(f"Título: {title.strip()}")
+        if isinstance(source_id, str) and source_id.strip():
+            lines.append(f"Fuente: {source_id.strip()}")
+        lines.append("Archivo disponible: PNG recibido por ROBY (no original verificado)")
+        messagebox.showinfo("ROBY - Información de imagen", "\n".join(lines), parent=self._window)
+
+    def _show_context_menu(
+        self, event: Any, artifact: object, payload: bytes, ordinal: int
+    ) -> None:
+        self._require_ui_thread()
+        if self._window is None:
+            return
+        menu_type = getattr(self._toolkit, "Menu", None)
+        if not callable(menu_type):
+            return
+        menu = menu_type(self._window, tearoff=0)
+        menu.add_command(
+            label="Ampliar imagen",
+            command=lambda: self._show_zoom(payload, ordinal),
+        )
+        menu.add_command(
+            label="Guardar imagen como…",
+            command=lambda: self._save_received_png(payload, ordinal),
+        )
+        menu.add_separator()
+        menu.add_command(
+            label="Información de la imagen",
+            command=lambda: self._show_image_info(artifact, payload, ordinal),
+        )
+        try:
+            menu.tk_popup(event.x_root, event.y_root)
+        finally:
+            menu.grab_release()
+
+    def _bind_context_menu(
+        self, widget: Any, artifact: object, payload: bytes, ordinal: int
+    ) -> None:
+        if callable(getattr(widget, "bind", None)):
+            widget.bind(
+                "<Button-3>",
+                lambda event, item=artifact, data=payload, number=ordinal:
+                    self._show_context_menu(event, item, data, number),
+            )
+
+    def _bind_zoom(self, widget: Any, payload: bytes, ordinal: int) -> None:
+        """Ampliación a demanda; nunca modifica el artefacto admitido."""
+        if not callable(getattr(widget, "bind", None)):
+            return
+        widget.bind(
+            "<Button-1>",
+            lambda event, data=payload, number=ordinal: self._show_zoom(data, number),
+        )
+
+    def _show_zoom(self, payload: bytes, ordinal: int) -> None:
+        self._require_ui_thread()
+        if self._window is None:
+            return
+        try:
+            with Image.open(BytesIO(payload)) as source:
+                if source.format != "PNG":
+                    return
+                image = source.copy()
+                image.thumbnail((1000, 680), Image.Resampling.LANCZOS)
+                output = BytesIO()
+                image.save(output, format="PNG")
+            popup = self._toolkit.Toplevel(self._window)
+            popup.title(f"ROBY - Imagen {ordinal}")
+            popup.resizable(True, True)
+            photo = self._toolkit.PhotoImage(data=output.getvalue(), format="png")
+            label = self._toolkit.Label(popup, image=photo)
+            label.image = photo  # Referencia necesaria para Tkinter.
+            label.pack(fill="both", expand=True)
+            popup.bind("<Escape>", lambda event: popup.destroy())
+        except (OSError, RuntimeError, ValueError, TypeError, UnidentifiedImageError):
+            return
+
     def render_preview(
         self,
         artifact: object,
@@ -184,8 +336,15 @@ class DesktopGovernedFloatingImageViewer:
                 format="png",
             )
             parent = self._content if self._content is not None else self._window
-            widget = self._toolkit.Label(parent, image=image)
-            widget.pack()
+            widget = self._toolkit.Label(
+                parent, image=image, bg=self._gallery_card,
+                padx=7, pady=7, relief="flat", cursor="hand2",
+            )
+            self._place_gallery_widget(widget, len(self._preview_widgets) + 1)
+            self._bind_zoom(widget, payload, len(self._preview_widgets) + 1)
+            self._bind_context_menu(
+                widget, artifact, payload, len(self._preview_widgets) + 1
+            )
         except (OSError, RuntimeError, ValueError, TypeError):
             return False
 
@@ -281,10 +440,15 @@ class DesktopGovernedFloatingImageViewer:
                 image=image,
                 text=str(visible_ordinal),
                 compound="top",
+                bg=self._gallery_card, fg=self._gallery_foreground,
+                font=("Segoe UI", 10, "bold"),
+                padx=7, pady=7, relief="flat", cursor="hand2",
             )
             if self._canvas is not None:
                 widget.bind("<MouseWheel>", self._scroll_wheel)
-            widget.pack()
+            self._place_gallery_widget(widget, visible_ordinal)
+            self._bind_zoom(widget, payload, visible_ordinal)
+            self._bind_context_menu(widget, artifact, payload, visible_ordinal)
             self._update_scroll_region()
         except Exception:
             if widget is not None:

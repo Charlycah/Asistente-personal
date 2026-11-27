@@ -70,6 +70,13 @@ class SameTurnVisualRuntimeComposition:
         )
 
 
+@dataclass(frozen=True)
+class SameTurnVisualUIEvidence:
+    response: UIResponse
+    turn: LocalConversationTurn | None
+    applied_result: object | None = None
+
+
 class SameTurnVisualUIAdapterComposition:
     def __init__(
         self,
@@ -141,6 +148,55 @@ class SameTurnVisualUIAdapterComposition:
         )
         return response, applied_result
 
+    def submit_text_with_visual_companion_and_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+        *,
+        explicit_document_ids: tuple[str, ...] = (),
+        explicit_sources: tuple[object, ...] = (),
+        explicit_evidence_references: tuple[object, ...] = (),
+        integrated_visual_context: object | None = None,
+    ) -> SameTurnVisualUIEvidence:
+        has_explicit_context = bool(
+            explicit_document_ids
+            or explicit_sources
+            or explicit_evidence_references
+            or integrated_visual_context is not None
+        )
+        target = (
+            self._explicit_context_adapter
+            if has_explicit_context
+            else self._conversation_adapter
+        )
+        kwargs = {}
+        if has_explicit_context:
+            kwargs = {
+                "explicit_document_ids": explicit_document_ids,
+                "explicit_sources": explicit_sources,
+                "explicit_evidence_references": explicit_evidence_references,
+                "integrated_visual_context": integrated_visual_context,
+            }
+
+        submit_causal = getattr(
+            target, "submit_text_with_turn_evidence", None
+        )
+        if not callable(submit_causal):
+            raise NotImplementedError(
+                "Selected adapter has no per-call causal evidence interface"
+            )
+
+        result = submit_causal(
+            text,
+            session_id=session_id,
+            **kwargs,
+        )
+        return SameTurnVisualUIEvidence(
+            response=result.response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
+        )
+
     def submit_voice(
         self,
         text: str,
@@ -149,4 +205,40 @@ class SameTurnVisualUIAdapterComposition:
         return self._conversation_adapter.submit_voice(
             text,
             session_id=session_id,
+        )
+
+    def submit_text_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+        **kwargs,
+    ) -> TurnBoundUIResult:
+        from app.runtime_ui_adapter import TurnBoundUIResult
+
+        result = self._conversation_adapter.submit_text_with_turn_evidence(
+            text,
+            session_id=session_id,
+            **kwargs,
+        )
+        return TurnBoundUIResult(
+            response=result.response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
+        )
+
+    def submit_voice_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        from app.runtime_ui_adapter import TurnBoundUIResult
+
+        result = self._conversation_adapter.submit_voice_with_turn_evidence(
+            text,
+            session_id=session_id,
+        )
+        return TurnBoundUIResult(
+            response=result.response,
+            turn=result.turn,
+            applied_result=getattr(result, "applied_result", None),
         )

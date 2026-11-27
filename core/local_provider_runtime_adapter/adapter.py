@@ -4,6 +4,7 @@ from threading import Event
 from time import monotonic
 from typing import Any
 
+from core.gui06_diagnostic_probe import capture_diagnostic_stage
 from core.llm_provider import LLMRequest, LLMResponse, ProviderPayloadObservation
 
 from .models import (
@@ -86,6 +87,7 @@ class LocalProviderRuntimeAdapter:
         if not model:
             return self._failure(request, "missing_model")
         messages = self._messages(request)
+        capture_diagnostic_stage("P2", messages=messages)
         payload: dict[str, Any] = {
             "model": model,
             "messages": messages,
@@ -124,6 +126,7 @@ class LocalProviderRuntimeAdapter:
         if self._cancel_event.is_set():
             return self._failure(request, "cancelled", model=model)
         text = self._extract_text(response.payload)
+        capture_diagnostic_stage("P3", text=text)
         if not text:
             return self._failure(request, "invalid_response", model=model)
         response_model = str(response.payload.get("model") or model).strip()
@@ -225,6 +228,17 @@ class LocalProviderRuntimeAdapter:
         if configured_prompt.strip() == style.system_prompt.strip() and (
             requested_prompt.strip() == english_style
             or requested_prompt.startswith(english_style + "\n\n")
+        ):
+            configured_prompt = ""
+
+        elif (
+            configured_prompt.strip() == style.system_prompt.strip()
+            and (
+                requested_prompt.strip() == style.system_prompt.strip()
+                or requested_prompt.startswith(
+                    style.system_prompt.strip() + "\n\n"
+                )
+            )
         ):
             configured_prompt = ""
 

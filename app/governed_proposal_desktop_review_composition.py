@@ -4,6 +4,7 @@ from app.governed_presented_proposal_review_transport import (
     GovernedPresentedProposalReviewTransport,
 )
 from app.ui_adapter import UIResponse
+from app.runtime_ui_adapter import TurnBoundUIResult
 from domain.governed_proposal import ProposalState
 from domain.response import ResponseStatus
 
@@ -70,3 +71,48 @@ class GovernedProposalDesktopReviewComposition:
         session_id: str | None = None,
     ) -> UIResponse:
         return self.submit_text(text, session_id=session_id)
+
+    def submit_text_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        reviewed = self._proposal_review_transport.review_presented_proposal(
+            response=text,
+        )
+        if reviewed is None:
+            result = self._conversation_adapter.submit_text_with_turn_evidence(
+                text,
+                session_id=session_id,
+            )
+            return TurnBoundUIResult(
+                response=result.response,
+                turn=result.turn,
+                applied_result=getattr(result, "applied_result", None),
+            )
+
+        if reviewed.state is ProposalState.ACCEPTED:
+            response_text = "Propuesta aceptada. No se ejecut? ninguna acci?n."
+        else:
+            response_text = "Propuesta descartada."
+
+        return TurnBoundUIResult(
+            response=UIResponse(
+                text=response_text,
+                status=ResponseStatus.SUCCESS.value,
+                session_id=session_id,
+                needs_input=False,
+            ),
+            turn=None,
+            applied_result=None,
+        )
+
+    def submit_voice_with_turn_evidence(
+        self,
+        text: str,
+        session_id: str | None = None,
+    ) -> TurnBoundUIResult:
+        return self.submit_text_with_turn_evidence(
+            text,
+            session_id=session_id,
+        )

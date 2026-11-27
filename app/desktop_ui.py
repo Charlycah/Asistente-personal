@@ -179,7 +179,7 @@ class DesktopROBYAdapter(Protocol):
 @dataclass(frozen=True)
 class DesktopUIConfig:
     title: str = "Roby XI.2"
-    geometry: str = "880x680"
+    geometry: str = "1180x760"
     greeting: str = "¿Qué tal, cómo estás?"
 
 
@@ -202,6 +202,10 @@ class DesktopMessagePresenter:
 
 def _desktop_presentable_response(response: UIResponse) -> UIResponse:
     """Normalize only the failed placeholder at the desktop presentation edge."""
+    # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
+    if response.status in ("failed", "failure") or response.text == "Ocurrió un error al procesar tu mensaje.":
+        from app.roby_document_error_diagnostics import record_failure
+        record_failure('app/desktop_ui.py:205', response=response)
     if response.status == "failed" and response.text == "[failed]":
         return replace(
             response,
@@ -519,14 +523,29 @@ class DesktopConversationController:
         integrated_visual_context: object | None = None,
     ) -> tuple[list[DesktopMessage], object | None]:
         normalized_text = text.strip()
-        submit_visual = getattr(
+        causal_submit_visual = getattr(
             self.adapter,
-            "submit_text_with_visual_companion",
+            "submit_text_with_visual_companion_and_turn_evidence",
             None,
+        )
+        causal_available = callable(causal_submit_visual)
+        capability = getattr(
+            self.adapter, "supports_same_turn_visual_evidence", None
+        )
+        if capability is not None:
+            causal_available = causal_available and capability is True
+        submit_visual = (
+            causal_submit_visual
+            if causal_available
+            else getattr(
+                self.adapter,
+                "submit_text_with_visual_companion",
+                None,
+            )
         )
         if not callable(submit_visual):
             return self.submit(normalized_text, session_id), None
-        response, applied_result = submit_visual(
+        visual_result = submit_visual(
             normalized_text,
             session_id=session_id,
             explicit_document_ids=explicit_document_ids,
@@ -534,6 +553,11 @@ class DesktopConversationController:
             explicit_evidence_references=explicit_evidence_references,
             integrated_visual_context=integrated_visual_context,
         )
+        if causal_available:
+            response = visual_result.response
+            applied_result = visual_result.applied_result
+        else:
+            response, applied_result = visual_result
         response = _desktop_presentable_response(response)
         if response.silent:
             return [self.presenter.user_message(normalized_text)], applied_result
@@ -885,7 +909,8 @@ class ROBYDesktopApp:
 
         root = tk.Tk()
         root.title(self.config.title)
-        root.geometry(self.config.geometry)
+        root.geometry("870x575")
+        root.minsize(670, 440)
 
         def cancel_manual_preview() -> None:
             preview_coordinator.cancel()
@@ -896,19 +921,174 @@ class ROBYDesktopApp:
             on_close=cancel_manual_preview,
         )
 
-        frame = ttk.Frame(root)
+        root.configure(bg="#EAF0F7")
+        style = ttk.Style(root)
+        style.configure("Roby.TFrame", background="#EAF0F7")
+        frame = ttk.Frame(root, style="Roby.TFrame")
         frame.pack(expand=True, fill="both", padx=12, pady=12)
 
-        transcript = scrolledtext.ScrolledText(
-            frame,
-            wrap="word",
-            state="disabled",
-            font=("Segoe UI", 11),
-        )
-        transcript.pack(expand=True, fill="both")
+        # PKG-C01-04D-01: cabecera visual redondeada.
+        from app.desktop_rounded_components import round_rect
 
-        entry = ttk.Entry(frame, font=("Segoe UI", 11))
-        entry.pack(fill="x", pady=(8, 0))
+        header = tk.Canvas(
+            frame,
+            bg="#EAF0F7",
+            height=80,
+            highlightthickness=0,
+            bd=0,
+        )
+        header.pack(fill="x", pady=(0, 12))
+
+        def draw_header(event=None) -> None:
+            header.delete("all")
+            width = header.winfo_width()
+            if width < 40:
+                return
+            round_rect(
+                header, 1, 1, width - 2, 78,
+                19, "#19395F"
+            )
+            round_rect(
+                header, 14, 17, 56, 63,
+                11, "#2D547E",
+            )
+            round_rect(
+                header, 26, 33, 44, 46,
+                5, "#FFFFFF",
+            )
+            header.create_oval(
+                30, 37, 33, 40,
+                fill="#2D547E", outline="",
+            )
+            header.create_oval(
+                37, 37, 40, 40,
+                fill="#2D547E", outline="",
+            )
+            header.create_line(
+                35, 30, 35, 33,
+                fill="#FFFFFF", width=2,
+            )
+            header.create_text(
+                70, 30,
+                text="ROBY XI.2",
+                anchor="w",
+                fill="white",
+                font=("Segoe UI", 17, "bold"),
+            )
+            header.create_text(
+                70, 55,
+                text="Asistente personal inteligente",
+                anchor="w",
+                fill="#D6E5F5",
+                font=("Segoe UI", 10),
+            )
+
+        header.bind("<Configure>", draw_header)
+
+        # PKG-C01-04D-01: tarjeta redondeada de conversaci?n.
+        chat_card = tk.Canvas(
+            frame,
+            bg="#EAF0F7",
+            highlightthickness=0,
+            bd=0,
+        )
+        chat_card.pack(expand=True, fill="both")
+
+        from app.desktop_chat_bubbles import ChatBubbles
+
+        transcript = ChatBubbles(chat_card)
+        transcript_window = chat_card.create_window(
+            14, 42,
+            window=transcript,
+            anchor="nw",
+        )
+
+        def draw_chat_card(event=None) -> None:
+            width = chat_card.winfo_width()
+            height = chat_card.winfo_height()
+            if width < 50 or height < 80:
+                return
+
+            chat_card.delete("chat_background")
+            round_rect(
+                chat_card,
+                1, 1, width - 2, height - 2,
+                18, "#FFFFFF",
+                tag="chat_background",
+            )
+            chat_card.tag_lower("chat_background")
+            chat_card.create_text(
+                23, 23,
+                text="CONVERSACI\u00d3N",
+                anchor="w",
+                fill="#718096",
+                font=("Segoe UI", 9, "bold"),
+                tags="chat_background",
+            )
+            chat_card.itemconfigure(
+                transcript_window,
+                width=max(1, width - 28),
+                height=max(1, height - 55),
+            )
+
+        chat_card.bind("<Configure>", draw_chat_card)
+
+        style.configure(
+            "Roby.TEntry",
+            padding=(12, 10),
+            fieldbackground="#FFFFFF",
+            foreground="#203047",
+            borderwidth=1,
+        )
+        # Tarjeta inferior compacta, integrada en la ventana real.
+        composer = tk.Canvas(
+            frame,
+            height=134,
+            bg="#EAF0F7",
+            highlightthickness=0,
+            bd=0,
+        )
+        composer.pack(fill="x", pady=(10, 0))
+        composer.pack_propagate(False)
+
+        def draw_composer(event=None):
+            from app.desktop_rounded_components import round_rect
+
+            w = composer.winfo_width()
+            h = composer.winfo_height()
+            composer.delete("composer_art")
+            round_rect(
+                composer, 0, 0, w, h, 15,
+                "#FFFFFF", "#D8E2EE",
+                tag="composer_art",
+            )
+            composer.create_line(
+                14, 65, w - 14, 65,
+                fill="#E4EBF2",
+                tags="composer_art",
+            )
+            composer.tag_lower("composer_art")
+
+        composer.bind("<Configure>", draw_composer)
+
+        entry = tk.Entry(
+            composer,
+            font=("Segoe UI", 12),
+            bg="#FFFFFF",
+            fg="#203047",
+            insertbackground="#2563EB",
+            relief="flat",
+            bd=0,
+            highlightthickness=0,
+            highlightbackground="#FFFFFF",
+            highlightcolor="#FFFFFF",
+        )
+        entry.pack(
+            fill="x",
+            padx=16,
+            pady=(14, 8),
+            ipady=7,
+        )
 
         diagnostic_mode = os.getenv(
             "ROBY_AUDIO_DIAGNOSTIC_MODE", "false"
@@ -918,21 +1098,23 @@ class ROBYDesktopApp:
         diagnostic_text = tk.StringVar(
             value=f"DIAG · entrada={engine_name} · preparando escucha"
         )
-        if diagnostic_mode:
+        if diagnostic_mode and False:
             ttk.Label(
                 frame,
                 textvariable=diagnostic_text,
                 anchor="w",
             ).pack(fill="x", pady=(4, 0))
 
-        footer = ttk.Frame(frame)
+        footer = tk.Frame(composer, bg="#FFFFFF")
         footer.pack(fill="x", pady=(6, 0))
-        monitor = ttk.Frame(footer)
+        controls = tk.Frame(composer, bg="#FFFFFF")
+        controls.pack(fill="x", pady=(6, 0))
+        monitor = tk.Frame(footer, bg="#FFFFFF")
         monitor.pack(side="left", fill="x", expand=True)
         listening_status = ttk.Label(monitor, text="⚪ Micrófono inactivo")
         listening_status.pack(side="left")
         listening_detail = ttk.Label(monitor, text="Escucha continua desactivada")
-        listening_detail.pack(side="left", padx=(10, 0))
+        # Indicador tecnico conservado, oculto en la interfaz.
         audio_level = ttk.Progressbar(
             monitor,
             orient="horizontal",
@@ -940,17 +1122,21 @@ class ROBYDesktopApp:
             maximum=10,
             length=120,
         )
-        audio_level.pack(side="left", padx=(10, 0))
+        # Medidor tecnico conservado, oculto en la interfaz.
         audio_meter = ttk.Label(monitor, text="░░░░░░░░░░")
-        audio_meter.pack(side="left", padx=(6, 0))
+        # Barra tecnica conservada, oculta en la interfaz.
         hint = ttk.Label(footer, text="Enter para enviar")
         hint.pack(side="left", padx=(10, 0))
 
         def append(message: str) -> None:
-            transcript.configure(state="normal")
-            transcript.insert("end", message + "\n")
-            transcript.configure(state="disabled")
-            transcript.see("end")
+            # Presentaci?n visual; no modifica el mensaje original.
+            text = str(message)
+            sender = "Roby"
+            if text.startswith("Vos:"):
+                sender = "Vos"
+            elif text.startswith("Roby:"):
+                sender = "Roby"
+            transcript.append(text, sender=sender)
 
         busy = False
         staged_document_ids: tuple[str, ...] = ()
@@ -1132,6 +1318,9 @@ class ROBYDesktopApp:
                             ),
                         )
                 except Exception:
+                    # ROBY_DOCUMENT_ERROR_DIAGNOSTIC
+                    from app.roby_document_error_diagnostics import record_failure
+                    record_failure('app/desktop_ui.py:1311')
                     messages = [
                         self.controller.presenter.roby_message(
                             "Ocurrió un error al procesar tu mensaje."
@@ -1223,30 +1412,55 @@ class ROBYDesktopApp:
                 ).render()
             )
 
-        attach_button = ttk.Button(
-            footer,
-            text="Adjuntar",
-            command=attach_file,
+        from app.desktop_rounded_components import RoundedButton
+
+        stop_button = RoundedButton(
+            controls,
+            label='Detener',
+            color='#DC2626',
+            command=None,
+            width=76,
+            height=32,
+            enabled=False,
         )
-        attach_button.pack(side="right", padx=(0, 6))
+        stop_button.pack(side="right", padx=(8, 0))
+
+        attach_button = RoundedButton(
+            controls,
+            label='Adjuntar',
+            color='#2563EB',
+            command=attach_file,
+            width=76,
+            height=32,
+            enabled=True,
+        )
+        attach_button.pack(side="right", padx=(8, 0))
 
         def show_capabilities() -> None:
             for message in self.capability_messages():
                 append(message.render())
 
-        capabilities_button = ttk.Button(
-            footer,
-            text="Capacidades",
+        capabilities_button = RoundedButton(
+            controls,
+            label='Capacidades',
+            color='#0F766E',
             command=show_capabilities,
+            width=104,
+            height=32,
+            enabled=True,
         )
-        capabilities_button.pack(side="right")
+        capabilities_button.pack(side="right", padx=(8, 0))
 
-        exit_button = ttk.Button(
-            footer,
-            text="Salir",
-            command=lambda: close_request["close"](LifecycleExitReason.MENU_EXIT),
+        exit_button = RoundedButton(
+            controls,
+            label='Salir',
+            color='#475569',
+            command=lambda: close_request['close'](LifecycleExitReason.MENU_EXIT),
+            width=54,
+            height=32,
+            enabled=True,
         )
-        exit_button.pack(side="right", padx=(0, 6))
+        exit_button.pack(side="right", padx=(8, 0))
 
         def poll_notifications() -> None:
             nonlocal busy
@@ -1586,7 +1800,11 @@ class ROBYDesktopApp:
         poll_ui_dispatcher()
         poll_notifications()
         poll_audio_diagnostics()
-        if self.config.greeting.strip():
+        startup_messages = self.startup_messages()
+        if startup_messages:
+            for message in startup_messages:
+                append(message.render())
+        elif self.config.greeting.strip():
             greeting = self.config.greeting.strip()
             append(self.controller.presenter.roby_message(greeting).render())
             spoken = self.controller.voice_reader.prosody_formatter.format(greeting)
@@ -1594,13 +1812,11 @@ class ROBYDesktopApp:
                 try:
                     self.controller.voice_reader.voice_output.speak(spoken)
                 except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
-                    # A TTS failure must not suppress the visible greeting.
                     pass
+
         if self.recovery_message:
             append(
                 self.controller.presenter.roby_message(self.recovery_message).render()
             )
-        for message in self.startup_messages():
-            append(message.render())
         entry.focus_set()
         root.mainloop()

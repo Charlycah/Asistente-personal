@@ -158,17 +158,16 @@ class GovernedLocalMusicCatalogueInterceptionPort:
         if command is not None:
             return self._collection_interception(command, key)
         stop_text = normalized.strip(" ¡!¿?.,")
-        stop_text = re.sub(r"^(?:roby)[, ]+|[, ]+roby$", "", stop_text)
-        if stop_text in self._STOP_PHRASES:
+        stop_text = re.sub(r"^roby[, ]+|[, ]+roby$", "", stop_text)
+        if stop_text in self._STOP_PHRASES or stop_text in {"para", "pará"}:
             return self._stop_playback_interception()
-        playback_query = self._prefixed_query(
-            request.text,
-            self._PLAYBACK_PREFIXES,
-        )
+        playback_query = self._playback_query(request.text)
         if playback_query is None:
             playback_query = self._natural_music_query(
-                request.text, r"reproduc[ií](?:me)?|pon[eé](?:me)?|escuchemos|quiero escuchar"
+                request.text,
+                r"reproduc[i\u00ed](?:me)?|pon[e\u00e9](?:me)?|escuchemos|quiero escuchar",
             )
+
         if playback_query is not None:
             return self._playback_interception(playback_query, key=key)
         selection_query = self._prefixed_query(
@@ -430,6 +429,50 @@ class GovernedLocalMusicCatalogueInterceptionPort:
             ),
             rationale="local_music_selection_completed_without_playback",
         )
+
+    @classmethod
+    def _playback_query(cls, text: str) -> str | None:
+        # Preserve the playback commands already supported.
+        query = cls._prefixed_query(text, cls._PLAYBACK_PREFIXES)
+        if query is not None:
+            return query
+
+        command = (
+            re.sub(
+                r"^\s*(?:hola\s+)?roby\b[\s,:]*",
+                "",
+                text,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+            .strip()
+            .strip("¿")
+            .strip()
+        )
+
+        match = re.fullmatch(
+            r"(?:me\s+)?"
+            r"(?:reproduc[íi]|reproducir|pon[eé]|pon[eé]s)"
+            r"\s+(?:para\s+escuchar\s+)?"
+            r"(?:(?:desde|de|en)\s+mi\s+pinacoteca\s*[:,]?\s*)?"
+            r"(?P<track>.+?)"
+            r"\s*[?!.]*",
+            command,
+            flags=re.IGNORECASE,
+        )
+        if match is None:
+            return None
+
+        query = match.group("track").strip()
+        if not query:
+            return None
+
+        # Support “title de artist” using the catalogue's known format.
+        title, separator, artist = query.rpartition(" de ")
+        if separator and title.strip() and artist.strip():
+            query = f"{artist.strip()} - {title.strip()}"
+
+        return query
 
     @classmethod
     def _prefixed_query(
