@@ -499,6 +499,8 @@ class DesktopConversationController:
                 session_id=session_id,
             )
         response = _desktop_presentable_response(response)
+        if response.silent:
+            return [self.presenter.user_message(normalized_text)]
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         return [
@@ -533,6 +535,8 @@ class DesktopConversationController:
             integrated_visual_context=integrated_visual_context,
         )
         response = _desktop_presentable_response(response)
+        if response.silent:
+            return [self.presenter.user_message(normalized_text)], applied_result
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         messages = [
@@ -736,6 +740,8 @@ class DesktopConversationController:
         )
         response = submit_voice(submitted_text, session_id=session_id)
         response = _desktop_presentable_response(response)
+        if response.silent:
+            return [self.presenter.user_message(text)]
         delivery_tone = self._adaptive_delivery_tone()
         self.voice_reader.read(response, delivery_tone=delivery_tone)
         return [

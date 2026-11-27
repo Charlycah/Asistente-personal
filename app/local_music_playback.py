@@ -32,17 +32,31 @@ class LocalCommandMusicPlaybackExecutor:
         self.command = command
         self.runner = runner
         self._owned_process: object | None = None
+        self._owned_path: Path | None = None
+
+    @property
+    def active_path(self) -> Path | None:
+        process = self._owned_process
+        if process is None:
+            return None
+        poll = getattr(process, "poll", None)
+        if callable(poll) and poll() is not None:
+            return None
+        return self._owned_path
 
     def play(self, path: Path) -> LocalMusicPlaybackExecution:
         resolved = Path(path).resolve(strict=True)
         if not resolved.is_file():
             raise ValueError("music playback path must be a file")
+        if self.active_path is not None and not self.stop().stopped:
+            raise RuntimeError("No se pudo detener la pista anterior")
         self._owned_process = self.runner(
             [*self.command, str(resolved)],
             stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
+        self._owned_path = resolved
         return LocalMusicPlaybackExecution(
             path=resolved,
             command=self.command,
@@ -63,7 +77,13 @@ class LocalCommandMusicPlaybackExecutor:
                 had_owned_process=True,
                 stopped=False,
             )
-        terminate()
+        try:
+            terminate()
+            wait = getattr(process, "wait", None)
+            if callable(wait):
+                wait(timeout=5)
+        except (OSError, subprocess.TimeoutExpired):
+            return LocalMusicPlaybackStopExecution(had_owned_process=True, stopped=False)
         self._owned_process = None
         return LocalMusicPlaybackStopExecution(
             had_owned_process=True,

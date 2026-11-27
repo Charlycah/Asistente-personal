@@ -17,6 +17,7 @@ from .canonical_reflection_facade import CanonicalReflectionFacade
 from .cognitive_authority_map import CognitiveAuthorityMap
 from .cognitive_integration_adapters import CognitiveIntegrationAdapters
 from .cognitive_operational_inventory import CognitiveOperationalObserver
+from .governed_local_music_runtime_wiring import local_music_command
 from .current_affairs_router import CurrentAffairsRouter
 
 
@@ -1299,6 +1300,7 @@ class OfficialConversationGateway:
             if (
                 not external_evidence_value
                 and not has_explicit_context
+                and local_music_command(text) is None
                 and not CurrentAffairsRouter.is_recent_nasa_mission_information_request(
                     text
                 )
