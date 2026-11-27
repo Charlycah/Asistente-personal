@@ -526,7 +526,7 @@ class CurrentAffairsRouter:
         evidence = []
         for item in (selected, *details)[:3]:
             content = read_public_article(
-                self._display_headline(item), item.source, item.url, timeout=4.0
+                self._display_headline(item), item.source, item.url, timeout=8.0
             )
             if content:
                 article_url, excerpts = content

@@ -9,7 +9,7 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 _ARTICLE_HOSTS = frozenset(
     {"chequeado.com", "lagaceta.com.ar", "lanacion.com.ar", "clarin.com", "pagina12.com.ar"}
 )
-_MAX_PAGE_BYTES = 1_000_000
+_MAX_PAGE_BYTES = 2_000_000
 
 
 def _article_host(url: str) -> str:
