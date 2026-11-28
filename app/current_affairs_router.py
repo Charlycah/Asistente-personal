@@ -521,10 +521,10 @@ class CurrentAffairsRouter:
             return self._abstain(explanation)
 
         items = assessment.accepted
-        self._last_by_session[request.session_id] = items
         self._remember_context(request.session_id, query, topic, policy, items=items)
         conflicts = self._detect_conflicts(items)
         if conflicts:
+            self._last_by_session[request.session_id] = items
             return GovernedOperationalInterception(
                 response_text=self._render_conflicts(conflicts, items, now=now),
                 rationale="current_affairs_sources_conflict_disclosed",
@@ -533,8 +533,10 @@ class CurrentAffairsRouter:
                     reason_code="current_affairs_sources_conflict_disclosed",
                 ),
             )
-        self._shown_headlines[request.session_id] = items[:4]
-        summary = self._render_summary(items, now=now, policy=policy)
+        shown = items[:4]
+        self._shown_headlines[request.session_id] = shown
+        self._last_by_session[request.session_id] = shown
+        summary = self._render_summary(shown, now=now, policy=policy)
         if used_recent_fallback:
             summary = (
                 "No encontré publicaciones de hoy. Estas son de las últimas 48 horas.\n"
@@ -544,7 +546,7 @@ class CurrentAffairsRouter:
             response_text=summary,
             rationale="current_affairs_web_retrieval_completed_high_confidence",
             origin=ResponseOriginMetadata.web_recent(
-                evidence_count=len(items),
+                evidence_count=len(shown),
                 reason_code="current_affairs_web_retrieval_completed",
             ),
         )
