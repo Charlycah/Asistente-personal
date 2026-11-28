@@ -1095,6 +1095,7 @@ class OfficialConversationGateway:
         from core.cognitive_maturity import IdentityContextAccessGate
 
         from .applied_conversational_intelligence import (
+            AppliedConversationalIntelligence,
             AppliedConversationalIntelligenceInterpretation,
             AppliedConversationalIntelligenceResult,
             AppliedConversationalIntelligenceStatus,
@@ -1121,7 +1122,8 @@ class OfficialConversationGateway:
             return None
 
         follow_up = interpret_contextual_follow_up(text)
-        if follow_up.intent not in (
+        bare_visual = AppliedConversationalIntelligence.is_bare_visual_request(text)
+        if not bare_visual and follow_up.intent not in (
             FollowUpIntent.CONTINUE,
             FollowUpIntent.REORDER,
         ):
@@ -1154,6 +1156,33 @@ class OfficialConversationGateway:
             )
         ):
             return None
+
+        if bare_visual and (
+            "current_affairs_headline_expanded" in getattr(previous, "rationale", ())
+        ):
+            import re
+
+            headline = re.match(r"Sobre «([^»\n]+)»", previous.response_text)
+            if headline is not None:
+                subject = headline[1]
+                if len(subject) <= 300:
+                    visual = self.interpret_applied_conversational_intelligence(
+                        f"Mostrame imágenes de {subject}"
+                    )
+                    if visual.request is not None:
+                        request = replace(visual.request, text=text)
+                        selection, result = self.execute_selected_governed_conversational_query(
+                            request
+                        )
+                        answer = self._natural_governed_conversational_response.compose(
+                            query_text=subject, selection=selection, result=result
+                        )
+                        return AppliedConversationalIntelligenceResult(
+                            interpretation=replace(visual, text=text, request=request),
+                            selection=selection,
+                            conversational_result=result,
+                            natural_answer_text=answer,
+                        )
 
         expected_sequence = getattr(previous, "sequence", None)
 
