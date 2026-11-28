@@ -250,9 +250,10 @@ class CurrentAffairsRouter:
         re.IGNORECASE,
     )
     _NASA_NEWS_REQUEST = re.compile(
-        r"^[\s¿¡]*(?:roby[\s,:]+)?"
-        r"(?:dame|decime|contame|busc[aá](?:me)?|mostrame)\s+"
-        r"(?:las?\s+)?(?:(?:[uú]ltimas?)\s+)?(?:noticias|novedades)"
+        r"^[\s¿¡]*(?:hola[\s,]+)?(?:roby[\s,:]+)?"
+        r"(?:dame|decime|contame|busc[aá](?:me)?|mostrame|hay|ten[eé]s)\s+"
+        r"(?:(?:las?|alguna[s]?)\s+)?(?:[uú]ltimas?\s+)?"
+        r"(?:noticias?|novedades?|informaci[oó]n)"
         r"(?:\s+(?:recientes|nuevas|de\s+hoy))?\s+(?:de|sobre)\s+(?:la\s+)?nasa\b",
         re.IGNORECASE,
     )
@@ -433,11 +434,15 @@ class CurrentAffairsRouter:
         text = self._resolve_contextual_followup(original_text, context)
         if text is None or not self._should_search(text):
             return None
-        query = (
-            _GENERAL_HEADLINES_FEED
-            if self.is_headline_feed_request(text)
-            else self._clean_query(text)
-        )
+        if self.is_headline_feed_request(text):
+            query = _GENERAL_HEADLINES_FEED
+        elif self._NASA_NEWS_REQUEST.fullmatch(
+            re.sub(r"\s+de\s+hoy\s*[?!.]*\s*$", "", text, flags=re.IGNORECASE)
+            .strip(" ?!.,")
+        ):
+            query = "NASA"
+        else:
+            query = self._clean_query(text)
         policy = self._freshness_policy(text)
         self._shown_headlines.pop(request.session_id, None)
         self._focused_headline.pop(request.session_id, None)
@@ -475,7 +480,7 @@ class CurrentAffairsRouter:
                     "recuperadas durante esta consulta"
                 ),
                 how_to_proceed=(
-                    "reintentá cuando haya conexión. Prefiero no responder de "
+                    "probá de nuevo en unos minutos. Prefiero no responder de "
                     "memoria ni completar la respuesta con datos potencialmente "
                     "desactualizados"
                 ),
