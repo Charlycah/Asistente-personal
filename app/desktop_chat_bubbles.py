@@ -1,6 +1,9 @@
 """Conversacion visual redondeada de ROBY XI.2."""
+import textwrap
 import tkinter as tk
+import webbrowser
 from tkinter import font as tkfont
+from urllib.parse import urlsplit
 
 from app.desktop_rounded_components import round_rect
 
@@ -59,6 +62,23 @@ class ChatBubbles(tk.Frame):
         self.messages.append((str(sender), str(text)))
         self.after_idle(self._render)
 
+    @staticmethod
+    def _split_links(content):
+        prose = []
+        links = []
+        for line in content.splitlines():
+            candidate = line.strip()
+            if candidate.startswith("https://") and not any(c.isspace() for c in candidate):
+                try:
+                    parts = urlsplit(candidate)
+                    if parts.hostname and parts.username is None and parts.password is None:
+                        links.append(candidate)
+                        continue
+                except ValueError:
+                    pass
+            prose.append(line)
+        return "\n".join(prose), links
+
     def _render(self, event=None):
         c = self.canvas
         if not c.winfo_exists():
@@ -77,7 +97,8 @@ class ChatBubbles(tk.Frame):
                 "vos", "usuario", "user"
             }
 
-            words = content.split()
+            prose, links = (content, []) if is_user else self._split_links(content)
+            words = prose.split()
             lines = []
             line = ""
 
@@ -91,6 +112,12 @@ class ChatBubbles(tk.Frame):
 
             if line:
                 lines.append(line)
+            link_rows = {}
+            link_width = max(1, text_limit // max(1, body.measure("W")))
+            for url in links:
+                for chunk in textwrap.wrap(url, width=link_width, break_on_hyphens=False):
+                    link_rows[len(lines)] = url
+                    lines.append(chunk)
             if not lines:
                 lines = [""]
 
@@ -119,15 +146,21 @@ class ChatBubbles(tk.Frame):
             )
 
             for index, line_text in enumerate(lines):
-                c.create_text(
+                url = link_rows.get(index)
+                item = c.create_text(
                     x + 13,
                     y + 10 + index * 21,
                     text=line_text,
                     anchor="nw",
-                    fill="#24564B" if is_user else "#233C57",
-                    font=("Segoe UI", 10),
+                    fill="#14589A" if url else ("#24564B" if is_user else "#233C57"),
+                    font=("Segoe UI", 10, "underline") if url else ("Segoe UI", 10),
                     tags=("bubble", f"msg_{message_index}"),
                 )
+                if url:
+                    c.tag_bind(
+                        item, "<Button-1>",
+                        lambda _event, target=url: webbrowser.open_new_tab(target),
+                    )
 
             y += bubble_height + 12
 
