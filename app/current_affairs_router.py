@@ -291,6 +291,12 @@ class CurrentAffairsRouter:
         r"\b(enlace(?:s)?|link(?:s)?|url(?:s)?)\b",
         re.IGNORECASE,
     )
+    _SOURCE_LINK_REQUEST = re.compile(
+        r"^\s*[¿¡]?\s*(?:roby[\s,:]+)?"
+        r"(?:dame|pasame|mostrame|compartime|quiero ver)\s+"
+        r"(?:(?:las?|tus)\s+)?(?:fuentes?|fuenes)\b",
+        re.IGNORECASE,
+    )
     _SOURCE_FOLLOWUP = re.compile(
         r"\b(de dónde|de donde|fuente(?:s)?)\b",
         re.IGNORECASE,
@@ -402,7 +408,10 @@ class CurrentAffairsRouter:
             return self._expand_headline(request.session_id, expansion[1], now=now)
 
         context = self._context_by_session.get(request.session_id)
-        if self._LINK_FOLLOWUP.search(original_text):
+        if (
+            self._LINK_FOLLOWUP.search(original_text)
+            or self._SOURCE_LINK_REQUEST.search(original_text)
+        ):
             prior = self._last_by_session.get(request.session_id)
             if prior:
                 return GovernedOperationalInterception(
