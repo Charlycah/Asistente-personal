@@ -605,6 +605,7 @@ class OfficialConversationGateway:
 
     def execute_applied_conversational_intelligence(self, text: str):
         from .applied_conversational_intelligence import (
+            AppliedConversationalIntelligence,
             AppliedConversationalIntelligenceResult,
         )
 
@@ -616,6 +617,8 @@ class OfficialConversationGateway:
                 selection=None,
                 conversational_result=None,
             )
+        if AppliedConversationalIntelligence.requires_original_images(text):
+            return self._unverified_original_images(interpretation)
         selection, result = self.execute_selected_governed_conversational_query(request)
         natural_answer = self._natural_governed_conversational_response.compose(
             query_text=request.query_text,
@@ -627,6 +630,22 @@ class OfficialConversationGateway:
             selection=selection,
             conversational_result=result,
             natural_answer_text=natural_answer,
+        )
+
+    @staticmethod
+    def _unverified_original_images(interpretation):
+        from .applied_conversational_intelligence import (
+            AppliedConversationalIntelligenceResult,
+        )
+
+        return AppliedConversationalIntelligenceResult(
+            interpretation=interpretation,
+            selection=None,
+            conversational_result=None,
+            natural_answer_text=(
+                "No tengo una fuente que confirme cuáles son esas imágenes inéditas. "
+                "Si querés imágenes generales del tema, pedímelas sin esa condición."
+            ),
         )
 
     @property
@@ -1171,6 +1190,10 @@ class OfficialConversationGateway:
                     )
                     if visual.request is not None:
                         request = replace(visual.request, text=text)
+                        if AppliedConversationalIntelligence.requires_original_images(subject):
+                            return self._unverified_original_images(
+                                replace(visual, text=text, request=request)
+                            )
                         selection, result = self.execute_selected_governed_conversational_query(
                             request
                         )

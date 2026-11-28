@@ -249,6 +249,14 @@ class CurrentAffairsRouter:
         r"\b(internet|web|noticias?|fuentes?)\b",
         re.IGNORECASE,
     )
+    _NASA_NEWS_REQUEST = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?"
+        r"(?:dame|decime|contame|busc[aá](?:me)?|mostrame)\s+"
+        r"(?:las?\s+)?(?:(?:[uú]ltimas?)\s+)?(?:noticias|novedades)"
+        r"(?:\s+(?:recientes|nuevas|de\s+hoy))?\s+(?:de|sobre)\s+(?:la\s+)?nasa\b",
+        re.IGNORECASE,
+    )
+
     _NASA_MISSION_INFORMATION = re.compile(
         r"^\s*(?:roby[\s,:]+)?"
         r"(?:busc[aá](?:me)?|buscar|consult[aá]|revis[aá])\s+"
@@ -261,7 +269,8 @@ class CurrentAffairsRouter:
     @classmethod
     def is_recent_nasa_mission_information_request(cls, text: str) -> bool:
         return bool(
-            cls._NASA_MISSION_INFORMATION.search(text) and cls._RECENCY.search(text)
+            cls._NASA_NEWS_REQUEST.search(text)
+            or (cls._NASA_MISSION_INFORMATION.search(text) and cls._RECENCY.search(text))
         )
 
     _ROBY_PERSONAL_STATUS = re.compile(
@@ -867,7 +876,7 @@ class CurrentAffairsRouter:
             text
         ) and not self._EXPLICIT_NEWS.search(text):
             return False
-        if self._EXPLICIT_WEB.search(text):
+        if self._EXPLICIT_WEB.search(text) or self._NASA_NEWS_REQUEST.search(text):
             return True
         if self._RECENT_TOPIC_QUESTION.search(text):
             return True
@@ -1100,16 +1109,12 @@ class CurrentAffairsRouter:
 
     @staticmethod
     def _render_links(items: tuple[CurrentAffairsItem, ...]) -> str:
-        links = tuple(dict.fromkeys(item.url.strip() for item in items))
-        presenter = ResponsePresenter()
-        return "\n".join(
-            presenter.present(
-                ResponsePresentation(link=link),
-                mode=PresentationMode.LINK_ONLY,
-            )
-            for link in links[:5]
-            if link
-        )
+        count = len({item.url.strip() for item in items if item.url.strip()})
+        if not count:
+            return "No tengo enlaces registrados para esta consulta."
+        if count == 1:
+            return "Tengo 1 enlace de fuente para esta consulta."
+        return f"Tengo {count} enlaces de fuentes para esta consulta."
 
     @staticmethod
     def _age_label(published_at: datetime | None, now: datetime) -> str:

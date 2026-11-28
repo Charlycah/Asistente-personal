@@ -88,6 +88,15 @@ class AppliedConversationalIntelligence:
     def is_bare_visual_request(cls, text: str) -> bool:
         return cls._BARE_VISUAL_REQUEST.fullmatch(text.strip()) is not None
 
+    _EXACT_IMAGE_REQUEST = re.compile(
+        r"\b(?:im[aá]gen(?:es)?|fotos?|fotograf[ií]as?)\s+in[eé]dit[ao]s?\b",
+        re.IGNORECASE,
+    )
+
+    @classmethod
+    def requires_original_images(cls, text: str) -> bool:
+        return cls._EXACT_IMAGE_REQUEST.search(text) is not None
+
     _SPACE_VISUAL_TOPICS = frozenset({
         InterestTopic.NASA_MISSIONS,
         InterestTopic.SPACE_EXPLORATION,
@@ -271,6 +280,8 @@ class AppliedConversationalIntelligence:
             "ver ", "verme ", "ens\u00e9\u00f1ame", "ens\u00e9\u00f1ame",
         )
         is_visual_request = bool(visual_query) or self._is_visual_intent(folded)
+        if not is_visual_request:
+            topics = topics.difference(self._SPACE_VISUAL_TOPICS)
         visual_order = (
             GovernedSourceQueryOrder.NEWEST_FIRST
             if self._has_explicit_visual_freshness(folded)
