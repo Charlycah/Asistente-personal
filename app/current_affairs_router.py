@@ -1109,12 +1109,16 @@ class CurrentAffairsRouter:
 
     @staticmethod
     def _render_links(items: tuple[CurrentAffairsItem, ...]) -> str:
-        count = len({item.url.strip() for item in items if item.url.strip()})
-        if not count:
+        links = tuple(dict.fromkeys(item.url.strip() for item in items if item.url.strip()))
+        if not links:
             return "No tengo enlaces registrados para esta consulta."
-        if count == 1:
-            return "Tengo 1 enlace de fuente para esta consulta."
-        return f"Tengo {count} enlaces de fuentes para esta consulta."
+        count = len(links)
+        opening = (
+            "Te dejé un enlace en el chat."
+            if count == 1
+            else f"Te dejé {count} enlaces en el chat."
+        )
+        return "\n".join((opening, *links))
 
     @staticmethod
     def _age_label(published_at: datetime | None, now: datetime) -> str:
