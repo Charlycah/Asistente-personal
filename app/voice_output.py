@@ -254,7 +254,12 @@ class VoiceResponseReader:
             format_kwargs["response_detail"] = response_detail
         if response_structure is not None:
             format_kwargs["response_structure"] = response_structure
-        spoken = self.prosody_formatter.format(response.text, **format_kwargs)
+        speech_text = "\n".join(
+            line
+            for line in response.text.splitlines()
+            if not re.fullmatch(r"\s*https?://\S+\s*", line, flags=re.IGNORECASE)
+        )
+        spoken = self.prosody_formatter.format(speech_text, **format_kwargs)
         if not spoken:
             return
         try:
