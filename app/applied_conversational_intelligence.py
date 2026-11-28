@@ -69,10 +69,24 @@ class AppliedConversationalIntelligence:
         r"ense[ñn][aá](?:me|r|rme)|quiero\s+ver|me\s+(?:mostr[aá]s|busc[aá]s)|"
         r"traeme|dame|pasame|ten[eé]s|hay)\s+"
         r"(?:(?:las|los|una|un|unas|unos|alguna|algunas)\s+)?"
-        r"(?:fotos?|fotograf[ií]as?|im[aá]gen(?:es)?)\s+(?:de|del|sobre)\s+"
+        r"(?:fotos?|fotograf[ií]as?|im[aá]gen(?:es)?)"
+        r"(?:\s+(?:in[eé]dit[ao]s?|nuev[ao]s?|recientes?))?"
+        r"\s+(?:de|del|sobre)\s+"
         r"(?P<subject>.+?)(?:[,\s]+(?:por favor|roby))?[.?!]*$",
         re.IGNORECASE,
     )
+
+    _BARE_VISUAL_REQUEST = re.compile(
+        r"^[\s¿¡]*(?:roby[\s,:]+)?(?:mostr[aá]me|mu[eé]strame|pasame|dame|"
+        r"quiero\s+ver|busc[aá](?:me)?)\s+(?:las?\s+)?"
+        r"(?:fotos?|im[aá]gen(?:es)?)(?:\s+(?:in[eé]dit[ao]s?|nuev[ao]s?))?"
+        r"(?:[,\s]+roby)?[\s.!?]*$",
+        re.IGNORECASE,
+    )
+
+    @classmethod
+    def is_bare_visual_request(cls, text: str) -> bool:
+        return cls._BARE_VISUAL_REQUEST.fullmatch(text.strip()) is not None
 
     _SPACE_VISUAL_TOPICS = frozenset({
         InterestTopic.NASA_MISSIONS,
